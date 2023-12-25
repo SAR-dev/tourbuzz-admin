@@ -1,50 +1,55 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/tauri";
+import classNames from "classnames";
+import { usePageStore } from "./store";
 
-function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+const App = () => {
+  const { page, setPage } = usePageStore();
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
-  }
+  const NavButton = ({ name, slug }: { name: string, slug: string }) => (
+    <li>
+      <button className={classNames({
+        "font-semibold rounded px-2 py-1.5 w-full text-left": true,
+        "bg-black text-white": page == slug,
+        "hover:bg-blue-50 hover:text-gray-700": page != slug
+      })} onClick={() => setPage(slug)}>
+        {name}
+      </button>
+    </li>
+  );
 
   return (
-    <div className="container">
-      <h1>Welcome to Tauri!</h1>
+    <div className="inline-flex w-full">
+      <div className="flex h-screen w-64 flex-col justify-between border-e bg-white">
+        <div>
+          <div className="inline-flex w-full items-center p-2 space-x-3">
+            <div className="flex text-sm font-semibold w-10 h-10 justify-center items-center rounded bg-black text-white">
+              T
+            </div>
+            <div className="font-semibold">
+              TourBuzz
+            </div>
+          </div>
 
-      <div className="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+          <div className="border-t border-gray-100">
+            <div className="px-2">
+              <ul className="space-y-3 border-t border-gray-100 pt-2">
+                <NavButton name="Gallery" slug="gallery" />
+                <NavButton name="Writers" slug="writers" />
+                <NavButton name="Articles" slug="articles" />
+                <NavButton name="Hotels" slug="hotels" />
+                <NavButton name="Places" slug="places" />
+                <NavButton name="Enqueries" slug="enq" />
+                <NavButton name="Tour Types" slug="tourtypes" />
+                <NavButton name="Tours" slug="tours" />
+                <NavButton name="Users" slug="users" />
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+      <div className="flex h-screen w-full bg-gray-100 overflow-y-auto">
 
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-
-      <p>{greetMsg}</p>
+      </div>
     </div>
   );
 }
