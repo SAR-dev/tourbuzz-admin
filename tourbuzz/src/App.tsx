@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { usePageStore } from "./store";
+import Images from "./pages/Images";
 
 const App = () => {
   const { page, setPage } = usePageStore();
@@ -47,8 +48,8 @@ const App = () => {
         </div>
       </div>
 
-      <div className="flex h-screen w-full bg-gray-100 overflow-y-auto">
-
+      <div className="flex h-screen w-full bg-gray-100 overflow-y-auto p-5">
+        <Images />
       </div>
     </div>
   );
