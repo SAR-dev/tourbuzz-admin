@@ -10,7 +10,7 @@ const App = () => {
       <button className={classNames({
         "font-semibold rounded px-2 py-1.5 w-full text-left": true,
         "bg-black text-white": page == slug,
-        "hover:bg-blue-50 hover:text-gray-700": page != slug
+        "hover:bg-sky-500/50 hover:text-gray-700": page != slug
       })} onClick={() => setPage(slug)}>
         {name}
       </button>
@@ -48,7 +48,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="flex h-screen w-full bg-gray-100 overflow-y-auto p-5">
+      <div className="h-screen w-full bg-gray-200 overflow-y-auto p-5">
         <Images />
       </div>
     </div>
