@@ -1,11 +1,28 @@
-import { ExclamationCircleIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
-import { Button, Dialog, Card, CardBody, CardFooter, Typography, Input, Textarea, Alert } from "@material-tailwind/react";
+import { PencilSquareIcon } from "@heroicons/react/24/solid";
+import { Button, Dialog, Card, CardBody, CardFooter, Typography, Input, Textarea } from "@material-tailwind/react";
 import { useState } from "react";
 import ImageUploader from "./ImageUploader";
 import { ImageType, parseErrorMessage } from "@src/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
 import { postWriter } from "@src/api";
+import ErrorAlert from "./ErrorAlert";
+
+interface WriterUploaderState {
+    email: string
+    name: string
+    username: string
+    about: string
+    avatar: ImageType | null
+}
+
+const initialWriterUploaderState: WriterUploaderState = {
+    email: "",
+    name: "",
+    username: "",
+    about: "",
+    avatar: null
+}
 
 const WriterUploader = ({ }: {}) => {
     const queryClient = useQueryClient()
@@ -13,30 +30,27 @@ const WriterUploader = ({ }: {}) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen((cur) => !cur);
 
-    const [email, setEmail] = useState("")
-    const [name, setName] = useState("")
-    const [username, setUsername] = useState("")
-    const [about, setAbout] = useState("")
-    const [avatar, setAvatar] = useState<ImageType | null>(null)
+    const [data, setData] = useState<WriterUploaderState>({...initialWriterUploaderState})
 
     const [error, setError] = useState("")
 
     const uploadWriter = async () => {
-        if (!avatar){
+        if (!data.avatar){
             setError("Upload avatar.")
             throw Error()
         };
         return postWriter({
-            images_id: avatar.id,
-            email,
-            name,
-            username,
-            about
+            images_id: data.avatar.id,
+            email: data.email,
+            name: data.name,
+            username: data.username,
+            about: data.about
         }).then(res => {
             if (res.error) {
                 setError(parseErrorMessage(res.error).message)
                 throw new Error()
             } else {
+                setData({...initialWriterUploaderState})
                 handleOpen()
                 return;
             }
@@ -56,6 +70,10 @@ const WriterUploader = ({ }: {}) => {
         );
         queryClient.invalidateQueries("writers")
     };
+
+    const setAvatar = (image: ImageType) => {
+        setData({...data, avatar: image})
+    }
 
     return (
         <>
@@ -84,26 +102,26 @@ const WriterUploader = ({ }: {}) => {
                         </Typography>
                         <div className="grid grid-cols-2 gap-5">
                             <div className="h-full border flex items-center justify-center">
-                                {avatar == null ? (
+                                {data.avatar == null ? (
                                     <ImageUploader title="Upload Avatar" setImage={setAvatar} />
                                 ) : (
-                                    <img className="h-full object-cover rounded" src={avatar.source_url} alt="" />
+                                    <img className="h-full object-cover rounded" src={data.avatar.source_url} alt="" />
                                 )}
                             </div>
                             <div className="grid grid-cols-1 gap-5">
-                                <Input value={email} onChange={e => setEmail(e.target.value)} label="Email" size="lg" crossOrigin="" />
-                                <Input value={name} onChange={e => setName(e.target.value)} label="Name" size="lg" crossOrigin="" />
-                                <Input value={username} onChange={e => setUsername(e.target.value)} label="Username" size="lg" crossOrigin="" />
-                                <Textarea value={about} onChange={e => setAbout(e.target.value)} label="About" />
+                                <Input value={data.email} onChange={e => setData({...data, email: e.target.value})} label="Email" size="lg" crossOrigin="" />
+                                <Input value={data.name} onChange={e => setData({...data, name: e.target.value})} label="Name" size="lg" crossOrigin="" />
+                                <Input value={data.username} onChange={e => setData({...data, username: e.target.value})} label="Username" size="lg" crossOrigin="" />
+                                <Textarea value={data.about} onChange={e => setData({...data, about: e.target.value})} label="About" />
                             </div>
                         </div>
 
                     </CardBody>
                     <CardFooter className="pt-0">
-                        <Alert icon={<ExclamationCircleIcon className="h-6 w-6" />} color="amber" className="mb-3" open={error.length > 0} onClose={() => setError("")}>
-                            {error}
-                        </Alert>
-                        <Button variant="gradient" fullWidth onClick={handleUploadWriter}>
+                        <div className="mb-3">
+                        <ErrorAlert error={error} setError={setError} />
+                        </div>
+                        <Button fullWidth onClick={handleUploadWriter}>
                             Register
                         </Button>
                     </CardFooter>

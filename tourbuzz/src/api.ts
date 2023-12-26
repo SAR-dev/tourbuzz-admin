@@ -26,7 +26,29 @@ export const getImages = ({
             }
         })
         .then((res) => {
-            return { data: res.data.data };
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getWriters = ({
+    pageNo,
+    pageSize
+}: {
+    pageNo: number,
+    pageSize: number
+}): Promise<any> => {
+    return api
+        .get("/admin/writers", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
         })
         .catch((err) => {
             return { error: err || true };

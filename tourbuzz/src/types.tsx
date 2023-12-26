@@ -8,6 +8,19 @@ export interface ImageType {
     updated_at: Date;
 }
 
+export interface WriterType {
+    id: number;
+    images_id: number;
+    email: string;
+    name: string;
+    username: string;
+    about: string;
+    created_at: Date;
+    updated_at: Date;
+    avatar: ImageType;
+}
+
+
 export interface ParsedErrorMessageProps {
     status?: number;
     message: string;

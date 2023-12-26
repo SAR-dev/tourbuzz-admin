@@ -9,13 +9,15 @@ import { toast } from "react-toastify";
 import { deleteImageById, getImages } from "@src/api";
 
 interface ImageData {
-    data: ImageType[]
-    page_no: number
-    page_size: number
-    has_prev: boolean
-    has_next: boolean
-    total_result: number
-    total_pages: number
+    data: {
+        data: ImageType[]
+        page_no: number
+        page_size: number
+        has_prev: boolean
+        has_next: boolean
+        total_result: number
+        total_pages: number
+    }
 }
 
 const Gallery = () => {
@@ -26,9 +28,10 @@ const Gallery = () => {
 
     const handleOpen = () => setActiveImage(null);
 
-    const { isLoading, error, data } = useQuery<ImageData, Error>(['images', pageNo, pageSize], () =>
-        getImages({ pageNo, pageSize })
-    )
+    const { isLoading, error, data } = useQuery<ImageData, Error>({
+        queryKey: ['images', pageNo, pageSize],
+        queryFn: () => getImages({ pageNo, pageSize })
+    })
 
     const deleteImage = async (id: number) => {
         return deleteImageById({ id: id }).then(res => {
@@ -56,7 +59,7 @@ const Gallery = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-between bg-white p-5 rounded mb-5">
+            <div className="flex items-center justify-between bg-white p-5 rounded">
                 <div className="text-left">
                     <h1 className="font-semibold text-gray-900 text-2xl">Image Gallery</h1>
                     <p className="mt-1.5 text-sm text-gray-500">Let's upload some images and store them for later! 🎉</p>
@@ -66,8 +69,8 @@ const Gallery = () => {
                     <ImageUploader queryKey="images" />
                 </div>
             </div>
-            <div className="grid grid-cols-6 gap-5">
-                {data?.data.map((e, i) => (
+            <div className="grid grid-cols-6 gap-5 my-5">
+                {data.data.data.map((e, i) => (
                     <div className="cursor-pointer" onClick={() => setActiveImage(e)} key={i}>
                         <img
                             className="h-40 w-full max-w-full rounded-lg object-cover object-center shadow-xl shadow-blue-gray-900/5"
@@ -77,14 +80,14 @@ const Gallery = () => {
                     </div>
                 ))}
             </div>
-            <div className="mt-5">
+            <div>
                 <Pagination
-                    page_no={data.page_no}
-                    page_size={data.page_size}
-                    has_prev={data.has_prev}
-                    has_next={data.has_next}
-                    total_result={data.total_result}
-                    total_pages={data.total_pages}
+                    page_no={data.data.page_no}
+                    page_size={data.data.page_size}
+                    has_prev={data.data.has_prev}
+                    has_next={data.data.has_next}
+                    total_result={data.data.total_result}
+                    total_pages={data.data.total_pages}
                     setPageSize={setPageSize}
                     setPageNo={setPageNo}
                 />
