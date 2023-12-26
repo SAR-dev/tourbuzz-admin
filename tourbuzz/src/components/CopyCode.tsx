@@ -1,5 +1,5 @@
 import { ClipboardIcon } from "@heroicons/react/24/outline";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function CopyCode({ text }: { text: string }) {
     const copyToClipboard = async () => {
@@ -19,15 +19,6 @@ function CopyCode({ text }: { text: string }) {
                 </code>
                 <ClipboardIcon className="h-5 w-5 text-black cursor-pointer" onClick={copyToClipboard} />
             </div>
-            <ToastContainer
-                position="bottom-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                theme="dark"
-            />
         </>
     )
 }

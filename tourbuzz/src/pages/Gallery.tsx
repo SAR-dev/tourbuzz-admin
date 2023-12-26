@@ -1,12 +1,12 @@
 import { useQuery, useQueryClient } from "react-query";
 import { useState } from "react";
 import ImageUploader from "@src/components/ImageUploader";
-import { Button, Dialog, IconButton } from "@material-tailwind/react";
+import { Button, Dialog } from "@material-tailwind/react";
 import CopyCode from "@src/components/CopyCode";
 import { Pagination } from "@src/components/Pagination";
 import { ImageType } from "@src/types";
-import { TrashIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
+import { deleteImageById, getImages } from "@src/api";
 
 interface ImageData {
     data: ImageType[]
@@ -27,24 +27,17 @@ const Gallery = () => {
     const handleOpen = () => setActiveImage(null);
 
     const { isLoading, error, data } = useQuery<ImageData, Error>(['images', pageNo, pageSize], () =>
-        fetch(`${import.meta.env.VITE_API_URL}/admin/images?page_size=${pageSize}&page_no=${pageNo}`).then(res =>
-            res.json()
-        )
+        getImages({ pageNo, pageSize })
     )
 
     const deleteImage = async (id: number) => {
-        return fetch(`${import.meta.env.VITE_API_URL}/admin/images/${id}`, {
-            method: 'DELETE'
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok.');
-                }
+        return deleteImageById({ id: id }).then(res => {
+            if (res.error) {
+                throw new Error()
+            } else {
                 setActiveImage(null)
-            })
-            .catch(error => {
-                throw new Error(error);
-            })
+            }
+        })
     }
 
     const handleDeleteImage = async (id: number) => {

@@ -4,13 +4,16 @@ import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
 import { Button } from "@material-tailwind/react";
 import { toast } from "react-toastify";
 import { ImageType } from "@src/types";
+import { postImage } from "@src/api";
 
 const ImageUploader = ({
     queryKey = "images",
-    setImage
+    setImage,
+    title = "Upload Image"
 }: {
     queryKey?: string,
-    setImage?: (props: ImageType) => void;
+    setImage?: (props: ImageType) => void,
+    title?: string
 }) => {
     const ref = createRef<HTMLInputElement>()
     const queryClient = useQueryClient()
@@ -22,32 +25,16 @@ const ImageUploader = ({
     };
 
     const uploadImage = async (file: Blob) => {
-        const formData = new FormData();
-        formData.append('file', file);
+        return postImage(file).then(res => {
+            if (res.error) {
+                throw new Error()
+            } else {
+                if (setImage) {
+                    setImage(res.data)
+                }
+            }
 
-        return fetch(`${import.meta.env.VITE_API_URL}/admin/images`, {
-            method: 'POST',
-            body: formData,
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.error) {
-                    throw new Error(data.error);
-                } else {
-                    if (setImage) {
-                        setImage(data)
-                    }
-                    return data;
-                }
-            })
-            .catch(error => {
-                throw new Error(error);
-            })
     }
 
     const handleUploadImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,11 +52,12 @@ const ImageUploader = ({
             queryClient.invalidateQueries([queryKey])
         }
     };
+    
     return (
         <>
             <Button className="flex items-center gap-3" color="blue" onClick={handleUploadClick}>
                 <CloudArrowUpIcon className="h-5 w-5" />
-                Upload Image
+                {title}
             </Button>
             <input type="file" hidden multiple accept="image/*" ref={ref} onChange={handleUploadImage} />
         </>
