@@ -1,8 +1,7 @@
 import { useQuery } from "react-query";
-import { FaCircleCheck } from "react-icons/fa6";
 import { useState } from "react";
-import { ToastContainer } from 'react-toastify';
 import ImageUploader from "@src/components/ImageUploader";
+import { Dialog } from "@material-tailwind/react";
 
 interface ImageType {
     id: number;
@@ -19,22 +18,17 @@ interface ImageData {
 }
 
 const Images = () => {
+    const [active, setActive] = useState<ImageType | null>(null)
+    
+    const handleOpen = () => setActive(null);
+
     const { isLoading, error, data } = useQuery<ImageData, Error>(['images'], () =>
         fetch(`${import.meta.env.VITE_API_URL}/admin/images`).then(res =>
             res.json()
         )
     )
-    const [selected, setSelected] = useState<number[]>([])
 
-    const handleImageClick = (id: number) => {
-        if (selected.includes(id)) {
-            setSelected([...selected.filter(e => e != id)])
-        } else {
-            setSelected([...selected, id])
-        }
-    }
-
-    if (isLoading) return;
+    if (isLoading || error) return;
 
     return (
         <div>
@@ -50,21 +44,23 @@ const Images = () => {
             </div>
             <div className="grid grid-cols-6 gap-5">
                 {data?.data.map((e, i) => (
-                    <div className="relative cursor-pointer" onClick={() => handleImageClick(e.id)} key={i}>
+                    <div className="cursor-pointer" onClick={() => setActive(e)} key={i}>
                         <img
                             className="h-40 w-full max-w-full rounded-lg object-cover object-center shadow-xl shadow-blue-gray-900/5"
                             src={e.thumbnail_url}
                             alt="gallery-photo"
                         />
-                        {selected.includes(e.id) && (
-                            <div className="absolute p-4 left-0 bottom-0">
-                                <FaCircleCheck className="text-2xl text-black" />
-                            </div>
-                        )}
                     </div>
                 ))}
             </div>
-            
+            <Dialog
+                size="lg"
+                open={active != null}
+                handler={handleOpen}
+                className="bg-transparent shadow-none"
+            >
+                <img className="h-[128] w-full object-contain" src={active?.source_url} alt="" />
+            </Dialog>
         </div>
     )
 }
