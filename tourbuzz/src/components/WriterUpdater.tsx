@@ -4,7 +4,7 @@ import ImageUploader from "./ImageUploader";
 import { ImageType, parseErrorMessage } from "@src/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
-import { postWriter, putWriter } from "@src/api";
+import { putWriter } from "@src/api";
 import ErrorAlert from "./ErrorAlert";
 import { WriterType } from "@src/types";
 
@@ -12,7 +12,10 @@ const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (pro
     const queryClient = useQueryClient()
 
     const [data, setData] = useState<WriterType>({ ...writer })
-    const handleOpen = () => setOpen(false);
+    const handleOpen = () => {
+        setError("")
+        setOpen(false)
+    };
     const [error, setError] = useState("")
 
     const uploadWriter = async () => {
@@ -75,12 +78,11 @@ const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (pro
                         Update details of a writer
                     </Typography>
                     <div className="grid grid-cols-2 gap-5">
-                        <div className="h-full border flex items-center justify-center">
-                            {data.avatar == null ? (
-                                <ImageUploader title="Upload Avatar" setImage={setAvatar} />
-                            ) : (
-                                <img className="h-full object-cover rounded" src={data.avatar.source_url} alt="" />
+                        <div className="h-full border flex flex-col space-y-3 items-center justify-center">
+                            {data.avatar && (
+                                <img className="h-80 w-full object-cover rounded" src={data.avatar.source_url} alt="" />
                             )}
+                            <ImageUploader title="Upload Avatar" setImage={setAvatar} />
                         </div>
                         <div className="grid grid-cols-1 gap-5">
                             <Input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} label="Email" size="lg" crossOrigin="" />

@@ -28,14 +28,17 @@ const WriterUploader = () => {
     const queryClient = useQueryClient()
 
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen((cur) => !cur);
+    const handleOpen = () => {
+        setError("")
+        setOpen((cur) => !cur)
+    };
 
-    const [data, setData] = useState<WriterUploaderState>({...initialWriterUploaderState})
+    const [data, setData] = useState<WriterUploaderState>({ ...initialWriterUploaderState })
 
     const [error, setError] = useState("")
 
     const uploadWriter = async () => {
-        if (!data.avatar){
+        if (!data.avatar) {
             setError("Upload avatar.")
             throw Error()
         };
@@ -50,7 +53,7 @@ const WriterUploader = () => {
                 setError(parseErrorMessage(res.error).message)
                 throw new Error()
             } else {
-                setData({...initialWriterUploaderState})
+                setData({ ...initialWriterUploaderState })
                 handleOpen()
                 return;
             }
@@ -72,7 +75,7 @@ const WriterUploader = () => {
     };
 
     const setAvatar = (image: ImageType) => {
-        setData({...data, avatar: image})
+        setData({ ...data, avatar: image })
     }
 
     return (
@@ -109,17 +112,17 @@ const WriterUploader = () => {
                                 )}
                             </div>
                             <div className="grid grid-cols-1 gap-5">
-                                <Input value={data.email} onChange={e => setData({...data, email: e.target.value})} label="Email" size="lg" crossOrigin="" />
-                                <Input value={data.name} onChange={e => setData({...data, name: e.target.value})} label="Name" size="lg" crossOrigin="" />
-                                <Input value={data.username} onChange={e => setData({...data, username: e.target.value})} label="Username" size="lg" crossOrigin="" />
-                                <Textarea value={data.about} onChange={e => setData({...data, about: e.target.value})} label="About" />
+                                <Input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} label="Email" size="lg" crossOrigin="" />
+                                <Input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} label="Name" size="lg" crossOrigin="" />
+                                <Input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} label="Username" size="lg" crossOrigin="" />
+                                <Textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} label="About" />
                             </div>
                         </div>
 
                     </CardBody>
                     <CardFooter className="pt-0">
                         <div className="mb-3">
-                        <ErrorAlert error={error} setError={setError} />
+                            <ErrorAlert error={error} setError={setError} />
                         </div>
                         <Button fullWidth onClick={handleUploadWriter}>
                             Register

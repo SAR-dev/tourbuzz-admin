@@ -55,7 +55,7 @@ const ImageUploader = ({
     
     return (
         <>
-            <Button className="flex items-center gap-3" color="blue" onClick={handleUploadClick}>
+            <Button fullWidth className="flex items-center justify-center gap-3" color="blue" onClick={handleUploadClick}>
                 <CloudArrowUpIcon className="h-5 w-5" />
                 {title}
             </Button>
