@@ -1,7 +1,8 @@
 import { useQuery } from "react-query";
 import { useState } from "react";
 import ImageUploader from "@src/components/ImageUploader";
-import { Dialog } from "@material-tailwind/react";
+import { Button, Dialog } from "@material-tailwind/react";
+import CopyCode from "@src/components/CopyCode";
 
 interface ImageType {
     id: number;
@@ -19,7 +20,7 @@ interface ImageData {
 
 const Images = () => {
     const [active, setActive] = useState<ImageType | null>(null)
-    
+
     const handleOpen = () => setActive(null);
 
     const { isLoading, error, data } = useQuery<ImageData, Error>(['images'], () =>
@@ -54,12 +55,20 @@ const Images = () => {
                 ))}
             </div>
             <Dialog
-                size="lg"
+                size="xl"
                 open={active != null}
                 handler={handleOpen}
                 className="bg-transparent shadow-none"
             >
-                <img className="h-[128] w-full object-contain" src={active?.source_url} alt="" />
+                <div className="flex flex-col items-center justify-center bg-white p-5 w-fit mx-auto relative">
+                    <img className="h-96" src={active?.source_url} alt="" />
+                    <div className="flex space-x-1 text-xs p-1 rounded mt-5 w-full">
+                        {active && <CopyCode text={active?.source_url} />}
+                        <Button onClick={handleOpen}>
+                            Close
+                        </Button>
+                    </div>
+                </div>
             </Dialog>
         </div>
     )

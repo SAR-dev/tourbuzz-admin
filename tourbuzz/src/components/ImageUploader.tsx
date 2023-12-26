@@ -1,6 +1,5 @@
 import { useQueryClient } from "react-query";
 import { createRef } from "react";
-import { ToastContainer, toast } from 'react-toastify';
 import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
 import { Button } from "@material-tailwind/react";
 
@@ -62,15 +61,6 @@ const ImageUploader = ({ queryKey = "images" }: { queryKey?: string }) => {
                 Upload Image
             </Button>
             <input type="file" hidden multiple accept="image/*" ref={ref} onChange={handleUploadImage} />
-            <ToastContainer
-                position="bottom-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                theme="dark"
-            />
         </>
     )
 }

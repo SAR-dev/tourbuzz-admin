@@ -1,5 +1,6 @@
 import Images from "./pages/Images";
 import { SideNav } from "./components/SideNav";
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
@@ -9,6 +10,16 @@ const App = () => {
       <div className="h-screen w-full bg-gray-200 overflow-y-auto p-5">
         <Images />
       </div>
+
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        theme="dark"
+      />
     </div>
   );
 }
