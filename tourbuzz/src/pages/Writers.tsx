@@ -30,7 +30,7 @@ function Writers() {
 
   return (
     <div>
-      <div className="flex items-center justify-between bg-white p-5 rounded mb-5">
+      <div className="flex items-center justify-between bg-white p-5 rounded">
         <div className="text-left">
           <h1 className="font-semibold text-gray-900 text-2xl">Writers Profiles</h1>
           <p className="mt-1.5 text-sm text-gray-500">Let's upload some images and store them for later! 🎉</p>
@@ -41,7 +41,11 @@ function Writers() {
         </div>
       </div>
 
-      <div className="mt-5">
+      <div className='grid grid-cols-4 gap-5 my-5'>
+
+      </div>
+
+      <div>
         <Pagination
           page_no={data.data.page_no}
           page_size={data.data.page_size}
