@@ -1,7 +1,28 @@
 import { Card, Typography, List, ListItem, ListItemPrefix, ListItemSuffix, Chip } from "@material-tailwind/react";
-import { UserCircleIcon, Cog6ToothIcon, InboxIcon, PowerIcon } from "@heroicons/react/24/solid";
+import { UserCircleIcon, Cog6ToothIcon, InboxIcon, PowerIcon, PhotoIcon, ChevronRightIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
+import { PageName, usePageStore } from "@src/store";
+import classNames from "classnames";
+import { ReactNode } from "react";
 
 export function SideNav() {
+    const { page, setPage } = usePageStore();
+
+    const NavMenu = ({ name, icon }: { name: PageName, icon: ReactNode }) => (
+        <ListItem onClick={() => setPage(name)} className={classNames({
+            "bg-gray-300/50 hover:bg-gray-300/25": page === name
+        })}>
+            <ListItemPrefix>
+                {icon}
+            </ListItemPrefix>
+            {name}
+            {page === name && (
+                <ListItemSuffix>
+                        <ChevronRightIcon className="h-5 w-5" />
+                </ListItemSuffix>
+            )}
+        </ListItem>
+    )
+
     return (
         <Card className="h-screen w-full max-w-[20rem] p-2 shadow-xl shadow-blue-gray-900/5">
             <div className="mb-2 flex items-center gap-4 p-4">
@@ -11,12 +32,8 @@ export function SideNav() {
                 </Typography>
             </div>
             <List>
-                <ListItem>
-                    <ListItemPrefix>
-                        <UserCircleIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Profile
-                </ListItem>
+                <NavMenu name={PageName.Gallery} icon={<PhotoIcon className="h-5 w-5" />} />
+                <NavMenu name={PageName.Writers} icon={<PencilSquareIcon className="h-5 w-5" />} />
                 <ListItem>
                     <ListItemPrefix>
                         <UserCircleIcon className="h-5 w-5" />

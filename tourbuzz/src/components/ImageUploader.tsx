@@ -2,34 +2,16 @@ import { useQueryClient } from "react-query";
 import { createRef } from "react";
 import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
 import { Button } from "@material-tailwind/react";
+import { toast } from "react-toastify";
+import { ImageType } from "@src/types";
 
-const uploadImage = async (file: Blob) => {
-    const formData = new FormData();
-    formData.append('file', file);
-
-    return fetch(`${import.meta.env.VITE_API_URL}/admin/images`, {
-        method: 'POST',
-        body: formData,
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok.');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.error) {
-                throw new Error(data.error);
-            } else {
-                return data;
-            }
-        })
-        .catch(error => {
-            throw new Error(error);
-        })
-}
-
-const ImageUploader = ({ queryKey = "images" }: { queryKey?: string }) => {
+const ImageUploader = ({
+    queryKey = "images",
+    setImage
+}: {
+    queryKey?: string,
+    setImage?: (props: ImageType) => void;
+}) => {
     const ref = createRef<HTMLInputElement>()
     const queryClient = useQueryClient()
 
@@ -38,6 +20,35 @@ const ImageUploader = ({ queryKey = "images" }: { queryKey?: string }) => {
             ref.current.click();
         }
     };
+
+    const uploadImage = async (file: Blob) => {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        return fetch(`${import.meta.env.VITE_API_URL}/admin/images`, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                } else {
+                    if (setImage) {
+                        setImage(data)
+                    }
+                    return data;
+                }
+            })
+            .catch(error => {
+                throw new Error(error);
+            })
+    }
 
     const handleUploadImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;

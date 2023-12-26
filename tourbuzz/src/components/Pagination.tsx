@@ -27,7 +27,7 @@ export function Pagination({ ...props }: PaginationType) {
             <div className="flex items-center">
                 <span>Page Size</span>
                 <div className="flex space-x-2 ml-2">
-                    {[20, 50, 100].map((e, i) => (
+                    {[10, 20, 50, 100].map((e, i) => (
                         <IconButton
                             size="sm"
                             variant={e === props.page_size ? "gradient" : "outlined"}

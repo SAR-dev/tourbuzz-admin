@@ -1,11 +1,16 @@
 import { create } from 'zustand'
 
+export enum PageName {
+    Gallery = "Gallery",
+    Writers = "Writers"
+  }
+
 type Store = {
-    page: string
-    setPage: (props: string) => void
+    page: PageName
+    setPage: (props: PageName) => void
 }
 
 export const usePageStore = create<Store>()((set) => ({
-    page: "",
-    setPage: (props: string) => set(() => ({ page: props })),
+    page: PageName.Gallery,
+    setPage: (props: PageName) => set(() => ({ page: props })),
 }))

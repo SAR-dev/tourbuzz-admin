@@ -14,7 +14,7 @@ function CopyCode({ text }: { text: string }) {
     return (
         <>
             <div className="bg-blue-100 flex gap-5 items-center justify-between py-3 px-5 rounded w-fill">
-                <code className="text-blue-900 text-left whitespace-nowrap overflow-hidden overflow-ellipsis">
+                <code className="text-blue-900 max-w-64 text-left whitespace-nowrap overflow-hidden overflow-ellipsis">
                     {text}
                 </code>
                 <ClipboardIcon className="h-5 w-5 text-black cursor-pointer" onClick={copyToClipboard} />
