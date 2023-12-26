@@ -20,6 +20,22 @@ export interface WriterType {
     avatar: ImageType;
 }
 
+export interface CreateWriterType {
+    images_id: number, 
+    email: string, 
+    name: string, 
+    username: string, 
+    about: string
+}
+
+export interface UpdateWriterType {
+    writers_id: number,
+    images_id: number, 
+    email: string, 
+    name: string, 
+    username: string, 
+    about: string
+}
 
 export interface ParsedErrorMessageProps {
     status?: number;

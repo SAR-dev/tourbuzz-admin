@@ -1,4 +1,5 @@
 import axios from "axios";
+import { CreateWriterType, UpdateWriterType } from "./types";
 
 const api = axios.create();
 
@@ -84,18 +85,24 @@ export const postImage = (file: Blob): Promise<any> => {
         });
 }
 
-interface PostWriterType {
-    images_id: number, 
-    email: string, 
-    name: string, 
-    username: string, 
-    about: string
+export const postWriter = ({ ...props }: CreateWriterType): Promise<any> => {
+    const data = { ...props}
+    return api
+        .post("/admin/writers", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
 }
-export const postWriter = ({ ...props }: PostWriterType): Promise<any> => {
+
+export const putWriter = ({ ...props }: UpdateWriterType): Promise<any> => {
     const data = { ...props}
 
     return api
-        .post("/admin/writers", data)
+        .put("/admin/writers", data)
         .then((res) => {
             return { data: res.data };
         })

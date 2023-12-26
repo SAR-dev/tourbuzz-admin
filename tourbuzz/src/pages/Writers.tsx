@@ -1,5 +1,6 @@
 import { getWriters } from '@src/api'
 import { Pagination } from '@src/components/Pagination'
+import { WriterCard } from '@src/components/WriterCard'
 import WriterUploader from '@src/components/WriterUploader'
 import { WriterType } from '@src/types'
 import { useState } from 'react'
@@ -41,8 +42,10 @@ function Writers() {
         </div>
       </div>
 
-      <div className='grid grid-cols-4 gap-5 my-5'>
-
+      <div className='grid grid-cols-2 gap-5 my-5'>
+        {data.data.data.map((e, i) => (
+          <WriterCard writer={e} key={i} />
+        ))}
       </div>
 
       <div>

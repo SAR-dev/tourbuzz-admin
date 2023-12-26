@@ -24,7 +24,7 @@ const initialWriterUploaderState: WriterUploaderState = {
     avatar: null
 }
 
-const WriterUploader = ({ }: {}) => {
+const WriterUploader = () => {
     const queryClient = useQueryClient()
 
     const [open, setOpen] = useState(false);
