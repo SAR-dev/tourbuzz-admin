@@ -2,11 +2,12 @@ import { PhotoIcon } from "@heroicons/react/24/outline"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { Button, Input, Textarea } from "@material-tailwind/react"
 import ImageUploader from "@src/components/ImageUploader"
-import { ImageType } from "@src/types"
+import { ImageType, WriterType } from "@src/types"
 import { useState } from "react"
 import MDEditor from '@uiw/react-md-editor';
 import rehypeSanitize from "rehype-sanitize";
 import ErrorAlert from "@src/components/ErrorAlert"
+import WriterSelect from "@src/components/WriterSelect"
 
 interface ArticleCreateState {
   title: string
@@ -40,6 +41,7 @@ const WriteArticle = () => {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<ArticleCreateState>({ ...initialArticleCreateState })
   const [error, setError] = useState("")
+  const [writer, setWriter] = useState<WriterType | null>(null)
 
   const setImages = (image: ImageType) => {
     setData({ ...data, images: [...data.images, image] })
@@ -111,7 +113,7 @@ const WriteArticle = () => {
             <ErrorAlert error={error} setError={setError} />
           </div>
         )}
-        <div></div>
+        <WriterSelect writer={writer} setWriter={setWriter} />
         <Button className="flex justify-center" fullWidth loading={loading}>
           Submit
         </Button>
