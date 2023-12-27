@@ -35,6 +35,7 @@ export function SideNav() {
                 <NavMenu name={PageName.Gallery} icon={<PhotoIcon className="h-5 w-5" />} />
                 <NavMenu name={PageName.Writers} icon={<PencilSquareIcon className="h-5 w-5" />} />
                 <NavMenu name={PageName.Articles} icon={<BookOpenIcon className="h-5 w-5" />} />
+                <NavMenu name={PageName.WriteArticle} icon={<BookOpenIcon className="h-5 w-5" />} />
                 
                 <hr className="my-2 border-blue-gray-50" />
         

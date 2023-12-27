@@ -5,3 +5,13 @@
 .w-fill {
     width: -webkit-fill-available;
 }
+
+.custom-toolbar .w-md-editor-toolbar li > button {
+    height: 32px;
+    padding: 8px
+}
+
+.custom-toolbar .w-md-editor-toolbar li > button > svg {
+    height: 16px;
+    width: 16px;
+}

@@ -41,7 +41,7 @@ function Articles() {
         </div>
 
         <div className="flex flex-row items-center">
-          <Button className="flex items-center gap-3" color="blue" onClick={() => setPage(PageName.CreateArticle)}>
+          <Button className="flex items-center gap-3" color="blue" onClick={() => setPage(PageName.WriteArticle)}>
             <PencilSquareIcon className="h-5 w-5" />
             Write a Article
           </Button>

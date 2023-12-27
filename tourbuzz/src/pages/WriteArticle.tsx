@@ -1,9 +1,12 @@
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { TrashIcon } from "@heroicons/react/24/solid"
-import { Input, Textarea } from "@material-tailwind/react"
+import { Button, Input, Textarea } from "@material-tailwind/react"
 import ImageUploader from "@src/components/ImageUploader"
 import { ImageType } from "@src/types"
 import { useState } from "react"
+import MDEditor from '@uiw/react-md-editor';
+import rehypeSanitize from "rehype-sanitize";
+import ErrorAlert from "@src/components/ErrorAlert"
 
 interface ArticleCreateState {
   title: string
@@ -33,7 +36,8 @@ function generateSlug(title: string) {
     .replace(/^-+|-+$/g, '');            // Remove leading and trailing hyphens
 }
 
-const CreateArticle = () => {
+const WriteArticle = () => {
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState<ArticleCreateState>({ ...initialArticleCreateState })
   const [error, setError] = useState("")
 
@@ -47,6 +51,10 @@ const CreateArticle = () => {
 
   const handleTitleChange = (title: string) => {
     setData({ ...data, title: title, slug: generateSlug(title) })
+  }
+
+  const setMdDesc = (value?: string) => {
+    setData({ ...data, md_desc: value ?? "" })
   }
 
   return (
@@ -86,11 +94,30 @@ const CreateArticle = () => {
         </div>
       </div>
 
-      <div className="p-5 bg-white rounded mb-5">
+      <div className="p-5 bg-white rounded mb-5 custom-toolbar">
+        <MDEditor
+          value={data.md_desc}
+          onChange={setMdDesc}
+          previewOptions={{
+            rehypePlugins: [[rehypeSanitize]],
+          }}
+        />
+      </div>
 
+      <div className="p-5 bg-white rounded mb-5 grid grid-cols-2 gap-5">
+
+        {error.length > 0 && (
+          <div className="col-span-2">
+            <ErrorAlert error={error} setError={setError} />
+          </div>
+        )}
+        <div></div>
+        <Button className="flex justify-center" fullWidth loading={loading}>
+          Submit
+        </Button>
       </div>
     </div>
   )
 }
 
-export default CreateArticle
+export default WriteArticle
