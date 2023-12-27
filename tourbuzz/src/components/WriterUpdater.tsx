@@ -7,6 +7,7 @@ import { useQueryClient } from "react-query";
 import { putWriter } from "@src/api";
 import ErrorAlert from "./ErrorAlert";
 import { WriterType } from "@src/types";
+import { UserCircleIcon } from "@heroicons/react/16/solid";
 
 const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (props: boolean) => void, writer: WriterType }) => {
     const [loading, setLoading] = useState(false)
@@ -71,9 +72,11 @@ const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (pro
                     </Typography>
                     <div className="grid grid-cols-2 gap-5">
                         <div className="h-full flex flex-col space-y-3 items-center justify-center">
-                            <div className="h-80 border rounded">
-                                {data.avatar && (
+                            <div className="h-80 w-full border rounded flex justify-center items-center">
+                                {data.avatar ? (
                                     <img className="h-80 w-full object-cover rounded" src={data.avatar.source_url} alt="" />
+                                ) : (
+                                    <UserCircleIcon className="h-20 w-20" />
                                 )}
                             </div>
                             <ImageUploader title="Upload Avatar" setImage={setAvatar} />
@@ -88,10 +91,12 @@ const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (pro
 
                 </CardBody>
                 <CardFooter className="pt-0">
-                    <div className="mb-3">
-                        <ErrorAlert error={error} setError={setError} />
-                    </div>
-                    <Button fullWidth onClick={uploadWriter} loading={loading}>
+                    {error.length > 0 && (
+                        <div className="mb-3">
+                            <ErrorAlert error={error} setError={setError} />
+                        </div>
+                    )}
+                    <Button className="flex justify-center" fullWidth onClick={uploadWriter} loading={loading}>
                         Update
                     </Button>
                 </CardFooter>

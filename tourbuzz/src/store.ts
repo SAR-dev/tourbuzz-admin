@@ -2,7 +2,9 @@ import { create } from 'zustand'
 
 export enum PageName {
     Gallery = "Gallery",
-    Writers = "Writers"
+    Writers = "Writers",
+    Articles = "Articles",
+    CreateArticle = "CreateArticle",
   }
 
 type Store = {

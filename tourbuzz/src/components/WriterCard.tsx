@@ -14,7 +14,7 @@ export function WriterCard({ writer }: { writer: WriterType }) {
     const [open, setOpen] = useState(false)
     return (
         <div className="flex h-full">
-            <Card color="transparent" shadow={false} className="w-full bg-white hover:bg-blue-200/50 cursor-pointer p-5" onClick={() => setOpen(true)}>
+            <Card color="transparent" shadow={false} className="w-full bg-white cursor-pointer p-5" onClick={() => setOpen(true)}>
                 <CardHeader
                     color="transparent"
                     floated={false}

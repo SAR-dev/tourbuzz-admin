@@ -9,11 +9,13 @@ import { postImage } from "@src/api";
 const ImageUploader = ({
     queryKey = "images",
     setImage,
-    title = "Upload Image"
+    title = "Upload Image",
+    disabled
 }: {
     queryKey?: string,
     setImage?: (props: ImageType) => void,
-    title?: string
+    title?: string,
+    disabled?: boolean
 }) => {
     const [loading, setLoading] = useState(false)
     const ref = createRef<HTMLInputElement>()
@@ -50,7 +52,7 @@ const ImageUploader = ({
     
     return (
         <>
-            <Button fullWidth className="flex items-center justify-center gap-3" color="blue" onClick={handleUploadClick} loading={loading}>
+            <Button fullWidth className="flex items-center justify-center gap-3" color="blue" onClick={handleUploadClick} loading={loading} disabled={disabled}>
                 <CloudArrowUpIcon className="h-5 w-5" />
                 {title}
             </Button>

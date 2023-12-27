@@ -4,7 +4,7 @@ import { WriterCard } from '@src/components/WriterCard'
 import WriterUploader from '@src/components/WriterUploader'
 import { WriterType } from '@src/types'
 import { useState } from 'react'
-import { useQuery, useQueryClient } from 'react-query'
+import { useQuery } from 'react-query';
 
 interface WriterData {
   data: {
@@ -21,7 +21,6 @@ interface WriterData {
 function Writers() {
   const [pageSize, setPageSize] = useState(20)
   const [pageNo, setPageNo] = useState(1)
-  const queryClient = useQueryClient()
 
   const { isLoading, error, data } = useQuery<WriterData, Error>(['writers', pageNo, pageSize], () =>
     getWriters({ pageNo, pageSize })

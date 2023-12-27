@@ -1,4 +1,4 @@
-import { PencilSquareIcon } from "@heroicons/react/24/solid";
+import { PencilSquareIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { Button, Dialog, Card, CardBody, CardFooter, Typography, Input, Textarea } from "@material-tailwind/react";
 import { useState } from "react";
 import ImageUploader from "./ImageUploader";
@@ -35,8 +35,6 @@ const WriterUploader = () => {
         setError("")
         setOpen((cur) => !cur)
     };
-
-   
 
     const uploadWriter = async () => {
         if (!data.avatar) {
@@ -98,9 +96,11 @@ const WriterUploader = () => {
                         </Typography>
                         <div className="grid grid-cols-2 gap-5">
                             <div className="h-full flex flex-col space-y-3 items-center justify-center">
-                                <div className="h-80 border rounded">
-                                    {data.avatar && (
+                                <div className="h-80 w-full border rounded flex justify-center items-center">
+                                    {data.avatar ? (
                                         <img className="h-80 w-full object-cover rounded" src={data.avatar.source_url} alt="" />
+                                    ) : (
+                                        <UserCircleIcon className="h-20 w-20" />
                                     )}
                                 </div>
                                 <ImageUploader title="Upload Avatar" setImage={setAvatar} />
@@ -109,16 +109,18 @@ const WriterUploader = () => {
                                 <Input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} label="Email" size="lg" crossOrigin="" />
                                 <Input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} label="Name" size="lg" crossOrigin="" />
                                 <Input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} label="Username" size="lg" crossOrigin="" />
-                                <Textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} label="About" />
+                                <Textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={8} label="About" />
                             </div>
                         </div>
 
                     </CardBody>
                     <CardFooter className="pt-0">
-                        <div className="mb-3">
-                            <ErrorAlert error={error} setError={setError} />
-                        </div>
-                        <Button fullWidth onClick={uploadWriter} loading={loading}>
+                        {error.length > 0 && (
+                            <div className="mb-3">
+                                <ErrorAlert error={error} setError={setError} />
+                            </div>
+                        )}
+                        <Button className="flex justify-center" fullWidth onClick={uploadWriter} loading={loading}>
                             Register
                         </Button>
                     </CardFooter>
