@@ -2,12 +2,15 @@ import { PhotoIcon } from "@heroicons/react/24/outline"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { Button, Input, Textarea } from "@material-tailwind/react"
 import ImageUploader from "@src/components/ImageUploader"
-import { ImageType, WriterType } from "@src/types"
+import { ImageType, WriterType, parseErrorMessage } from "@src/types"
 import { useState } from "react"
-import MDEditor from '@uiw/react-md-editor';
+import MDEditor, { commands } from '@uiw/react-md-editor';
 import rehypeSanitize from "rehype-sanitize";
 import ErrorAlert from "@src/components/ErrorAlert"
 import WriterSelect from "@src/components/WriterSelect"
+import { postArticle } from "@src/api"
+import { toast } from "react-toastify"
+import { useQueryClient } from "react-query"
 
 interface ArticleCreateState {
   title: string
@@ -37,7 +40,26 @@ function generateSlug(title: string) {
     .replace(/^-+|-+$/g, '');            // Remove leading and trailing hyphens
 }
 
+const title = {
+  name: 'title3',
+  keyCommand: 'title3',
+  buttonProps: { 'aria-label': 'Insert title' },
+  icon: (
+    <svg width="12" height="12" viewBox="0 0 520 520">
+      <path fill="currentColor" d="M15.7083333,468 C7.03242448,468 0,462.030833 0,454.666667 L0,421.333333 C0,413.969167 7.03242448,408 15.7083333,408 L361.291667,408 C369.967576,408 377,413.969167 377,421.333333 L377,454.666667 C377,462.030833 369.967576,468 361.291667,468 L15.7083333,468 Z M21.6666667,366 C9.69989583,366 0,359.831861 0,352.222222 L0,317.777778 C0,310.168139 9.69989583,304 21.6666667,304 L498.333333,304 C510.300104,304 520,310.168139 520,317.777778 L520,352.222222 C520,359.831861 510.300104,366 498.333333,366 L21.6666667,366 Z M136.835938,64 L136.835937,126 L107.25,126 L107.25,251 L40.75,251 L40.75,126 L-5.68434189e-14,126 L-5.68434189e-14,64 L136.835938,64 Z M212,64 L212,251 L161.648438,251 L161.648438,64 L212,64 Z M378,64 L378,126 L343.25,126 L343.25,251 L281.75,251 L281.75,126 L238,126 L238,64 L378,64 Z M449.047619,189.550781 L520,189.550781 L520,251 L405,251 L405,64 L449.047619,64 L449.047619,189.550781 Z" />
+    </svg>
+  ),
+  execute: (state: { selectedText: any }, api: { replaceSelection: (arg0: string) => void }) => {
+    let modifyText = `### ${state.selectedText}\n`;
+    if (!state.selectedText) {
+      modifyText = `### `;
+    }
+    api.replaceSelection(modifyText);
+  },
+};
+
 const WriteArticle = () => {
+  const queryClient = useQueryClient()
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<ArticleCreateState>({ ...initialArticleCreateState })
   const [error, setError] = useState("")
@@ -57,6 +79,37 @@ const WriteArticle = () => {
 
   const setMdDesc = (value?: string) => {
     setData({ ...data, md_desc: value ?? "" })
+  }
+
+  const uploadArticle = async () => {
+    if (!writer?.id) {
+      setError("Select writer.")
+      return;
+    };
+    setError("")
+    setLoading(true)
+    postArticle({
+      title: data.title,
+      slug: data.slug,
+      subtitle: data.subtitle,
+      summary: data.summary,
+      md_desc: data.md_desc,
+      image_ids: data.images.map(e => e.id),
+      writers_id: writer?.id
+    }).then(res => {
+      if (res.error) {
+        toast.error("Article submit failed 🤦‍♂️")
+        setError(parseErrorMessage(res.error).message)
+        setLoading(false)
+      } else {
+        toast.success("Article Submitted 💪")
+        queryClient.invalidateQueries("articles")
+        setLoading(false)
+        setData({ ...initialArticleCreateState })
+        setWriter(null)
+      }
+
+    })
   }
 
   return (
@@ -103,6 +156,14 @@ const WriteArticle = () => {
           previewOptions={{
             rehypePlugins: [[rehypeSanitize]],
           }}
+          commands={[
+            title, commands.bold, commands.italic, commands.strikethrough, commands.hr, commands.divider,
+            commands.link, commands.quote, commands.image, commands.divider,
+            commands.unorderedListCommand, commands.orderedListCommand, commands.checkedListCommand, commands.divider,
+            commands.help
+          ]}
+          enableScroll
+          height={400}
         />
       </div>
 
@@ -114,7 +175,7 @@ const WriteArticle = () => {
           </div>
         )}
         <WriterSelect writer={writer} setWriter={setWriter} />
-        <Button className="flex justify-center" fullWidth loading={loading}>
+        <Button className="flex justify-center" fullWidth loading={loading} onClick={uploadArticle}>
           Submit
         </Button>
       </div>

@@ -21,19 +21,29 @@ export interface WriterType {
 }
 
 export interface CreateWriterType {
-    images_id: number, 
-    email: string, 
-    name: string, 
-    username: string, 
+    images_id: number,
+    email: string,
+    name: string,
+    username: string,
     about: string
+}
+
+export interface CreateArticleType {
+    title: string,
+    slug: string,
+    subtitle: string,
+    summary: string,
+    md_desc: string,
+    image_ids: number[],
+    writers_id: number
 }
 
 export interface UpdateWriterType {
     writers_id: number,
-    images_id: number, 
-    email: string, 
-    name: string, 
-    username: string, 
+    images_id: number,
+    email: string,
+    name: string,
+    username: string,
     about: string
 }
 

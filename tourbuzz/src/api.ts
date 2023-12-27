@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateWriterType, UpdateWriterType } from "./types";
+import { CreateArticleType, CreateWriterType, UpdateWriterType } from "./types";
 
 const api = axios.create();
 
@@ -112,3 +112,15 @@ export const putWriter = ({ ...props }: UpdateWriterType): Promise<any> => {
         });
 }
 
+export const postArticle = ({ ...props }: CreateArticleType): Promise<any> => {
+    const data = { ...props}
+    return api
+        .post("/admin/articles", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
