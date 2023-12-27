@@ -25,7 +25,10 @@ const initialWriterUploaderState: WriterUploaderState = {
 }
 
 const WriterUploader = () => {
+    const [loading, setLoading] = useState(false)
     const queryClient = useQueryClient()
+    const [data, setData] = useState<WriterUploaderState>({ ...initialWriterUploaderState })
+    const [error, setError] = useState("")
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
@@ -33,16 +36,16 @@ const WriterUploader = () => {
         setOpen((cur) => !cur)
     };
 
-    const [data, setData] = useState<WriterUploaderState>({ ...initialWriterUploaderState })
-
-    const [error, setError] = useState("")
+   
 
     const uploadWriter = async () => {
         if (!data.avatar) {
             setError("Upload avatar.")
-            throw Error()
+            return;
         };
-        return postWriter({
+        setError("")
+        setLoading(true)
+        postWriter({
             images_id: data.avatar.id,
             email: data.email,
             name: data.name,
@@ -50,29 +53,19 @@ const WriterUploader = () => {
             about: data.about
         }).then(res => {
             if (res.error) {
+                toast.error("Registration failed 🤦‍♂️")
                 setError(parseErrorMessage(res.error).message)
-                throw new Error()
+                setLoading(false)
             } else {
+                toast.success("Writer Registered 💪")
+                queryClient.invalidateQueries("writers")
+                setLoading(false)
                 setData({ ...initialWriterUploaderState })
-                handleOpen()
-                return;
+                handleOpen();
             }
 
         })
     }
-
-    const handleUploadWriter = async () => {
-        setError("")
-        await toast.promise(
-            uploadWriter(),
-            {
-                pending: 'Registering Writer',
-                success: 'Writer Registered 👌',
-                error: 'Registration Failed 🤯'
-            }
-        );
-        queryClient.invalidateQueries("writers")
-    };
 
     const setAvatar = (image: ImageType) => {
         setData({ ...data, avatar: image })
@@ -104,12 +97,13 @@ const WriterUploader = () => {
                             Provide details to register a writer
                         </Typography>
                         <div className="grid grid-cols-2 gap-5">
-                            <div className="h-full border flex items-center justify-center">
-                                {data.avatar == null ? (
-                                    <ImageUploader title="Upload Avatar" setImage={setAvatar} />
-                                ) : (
-                                    <img className="h-full object-cover rounded" src={data.avatar.source_url} alt="" />
-                                )}
+                            <div className="h-full flex flex-col space-y-3 items-center justify-center">
+                                <div className="h-80 border rounded">
+                                    {data.avatar && (
+                                        <img className="h-80 w-full object-cover rounded" src={data.avatar.source_url} alt="" />
+                                    )}
+                                </div>
+                                <ImageUploader title="Upload Avatar" setImage={setAvatar} />
                             </div>
                             <div className="grid grid-cols-1 gap-5">
                                 <Input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} label="Email" size="lg" crossOrigin="" />
@@ -124,7 +118,7 @@ const WriterUploader = () => {
                         <div className="mb-3">
                             <ErrorAlert error={error} setError={setError} />
                         </div>
-                        <Button fullWidth onClick={handleUploadWriter}>
+                        <Button fullWidth onClick={uploadWriter} loading={loading}>
                             Register
                         </Button>
                     </CardFooter>

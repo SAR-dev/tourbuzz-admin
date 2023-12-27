@@ -9,21 +9,23 @@ import ErrorAlert from "./ErrorAlert";
 import { WriterType } from "@src/types";
 
 const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (props: boolean) => void, writer: WriterType }) => {
+    const [loading, setLoading] = useState(false)
     const queryClient = useQueryClient()
-
+    const [error, setError] = useState("")
     const [data, setData] = useState<WriterType>({ ...writer })
     const handleOpen = () => {
         setError("")
         setOpen(false)
     };
-    const [error, setError] = useState("")
 
     const uploadWriter = async () => {
         if (!data.avatar) {
             setError("Upload avatar.")
-            throw Error()
+            return;
         };
-        return putWriter({
+        setError("")
+        setLoading(true)
+        putWriter({
             writers_id: data.id,
             images_id: data.avatar.id,
             email: data.email,
@@ -32,27 +34,17 @@ const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (pro
             about: data.about
         }).then(res => {
             if (res.error) {
+                toast.error("Update failed 🤦‍♂️")
                 setError(parseErrorMessage(res.error).message)
-                throw new Error()
+                setLoading(false)
             } else {
+                toast.success("Writer updated 💪")
+                queryClient.invalidateQueries("writers")
+                setLoading(false)
                 setOpen(false)
-                return;
             }
         })
     }
-
-    const handleUploadWriter = async () => {
-        setError("")
-        await toast.promise(
-            uploadWriter(),
-            {
-                pending: 'Updating Writer',
-                success: 'Writer Updated 👌',
-                error: 'Update Failed 🤯'
-            }
-        );
-        queryClient.invalidateQueries("writers")
-    };
 
     const setAvatar = (image: ImageType) => {
         setData({ ...data, avatar: image })
@@ -78,17 +70,19 @@ const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (pro
                         Update details of a writer
                     </Typography>
                     <div className="grid grid-cols-2 gap-5">
-                        <div className="h-full border flex flex-col space-y-3 items-center justify-center">
-                            {data.avatar && (
-                                <img className="h-80 w-full object-cover rounded" src={data.avatar.source_url} alt="" />
-                            )}
+                        <div className="h-full flex flex-col space-y-3 items-center justify-center">
+                            <div className="h-80 border rounded">
+                                {data.avatar && (
+                                    <img className="h-80 w-full object-cover rounded" src={data.avatar.source_url} alt="" />
+                                )}
+                            </div>
                             <ImageUploader title="Upload Avatar" setImage={setAvatar} />
                         </div>
                         <div className="grid grid-cols-1 gap-5">
                             <Input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} label="Email" size="lg" crossOrigin="" />
                             <Input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} label="Name" size="lg" crossOrigin="" />
                             <Input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} label="Username" size="lg" crossOrigin="" />
-                            <Textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} label="About" />
+                            <Textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={8} label="About" />
                         </div>
                     </div>
 
@@ -97,7 +91,7 @@ const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (pro
                     <div className="mb-3">
                         <ErrorAlert error={error} setError={setError} />
                     </div>
-                    <Button fullWidth onClick={handleUploadWriter}>
+                    <Button fullWidth onClick={uploadWriter} loading={loading}>
                         Update
                     </Button>
                 </CardFooter>

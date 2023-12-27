@@ -21,6 +21,7 @@ interface ImageData {
 }
 
 const Gallery = () => {
+    const [loading, setLoading] = useState(false)
     const [activeImage, setActiveImage] = useState<ImageType | null>(null)
     const [pageSize, setPageSize] = useState(20)
     const [pageNo, setPageNo] = useState(1)
@@ -34,26 +35,19 @@ const Gallery = () => {
     })
 
     const deleteImage = async (id: number) => {
-        return deleteImageById({ id: id }).then(res => {
+        setLoading(true)
+        deleteImageById({ id: id }).then(res => {
             if (res.error) {
-                throw new Error()
+                toast.error("Delete failed 🤦‍♂️")
+                setLoading(false)
             } else {
+                toast.success("Deletion Requested 👌")
                 setActiveImage(null)
+                queryClient.invalidateQueries(["images"])
+                setLoading(false)
             }
         })
     }
-
-    const handleDeleteImage = async (id: number) => {
-        await toast.promise(
-            deleteImage(id),
-            {
-                pending: 'Deleting image',
-                success: 'Image Deletion Requested 👌',
-                error: 'Deletion Failed 🤯'
-            }
-        );
-        queryClient.invalidateQueries(["images"])
-    };
 
     if (isLoading || error || !data) return;
 
@@ -103,11 +97,11 @@ const Gallery = () => {
                     <div className="flex space-x-1 text-xs p-1 rounded mt-4 w-full">
                         {activeImage && <CopyCode text={activeImage?.source_url} />}
                         {activeImage && (
-                            <Button color="red" onClick={() => handleDeleteImage(activeImage.id)}>
+                            <Button color="red" onClick={() => deleteImage(activeImage.id)} loading={loading}>
                                 Delete
                             </Button>
                         )}
-                        <Button className="ml-auto" color="blue" onClick={handleOpen}>
+                        <Button className="ml-auto" color="blue" onClick={handleOpen} disabled={loading}>
                             Close
                         </Button>
                     </div>

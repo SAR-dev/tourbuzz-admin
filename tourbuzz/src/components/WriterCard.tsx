@@ -8,11 +8,12 @@ import {
 import { WriterType } from "@src/types";
 import WriterUpdater from "./WriterUpdater";
 import { useState } from "react";
+import TruncateText from "./TruncateText";
 
 export function WriterCard({ writer }: { writer: WriterType }) {
     const [open, setOpen] = useState(false)
     return (
-        <div>
+        <div className="flex h-full">
             <Card color="transparent" shadow={false} className="w-full bg-white hover:bg-blue-200/50 cursor-pointer p-5" onClick={() => setOpen(true)}>
                 <CardHeader
                     color="transparent"
@@ -36,10 +37,12 @@ export function WriterCard({ writer }: { writer: WriterType }) {
                     </div>
                 </CardHeader>
                 <CardBody className="p-0">
-                        &quot;{writer.about}&quot;
+                    &quot;<TruncateText text={writer.about} maxLength={200} />&quot;
                 </CardBody>
             </Card>
-            <WriterUpdater writer={writer} open={open} setOpen={setOpen} />
+            {open && (
+                <WriterUpdater writer={writer} open={open} setOpen={setOpen} />
+            )}
         </div>
     );
 }
