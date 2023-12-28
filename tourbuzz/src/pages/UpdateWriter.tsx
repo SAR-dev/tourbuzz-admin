@@ -116,7 +116,7 @@ const UpdateWriter = () => {
                 )}
                 <div className="flex space-x-5 justify-end mt-5 pt-5 border-t border-base-300">
                     <button className="btn" onClick={() => navigate(-1)}>Go Back</button>
-                    <button className="btn btn-primary" onClick={updateWriter} disabled={loading}>
+                    <button className="btn btn-info" onClick={updateWriter} disabled={loading}>
                         {loading ? (
                             <>
                                 <span className="loading loading-spinner"></span>

@@ -51,7 +51,7 @@ const ImageUploader = ({
 
     return (
         <>
-            <button className="btn btn-primary w-full" onClick={handleUploadClick} disabled={disabled || loading}>
+            <button className="btn btn-primary btn-outline w-full" onClick={handleUploadClick} disabled={disabled || loading}>
                 {loading ? (
                     <>
                         <span className="loading loading-spinner"></span>
