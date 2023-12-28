@@ -2,6 +2,8 @@ import classNames from "classnames";
 import { ReactNode } from "react";
 
 interface ModalType {
+    maxWidth?: string;
+    width?: string;
     open: boolean;
     handleClose: () => void;
     title: string;
@@ -15,7 +17,10 @@ const Modal = ({...props}: ModalType) => {
             "modal": true,
             "modal-open": props.open
         })}>
-            <div className="modal-box max-w-[50rem] w-fit">
+            <div className="modal-box w-fit" style={{
+                maxWidth: props.maxWidth ?? "50rem",
+                width: props.width ?? "auto"
+            }}>
                 <h3 className="font-bold text-lg">{props.title}</h3>
                 <div className="py-4">
                     {props.children}

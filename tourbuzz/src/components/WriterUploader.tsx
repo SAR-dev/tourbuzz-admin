@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
 import { postWriter } from "@src/api";
 import ErrorAlert from "./ErrorAlert";
+import Modal from "./Modal";
 
 interface WriterUploaderState {
     email: string
@@ -71,12 +72,37 @@ const WriterUploader = () => {
 
     return (
         <>
-            <Button className="flex items-center gap-3" color="blue" onClick={handleOpen}>
+            <button className="btn btn-primary" onClick={handleOpen}>
                 <PencilSquareIcon className="h-5 w-5" />
                 Create Writer Profile
-            </Button>
+            </button>
 
-            <Dialog
+            <Modal title="Create Writer" maxWidth="60rem" width="60rem" open={open} handleClose={handleOpen} footer={
+                <Button className="flex justify-center" fullWidth onClick={uploadWriter} loading={loading}>
+                    Register
+                </Button>
+            }>
+                <div className="grid grid-cols-2 gap-5">
+                    <div className="h-full flex flex-col space-y-3 items-center justify-center">
+                        <div className="h-80 w-full border rounded flex justify-center items-center">
+                            {data.avatar ? (
+                                <img className="h-80 w-full object-cover rounded" src={data.avatar.source_url} alt="" />
+                            ) : (
+                                <UserCircleIcon className="h-20 w-20" />
+                            )}
+                        </div>
+                        <ImageUploader title="Upload Avatar" setImage={setAvatar} />
+                    </div>
+                    <div className="grid grid-cols-1 gap-5">
+                        <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
+                        <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
+                        <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
+                        <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={8} placeholder="About" className="textarea textarea-bordered" />
+                    </div>
+                </div>
+            </Modal>
+
+            {/* <Dialog
                 size="lg"
                 open={open}
                 handler={handleOpen}
@@ -106,10 +132,10 @@ const WriterUploader = () => {
                                 <ImageUploader title="Upload Avatar" setImage={setAvatar} />
                             </div>
                             <div className="grid grid-cols-1 gap-5">
-                                <Input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} label="Email" size="lg" crossOrigin="" />
-                                <Input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} label="Name" size="lg" crossOrigin="" />
-                                <Input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} label="Username" size="lg" crossOrigin="" />
-                                <Textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={8} label="About" />
+                                <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
+                                <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
+                                <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
+                                <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={8} placeholder="About" className="textarea textarea-bordered" />
                             </div>
                         </div>
 
@@ -125,7 +151,7 @@ const WriterUploader = () => {
                         </Button>
                     </CardFooter>
                 </Card>
-            </Dialog>
+            </Dialog> */}
         </>
     )
 }

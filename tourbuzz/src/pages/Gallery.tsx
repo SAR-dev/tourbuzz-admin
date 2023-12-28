@@ -8,6 +8,7 @@ import { ImageType } from "@src/types";
 import { toast } from "react-toastify";
 import { deleteImageById, getImages } from "@src/api";
 import Modal from "@src/components/Modal";
+import PageHeader from "@src/components/PageHeader";
 
 interface ImageData {
     data: {
@@ -54,16 +55,7 @@ const Gallery = () => {
 
     return (
         <div>
-            <div className="card flex-row items-center justify-between p-5 bg-base-200">
-                <div className="text-left">
-                    <h1 className="font-semibold text-2xl">Image Gallery</h1>
-                    <p className="mt-1.5 text-sm">Let's upload some images and store them for later! 🎉</p>
-                </div>
-
-                <div className="flex flex-row items-center">
-                    <ImageUploader queryKey="images" />
-                </div>
-            </div>
+            <PageHeader title="Image Gallery" subtitle="Let's upload some images and store them for later! 🎉" right={<ImageUploader />} />
             <div className="grid grid-cols-6 gap-5 my-5">
                 {data.data.data.map((e, i) => (
                     <div className="cursor-pointer bg-base-200 hover:bg-base-300 p-1 rounded" onClick={() => setActiveImage(e)} key={i}>
