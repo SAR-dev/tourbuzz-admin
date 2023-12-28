@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Modal from './Modal'
 
-const DeleteButton = () => {
+const DeleteButton = ({ handleDelete, loading }: { handleDelete: () => void, loading: boolean }) => {
     const [seconds, setSeconds] = useState(10);
     const [show, setShow] = useState(false)
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            if(!show) setSeconds(10);
+            if (!show) setSeconds(10);
             if (show && seconds > 0) {
                 setSeconds(seconds - 1);
             }
@@ -24,11 +24,20 @@ const DeleteButton = () => {
 
     return (
         <div>
-            <button className="btn btn-warning" onClick={() => setShow(true)}>Delete</button>
+            <button className="btn btn-warning" onClick={() => setShow(true)}>
+                {loading ? (
+                    <>
+                        <span className="loading loading-spinner"></span>
+                        Deleting
+                    </>
+                ) : (
+                    "Delete"
+                )}
+            </button>
             <Modal width='30rem' maxWidth='30rem' open={show} handleClose={handleClose} title="Warning!!!" footer={
                 <div className='flex space-x-3 ml-auto'>
                     <button className="btn btn-success" onClick={() => setShow(false)}>Do not proceed</button>
-                    <button className="btn btn-error" disabled={seconds != 0}>I understand. Proceed</button>
+                    <button className="btn btn-error" disabled={seconds != 0} onClick={handleDelete}>I understand. Proceed</button>
                 </div>
             }>
                 <div className='bg-warning p-5 card text-center text-warning-content'>
