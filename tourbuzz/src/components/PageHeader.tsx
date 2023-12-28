@@ -7,7 +7,7 @@ const PageHeader = ({
 }: {
     title: string,
     subtitle: string,
-    right: ReactNode
+    right?: ReactNode
 }) => {
     return (
         <div className="card flex-row items-center justify-between p-5 bg-base-200">

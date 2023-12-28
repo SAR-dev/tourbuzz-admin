@@ -1,48 +1,43 @@
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    Typography,
-    Avatar,
-} from "@material-tailwind/react";
-import { WriterType } from "@src/types";
-import WriterUpdater from "./WriterUpdater";
-import { useState } from "react";
+import { WriterType } from "@src/constants/types";
 import TruncateText from "./TruncateText";
+import { AtSymbolIcon, CalendarIcon, LinkIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { timestampToYYYYMMDD } from "@src/functions/helpers";
+import { Link } from "react-router-dom";
 
 export function WriterCard({ writer }: { writer: WriterType }) {
-    const [open, setOpen] = useState(false)
     return (
-        <div className="flex h-full">
-            <Card color="transparent" shadow={false} className="w-full bg-white cursor-pointer p-5" onClick={() => setOpen(true)}>
-                <CardHeader
-                    color="transparent"
-                    floated={false}
-                    shadow={false}
-                    className="mx-0 flex items-center gap-4 pt-0 pb-3"
-                >
-                    <Avatar
-                        size="lg"
-                        variant="circular"
-                        src={writer.avatar.thumbnail_url}
-                        alt={writer.name}
-                    />
-                    <div className="flex w-full flex-col gap-0.5">
-                        <div className="flex items-center justify-between">
-                            <Typography variant="h5" color="blue-gray">
-                                {writer.name}
-                            </Typography>
+        <Link to={`/writers/update/${writer.id}`} className="card card-side w-full h-full cursor-pointer bg-base-200 hover:hover:bg-base-300 p-3">
+            <div className="grid grid-cols-1 gap-3">
+                <div className="flex">
+                    <figure>
+                        <img className="card h-36 w-36" src={writer.avatar.thumbnail_url} alt="avatar" />
+                    </figure>
+                    <div className="card-body py-0 pr-0 pl-5">
+                        <h2 className="card-title">{writer.name}</h2>
+                        <div className="flex flex-col space-y-1.5 text-sm">
+                            <div className="flex gap-2 items-center">
+                                <AtSymbolIcon className="h-4 w-4" />
+                                {writer.email}
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <PhoneIcon className="h-4 w-4" />
+                                {writer.phone_no}
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <LinkIcon className="h-4 w-4" />
+                                {writer.website}
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <CalendarIcon className="h-4 w-4" />
+                                Joined {timestampToYYYYMMDD(writer.created_at)}
+                            </div>
                         </div>
-                        <Typography color="blue-gray">Email: {writer.email}</Typography>
                     </div>
-                </CardHeader>
-                <CardBody className="p-0">
+                </div>
+                <div>
                     &quot;<TruncateText text={writer.about} maxLength={200} />&quot;
-                </CardBody>
-            </Card>
-            {open && (
-                <WriterUpdater writer={writer} open={open} setOpen={setOpen} />
-            )}
-        </div>
+                </div>
+            </div>
+        </Link>
     );
 }

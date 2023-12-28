@@ -1,12 +1,12 @@
 import { Button, Dialog, Card, CardBody, CardFooter, Typography, Input, Textarea } from "@material-tailwind/react";
 import { useState } from "react";
 import ImageUploader from "./ImageUploader";
-import { ImageType, parseErrorMessage } from "@src/types";
+import { ImageType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
-import { putWriter } from "@src/api";
+import { putWriter } from "@src/functions/api";
 import ErrorAlert from "./ErrorAlert";
-import { WriterType } from "@src/types";
+import { WriterType } from "@src/constants/types";
 import { UserCircleIcon } from "@heroicons/react/16/solid";
 
 const WriterUpdater = ({ open, setOpen, writer }: { open: boolean, setOpen: (props: boolean) => void, writer: WriterType }) => {

@@ -4,9 +4,9 @@ import ImageUploader from "@src/components/ImageUploader";
 import { Button, Dialog } from "@material-tailwind/react";
 import CopyCode from "@src/components/CopyCode";
 import { Pagination } from "@src/components/Pagination";
-import { ImageType } from "@src/types";
+import { ImageType } from "@src/constants/types";
 import { toast } from "react-toastify";
-import { deleteImageById, getImages } from "@src/api";
+import { deleteImageById, getImages } from "@src/functions/api";
 import Modal from "@src/components/Modal";
 import PageHeader from "@src/components/PageHeader";
 
@@ -58,9 +58,9 @@ const Gallery = () => {
             <PageHeader title="Image Gallery" subtitle="Let's upload some images and store them for later! 🎉" right={<ImageUploader />} />
             <div className="grid grid-cols-6 gap-5 my-5">
                 {data.data.data.map((e, i) => (
-                    <div className="cursor-pointer bg-base-200 hover:bg-base-300 p-1 rounded" onClick={() => setActiveImage(e)} key={i}>
+                    <div className="card cursor-pointer bg-base-200 hover:bg-base-300 p-3" onClick={() => setActiveImage(e)} key={i}>
                         <img
-                            className="h-40 w-full max-w-full rounded object-cover object-center shadow-xl shadow-blue-gray-900/5"
+                            className="card h-40 w-full max-w-full object-cover object-center"
                             src={e.thumbnail_url}
                             alt="gallery-photo"
                         />
@@ -82,17 +82,15 @@ const Gallery = () => {
 
             {activeImage && (
                 <Modal title="Image Actions" open={activeImage != null} handleClose={handleOpen} footer={
-                    <div className="w-full flex space-between">
+                    <div className="w-full flex space-x-3">
+                        <button className="btn btn-error" onClick={() => deleteImage(activeImage.id)}>Delete</button>
                         <CopyCode text={activeImage?.source_url} />
-                        <div className="flex space-x-3 ml-3">
-                            <button className="btn btn-secondary" onClick={() => deleteImage(activeImage.id)}>Delete</button>
-                            <button className="btn" onClick={handleOpen}>Close</button>
-                        </div>
+                        <button className="btn" onClick={handleOpen}>Close</button>
                     </div>
                 }>
                     <div className="flex flex-col space-y-3">
-                        <div className="min-h-32 w-full">
-                            <img className="h-96 rounded" src={activeImage?.source_url} alt="" />
+                        <div className="min-h-32 w-full flex justify-center">
+                            <img className="card h-96" src={activeImage?.source_url} alt="" />
                         </div>
                     </div>
                 </Modal>

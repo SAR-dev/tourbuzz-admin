@@ -2,8 +2,8 @@ import { useQueryClient } from "react-query";
 import { createRef, useState } from "react";
 import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
-import { ImageType } from "@src/types";
-import { postImage } from "@src/api";
+import { ImageType } from "@src/constants/types";
+import { postImage } from "@src/functions/api";
 
 const ImageUploader = ({
     queryKey = "images",
@@ -51,7 +51,7 @@ const ImageUploader = ({
 
     return (
         <>
-            <button className="btn btn-primary" onClick={handleUploadClick} disabled={disabled || loading}>
+            <button className="btn btn-primary w-full" onClick={handleUploadClick} disabled={disabled || loading}>
                 {loading ? (
                     <>
                         <span className="loading loading-spinner"></span>

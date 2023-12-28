@@ -1,8 +1,6 @@
-import { PencilSquareIcon } from '@heroicons/react/16/solid'
-import { Button } from '@material-tailwind/react'
-import { getWriters } from '@src/api'
+import { getWriters } from '@src/functions/api'
 import { Pagination } from '@src/components/Pagination'
-import { WriterType } from '@src/types'
+import { WriterType } from '@src/constants/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 
@@ -37,10 +35,10 @@ function Articles() {
         </div>
 
         <div className="flex flex-row items-center">
-          <Button className="flex items-center gap-3" color="blue">
+          {/* <Button className="flex items-center gap-3" color="blue">
             <PencilSquareIcon className="h-5 w-5" />
             Write a Article
-          </Button>
+          </Button> */}
         </div>
       </div>
 

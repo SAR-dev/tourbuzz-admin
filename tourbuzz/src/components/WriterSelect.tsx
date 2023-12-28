@@ -1,7 +1,5 @@
-import { Avatar, Button, Dialog, DialogBody, DialogFooter, DialogHeader, Typography } from '@material-tailwind/react'
-import { getWriters } from '@src/api'
-import { WriterType } from '@src/types'
-import classNames from 'classnames'
+import { getWriters } from '@src/functions/api'
+import { WriterType } from '@src/constants/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 
@@ -29,7 +27,7 @@ function WriterSelect({ writer, setWriter }: { writer: WriterType | null, setWri
 
     return (
         <div>
-            <Button color='blue' variant={writer == null ? "filled" : "outlined"} fullWidth className="flex justify-center" onClick={handleOpen}>
+            {/* <Button color='blue' variant={writer == null ? "filled" : "outlined"} fullWidth className="flex justify-center" onClick={handleOpen}>
                 {writer == null ? "Select Writer" : `Writer: ${writer.name}`}
             </Button>
             <Dialog open={open} handler={handleOpen} size='lg'>
@@ -63,7 +61,7 @@ function WriterSelect({ writer, setWriter }: { writer: WriterType | null, setWri
                         <span>Close</span>
                     </Button>
                 </DialogFooter>
-            </Dialog>
+            </Dialog> */}
         </div>
     )
 }

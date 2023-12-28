@@ -1,14 +1,13 @@
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { TrashIcon } from "@heroicons/react/24/solid"
-import { Button, Input, Textarea } from "@material-tailwind/react"
 import ImageUploader from "@src/components/ImageUploader"
-import { ImageType, WriterType, parseErrorMessage } from "@src/types"
+import { ImageType, WriterType, parseErrorMessage } from "@src/constants/types"
 import { useState } from "react"
 import MDEditor, { commands } from '@uiw/react-md-editor';
 import rehypeSanitize from "rehype-sanitize";
 import ErrorAlert from "@src/components/ErrorAlert"
 import WriterSelect from "@src/components/WriterSelect"
-import { postArticle } from "@src/api"
+import { postArticle } from "@src/functions/api"
 import { toast } from "react-toastify"
 import { useQueryClient } from "react-query"
 
@@ -143,10 +142,10 @@ const WriteArticle = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 gap-5 ">
-          <Input value={data.title} onChange={e => handleTitleChange(e.target.value)} label="Title" size="lg" crossOrigin="" />
+          {/* <Input value={data.title} onChange={e => handleTitleChange(e.target.value)} label="Title" size="lg" crossOrigin="" />
           <Input value={data.slug} onChange={e => setData({ ...data, slug: e.target.value })} label="Slug" size="lg" crossOrigin="" />
           <Input value={data.subtitle} onChange={e => setData({ ...data, subtitle: e.target.value })} label="Subtitle" size="lg" crossOrigin="" />
-          <Textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} label="Summary" size="lg" />
+          <Textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} label="Summary" size="lg" /> */}
         </div>
       </div>
 
@@ -176,9 +175,9 @@ const WriteArticle = () => {
           </div>
         )}
         <WriterSelect writer={writer} setWriter={setWriter} />
-        <Button className="flex justify-center" fullWidth loading={loading} onClick={uploadArticle}>
+        {/* <Button className="flex justify-center" fullWidth loading={loading} onClick={uploadArticle}>
           Submit
-        </Button>
+        </Button> */}
       </div>
     </div>
   )

@@ -1,18 +1,33 @@
 import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
 
-export enum PageName {
-    Gallery = "Gallery",
-    Writers = "Writers",
-    Articles = "Articles",
-    WriteArticle = "Write Article",
+export enum ThemeName {
+    Black = "black",
+    Dark = "dark",
+    Retro = "retro",
+    Cyberpunk = "cyberpunk",
+    Valentine = "valentine",
+    Aqua = "aqua",
+    Light = "light"
 }
+
+const themeKey = "theme"
 
 type Store = {
-    page: PageName
-    setPage: (props: PageName) => void
+    theme: ThemeName
+    setTheme: (props: ThemeName) => void
 }
 
-export const usePageStore = create<Store>()((set) => ({
-    page: PageName.Gallery,
-    setPage: (props: PageName) => set(() => ({ page: props })),
-}))
+export const useThemeStore = create<Store>()(
+    persist(
+        (set) => ({
+            theme: ThemeName.Black,
+            setTheme: (value: ThemeName) => {
+                set(() => ({ theme: value }))
+                document.querySelector('html')?.setAttribute('data-theme', value)
+            },
+        }), {
+            name: themeKey, 
+            storage: createJSONStorage(() => localStorage),
+    })
+)

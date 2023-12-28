@@ -1,11 +1,12 @@
-import { getWriters } from '@src/api'
+import { PencilSquareIcon } from '@heroicons/react/16/solid'
+import { getWriters } from '@src/functions/api'
 import PageHeader from '@src/components/PageHeader'
 import { Pagination } from '@src/components/Pagination'
 import { WriterCard } from '@src/components/WriterCard'
-import WriterUploader from '@src/components/WriterUploader'
-import { WriterType } from '@src/types'
+import { WriterType } from '@src/constants/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom'
 
 interface WriterData {
   data: {
@@ -31,8 +32,16 @@ function Writers() {
 
   return (
     <div>
-      <PageHeader title="Writers Profiles" subtitle="Let's upload some images and store them for later! 🎉" right={<WriterUploader />} />
-      <div className='grid grid-cols-2 gap-5 my-5'>
+      <PageHeader 
+        title="Writers Profiles" 
+        subtitle="Let's upload some images and store them for later! 🎉" 
+        right={
+          <Link className="btn btn-primary" to="/writers/register">
+            <PencilSquareIcon className="h-5 w-5" />
+            Create Writer Profile
+          </Link>} 
+      />
+      <div className='grid grid-cols-3 gap-5 my-5'>
         {data.data.data.map((e, i) => (
           <WriterCard writer={e} key={i} />
         ))}

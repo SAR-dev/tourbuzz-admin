@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateWriterType, UpdateWriterType } from "./types";
+import { CreateArticleType, CreateWriterType, UpdateWriterType } from "../constants/types";
 
 const api = axios.create();
 
@@ -48,6 +48,17 @@ export const getWriters = ({
                 page_size: pageSize,
             }
         })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getWriterById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/writers/${id}`)
         .then((res) => {
             return { data: res.data };
         })

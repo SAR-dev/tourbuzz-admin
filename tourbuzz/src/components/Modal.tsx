@@ -17,7 +17,7 @@ const Modal = ({...props}: ModalType) => {
             "modal": true,
             "modal-open": props.open
         })}>
-            <div className="modal-box w-fit" style={{
+            <div className="modal-box w-fit card" style={{
                 maxWidth: props.maxWidth ?? "50rem",
                 width: props.width ?? "auto"
             }}>

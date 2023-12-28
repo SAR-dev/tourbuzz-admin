@@ -21,3 +21,7 @@
     visibility: visible;
     opacity: 1;
 }
+
+.modal-open {
+    background-color: rgba(29, 29, 29, 0.8) !important;
+}

@@ -4,8 +4,8 @@ export interface ImageType {
     source_url: string;
     thumbnail_url: string;
     optimized_url: string;
-    created_at: Date;
-    updated_at: Date;
+    created_at: string;
+    updated_at: string;
 }
 
 export interface WriterType {
@@ -15,8 +15,10 @@ export interface WriterType {
     name: string;
     username: string;
     about: string;
-    created_at: Date;
-    updated_at: Date;
+    phone_no: string;
+    website: string;
+    created_at: string;
+    updated_at: string;
     avatar: ImageType;
 }
 
@@ -26,6 +28,8 @@ export interface CreateWriterType {
     name: string,
     username: string,
     about: string
+    phone_no: string
+    website: string
 }
 
 export interface CreateArticleType {
@@ -44,7 +48,9 @@ export interface UpdateWriterType {
     email: string,
     name: string,
     username: string,
-    about: string
+    about: string,
+    phone_no: string
+    website: string
 }
 
 export interface ParsedErrorMessageProps {

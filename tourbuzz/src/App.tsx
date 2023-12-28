@@ -5,6 +5,8 @@ import Writers from "./pages/Writers";
 import Articles from "./pages/Articles";
 import WriteArticle from "./pages/WriteArticle";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import RegisterWriter from "./pages/RegisterWriter";
+import UpdateWriter from "./pages/UpdateWriter";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
           <Route path="/" element={<Navigate to="/images" />} />
           <Route path="/images" element={<SideNav><Images /></SideNav>} />
           <Route path="/writers" element={<SideNav><Writers /></SideNav>} />
+          <Route path="/writers/register" element={<SideNav><RegisterWriter /></SideNav>} />
+          <Route path="/writers/update/:writerId" element={<SideNav><UpdateWriter /></SideNav>} />
           <Route path="/articles" element={<SideNav><Articles /></SideNav>} />
           <Route path="/articles/create" element={<SideNav><WriteArticle /></SideNav>} />
         </Routes>

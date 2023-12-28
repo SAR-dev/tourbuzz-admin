@@ -1,27 +1,11 @@
 import { ChevronDownIcon, SwatchIcon } from '@heroicons/react/24/solid';
-import { useState, useEffect } from 'react';
-
-const themes = [
-    { name: "Black", value: "black" },
-    { name: "Dark", value: "dark" },
-    { name: "Retro", value: "retro" },
-    { name: "Cyberpunk", value: "cyberpunk" },
-    { name: "Valentine", value: "valentine" },
-    { name: "Aqua", value: "aqua" },
-    { name: "Light", value: "light" },
-]
+import { ThemeName, useThemeStore } from '@src/store';
+import classNames from 'classnames';
+import { useState } from 'react';
 
 function ThemeSwitcher(): JSX.Element {
     const [show, setShow] = useState(false)
-    const [theme, setTheme] = useState<string>('black');
-
-    const toggleTheme = (color: string): void => {
-        setTheme(color);
-    };
-
-    useEffect(() => {
-        document.querySelector('html')?.setAttribute('data-theme', theme);
-    }, [theme]);
+    const { theme, setTheme } = useThemeStore();
 
     return (
         <div>
@@ -32,18 +16,19 @@ function ThemeSwitcher(): JSX.Element {
                     <ChevronDownIcon className='h-5 w-5 ml-auto' />
                 )}
             </button>
-            {show && (
-                <div className='px-3'>
-                    {themes.map((e, i) => (
-                        <div className="form-control" key={i}>
-                            <label className="label cursor-pointer gap-4">
-                                <span className="label-text">{e.name}</span>
-                                <input type="radio" name="theme-radios" className="radio theme-controller" value={e.value} checked={theme === e.value} onChange={e => toggleTheme(e.target.value)} />
-                            </label>
-                        </div>
-                    ))}
-                </div>
-            )}
+            <div className={classNames({
+                "px-3": true,
+                "hidden": !show
+            })}>
+                {Object.keys(ThemeName).map((key) => (
+                    <div className="form-control" key={key}>
+                        <label className="label cursor-pointer gap-4">
+                            <span className="label-text">{key}</span>
+                            <input type="radio" name="theme-radios" className="radio theme-controller" value={ThemeName[key as keyof typeof ThemeName]} checked={theme === ThemeName[key as keyof typeof ThemeName]} onChange={e => setTheme(e.target.value as ThemeName)} />
+                        </label>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
