@@ -9,9 +9,7 @@ export function WriterCard({ writer }: { writer: WriterType }) {
         <Link to={`/writers/update/${writer.id}`} className="card card-side w-full h-full cursor-pointer bg-base-200 hover:hover:bg-base-300 p-3">
             <div className="grid grid-cols-1 gap-3">
                 <div className="flex">
-                    <figure>
-                        <img className="card h-36 w-36" src={writer.avatar.thumbnail_url} alt="avatar" />
-                    </figure>
+                    <img className="card h-36 w-36" src={writer.avatar.thumbnail_url} alt="avatar" />
                     <div className="card-body py-0 pr-0 pl-5">
                         <h2 className="card-title">{writer.name}</h2>
                         <div className="flex flex-col space-y-1.5 text-sm">
@@ -25,7 +23,7 @@ export function WriterCard({ writer }: { writer: WriterType }) {
                             </div>
                             <div className="flex gap-2 items-center">
                                 <LinkIcon className="h-4 w-4" />
-                                {writer.website}
+                                <TruncateText text={writer.website} maxLength={20} />
                             </div>
                             <div className="flex gap-2 items-center">
                                 <CalendarIcon className="h-4 w-4" />

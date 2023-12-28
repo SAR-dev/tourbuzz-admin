@@ -3,7 +3,7 @@ import { SideNav } from "./components/SideNav";
 import { ToastContainer } from 'react-toastify';
 import Writers from "./pages/Writers";
 import Articles from "./pages/Articles";
-import WriteArticle from "./pages/WriteArticle";
+import SubmitArticle from "./pages/SubmitArticle";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import RegisterWriter from "./pages/RegisterWriter";
 import UpdateWriter from "./pages/UpdateWriter";
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/writers/register" element={<SideNav><RegisterWriter /></SideNav>} />
           <Route path="/writers/update/:writerId" element={<SideNav><UpdateWriter /></SideNav>} />
           <Route path="/articles" element={<SideNav><Articles /></SideNav>} />
-          <Route path="/articles/create" element={<SideNav><WriteArticle /></SideNav>} />
+          <Route path="/articles/submit" element={<SideNav><SubmitArticle /></SideNav>} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

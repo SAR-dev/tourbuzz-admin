@@ -22,9 +22,9 @@ export function Pagination({ ...props }: PaginationType) {
 
     return (
         <div className="card flex-row justify-between w-full p-3 bg-base-200">
-            <div className="flex items-center">
+            <div className="flex gap-2 items-center">
                 <span>Page Size</span>
-                <div className="join ml-2">
+                <div className="join border border-base-300">
                     {[10, 20, 50, 100].map((e, i) => (
                         <button className={classNames({
                             "join-item btn px-3": true,
@@ -39,7 +39,7 @@ export function Pagination({ ...props }: PaginationType) {
                 <p>Total <strong>{props.total_result}</strong> result found</p>
             </div>
             <div className="flex items-center gap-8">
-                <div className="join">
+                <div className="join border border-base-300">
                     <button className="join-item btn btn-neutral" onClick={prev} disabled={props.page_no === 1}>«</button>
                     <div className="join-item flex items-center px-2">Page <strong className="px-1">{props.page_no}</strong> of <strong className="px-1">{props.total_pages}</strong></div>
                     <button className="join-item btn btn-neutral" onClick={next} disabled={props.page_no === props.total_pages}>»</button>

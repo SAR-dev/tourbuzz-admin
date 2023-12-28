@@ -2,13 +2,38 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 export enum ThemeName {
-    Black = "black",
+    Light = "light",
     Dark = "dark",
+    Cupcake = "cupcake",
+    Bumblebee = "bumblebee",
+    Emerald = "emerald",
+    Corporate = "corporate",
+    Synthwave = "synthwave",
     Retro = "retro",
     Cyberpunk = "cyberpunk",
     Valentine = "valentine",
+    Halloween = "halloween",
+    Garden = "garden",
+    Forest = "forest",
     Aqua = "aqua",
-    Light = "light"
+    Lofi = "lofi",
+    Pastel = "pastel",
+    Fantasy = "fantasy",
+    Wireframe = "wireframe",
+    Black = "black",
+    Luxury = "luxury",
+    Dracula = "dracula",
+    CMYK = "cmyk",
+    Autumn = "autumn",
+    Business = "business",
+    Acid = "acid",
+    Lemonade = "lemonade",
+    Night = "night",
+    Coffee = "coffee",
+    Winter = "winter",
+    Dim = "dim",
+    Nord = "nord",
+    Sunset = "sunset"
 }
 
 const themeKey = "theme"
@@ -27,7 +52,7 @@ export const useThemeStore = create<Store>()(
                 document.querySelector('html')?.setAttribute('data-theme', value)
             },
         }), {
-            name: themeKey, 
-            storage: createJSONStorage(() => localStorage),
+        name: themeKey,
+        storage: createJSONStorage(() => localStorage),
     })
 )

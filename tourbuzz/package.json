@@ -13,9 +13,9 @@
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "@tauri-apps/api": "^1.5.2",
-    "@uiw/react-md-editor": "^4.0.2",
     "axios": "^1.6.2",
     "classnames": "^2.3.2",
+    "markdown-to-jsx": "^7.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
@@ -25,6 +25,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
     "@tauri-apps/cli": "^1.5.9",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.7",

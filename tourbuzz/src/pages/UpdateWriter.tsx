@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { ImageType, WriterType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
-import { getWriterById, postWriter, putWriter } from "@src/functions/api";
+import { deleteWriterById, getWriterById, postWriter, putWriter } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate, useParams } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
+import DeleteButton from "@src/components/DeleteButton";
 
 interface UpdateWriterState {
     email: string
@@ -32,6 +33,7 @@ const initialState: UpdateWriterState = {
 const UpdateWriter = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+    const [deleting, setDeleting] = useState(false)
     const queryClient = useQueryClient()
     const [data, setData] = useState<UpdateWriterState>({ ...initialState })
     const [error, setError] = useState("")
@@ -70,6 +72,24 @@ const UpdateWriter = () => {
                 toast.success("Writer updates 💪")
                 queryClient.invalidateQueries("writers")
                 setLoading(false)
+                setData({ ...initialState })
+                navigate("/writers")
+            }
+
+        })
+    }
+
+    const deleteWriter = () => {
+        setDeleting(true)
+        deleteWriterById({ id: Number(writerId) }).then(res => {
+            if (res.error) {
+                toast.error("Delete failed 🤦‍♂️")
+                setError(parseErrorMessage(res.error).message)
+                setDeleting(false)
+            } else {
+                toast.success("Writer Deleted 💪")
+                queryClient.invalidateQueries("writers")
+                setDeleting(false)
                 setData({ ...initialState })
                 navigate("/writers")
             }
@@ -116,6 +136,7 @@ const UpdateWriter = () => {
                 )}
                 <div className="flex space-x-5 justify-end mt-5 pt-5 border-t border-base-300">
                     <button className="btn" onClick={() => navigate(-1)}>Go Back</button>
+                    <DeleteButton handleDelete={deleteWriter} loading={deleting}  />
                     <button className="btn btn-info" onClick={updateWriter} disabled={loading}>
                         {loading ? (
                             <>

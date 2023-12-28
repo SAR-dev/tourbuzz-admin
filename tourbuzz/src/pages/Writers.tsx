@@ -41,6 +41,7 @@ function Writers() {
             Create Writer Profile
           </Link>} 
       />
+      
       <div className='grid grid-cols-3 gap-5 my-5'>
         {data.data.data.map((e, i) => (
           <WriterCard writer={e} key={i} />

@@ -3,13 +3,13 @@ import { TrashIcon } from "@heroicons/react/24/solid"
 import ImageUploader from "@src/components/ImageUploader"
 import { ImageType, WriterType, parseErrorMessage } from "@src/constants/types"
 import { useState } from "react"
-import MDEditor, { commands } from '@uiw/react-md-editor';
-import rehypeSanitize from "rehype-sanitize";
 import ErrorAlert from "@src/components/ErrorAlert"
 import WriterSelect from "@src/components/WriterSelect"
 import { postArticle } from "@src/functions/api"
 import { toast } from "react-toastify"
 import { useQueryClient } from "react-query"
+import PageHeader from "@src/components/PageHeader"
+import MarkdownEditor from "@src/components/MarkdownEditor"
 
 interface ArticleCreateState {
   title: string
@@ -57,7 +57,7 @@ const title = {
   },
 };
 
-const WriteArticle = () => {
+const SubmitArticle = () => {
   const queryClient = useQueryClient()
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<ArticleCreateState>({ ...initialArticleCreateState })
@@ -76,8 +76,8 @@ const WriteArticle = () => {
     setData({ ...data, title: title, slug: generateSlug(title) })
   }
 
-  const setMdDesc = (value?: string) => {
-    setData({ ...data, md_desc: value ?? "" })
+  const setMdDesc = (value: string) => {
+    setData({ ...data, md_desc: value })
   }
 
   const uploadArticle = async () => {
@@ -114,25 +114,24 @@ const WriteArticle = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between bg-white p-5 rounded">
-        <div className="text-left">
-          <h1 className="font-semibold text-gray-900 text-2xl">Write a article</h1>
-          <p className="mt-1.5 text-sm text-gray-500">Before writing the article please review the contents carefully 🧐</p>
-        </div>
-      </div>
-      <div className="grid grid-cols-2 gap-5 p-5 rounded bg-white my-5">
+      <PageHeader 
+        title="Write a article" 
+        subtitle="Before writing the article please review the contents carefully 🧐" 
+      />
+
+      <div className="grid grid-cols-2 gap-5 p-5 card bg-base-200 my-5">
         <div>
           <div className="grid grid-cols-4 gap-3">
             {data.images.map((e, i) => (
-              <div className="h-36 w-full relative group" key={i}>
-                <img src={e.thumbnail_url} alt="" className="h-36 w-full object-cover rounded" />
+              <div className="h-40 w-full relative group" key={i}>
+                <img src={e.thumbnail_url} alt="" className="h-36 w-full object-cover card" />
                 <div className="absolute top-0 left-0 h-full w-full bg-red-500/50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition ease-in-out">
                   <TrashIcon className="h-10 w-10 cursor-pointer text-white" onClick={() => removeImage(e.id)} />
                 </div>
               </div>
             ))}
-            {[...Array(8 - data.images.length)].map((e, i) => (
-              <div className="h-36 w-full border flex justify-center items-center" key={i}>
+            {[...Array(8 - data.images.length)].map((_e, i) => (
+              <div className="h-40 w-full border border-base-300 card bg-base-100 justify-center items-center" key={i}>
                 <PhotoIcon className="h-10 w-10" />
               </div>
             ))}
@@ -142,29 +141,19 @@ const WriteArticle = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 gap-5 ">
-          {/* <Input value={data.title} onChange={e => handleTitleChange(e.target.value)} label="Title" size="lg" crossOrigin="" />
-          <Input value={data.slug} onChange={e => setData({ ...data, slug: e.target.value })} label="Slug" size="lg" crossOrigin="" />
-          <Input value={data.subtitle} onChange={e => setData({ ...data, subtitle: e.target.value })} label="Subtitle" size="lg" crossOrigin="" />
-          <Textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} label="Summary" size="lg" /> */}
+          <input value={data.title} onChange={e => handleTitleChange(e.target.value)} type="text" placeholder="Title" className="input input-bordered w-full" />
+          <input value={data.slug} onChange={e => setData({ ...data, slug: e.target.value })} type="text" placeholder="Slug" className="input input-bordered w-full" />
+          <input value={data.subtitle} onChange={e => setData({ ...data, subtitle: e.target.value })} type="text" placeholder="Subtitle" className="input input-bordered w-full" />
+          <textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} placeholder="Summary" className="textarea textarea-bordered placeholder:text-base text-base" />
         </div>
       </div>
 
-      <div className="p-5 bg-white rounded mb-5 custom-toolbar">
-        <MDEditor
+      <div className="p-5 card bg-base-200 mb-5">
+        <MarkdownEditor 
           value={data.md_desc}
-          onChange={setMdDesc}
-          previewOptions={{
-            rehypePlugins: [[rehypeSanitize]],
-          }}
-          commands={[
-            title, commands.bold, commands.italic, commands.strikethrough, commands.hr, commands.divider,
-            commands.link, commands.quote, commands.image, commands.divider,
-            commands.unorderedListCommand, commands.orderedListCommand, commands.checkedListCommand, commands.divider,
-            commands.help
-          ]}
-          enableScroll
-          height={400}
-        />
+          setValue={setMdDesc}
+          placeholder="Start writing details in Markdown"
+          />
       </div>
 
       <div className="p-5 bg-white rounded mb-5 grid grid-cols-2 gap-5">
@@ -183,4 +172,4 @@ const WriteArticle = () => {
   )
 }
 
-export default WriteArticle
+export default SubmitArticle

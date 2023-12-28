@@ -20,7 +20,7 @@ export function SideNav({ children }: { children: ReactNode }) {
 
     return (
         <div className="inline-flex w-full">
-            <div className="h-screen w-[20rem] p-2 bg-base-200">
+            <div className="h-screen w-[20rem] p-2 bg-base-200 overflow-y-auto custom-scrollbar">
                 <div className="h-12 flex items-center border-b border-base-300 pl-3">
                     <p className="font-semibold text-xl">
                         TourBuzz

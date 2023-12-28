@@ -34,6 +34,37 @@ export const getImages = ({
         });
 }
 
+export const deleteImageById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/images/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+};
+
+export const postImage = (file: Blob): Promise<any> => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return api
+        .post("/admin/images", formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// Writers
+
 export const getWriters = ({
     pageNo,
     pageSize
@@ -59,35 +90,6 @@ export const getWriters = ({
 export const getWriterById = ({ id }: { id: number }): Promise<any> => {
     return api
         .get(`/admin/writers/${id}`)
-        .then((res) => {
-            return { data: res.data };
-        })
-        .catch((err) => {
-            return { error: err || true };
-        });
-}
-
-export const deleteImageById = ({ id }: { id: number }): Promise<any> => {
-    return api
-        .delete(`/admin/images/${id}`)
-        .then((res) => {
-            return { data: res.data };
-        })
-        .catch((err) => {
-            return { error: err || true };
-        });
-};
-
-export const postImage = (file: Blob): Promise<any> => {
-    const formData = new FormData();
-    formData.append('file', file);
-
-    return api
-        .post("/admin/images", formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
         .then((res) => {
             return { data: res.data };
         })
@@ -122,6 +124,20 @@ export const putWriter = ({ ...props }: UpdateWriterType): Promise<any> => {
             return { error: err || true };
         });
 }
+
+export const deleteWriterById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/writers/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
+
+// Articles
 
 export const postArticle = ({ ...props }: CreateArticleType): Promise<any> => {
     const data = { ...props}

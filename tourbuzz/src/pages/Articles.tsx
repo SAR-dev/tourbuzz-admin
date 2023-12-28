@@ -3,6 +3,10 @@ import { Pagination } from '@src/components/Pagination'
 import { WriterType } from '@src/constants/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query';
+import PageHeader from '@src/components/PageHeader';
+import { Link } from 'react-router-dom';
+import { PencilSquareIcon } from '@heroicons/react/16/solid';
+import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 
 interface WriterData {
   data: {
@@ -28,25 +32,21 @@ function Articles() {
 
   return (
     <div>
-      <div className="flex items-center justify-between bg-white p-5 rounded">
-        <div className="text-left">
-          <h1 className="font-semibold text-gray-900 text-2xl">Articles Collection</h1>
-          <p className="mt-1.5 text-sm text-gray-500">Let's upload some images and store them for later! 🎉</p>
-        </div>
+      <PageHeader 
+        title="Articles Collection" 
+        subtitle="Let's upload some images and store them for later! 🎉" 
+        right={
+          <Link className="btn btn-primary" to="/articles/submit">
+            <PaperAirplaneIcon className="h-5 w-5" />
+            Submit New Article
+          </Link>} 
+      />
 
-        <div className="flex flex-row items-center">
-          {/* <Button className="flex items-center gap-3" color="blue">
-            <PencilSquareIcon className="h-5 w-5" />
-            Write a Article
-          </Button> */}
-        </div>
-      </div>
-
-      {/* <div className='grid grid-cols-2 gap-5 my-5'>
-        {data.data.data.map((e, i) => (
+      <div className='grid grid-cols-2 gap-5 my-5'>
+        {/* {data.data.data.map((e, i) => (
           <WriterCard writer={e} key={i} />
-        ))}
-      </div> */}
+        ))} */}
+      </div>
 
       <div>
         <Pagination
