@@ -107,6 +107,7 @@ const WriteArticle = () => {
         setLoading(false)
         setData({ ...initialArticleCreateState })
         setWriter(null)
+        // setPage(PageName.Articles)
       }
 
     })

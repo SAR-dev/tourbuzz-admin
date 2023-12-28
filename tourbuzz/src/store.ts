@@ -5,7 +5,7 @@ export enum PageName {
     Writers = "Writers",
     Articles = "Articles",
     WriteArticle = "Write Article",
-  }
+}
 
 type Store = {
     page: PageName

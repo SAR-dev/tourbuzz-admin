@@ -15,3 +15,9 @@
     height: 16px;
     width: 16px;
 }
+
+.modal-open {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+}

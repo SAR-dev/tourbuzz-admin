@@ -1,6 +1,4 @@
-import React from "react";
-import { IconButton, Typography } from "@material-tailwind/react";
-import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import classNames from "classnames";
 
 interface PaginationType {
     page_no: number
@@ -23,48 +21,29 @@ export function Pagination({ ...props }: PaginationType) {
     };
 
     return (
-        <div className="flex justify-between w-full p-5 bg-white rounded">
+        <div className="card flex-row justify-between w-full p-3 bg-base-200">
             <div className="flex items-center">
                 <span>Page Size</span>
-                <div className="flex space-x-2 ml-2">
+                <div className="join ml-2">
                     {[10, 20, 50, 100].map((e, i) => (
-                        <IconButton
-                            size="sm"
-                            variant={e === props.page_size ? "gradient" : "outlined"}
-                            onClick={() => props.setPageSize(e)}
-                            key={i}
-                        >
-                            <strong>{e}</strong>
-                        </IconButton>
+                        <button className={classNames({
+                            "join-item btn px-3": true,
+                            "btn-neutral": e == props.page_size
+                        })} onClick={() => props.setPageSize(e)} key={i}>
+                            {e}
+                        </button>
                     ))}
                 </div>
             </div>
-            <div>
-                <Typography color="gray" className="font-normal">
-                    Total {props.total_result} result found
-                </Typography>
+            <div className="flex items-center">
+                <p>Total <strong>{props.total_result}</strong> result found</p>
             </div>
             <div className="flex items-center gap-8">
-                <IconButton
-                    size="sm"
-                    variant="outlined"
-                    onClick={prev}
-                    disabled={props.page_no === 1}
-                >
-                    <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
-                </IconButton>
-                <Typography color="gray" className="font-normal">
-                    Page <strong className="text-gray-900">{props.page_no}</strong> of{" "}
-                    <strong className="text-gray-900">{props.total_pages}</strong>
-                </Typography>
-                <IconButton
-                    size="sm"
-                    variant="outlined"
-                    onClick={next}
-                    disabled={props.page_no === props.total_pages}
-                >
-                    <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
-                </IconButton>
+                <div className="join">
+                    <button className="join-item btn btn-neutral" onClick={prev} disabled={props.page_no === 1}>«</button>
+                    <div className="join-item flex items-center px-2">Page <strong className="px-1">{props.page_no}</strong> of <strong className="px-1">{props.total_pages}</strong></div>
+                    <button className="join-item btn btn-neutral" onClick={next} disabled={props.page_no === props.total_pages}>»</button>
+                </div>
             </div>
         </div>
     );

@@ -1,14 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
- 
-module.exports = withMT({
+
+export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["IBM Plex Sans", "sans-serif"],
-      body: ["IBM Plex Sans", "sans-serif"],
+      sans: ["Inter", "sans-serif"],
+      body: ["Inter", "sans-serif"],
     },
   },
-  plugins: [],
-});
+  plugins: [
+    require("daisyui")
+  ],
+  daisyui: {
+    themes: ["black", "dark", "retro", "cyberpunk", "valentine", "aqua", "light"],
+  }
+};

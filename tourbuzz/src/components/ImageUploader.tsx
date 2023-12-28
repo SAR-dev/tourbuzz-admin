@@ -1,7 +1,6 @@
 import { useQueryClient } from "react-query";
 import { createRef, useState } from "react";
 import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
-import { Button } from "@material-tailwind/react";
 import { toast } from "react-toastify";
 import { ImageType } from "@src/types";
 import { postImage } from "@src/api";
@@ -44,18 +43,27 @@ const ImageUploader = ({
                     setLoading(false)
                     toast.success("Image uploaded 💪")
                 }
-    
+
             })
         }
-        
+
     }
-    
+
     return (
         <>
-            <Button fullWidth className="flex items-center justify-center gap-3" color="blue" onClick={handleUploadClick} loading={loading} disabled={disabled}>
-                <CloudArrowUpIcon className="h-5 w-5" />
-                {title}
-            </Button>
+            <button className="btn btn-primary" onClick={handleUploadClick} disabled={disabled || loading}>
+                {loading ? (
+                    <>
+                        <span className="loading loading-spinner"></span>
+                        Uploading
+                    </>
+                ) : (
+                    <>
+                        <CloudArrowUpIcon className="h-5 w-5" />
+                        {title}
+                    </>
+                )}
+            </button>
             <input type="file" hidden multiple accept="image/*" ref={ref} onChange={uploadImage} />
         </>
     )

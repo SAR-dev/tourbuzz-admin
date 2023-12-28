@@ -7,6 +7,7 @@ import { Pagination } from "@src/components/Pagination";
 import { ImageType } from "@src/types";
 import { toast } from "react-toastify";
 import { deleteImageById, getImages } from "@src/api";
+import Modal from "@src/components/Modal";
 
 interface ImageData {
     data: {
@@ -53,10 +54,10 @@ const Gallery = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-between bg-white p-5 rounded">
+            <div className="card flex-row items-center justify-between p-5 bg-base-200">
                 <div className="text-left">
-                    <h1 className="font-semibold text-gray-900 text-2xl">Image Gallery</h1>
-                    <p className="mt-1.5 text-sm text-gray-500">Let's upload some images and store them for later! 🎉</p>
+                    <h1 className="font-semibold text-2xl">Image Gallery</h1>
+                    <p className="mt-1.5 text-sm">Let's upload some images and store them for later! 🎉</p>
                 </div>
 
                 <div className="flex flex-row items-center">
@@ -65,9 +66,9 @@ const Gallery = () => {
             </div>
             <div className="grid grid-cols-6 gap-5 my-5">
                 {data.data.data.map((e, i) => (
-                    <div className="cursor-pointer" onClick={() => setActiveImage(e)} key={i}>
+                    <div className="cursor-pointer bg-base-200 hover:bg-base-300 p-1 rounded" onClick={() => setActiveImage(e)} key={i}>
                         <img
-                            className="h-40 w-full max-w-full rounded-lg object-cover object-center shadow-xl shadow-blue-gray-900/5"
+                            className="h-40 w-full max-w-full rounded object-cover object-center shadow-xl shadow-blue-gray-900/5"
                             src={e.thumbnail_url}
                             alt="gallery-photo"
                         />
@@ -86,27 +87,24 @@ const Gallery = () => {
                     setPageNo={setPageNo}
                 />
             </div>
-            <Dialog
-                size="xl"
-                open={activeImage != null}
-                handler={handleOpen}
-                className="bg-transparent shadow-none"
-            >
-                <div className="flex flex-col items-center justify-center bg-white p-4 rounded w-fit mx-auto relative">
-                    <img className="h-96 rounded" src={activeImage?.source_url} alt="" />
-                    <div className="flex space-x-1 text-xs p-1 rounded mt-4 w-full">
-                        {activeImage && <CopyCode text={activeImage?.source_url} />}
-                        {activeImage && (
-                            <Button color="red" onClick={() => deleteImage(activeImage.id)} loading={loading}>
-                                Delete
-                            </Button>
-                        )}
-                        <Button className="ml-auto" color="blue" onClick={handleOpen} disabled={loading}>
-                            Close
-                        </Button>
+
+            {activeImage && (
+                <Modal title="Image Actions" open={activeImage != null} handleClose={handleOpen} footer={
+                    <div className="w-full flex space-between">
+                        <CopyCode text={activeImage?.source_url} />
+                        <div className="flex space-x-3 ml-3">
+                            <button className="btn btn-secondary" onClick={() => deleteImage(activeImage.id)}>Delete</button>
+                            <button className="btn" onClick={handleOpen}>Close</button>
+                        </div>
                     </div>
-                </div>
-            </Dialog>
+                }>
+                    <div className="flex flex-col space-y-3">
+                        <div className="min-h-32 w-full">
+                            <img className="h-96 rounded" src={activeImage?.source_url} alt="" />
+                        </div>
+                    </div>
+                </Modal>
+            )}
         </div>
     )
 }

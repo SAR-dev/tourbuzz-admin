@@ -2,12 +2,9 @@ import { PencilSquareIcon } from '@heroicons/react/16/solid'
 import { Button } from '@material-tailwind/react'
 import { getWriters } from '@src/api'
 import { Pagination } from '@src/components/Pagination'
-import { WriterCard } from '@src/components/WriterCard'
-import WriterUploader from '@src/components/WriterUploader'
-import { PageName, usePageStore } from '@src/store'
 import { WriterType } from '@src/types'
 import { useState } from 'react'
-import { useQuery, useQueryClient } from 'react-query'
+import { useQuery } from 'react-query';
 
 interface WriterData {
   data: {
@@ -24,7 +21,6 @@ interface WriterData {
 function Articles() {
   const [pageSize, setPageSize] = useState(20)
   const [pageNo, setPageNo] = useState(1)
-  const { setPage } = usePageStore()
 
   const { isLoading, error, data } = useQuery<WriterData, Error>(['writers', pageNo, pageSize], () =>
     getWriters({ pageNo, pageSize })
@@ -41,7 +37,7 @@ function Articles() {
         </div>
 
         <div className="flex flex-row items-center">
-          <Button className="flex items-center gap-3" color="blue" onClick={() => setPage(PageName.WriteArticle)}>
+          <Button className="flex items-center gap-3" color="blue">
             <PencilSquareIcon className="h-5 w-5" />
             Write a Article
           </Button>
