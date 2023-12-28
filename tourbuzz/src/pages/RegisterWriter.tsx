@@ -8,6 +8,7 @@ import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
+import DeleteButton from "@src/components/DeleteButton";
 
 interface RegisterWriterState {
     email: string
@@ -106,6 +107,7 @@ const RegisterWriter = () => {
                 )}
                 <div className="flex space-x-5 justify-end mt-5 pt-5 border-t border-base-300">
                     <button className="btn" onClick={() => navigate(-1)}>Go Back</button>
+                    <DeleteButton />
                     <button className="btn btn-info" onClick={uploadWriter} disabled={loading}>
                         {loading ? (
                             <>
