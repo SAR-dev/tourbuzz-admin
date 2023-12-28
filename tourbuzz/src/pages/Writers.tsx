@@ -36,7 +36,7 @@ function Writers() {
         title="Writers Profiles" 
         subtitle="Let's upload some images and store them for later! 🎉" 
         right={
-          <Link className="btn btn-info" to="/writers/register">
+          <Link className="btn btn-primary" to="/writers/register">
             <PencilSquareIcon className="h-5 w-5" />
             Create Writer Profile
           </Link>} 
