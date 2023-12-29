@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Modal from './Modal'
+import { TrashIcon } from '@heroicons/react/24/outline';
 
 const DeleteButton = ({ handleDelete, loading }: { handleDelete: () => void, loading: boolean }) => {
     const [seconds, setSeconds] = useState(10);
@@ -31,7 +32,10 @@ const DeleteButton = ({ handleDelete, loading }: { handleDelete: () => void, loa
                         Deleting
                     </>
                 ) : (
-                    "Delete"
+                    <>
+                        <TrashIcon className='h-5 w-5' />
+                        Delete
+                    </>
                 )}
             </button>
             <Modal width='30rem' maxWidth='30rem' open={show} handleClose={handleClose} title="Warning!!!" footer={

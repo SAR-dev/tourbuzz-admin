@@ -17,7 +17,6 @@ export enum ThemeName {
     Forest = "forest",
     Aqua = "aqua",
     Lofi = "lofi",
-    Pastel = "pastel",
     Fantasy = "fantasy",
     Wireframe = "wireframe",
     Black = "black",
@@ -27,12 +26,9 @@ export enum ThemeName {
     Autumn = "autumn",
     Business = "business",
     Acid = "acid",
-    Lemonade = "lemonade",
-    Night = "night",
     Coffee = "coffee",
     Winter = "winter",
     Dim = "dim",
-    Nord = "nord",
     Sunset = "sunset"
 }
 

@@ -1,6 +1,6 @@
 import Images from "./pages/Gallery";
 import { SideNav } from "./components/SideNav";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import Writers from "./pages/Writers";
 import Articles from "./pages/Articles";
 import SubmitArticle from "./pages/SubmitArticle";
@@ -14,12 +14,54 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/images" />} />
-          <Route path="/images" element={<SideNav><Images /></SideNav>} />
-          <Route path="/writers" element={<SideNav><Writers /></SideNav>} />
-          <Route path="/writers/register" element={<SideNav><RegisterWriter /></SideNav>} />
-          <Route path="/writers/update/:writerId" element={<SideNav><UpdateWriter /></SideNav>} />
-          <Route path="/articles" element={<SideNav><Articles /></SideNav>} />
-          <Route path="/articles/submit" element={<SideNav><SubmitArticle /></SideNav>} />
+          <Route
+            path="/images"
+            element={
+              <SideNav>
+                <Images />
+              </SideNav>
+            }
+          />
+          <Route
+            path="/writers"
+            element={
+              <SideNav>
+                <Writers />
+              </SideNav>
+            }
+          />
+          <Route
+            path="/writers/register"
+            element={
+              <SideNav>
+                <RegisterWriter />
+              </SideNav>
+            }
+          />
+          <Route
+            path="/writers/update/:writerId"
+            element={
+              <SideNav>
+                <UpdateWriter />
+              </SideNav>
+            }
+          />
+          <Route
+            path="/articles"
+            element={
+              <SideNav>
+                <Articles />
+              </SideNav>
+            }
+          />
+          <Route
+            path="/articles/submit"
+            element={
+              <SideNav>
+                <SubmitArticle />
+              </SideNav>
+            }
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer
@@ -33,6 +75,6 @@ const App = () => {
       />
     </>
   );
-}
+};
 
 export default App;

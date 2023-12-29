@@ -6,10 +6,10 @@ import { toast } from 'react-toastify'
 import Fuse from 'fuse.js'
 
 const fuseOptions = {
-	keys: [
-		"name",
-		"name"
-	],
+    keys: [
+        "name",
+        "name"
+    ],
     shouldSort: true,
     ignoreLocation: true
 };
@@ -25,10 +25,14 @@ const EmojiPicker = () => {
     const [search, setSearch] = useState("")
 
     useEffect(() => {
-      if(search.length >= 3){
-        setEmojiList(fuse.search(search).map(e => e.item))
-      }
+        if (search.length >= 3) {
+            setEmojiList(fuse.search(search).map(e => e.item))
+        }
     }, [search])
+
+    const findSimilar = (name: string) => {
+        setEmojiList(fuse.search(name).map(e => e.item))
+    }
 
     const copyToClipboard = async (text: string) => {
         await toast.promise(
@@ -58,8 +62,13 @@ const EmojiPicker = () => {
                     <input type="text" placeholder="Type at least 3 characters here" className="input input-bordered w-full max-w-xs" value={search} onChange={e => setSearch(e.target.value)} />
                     <div className="flex flex-wrap mt-2 p-2 bg-base-200 custom-scrollbar overflow-y-auto h-[25rem]">
                         {emojisList.map((e, i) => (
-                            <div className="h-16 w-16 border border-base-300 items-center justify-center card mr-2 mb-2 cursor-pointer hover:bg-base-100" onClick={() => copyToClipboard(e.emoji)} key={i}>
-                                <p className="text-4xl">{e.emoji}</p>
+                            <div className='mr-2 mb-2 border border-base-300 w-20' key={i}>
+                                <div className="h-16 w-20 items-center justify-center card cursor-pointer hover:bg-base-100" onClick={() => copyToClipboard(e.emoji)}>
+                                    <p className="text-4xl">{e.emoji}</p>
+                                </div>
+                                <div className="text-xs flex justify-center items-center cursor-pointer w-20 h-6 border-t border-base-300 hover:bg-base-100" onClick={() => findSimilar(e.name)}>
+                                    <div>Similar</div>
+                                </div>
                             </div>
                         ))}
                     </div>

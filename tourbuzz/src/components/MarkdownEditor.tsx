@@ -12,7 +12,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
     return (
         <div className="border border-base-300 w-full">
             <div className="grid grid-cols-2 gap-1 divide-x divide-base-300">
-                <div>
+                <div className='flex'>
                     <textarea
                         className="h-[30rem] custom-scrollbar overflow-y-auto textarea placeholder:text-base text-base w-full resize-none"
                         value={props.value}
@@ -21,7 +21,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     />
                 </div>
                 <div className="h-[30rem] w-full custom-scrollbar overflow-y-auto bg-base-100 px-3 py-2">
-                    <div className='prose prose-h1:text-2xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-xl prose-h1:font-bold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-semibold'>
+                    <div className='markdown'>
                         <Markdown>
                             {props.value}
                         </Markdown>

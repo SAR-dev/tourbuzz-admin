@@ -1,4 +1,4 @@
-import { UserCircleIcon } from "@heroicons/react/24/solid";
+import { ArrowLeftIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { ImageType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
@@ -20,21 +20,19 @@ interface RegisterWriterState {
     website: string
 }
 
-const initialState: RegisterWriterState = {
-    email: "",
-    name: "",
-    username: "",
-    about: "",
-    avatar: null,
-    phone_no: "",
-    website: ""
-}
-
 const RegisterWriter = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const queryClient = useQueryClient()
-    const [data, setData] = useState<RegisterWriterState>({ ...initialState })
+    const [data, setData] = useState<RegisterWriterState>({
+        email: "",
+        name: "",
+        username: "",
+        about: "",
+        avatar: null,
+        phone_no: "",
+        website: ""
+    })
     const [error, setError] = useState("")
 
     const uploadWriter = async () => {
@@ -61,7 +59,6 @@ const RegisterWriter = () => {
                 toast.success("Writer Registered 💪")
                 queryClient.invalidateQueries("writers")
                 setLoading(false)
-                setData({ ...initialState })
                 navigate("/writers")
             }
 
@@ -73,13 +70,13 @@ const RegisterWriter = () => {
     }
 
     return (
-        <div>
+        <div className="grid grid-cols-1 gap-5">
             <PageHeader
                 title="Writers Profiles"
                 subtitle="Let's upload some images and store them for later! 🎉"
             />
 
-            <div className="w-[70rem] my-5">
+            <div className="w-[70rem] bg-base-200 card p-5">
                 <div className="grid grid-cols-2 gap-5">
                     <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
                     <input value={data.phone_no} onChange={e => setData({ ...data, phone_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
@@ -90,7 +87,7 @@ const RegisterWriter = () => {
                         <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={10} placeholder="About" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
                     </div>
                     <div>
-                        <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center mb-5">
+                        <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-5">
                             {data.avatar ? (
                                 <img className="h-64 w-full object-contain object-center" src={data.avatar.source_url} alt="" />
                             ) : (
@@ -100,14 +97,21 @@ const RegisterWriter = () => {
                         <ImageUploader title="Upload Avatar" setImage={setAvatar} />
                     </div>
                 </div>
-                {error.length > 1 && (
-                    <div className="flex space-x-5 justify-end mt-5 pt-5 border-t border-base-300">
-                        <ErrorAlert error={error} setError={setError} />
-                    </div>
-                )}
-                <div className="flex space-x-5 justify-end mt-5 pt-5 border-t border-base-300">
-                    <button className="btn" onClick={() => navigate(-1)}>Go Back</button>
-                    <button className="btn btn-info" onClick={uploadWriter} disabled={loading}>
+            </div>
+
+            {error.length > 1 && (
+                <div className="w-[70rem]">
+                    <ErrorAlert error={error} setError={setError} />
+                </div>
+            )}
+
+            <div className="w-[70rem] bg-base-200 card p-5">
+                <div className="flex justify-between">
+                    <button className="btn btn-outline" onClick={() => navigate(-1)}>
+                        <ArrowLeftIcon className='h-5 w-5' />
+                        Go Back
+                    </button>
+                    <button className="btn btn-info w-48" onClick={uploadWriter} disabled={loading}>
                         {loading ? (
                             <>
                                 <span className="loading loading-spinner"></span>

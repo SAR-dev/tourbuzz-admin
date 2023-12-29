@@ -1,5 +1,5 @@
 import { PhotoIcon } from "@heroicons/react/24/outline"
-import { TrashIcon } from "@heroicons/react/24/solid"
+import { ArrowLeftIcon, TrashIcon } from "@heroicons/react/24/solid"
 import ImageUploader from "@src/components/ImageUploader"
 import { ImageType, WriterType, parseErrorMessage } from "@src/constants/types"
 import { useState } from "react"
@@ -10,6 +10,7 @@ import { toast } from "react-toastify"
 import { useQueryClient } from "react-query"
 import PageHeader from "@src/components/PageHeader"
 import MarkdownEditor from "@src/components/MarkdownEditor"
+import { useNavigate } from "react-router-dom"
 
 interface ArticleCreateState {
   title: string
@@ -21,16 +22,6 @@ interface ArticleCreateState {
   writer_id: number | null
 }
 
-const initialArticleCreateState: ArticleCreateState = {
-  title: "",
-  slug: "",
-  subtitle: "",
-  summary: "",
-  md_desc: "",
-  images: [],
-  writer_id: null
-}
-
 function generateSlug(title: string) {
   return title.trim()                     // Remove leading and trailing spaces
     .toLowerCase()                       // Convert to lowercase
@@ -39,28 +30,19 @@ function generateSlug(title: string) {
     .replace(/^-+|-+$/g, '');            // Remove leading and trailing hyphens
 }
 
-const title = {
-  name: 'title3',
-  keyCommand: 'title3',
-  buttonProps: { 'aria-label': 'Insert title' },
-  icon: (
-    <svg width="12" height="12" viewBox="0 0 520 520">
-      <path fill="currentColor" d="M15.7083333,468 C7.03242448,468 0,462.030833 0,454.666667 L0,421.333333 C0,413.969167 7.03242448,408 15.7083333,408 L361.291667,408 C369.967576,408 377,413.969167 377,421.333333 L377,454.666667 C377,462.030833 369.967576,468 361.291667,468 L15.7083333,468 Z M21.6666667,366 C9.69989583,366 0,359.831861 0,352.222222 L0,317.777778 C0,310.168139 9.69989583,304 21.6666667,304 L498.333333,304 C510.300104,304 520,310.168139 520,317.777778 L520,352.222222 C520,359.831861 510.300104,366 498.333333,366 L21.6666667,366 Z M136.835938,64 L136.835937,126 L107.25,126 L107.25,251 L40.75,251 L40.75,126 L-5.68434189e-14,126 L-5.68434189e-14,64 L136.835938,64 Z M212,64 L212,251 L161.648438,251 L161.648438,64 L212,64 Z M378,64 L378,126 L343.25,126 L343.25,251 L281.75,251 L281.75,126 L238,126 L238,64 L378,64 Z M449.047619,189.550781 L520,189.550781 L520,251 L405,251 L405,64 L449.047619,64 L449.047619,189.550781 Z" />
-    </svg>
-  ),
-  execute: (state: { selectedText: any }, api: { replaceSelection: (arg0: string) => void }) => {
-    let modifyText = `### ${state.selectedText}\n`;
-    if (!state.selectedText) {
-      modifyText = `### `;
-    }
-    api.replaceSelection(modifyText);
-  },
-};
-
 const SubmitArticle = () => {
   const queryClient = useQueryClient()
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-  const [data, setData] = useState<ArticleCreateState>({ ...initialArticleCreateState })
+  const [data, setData] = useState<ArticleCreateState>({
+    title: "",
+    slug: "",
+    subtitle: "",
+    summary: "",
+    md_desc: "",
+    images: [],
+    writer_id: null
+  })
   const [error, setError] = useState("")
   const [writer, setWriter] = useState<WriterType | null>(null)
 
@@ -104,22 +86,20 @@ const SubmitArticle = () => {
         toast.success("Article Submitted 💪")
         queryClient.invalidateQueries("articles")
         setLoading(false)
-        setData({ ...initialArticleCreateState })
-        setWriter(null)
-        // setPage(PageName.Articles)
+        navigate("/articles")
       }
 
     })
   }
 
   return (
-    <div>
-      <PageHeader 
-        title="Write a article" 
-        subtitle="Before writing the article please review the contents carefully 🧐" 
+    <div className="grid grid-cols-1 gap-5">
+      <PageHeader
+        title="Write a article"
+        subtitle="Before writing the article please review the contents carefully 🧐"
       />
 
-      <div className="grid grid-cols-2 gap-5 p-5 card bg-base-200 my-5">
+      <div className="grid grid-cols-2 gap-5 p-5 card bg-base-200">
         <div>
           <div className="grid grid-cols-4 gap-3">
             {data.images.map((e, i) => (
@@ -148,26 +128,45 @@ const SubmitArticle = () => {
         </div>
       </div>
 
-      <div className="p-5 card bg-base-200 mb-5">
-        <MarkdownEditor 
+      <div className="p-5 card bg-base-200">
+        <MarkdownEditor
           value={data.md_desc}
           setValue={setMdDesc}
           placeholder="Start writing details in Markdown"
-          />
+        />
       </div>
 
-      <div className="p-5 bg-white rounded mb-5 grid grid-cols-2 gap-5">
+      {error.length > 0 && (
+        <div>
+          <ErrorAlert error={error} setError={setError} />
+        </div>
+      )}
 
-        {error.length > 0 && (
-          <div className="col-span-2">
-            <ErrorAlert error={error} setError={setError} />
+      <div className="p-5 card bg-base-200">
+        <div className="flex justify-between">
+          <div className="flex space-x-5">
+            <button className="btn btn-outline" onClick={() => navigate(-1)}>
+              <ArrowLeftIcon className='h-5 w-5' />
+              Go Back
+            </button>
+            <WriterSelect writer={writer} setWriter={setWriter} />
           </div>
-        )}
-        <WriterSelect writer={writer} setWriter={setWriter} />
-        {/* <Button className="flex justify-center" fullWidth loading={loading} onClick={uploadArticle}>
-          Submit
-        </Button> */}
+
+          <div>
+            <button className="btn btn-info w-48" onClick={uploadArticle} disabled={loading}>
+              {loading ? (
+                <>
+                  <span className="loading loading-spinner"></span>
+                  Submitting
+                </>
+              ) : (
+                "Submit"
+              )}
+            </button>
+          </div>
+        </div>
       </div>
+      
     </div>
   )
 }
