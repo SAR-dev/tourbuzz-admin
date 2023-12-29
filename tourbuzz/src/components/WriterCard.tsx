@@ -4,9 +4,10 @@ import { AtSymbolIcon, CalendarIcon, LinkIcon, PhoneIcon } from "@heroicons/reac
 import { timestampToYYYYMMDD } from "@src/functions/helpers";
 import { Link } from "react-router-dom";
 
-export function WriterCard({ writer }: { writer: WriterType }) {
+const WriterCard = ({ writer }: { writer: WriterType }) => {
     return (
-        <Link to={`/writers/update/${writer.id}`} className="card card-side w-full h-full cursor-pointer bg-base-200 hover:hover:bg-base-300 p-3">
+        <div className="card card-side w-full h-full cursor-pointer bg-base-200 p-3 group relative">
+            <Link to={`/writers/update/${writer.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute top-0 right-0 m-3">Edit</Link>
             <div className="grid grid-cols-1 gap-3">
                 <div className="flex">
                     <img className="card h-36 w-36" src={writer.avatar.thumbnail_url} alt="avatar" />
@@ -36,6 +37,8 @@ export function WriterCard({ writer }: { writer: WriterType }) {
                     &quot;<TruncateText text={writer.about} maxLength={200} />&quot;
                 </div>
             </div>
-        </Link>
+        </div>
     );
 }
+
+export default WriterCard;

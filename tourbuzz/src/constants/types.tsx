@@ -22,6 +22,21 @@ export interface WriterType {
     avatar: ImageType;
 }
 
+export interface ArticleType {
+    id: number
+    writers_id: number
+    title: string
+    slug: string
+    subtitle: string
+    summary: string
+    md_desc: string
+    image_ids: string
+    created_at: string
+    updated_at: string
+    writer: WriterType
+    images: ImageType[]
+}
+
 export interface CreateWriterType {
     images_id: number,
     email: string,

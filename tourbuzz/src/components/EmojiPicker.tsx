@@ -7,9 +7,8 @@ import Fuse from 'fuse.js'
 
 const fuseOptions = {
 	keys: [
-		"type",
 		"name",
-        "description"
+		"name"
 	],
     shouldSort: true,
     ignoreLocation: true
@@ -30,8 +29,6 @@ const EmojiPicker = () => {
         setEmojiList(fuse.search(search).map(e => e.item))
       }
     }, [search])
-    
-    
 
     const copyToClipboard = async (text: string) => {
         await toast.promise(
@@ -49,7 +46,7 @@ const EmojiPicker = () => {
                 <FaceSmileIcon className='h-5 w-5' />
                 Emoji
             </button>
-            <Modal title="Emoji Picker" open={open} handleClose={handleOpen} width='60rem' height='60rem' maxWidth='60rem' footer={
+            <Modal title="Emoji Picker" open={open} handleClose={handleOpen} width='60rem' height='40rem' maxWidth='60rem' footer={
                 <div className='flex items-center w-full'>
                     <p>👆 Click emoji to copy</p>
                     <button className="btn ml-auto" onClick={handleOpen}>

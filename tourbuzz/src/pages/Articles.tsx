@@ -1,16 +1,17 @@
-import { getWriters } from '@src/functions/api'
+import { getArticles, getWriters } from '@src/functions/api'
 import { Pagination } from '@src/components/Pagination'
-import { WriterType } from '@src/constants/types'
+import { ArticleType, WriterType } from '@src/constants/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 import PageHeader from '@src/components/PageHeader';
 import { Link } from 'react-router-dom';
 import { PencilSquareIcon } from '@heroicons/react/16/solid';
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
+import ArticleCard from '@src/components/ArticleCard';
 
-interface WriterData {
+interface ArticleData {
   data: {
-    data: WriterType[]
+    data: ArticleType[]
     page_no: number
     page_size: number
     has_prev: boolean
@@ -24,28 +25,28 @@ function Articles() {
   const [pageSize, setPageSize] = useState(20)
   const [pageNo, setPageNo] = useState(1)
 
-  const { isLoading, error, data } = useQuery<WriterData, Error>(['writers', pageNo, pageSize], () =>
-    getWriters({ pageNo, pageSize })
+  const { isLoading, error, data } = useQuery<ArticleData, Error>(['articles', pageNo, pageSize], () =>
+    getArticles({ pageNo, pageSize })
   )
 
   if (isLoading || error || !data) return;
 
   return (
     <div>
-      <PageHeader 
-        title="Articles Collection" 
-        subtitle="Let's upload some images and store them for later! 🎉" 
+      <PageHeader
+        title="Articles Collection"
+        subtitle="Let's upload some images and store them for later! 🎉"
         right={
           <Link className="btn btn-primary" to="/articles/submit">
             <PaperAirplaneIcon className="h-5 w-5" />
             Submit New Article
-          </Link>} 
+          </Link>}
       />
 
       <div className='grid grid-cols-2 gap-5 my-5'>
-        {/* {data.data.data.map((e, i) => (
-          <WriterCard writer={e} key={i} />
-        ))} */}
+        {data.data.data.map((e, i) => (
+          <ArticleCard article={e} key={i} />
+        ))}
       </div>
 
       <div>

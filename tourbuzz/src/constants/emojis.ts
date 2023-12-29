@@ -1,9776 +1,10904 @@
 export interface EmojiType {
-  name: string;
-  type: string;
+  id: number;
+  unicode: string;
   emoji: string;
-  description: string;
+  name: string;
 }
 export const emojis: EmojiType[] = [
   {
-    name: "😀 Grinning Face",
-    type: "Smileys & People",
-    emoji: "😀",
-    description: "Grinning Face"
+    "id": 1,
+    "emoji": "😀",
+    "unicode": "U+1F600",
+    "name": "grinning face"
   },
   {
-    name: "😁 Beaming Face With Smiling Eyes",
-    type: "Smileys & People",
-    emoji: "😁",
-    description: "Beaming Face With Smiling Eyes"
+    "id": 2,
+    "emoji": "😃",
+    "unicode": "U+1F603",
+    "name": "grinning face with big eyes"
   },
   {
-    name: "😂 Face With Tears of Joy",
-    type: "Smileys & People",
-    emoji: "😂",
-    description: "Face With Tears of Joy"
+    "id": 3,
+    "emoji": "😄",
+    "unicode": "U+1F604",
+    "name": "grinning face with smiling eyes"
   },
   {
-    name: "🤣 Rolling on the Floor Laughing",
-    type: "Smileys & People",
-    emoji: "🤣",
-    description: "Rolling on the Floor Laughing"
+    "id": 4,
+    "emoji": "😁",
+    "unicode": "U+1F601",
+    "name": "beaming face with smiling eyes"
   },
   {
-    name: "😃 Grinning Face With Big Eyes",
-    type: "Smileys & People",
-    emoji: "😃",
-    description: "Grinning Face With Big Eyes"
+    "id": 5,
+    "emoji": "😆",
+    "unicode": "U+1F606",
+    "name": "grinning squinting face"
   },
   {
-    name: "😄 Grinning Face With Smiling Eyes",
-    type: "Smileys & People",
-    emoji: "😄",
-    description: "Grinning Face With Smiling Eyes"
+    "id": 6,
+    "emoji": "😅",
+    "unicode": "U+1F605",
+    "name": "grinning face with sweat"
   },
   {
-    name: "😅 Grinning Face With Sweat",
-    type: "Smileys & People",
-    emoji: "😅",
-    description: "Grinning Face With Sweat"
+    "id": 7,
+    "emoji": "🤣",
+    "unicode": "U+1F923",
+    "name": "rolling on the floor laughing"
   },
   {
-    name: "😆 Grinning Squinting Face",
-    type: "Smileys & People",
-    emoji: "😆",
-    description: "Grinning Squinting Face"
+    "id": 8,
+    "emoji": "😂",
+    "unicode": "U+1F602",
+    "name": "face with tears of joy"
   },
   {
-    name: "😉 Winking Face",
-    type: "Smileys & People",
-    emoji: "😉",
-    description: "Winking Face"
+    "id": 9,
+    "emoji": "🙂",
+    "unicode": "U+1F642",
+    "name": "slightly smiling face"
   },
   {
-    name: "😊 Smiling Face With Smiling Eyes",
-    type: "Smileys & People",
-    emoji: "😊",
-    description: "Smiling Face With Smiling Eyes"
+    "id": 10,
+    "emoji": "🙃",
+    "unicode": "U+1F643",
+    "name": "upside-down face"
   },
   {
-    name: "😋 Face Savoring Food",
-    type: "Smileys & People",
-    emoji: "😋",
-    description: "Face Savoring Food"
+    "id": 11,
+    "emoji": "😉",
+    "unicode": "U+1F609",
+    "name": "winking face"
   },
   {
-    name: "😎 Smiling Face With Sunglasses",
-    type: "Smileys & People",
-    emoji: "😎",
-    description: "Smiling Face With Sunglasses"
+    "id": 12,
+    "emoji": "😊",
+    "unicode": "U+1F60A",
+    "name": "smiling face with smiling eyes"
   },
   {
-    name: "😍 Smiling Face With Heart-Eyes",
-    type: "Smileys & People",
-    emoji: "😍",
-    description: "Smiling Face With Heart-Eyes"
+    "id": 13,
+    "emoji": "😇",
+    "unicode": "U+1F607",
+    "name": "smiling face with halo"
   },
   {
-    name: "😘 Face Blowing a Kiss",
-    type: "Smileys & People",
-    emoji: "😘",
-    description: "Face Blowing a Kiss"
+    "id": 14,
+    "emoji": "🥰",
+    "unicode": "U+1F970",
+    "name": "smiling face with hearts"
   },
   {
-    name: "🥰 Smiling Face With 3 Hearts",
-    type: "Smileys & People",
-    emoji: "🥰",
-    description: "Smiling Face With 3 Hearts"
+    "id": 15,
+    "emoji": "😍",
+    "unicode": "U+1F60D",
+    "name": "smiling face with heart-eyes"
   },
   {
-    name: "😗 Kissing Face",
-    type: "Smileys & People",
-    emoji: "😗",
-    description: "Kissing Face"
+    "id": 16,
+    "emoji": "🤩",
+    "unicode": "U+1F929",
+    "name": "star-struck"
   },
   {
-    name: "😙 Kissing Face With Smiling Eyes",
-    type: "Smileys & People",
-    emoji: "😙",
-    description: "Kissing Face With Smiling Eyes"
+    "id": 17,
+    "emoji": "😘",
+    "unicode": "U+1F618",
+    "name": "face blowing a kiss"
   },
   {
-    name: "😚 Kissing Face With Closed Eyes",
-    type: "Smileys & People",
-    emoji: "😚",
-    description: "Kissing Face With Closed Eyes"
+    "id": 18,
+    "emoji": "😗",
+    "unicode": "U+1F617",
+    "name": "kissing face"
   },
   {
-    name: "☺ Smiling Face",
-    type: "Smileys & People",
-    emoji: "☺",
-    description: "Smiling Face"
+    "id": 19,
+    "emoji": "☺",
+    "unicode": "U+263A",
+    "name": "smiling face"
   },
   {
-    name: "🙂 Slightly Smiling Face",
-    type: "Smileys & People",
-    emoji: "🙂",
-    description: "Slightly Smiling Face"
+    "id": 20,
+    "emoji": "😚",
+    "unicode": "U+1F61A",
+    "name": "kissing face with closed eyes"
   },
   {
-    name: "🤗 Hugging Face",
-    type: "Smileys & People",
-    emoji: "🤗",
-    description: "Hugging Face"
+    "id": 21,
+    "emoji": "😙",
+    "unicode": "U+1F619",
+    "name": "kissing face with smiling eyes"
   },
   {
-    name: "🤩 Star-Struck",
-    type: "Smileys & People",
-    emoji: "🤩",
-    description: "Star-Struck"
+    "id": 22,
+    "emoji": "🥲",
+    "unicode": "U+1F972",
+    "name": "smiling face with tear"
   },
   {
-    name: "🤔 Thinking Face",
-    type: "Smileys & People",
-    emoji: "🤔",
-    description: "Thinking Face"
+    "id": 23,
+    "emoji": "😋",
+    "unicode": "U+1F60B",
+    "name": "face savoring food"
   },
   {
-    name: "🤨 Face With Raised Eyebrow",
-    type: "Smileys & People",
-    emoji: "🤨",
-    description: "Face With Raised Eyebrow"
+    "id": 24,
+    "emoji": "😛",
+    "unicode": "U+1F61B",
+    "name": "face with tongue"
   },
   {
-    name: "😐 Neutral Face",
-    type: "Smileys & People",
-    emoji: "😐",
-    description: "Neutral Face"
+    "id": 25,
+    "emoji": "😜",
+    "unicode": "U+1F61C",
+    "name": "winking face with tongue"
   },
   {
-    name: "😑 Expressionless Face",
-    type: "Smileys & People",
-    emoji: "😑",
-    description: "Expressionless Face"
+    "id": 26,
+    "emoji": "🤪",
+    "unicode": "U+1F92A",
+    "name": "zany face"
   },
   {
-    name: "😶 Face Without Mouth",
-    type: "Smileys & People",
-    emoji: "😶",
-    description: "Face Without Mouth"
+    "id": 27,
+    "emoji": "😝",
+    "unicode": "U+1F61D",
+    "name": "squinting face with tongue"
   },
   {
-    name: "🙄 Face With Rolling Eyes",
-    type: "Smileys & People",
-    emoji: "🙄",
-    description: "Face With Rolling Eyes"
+    "id": 28,
+    "emoji": "🤑",
+    "unicode": "U+1F911",
+    "name": "money-mouth face"
   },
   {
-    name: "😏 Smirking Face",
-    type: "Smileys & People",
-    emoji: "😏",
-    description: "Smirking Face"
+    "id": 29,
+    "emoji": "🤗",
+    "unicode": "U+1F917",
+    "name": "hugging face"
   },
   {
-    name: "😣 Persevering Face",
-    type: "Smileys & People",
-    emoji: "😣",
-    description: "Persevering Face"
+    "id": 30,
+    "emoji": "🤭",
+    "unicode": "U+1F92D",
+    "name": "face with hand over mouth"
   },
   {
-    name: "😥 Sad but Relieved Face",
-    type: "Smileys & People",
-    emoji: "😥",
-    description: "Sad but Relieved Face"
+    "id": 31,
+    "emoji": "🤫",
+    "unicode": "U+1F92B",
+    "name": "shushing face"
   },
   {
-    name: "😮 Face With Open Mouth",
-    type: "Smileys & People",
-    emoji: "😮",
-    description: "Face With Open Mouth"
+    "id": 32,
+    "emoji": "🤔",
+    "unicode": "U+1F914",
+    "name": "thinking face"
   },
   {
-    name: "🤐 Zipper-Mouth Face",
-    type: "Smileys & People",
-    emoji: "🤐",
-    description: "Zipper-Mouth Face"
+    "id": 33,
+    "emoji": "🤐",
+    "unicode": "U+1F910",
+    "name": "zipper-mouth face"
   },
   {
-    name: "😯 Hushed Face",
-    type: "Smileys & People",
-    emoji: "😯",
-    description: "Hushed Face"
+    "id": 34,
+    "emoji": "🤨",
+    "unicode": "U+1F928",
+    "name": "face with raised eyebrow"
   },
   {
-    name: "😪 Sleepy Face",
-    type: "Smileys & People",
-    emoji: "😪",
-    description: "Sleepy Face"
+    "id": 35,
+    "emoji": "😐",
+    "unicode": "U+1F610",
+    "name": "neutral face"
   },
   {
-    name: "😫 Tired Face",
-    type: "Smileys & People",
-    emoji: "😫",
-    description: "Tired Face"
+    "id": 36,
+    "emoji": "😑",
+    "unicode": "U+1F611",
+    "name": "expressionless face"
   },
   {
-    name: "😴 Sleeping Face",
-    type: "Smileys & People",
-    emoji: "😴",
-    description: "Sleeping Face"
+    "id": 37,
+    "emoji": "😶",
+    "unicode": "U+1F636",
+    "name": "face without mouth"
   },
   {
-    name: "😌 Relieved Face",
-    type: "Smileys & People",
-    emoji: "😌",
-    description: "Relieved Face"
+    "id": 38,
+    "emoji": "😶‍🌫️",
+    "unicode": "U+1F636 U+200D U+1F32B U+FE0F",
+    "name": "⊛ face in clouds"
   },
   {
-    name: "😛 Face With Tongue",
-    type: "Smileys & People",
-    emoji: "😛",
-    description: "Face With Tongue"
+    "id": 39,
+    "emoji": "😏",
+    "unicode": "U+1F60F",
+    "name": "smirking face"
   },
   {
-    name: "😜 Winking Face With Tongue",
-    type: "Smileys & People",
-    emoji: "😜",
-    description: "Winking Face With Tongue"
+    "id": 40,
+    "emoji": "😒",
+    "unicode": "U+1F612",
+    "name": "unamused face"
   },
   {
-    name: "😝 Squinting Face With Tongue",
-    type: "Smileys & People",
-    emoji: "😝",
-    description: "Squinting Face With Tongue"
+    "id": 41,
+    "emoji": "🙄",
+    "unicode": "U+1F644",
+    "name": "face with rolling eyes"
   },
   {
-    name: "🤤 Drooling Face",
-    type: "Smileys & People",
-    emoji: "🤤",
-    description: "Drooling Face"
+    "id": 42,
+    "emoji": "😬",
+    "unicode": "U+1F62C",
+    "name": "grimacing face"
   },
   {
-    name: "😒 Unamused Face",
-    type: "Smileys & People",
-    emoji: "😒",
-    description: "Unamused Face"
+    "id": 43,
+    "emoji": "😮‍💨",
+    "unicode": "U+1F62E U+200D U+1F4A8",
+    "name": "⊛ face exhaling"
   },
   {
-    name: "😓 Downcast Face With Sweat",
-    type: "Smileys & People",
-    emoji: "😓",
-    description: "Downcast Face With Sweat"
+    "id": 44,
+    "emoji": "🤥",
+    "unicode": "U+1F925",
+    "name": "lying face"
   },
   {
-    name: "😔 Pensive Face",
-    type: "Smileys & People",
-    emoji: "😔",
-    description: "Pensive Face"
+    "id": 45,
+    "emoji": "😌",
+    "unicode": "U+1F60C",
+    "name": "relieved face"
   },
   {
-    name: "😕 Confused Face",
-    type: "Smileys & People",
-    emoji: "😕",
-    description: "Confused Face"
+    "id": 46,
+    "emoji": "😔",
+    "unicode": "U+1F614",
+    "name": "pensive face"
   },
   {
-    name: "🙃 Upside-Down Face",
-    type: "Smileys & People",
-    emoji: "🙃",
-    description: "Upside-Down Face"
+    "id": 47,
+    "emoji": "😪",
+    "unicode": "U+1F62A",
+    "name": "sleepy face"
   },
   {
-    name: "🤑 Money-Mouth Face",
-    type: "Smileys & People",
-    emoji: "🤑",
-    description: "Money-Mouth Face"
+    "id": 48,
+    "emoji": "🤤",
+    "unicode": "U+1F924",
+    "name": "drooling face"
   },
   {
-    name: "😲 Astonished Face",
-    type: "Smileys & People",
-    emoji: "😲",
-    description: "Astonished Face"
+    "id": 49,
+    "emoji": "😴",
+    "unicode": "U+1F634",
+    "name": "sleeping face"
   },
   {
-    name: "☹ Frowning Face",
-    type: "Smileys & People",
-    emoji: "☹",
-    description: "Frowning Face"
+    "id": 50,
+    "emoji": "😷",
+    "unicode": "U+1F637",
+    "name": "face with medical mask"
   },
   {
-    name: "🙁 Slightly Frowning Face",
-    type: "Smileys & People",
-    emoji: "🙁",
-    description: "Slightly Frowning Face"
+    "id": 51,
+    "emoji": "🤒",
+    "unicode": "U+1F912",
+    "name": "face with thermometer"
   },
   {
-    name: "😖 Confounded Face",
-    type: "Smileys & People",
-    emoji: "😖",
-    description: "Confounded Face"
+    "id": 52,
+    "emoji": "🤕",
+    "unicode": "U+1F915",
+    "name": "face with head-bandage"
   },
   {
-    name: "😞 Disappointed Face",
-    type: "Smileys & People",
-    emoji: "😞",
-    description: "Disappointed Face"
+    "id": 53,
+    "emoji": "🤢",
+    "unicode": "U+1F922",
+    "name": "nauseated face"
   },
   {
-    name: "😟 Worried Face",
-    type: "Smileys & People",
-    emoji: "😟",
-    description: "Worried Face"
+    "id": 54,
+    "emoji": "🤮",
+    "unicode": "U+1F92E",
+    "name": "face vomiting"
   },
   {
-    name: "😤 Face With Steam From Nose",
-    type: "Smileys & People",
-    emoji: "😤",
-    description: "Face With Steam From Nose"
+    "id": 55,
+    "emoji": "🤧",
+    "unicode": "U+1F927",
+    "name": "sneezing face"
   },
   {
-    name: "😢 Crying Face",
-    type: "Smileys & People",
-    emoji: "😢",
-    description: "Crying Face"
+    "id": 56,
+    "emoji": "🥵",
+    "unicode": "U+1F975",
+    "name": "hot face"
   },
   {
-    name: "😭 Loudly Crying Face",
-    type: "Smileys & People",
-    emoji: "😭",
-    description: "Loudly Crying Face"
+    "id": 57,
+    "emoji": "🥶",
+    "unicode": "U+1F976",
+    "name": "cold face"
   },
   {
-    name: "😦 Frowning Face With Open Mouth",
-    type: "Smileys & People",
-    emoji: "😦",
-    description: "Frowning Face With Open Mouth"
+    "id": 58,
+    "emoji": "🥴",
+    "unicode": "U+1F974",
+    "name": "woozy face"
   },
   {
-    name: "😧 Anguished Face",
-    type: "Smileys & People",
-    emoji: "😧",
-    description: "Anguished Face"
+    "id": 59,
+    "emoji": "😵",
+    "unicode": "U+1F635",
+    "name": "knocked-out face"
   },
   {
-    name: "😨 Fearful Face",
-    type: "Smileys & People",
-    emoji: "😨",
-    description: "Fearful Face"
+    "id": 60,
+    "emoji": "😵‍💫",
+    "unicode": "U+1F635 U+200D U+1F4AB",
+    "name": "⊛ face with spiral eyes"
   },
   {
-    name: "😩 Weary Face",
-    type: "Smileys & People",
-    emoji: "😩",
-    description: "Weary Face"
+    "id": 61,
+    "emoji": "🤯",
+    "unicode": "U+1F92F",
+    "name": "exploding head"
   },
   {
-    name: "🤯 Exploding Head",
-    type: "Smileys & People",
-    emoji: "🤯",
-    description: "Exploding Head"
+    "id": 62,
+    "emoji": "🤠",
+    "unicode": "U+1F920",
+    "name": "cowboy hat face"
   },
   {
-    name: "😬 Grimacing Face",
-    type: "Smileys & People",
-    emoji: "😬",
-    description: "Grimacing Face"
+    "id": 63,
+    "emoji": "🥳",
+    "unicode": "U+1F973",
+    "name": "partying face"
   },
   {
-    name: "😰 Anxious Face With Sweat",
-    type: "Smileys & People",
-    emoji: "😰",
-    description: "Anxious Face With Sweat"
+    "id": 64,
+    "emoji": "🥸",
+    "unicode": "U+1F978",
+    "name": "disguised face"
   },
   {
-    name: "😱 Face Screaming in Fear",
-    type: "Smileys & People",
-    emoji: "😱",
-    description: "Face Screaming in Fear"
+    "id": 65,
+    "emoji": "😎",
+    "unicode": "U+1F60E",
+    "name": "smiling face with sunglasses"
   },
   {
-    name: "🥵 Hot Face",
-    type: "Smileys & People",
-    emoji: "🥵",
-    description: "Hot Face"
+    "id": 66,
+    "emoji": "🤓",
+    "unicode": "U+1F913",
+    "name": "nerd face"
   },
   {
-    name: "🥶 Cold Face",
-    type: "Smileys & People",
-    emoji: "🥶",
-    description: "Cold Face"
+    "id": 67,
+    "emoji": "🧐",
+    "unicode": "U+1F9D0",
+    "name": "face with monocle"
   },
   {
-    name: "😳 Flushed Face",
-    type: "Smileys & People",
-    emoji: "😳",
-    description: "Flushed Face"
+    "id": 68,
+    "emoji": "😕",
+    "unicode": "U+1F615",
+    "name": "confused face"
   },
   {
-    name: "🤪 Zany Face",
-    type: "Smileys & People",
-    emoji: "🤪",
-    description: "Zany Face"
+    "id": 69,
+    "emoji": "😟",
+    "unicode": "U+1F61F",
+    "name": "worried face"
   },
   {
-    name: "😵 Dizzy Face",
-    type: "Smileys & People",
-    emoji: "😵",
-    description: "Dizzy Face"
+    "id": 70,
+    "emoji": "🙁",
+    "unicode": "U+1F641",
+    "name": "slightly frowning face"
   },
   {
-    name: "😡 Pouting Face",
-    type: "Smileys & People",
-    emoji: "😡",
-    description: "Pouting Face"
+    "id": 71,
+    "emoji": "☹",
+    "unicode": "U+2639",
+    "name": "frowning face"
   },
   {
-    name: "😠 Angry Face",
-    type: "Smileys & People",
-    emoji: "😠",
-    description: "Angry Face"
+    "id": 72,
+    "emoji": "😮",
+    "unicode": "U+1F62E",
+    "name": "face with open mouth"
   },
   {
-    name: "🤬 Face With Symbols on Mouth",
-    type: "Smileys & People",
-    emoji: "🤬",
-    description: "Face With Symbols on Mouth"
+    "id": 73,
+    "emoji": "😯",
+    "unicode": "U+1F62F",
+    "name": "hushed face"
   },
   {
-    name: "😷 Face With Medical Mask",
-    type: "Smileys & People",
-    emoji: "😷",
-    description: "Face With Medical Mask"
+    "id": 74,
+    "emoji": "😲",
+    "unicode": "U+1F632",
+    "name": "astonished face"
   },
   {
-    name: "🤒 Face With Thermometer",
-    type: "Smileys & People",
-    emoji: "🤒",
-    description: "Face With Thermometer"
+    "id": 75,
+    "emoji": "😳",
+    "unicode": "U+1F633",
+    "name": "flushed face"
   },
   {
-    name: "🤕 Face With Head-Bandage",
-    type: "Smileys & People",
-    emoji: "🤕",
-    description: "Face With Head-Bandage"
+    "id": 76,
+    "emoji": "🥺",
+    "unicode": "U+1F97A",
+    "name": "pleading face"
   },
   {
-    name: "🤢 Nauseated Face",
-    type: "Smileys & People",
-    emoji: "🤢",
-    description: "Nauseated Face"
+    "id": 77,
+    "emoji": "😦",
+    "unicode": "U+1F626",
+    "name": "frowning face with open mouth"
   },
   {
-    name: "🤮 Face Vomiting",
-    type: "Smileys & People",
-    emoji: "🤮",
-    description: "Face Vomiting"
+    "id": 78,
+    "emoji": "😧",
+    "unicode": "U+1F627",
+    "name": "anguished face"
   },
   {
-    name: "🤧 Sneezing Face",
-    type: "Smileys & People",
-    emoji: "🤧",
-    description: "Sneezing Face"
+    "id": 79,
+    "emoji": "😨",
+    "unicode": "U+1F628",
+    "name": "fearful face"
   },
   {
-    name: "😇 Smiling Face With Halo",
-    type: "Smileys & People",
-    emoji: "😇",
-    description: "Smiling Face With Halo"
+    "id": 80,
+    "emoji": "😰",
+    "unicode": "U+1F630",
+    "name": "anxious face with sweat"
   },
   {
-    name: "🤠 Cowboy Hat Face",
-    type: "Smileys & People",
-    emoji: "🤠",
-    description: "Cowboy Hat Face"
+    "id": 81,
+    "emoji": "😥",
+    "unicode": "U+1F625",
+    "name": "sad but relieved face"
   },
   {
-    name: "🤡 Clown Face",
-    type: "Smileys & People",
-    emoji: "🤡",
-    description: "Clown Face"
+    "id": 82,
+    "emoji": "😢",
+    "unicode": "U+1F622",
+    "name": "crying face"
   },
   {
-    name: "🥳 Partying Face",
-    type: "Smileys & People",
-    emoji: "🥳",
-    description: "Partying Face"
+    "id": 83,
+    "emoji": "😭",
+    "unicode": "U+1F62D",
+    "name": "loudly crying face"
   },
   {
-    name: "🥴 Woozy Face",
-    type: "Smileys & People",
-    emoji: "🥴",
-    description: "Woozy Face"
+    "id": 84,
+    "emoji": "😱",
+    "unicode": "U+1F631",
+    "name": "face screaming in fear"
   },
   {
-    name: "🥺 Pleading Face",
-    type: "Smileys & People",
-    emoji: "🥺",
-    description: "Pleading Face"
+    "id": 85,
+    "emoji": "😖",
+    "unicode": "U+1F616",
+    "name": "confounded face"
   },
   {
-    name: "🤥 Lying Face",
-    type: "Smileys & People",
-    emoji: "🤥",
-    description: "Lying Face"
+    "id": 86,
+    "emoji": "😣",
+    "unicode": "U+1F623",
+    "name": "persevering face"
   },
   {
-    name: "🤫 Shushing Face",
-    type: "Smileys & People",
-    emoji: "🤫",
-    description: "Shushing Face"
+    "id": 87,
+    "emoji": "😞",
+    "unicode": "U+1F61E",
+    "name": "disappointed face"
   },
   {
-    name: "🤭 Face With Hand Over Mouth",
-    type: "Smileys & People",
-    emoji: "🤭",
-    description: "Face With Hand Over Mouth"
+    "id": 88,
+    "emoji": "😓",
+    "unicode": "U+1F613",
+    "name": "downcast face with sweat"
   },
   {
-    name: "🧐 Face With Monocle",
-    type: "Smileys & People",
-    emoji: "🧐",
-    description: "Face With Monocle"
+    "id": 89,
+    "emoji": "😩",
+    "unicode": "U+1F629",
+    "name": "weary face"
   },
   {
-    name: "🤓 Nerd Face",
-    type: "Smileys & People",
-    emoji: "🤓",
-    description: "Nerd Face"
+    "id": 90,
+    "emoji": "😫",
+    "unicode": "U+1F62B",
+    "name": "tired face"
   },
   {
-    name: "😈 Smiling Face With Horns",
-    type: "Smileys & People",
-    emoji: "😈",
-    description: "Smiling Face With Horns"
+    "id": 91,
+    "emoji": "🥱",
+    "unicode": "U+1F971",
+    "name": "yawning face"
   },
   {
-    name: "👿 Angry Face With Horns",
-    type: "Smileys & People",
-    emoji: "👿",
-    description: "Angry Face With Horns"
+    "id": 92,
+    "emoji": "😤",
+    "unicode": "U+1F624",
+    "name": "face with steam from nose"
   },
   {
-    name: "👹 Ogre",
-    type: "Smileys & People",
-    emoji: "👹",
-    description: "Ogre"
+    "id": 93,
+    "emoji": "😡",
+    "unicode": "U+1F621",
+    "name": "pouting face"
   },
   {
-    name: "👺 Goblin",
-    type: "Smileys & People",
-    emoji: "👺",
-    description: "Goblin"
+    "id": 94,
+    "emoji": "😠",
+    "unicode": "U+1F620",
+    "name": "angry face"
   },
   {
-    name: "💀 Skull",
-    type: "Smileys & People",
-    emoji: "💀",
-    description: "Skull"
+    "id": 95,
+    "emoji": "🤬",
+    "unicode": "U+1F92C",
+    "name": "face with symbols on mouth"
   },
   {
-    name: "👻 Ghost",
-    type: "Smileys & People",
-    emoji: "👻",
-    description: "Ghost"
+    "id": 96,
+    "emoji": "😈",
+    "unicode": "U+1F608",
+    "name": "smiling face with horns"
   },
   {
-    name: "👽 Alien",
-    type: "Smileys & People",
-    emoji: "👽",
-    description: "Alien"
+    "id": 97,
+    "emoji": "👿",
+    "unicode": "U+1F47F",
+    "name": "angry face with horns"
   },
   {
-    name: "👾 Alien Monster",
-    type: "Smileys & People",
-    emoji: "👾",
-    description: "Alien Monster"
+    "id": 98,
+    "emoji": "💀",
+    "unicode": "U+1F480",
+    "name": "skull"
   },
   {
-    name: "🤖 Robot Face",
-    type: "Smileys & People",
-    emoji: "🤖",
-    description: "Robot Face"
+    "id": 99,
+    "emoji": "☠",
+    "unicode": "U+2620",
+    "name": "skull and crossbones"
   },
   {
-    name: "💩 Pile of Poo",
-    type: "Smileys & People",
-    emoji: "💩",
-    description: "Pile of Poo"
+    "id": 100,
+    "emoji": "💩",
+    "unicode": "U+1F4A9",
+    "name": "pile of poo"
   },
   {
-    name: "😺 Grinning Cat Face",
-    type: "Smileys & People",
-    emoji: "😺",
-    description: "Grinning Cat Face"
+    "id": 101,
+    "emoji": "🤡",
+    "unicode": "U+1F921",
+    "name": "clown face"
   },
   {
-    name: "😸 Grinning Cat Face With Smiling Eyes",
-    type: "Smileys & People",
-    emoji: "😸",
-    description: "Grinning Cat Face With Smiling Eyes"
+    "id": 102,
+    "emoji": "👹",
+    "unicode": "U+1F479",
+    "name": "ogre"
   },
   {
-    name: "😹 Cat Face With Tears of Joy",
-    type: "Smileys & People",
-    emoji: "😹",
-    description: "Cat Face With Tears of Joy"
+    "id": 103,
+    "emoji": "👺",
+    "unicode": "U+1F47A",
+    "name": "goblin"
   },
   {
-    name: "😻 Smiling Cat Face With Heart-Eyes",
-    type: "Smileys & People",
-    emoji: "😻",
-    description: "Smiling Cat Face With Heart-Eyes"
+    "id": 104,
+    "emoji": "👻",
+    "unicode": "U+1F47B",
+    "name": "ghost"
   },
   {
-    name: "😼 Cat Face With Wry Smile",
-    type: "Smileys & People",
-    emoji: "😼",
-    description: "Cat Face With Wry Smile"
+    "id": 105,
+    "emoji": "👽",
+    "unicode": "U+1F47D",
+    "name": "alien"
   },
   {
-    name: "😽 Kissing Cat Face",
-    type: "Smileys & People",
-    emoji: "😽",
-    description: "Kissing Cat Face"
+    "id": 106,
+    "emoji": "👾",
+    "unicode": "U+1F47E",
+    "name": "alien monster"
   },
   {
-    name: "🙀 Weary Cat Face",
-    type: "Smileys & People",
-    emoji: "🙀",
-    description: "Weary Cat Face"
+    "id": 107,
+    "emoji": "🤖",
+    "unicode": "U+1F916",
+    "name": "robot"
   },
   {
-    name: "😿 Crying Cat Face",
-    type: "Smileys & People",
-    emoji: "😿",
-    description: "Crying Cat Face"
+    "id": 108,
+    "emoji": "😺",
+    "unicode": "U+1F63A",
+    "name": "grinning cat"
   },
   {
-    name: "😾 Pouting Cat Face",
-    type: "Smileys & People",
-    emoji: "😾",
-    description: "Pouting Cat Face"
+    "id": 109,
+    "emoji": "😸",
+    "unicode": "U+1F638",
+    "name": "grinning cat with smiling eyes"
   },
   {
-    name: "👶 Baby",
-    type: "Smileys & People",
-    emoji: "👶",
-    description: "Baby"
+    "id": 110,
+    "emoji": "😹",
+    "unicode": "U+1F639",
+    "name": "cat with tears of joy"
   },
   {
-    name: "👦 Boy",
-    type: "Smileys & People",
-    emoji: "👦",
-    description: "Boy"
+    "id": 111,
+    "emoji": "😻",
+    "unicode": "U+1F63B",
+    "name": "smiling cat with heart-eyes"
   },
   {
-    name: "👧 Girl",
-    type: "Smileys & People",
-    emoji: "👧",
-    description: "Girl"
+    "id": 112,
+    "emoji": "😼",
+    "unicode": "U+1F63C",
+    "name": "cat with wry smile"
   },
   {
-    name: "👨 Man",
-    type: "Smileys & People",
-    emoji: "👨",
-    description: "Man"
+    "id": 113,
+    "emoji": "😽",
+    "unicode": "U+1F63D",
+    "name": "kissing cat"
   },
   {
-    name: "👩 Woman",
-    type: "Smileys & People",
-    emoji: "👩",
-    description: "Woman"
+    "id": 114,
+    "emoji": "🙀",
+    "unicode": "U+1F640",
+    "name": "weary cat"
   },
   {
-    name: "👴 Old Man",
-    type: "Smileys & People",
-    emoji: "👴",
-    description: "Old Man"
+    "id": 115,
+    "emoji": "😿",
+    "unicode": "U+1F63F",
+    "name": "crying cat"
   },
   {
-    name: "👵 Old Woman",
-    type: "Smileys & People",
-    emoji: "👵",
-    description: "Old Woman"
+    "id": 116,
+    "emoji": "😾",
+    "unicode": "U+1F63E",
+    "name": "pouting cat"
   },
   {
-    name: "👨‍⚕️ Man Health Worker",
-    type: "Smileys & People",
-    emoji: "👨‍⚕️",
-    description: "Man Health Worker"
+    "id": 117,
+    "emoji": "🙈",
+    "unicode": "U+1F648",
+    "name": "see-no-evil monkey"
   },
   {
-    name: "👩‍⚕️ Woman Health Worker",
-    type: "Smileys & People",
-    emoji: "👩‍⚕️",
-    description: "Woman Health Worker"
+    "id": 118,
+    "emoji": "🙉",
+    "unicode": "U+1F649",
+    "name": "hear-no-evil monkey"
   },
   {
-    name: "👨‍🎓 Man Student",
-    type: "Smileys & People",
-    emoji: "👨‍🎓",
-    description: "Man Student"
+    "id": 119,
+    "emoji": "🙊",
+    "unicode": "U+1F64A",
+    "name": "speak-no-evil monkey"
   },
   {
-    name: "👩‍🎓 Woman Student",
-    type: "Smileys & People",
-    emoji: "👩‍🎓",
-    description: "Woman Student"
+    "id": 120,
+    "emoji": "💋",
+    "unicode": "U+1F48B",
+    "name": "kiss mark"
   },
   {
-    name: "👨‍⚖️ Man Judge",
-    type: "Smileys & People",
-    emoji: "👨‍⚖️",
-    description: "Man Judge"
+    "id": 121,
+    "emoji": "💌",
+    "unicode": "U+1F48C",
+    "name": "love letter"
   },
   {
-    name: "👩‍⚖️ Woman Judge",
-    type: "Smileys & People",
-    emoji: "👩‍⚖️",
-    description: "Woman Judge"
+    "id": 122,
+    "emoji": "💘",
+    "unicode": "U+1F498",
+    "name": "heart with arrow"
   },
   {
-    name: "👨‍🌾 Man Farmer",
-    type: "Smileys & People",
-    emoji: "👨‍🌾",
-    description: "Man Farmer"
+    "id": 123,
+    "emoji": "💝",
+    "unicode": "U+1F49D",
+    "name": "heart with ribbon"
   },
   {
-    name: "👩‍🌾 Woman Farmer",
-    type: "Smileys & People",
-    emoji: "👩‍🌾",
-    description: "Woman Farmer"
+    "id": 124,
+    "emoji": "💖",
+    "unicode": "U+1F496",
+    "name": "sparkling heart"
   },
   {
-    name: "👨‍🍳 Man Cook",
-    type: "Smileys & People",
-    emoji: "👨‍🍳",
-    description: "Man Cook"
+    "id": 125,
+    "emoji": "💗",
+    "unicode": "U+1F497",
+    "name": "growing heart"
   },
   {
-    name: "👩‍🍳 Woman Cook",
-    type: "Smileys & People",
-    emoji: "👩‍🍳",
-    description: "Woman Cook"
+    "id": 126,
+    "emoji": "💓",
+    "unicode": "U+1F493",
+    "name": "beating heart"
   },
   {
-    name: "👨‍🔧 Man Mechanic",
-    type: "Smileys & People",
-    emoji: "👨‍🔧",
-    description: "Man Mechanic"
+    "id": 127,
+    "emoji": "💞",
+    "unicode": "U+1F49E",
+    "name": "revolving hearts"
   },
   {
-    name: "👩‍🔧 Woman Mechanic",
-    type: "Smileys & People",
-    emoji: "👩‍🔧",
-    description: "Woman Mechanic"
+    "id": 128,
+    "emoji": "💕",
+    "unicode": "U+1F495",
+    "name": "two hearts"
   },
   {
-    name: "👨‍🏭 Man Factory Worker",
-    type: "Smileys & People",
-    emoji: "👨‍🏭",
-    description: "Man Factory Worker"
+    "id": 129,
+    "emoji": "💟",
+    "unicode": "U+1F49F",
+    "name": "heart decoration"
   },
   {
-    name: "👩‍🏭 Woman Factory Worker",
-    type: "Smileys & People",
-    emoji: "👩‍🏭",
-    description: "Woman Factory Worker"
+    "id": 130,
+    "emoji": "❣",
+    "unicode": "U+2763",
+    "name": "heart exclamation"
   },
   {
-    name: "👨‍💼 Man Office Worker",
-    type: "Smileys & People",
-    emoji: "👨‍💼",
-    description: "Man Office Worker"
+    "id": 131,
+    "emoji": "💔",
+    "unicode": "U+1F494",
+    "name": "broken heart"
   },
   {
-    name: "👩‍💼 Woman Office Worker",
-    type: "Smileys & People",
-    emoji: "👩‍💼",
-    description: "Woman Office Worker"
+    "id": 132,
+    "emoji": "❤️‍🔥",
+    "unicode": "U+2764 U+FE0F U+200D U+1F525",
+    "name": "⊛ heart on fire"
   },
   {
-    name: "👨‍🔬 Man Scientist",
-    type: "Smileys & People",
-    emoji: "👨‍🔬",
-    description: "Man Scientist"
+    "id": 133,
+    "emoji": "❤️‍🩹",
+    "unicode": "U+2764 U+FE0F U+200D U+1FA79",
+    "name": "⊛ mending heart"
   },
   {
-    name: "👩‍🔬 Woman Scientist",
-    type: "Smileys & People",
-    emoji: "👩‍🔬",
-    description: "Woman Scientist"
+    "id": 134,
+    "emoji": "❤",
+    "unicode": "U+2764",
+    "name": "red heart"
   },
   {
-    name: "👨‍💻 Man Technologist",
-    type: "Smileys & People",
-    emoji: "👨‍💻",
-    description: "Man Technologist"
+    "id": 135,
+    "emoji": "🧡",
+    "unicode": "U+1F9E1",
+    "name": "orange heart"
   },
   {
-    name: "👩‍💻 Woman Technologist",
-    type: "Smileys & People",
-    emoji: "👩‍💻",
-    description: "Woman Technologist"
+    "id": 136,
+    "emoji": "💛",
+    "unicode": "U+1F49B",
+    "name": "yellow heart"
   },
   {
-    name: "👨‍🎤 Man Singer",
-    type: "Smileys & People",
-    emoji: "👨‍🎤",
-    description: "Man Singer"
+    "id": 137,
+    "emoji": "💚",
+    "unicode": "U+1F49A",
+    "name": "green heart"
   },
   {
-    name: "👩‍🎤 Woman Singer",
-    type: "Smileys & People",
-    emoji: "👩‍🎤",
-    description: "Woman Singer"
+    "id": 138,
+    "emoji": "💙",
+    "unicode": "U+1F499",
+    "name": "blue heart"
   },
   {
-    name: "👨‍🎨 Man Artist",
-    type: "Smileys & People",
-    emoji: "👨‍🎨",
-    description: "Man Artist"
+    "id": 139,
+    "emoji": "💜",
+    "unicode": "U+1F49C",
+    "name": "purple heart"
   },
   {
-    name: "👩‍🎨 Woman Artist",
-    type: "Smileys & People",
-    emoji: "👩‍🎨",
-    description: "Woman Artist"
+    "id": 140,
+    "emoji": "🤎",
+    "unicode": "U+1F90E",
+    "name": "brown heart"
   },
   {
-    name: "👨‍✈️ Man Pilot",
-    type: "Smileys & People",
-    emoji: "👨‍✈️",
-    description: "Man Pilot"
+    "id": 141,
+    "emoji": "🖤",
+    "unicode": "U+1F5A4",
+    "name": "black heart"
   },
   {
-    name: "👩‍✈️ Woman Pilot",
-    type: "Smileys & People",
-    emoji: "👩‍✈️",
-    description: "Woman Pilot"
+    "id": 142,
+    "emoji": "🤍",
+    "unicode": "U+1F90D",
+    "name": "white heart"
   },
   {
-    name: "👨‍🚀 Man Astronaut",
-    type: "Smileys & People",
-    emoji: "👨‍🚀",
-    description: "Man Astronaut"
+    "id": 143,
+    "emoji": "💯",
+    "unicode": "U+1F4AF",
+    "name": "hundred points"
   },
   {
-    name: "👩‍🚀 Woman Astronaut",
-    type: "Smileys & People",
-    emoji: "👩‍🚀",
-    description: "Woman Astronaut"
+    "id": 144,
+    "emoji": "💢",
+    "unicode": "U+1F4A2",
+    "name": "anger symbol"
   },
   {
-    name: "👨‍🚒 Man Firefighter",
-    type: "Smileys & People",
-    emoji: "👨‍🚒",
-    description: "Man Firefighter"
+    "id": 145,
+    "emoji": "💥",
+    "unicode": "U+1F4A5",
+    "name": "collision"
   },
   {
-    name: "👩‍🚒 Woman Firefighter",
-    type: "Smileys & People",
-    emoji: "👩‍🚒",
-    description: "Woman Firefighter"
+    "id": 146,
+    "emoji": "💫",
+    "unicode": "U+1F4AB",
+    "name": "dizzy"
   },
   {
-    name: "👮 Police Officer",
-    type: "Smileys & People",
-    emoji: "👮",
-    description: "Police Officer"
+    "id": 147,
+    "emoji": "💦",
+    "unicode": "U+1F4A6",
+    "name": "sweat droplets"
   },
   {
-    name: "👮‍♂️ Man Police Officer",
-    type: "Smileys & People",
-    emoji: "👮‍♂️",
-    description: "Man Police Officer"
+    "id": 148,
+    "emoji": "💨",
+    "unicode": "U+1F4A8",
+    "name": "dashing away"
   },
   {
-    name: "👮‍♀️ Woman Police Officer",
-    type: "Smileys & People",
-    emoji: "👮‍♀️",
-    description: "Woman Police Officer"
+    "id": 149,
+    "emoji": "🕳",
+    "unicode": "U+1F573",
+    "name": "hole"
   },
   {
-    name: "🕵 Detective",
-    type: "Smileys & People",
-    emoji: "🕵",
-    description: "Detective"
+    "id": 150,
+    "emoji": "💣",
+    "unicode": "U+1F4A3",
+    "name": "bomb"
   },
   {
-    name: "🕵️‍ ♂️ Man Detective",
-    type: "Smileys & People",
-    emoji: "🕵️‍",
-    description: "♂️ Man Detective"
+    "id": 151,
+    "emoji": "💬",
+    "unicode": "U+1F4AC",
+    "name": "speech balloon"
   },
   {
-    name: "🕵️‍ ♀️ Woman Detective",
-    type: "Smileys & People",
-    emoji: "🕵️‍",
-    description: "♀️ Woman Detective"
+    "id": 152,
+    "emoji": "👁️‍🗨️",
+    "unicode": "U+1F441 U+FE0F U+200D U+1F5E8 U+FE0F",
+    "name": "eye in speech bubble"
   },
   {
-    name: "💂 Guard",
-    type: "Smileys & People",
-    emoji: "💂",
-    description: "Guard"
+    "id": 153,
+    "emoji": "🗨",
+    "unicode": "U+1F5E8",
+    "name": "left speech bubble"
   },
   {
-    name: "💂‍♂️ Man Guard",
-    type: "Smileys & People",
-    emoji: "💂‍♂️",
-    description: "Man Guard"
+    "id": 154,
+    "emoji": "🗯",
+    "unicode": "U+1F5EF",
+    "name": "right anger bubble"
   },
   {
-    name: "💂‍♀️ Woman Guard",
-    type: "Smileys & People",
-    emoji: "💂‍♀️",
-    description: "Woman Guard"
+    "id": 155,
+    "emoji": "💭",
+    "unicode": "U+1F4AD",
+    "name": "thought balloon"
   },
   {
-    name: "👷 Construction Worker",
-    type: "Smileys & People",
-    emoji: "👷",
-    description: "Construction Worker"
+    "id": 156,
+    "emoji": "💤",
+    "unicode": "U+1F4A4",
+    "name": "zzz"
   },
   {
-    name: "👷‍♂️ Man Construction Worker",
-    type: "Smileys & People",
-    emoji: "👷‍♂️",
-    description: "Man Construction Worker"
+    "id": 157,
+    "emoji": "👋",
+    "unicode": "U+1F44B",
+    "name": "waving hand"
   },
   {
-    name: "👷‍♀️ Woman Construction Worker",
-    type: "Smileys & People",
-    emoji: "👷‍♀️",
-    description: "Woman Construction Worker"
+    "id": 158,
+    "emoji": "🤚",
+    "unicode": "U+1F91A",
+    "name": "raised back of hand"
   },
   {
-    name: "🤴 Prince",
-    type: "Smileys & People",
-    emoji: "🤴",
-    description: "Prince"
+    "id": 159,
+    "emoji": "🖐",
+    "unicode": "U+1F590",
+    "name": "hand with fingers splayed"
   },
   {
-    name: "👸 Princess",
-    type: "Smileys & People",
-    emoji: "👸",
-    description: "Princess"
+    "id": 160,
+    "emoji": "✋",
+    "unicode": "U+270B",
+    "name": "raised hand"
   },
   {
-    name: "👳 Person Wearing Turban",
-    type: "Smileys & People",
-    emoji: "👳",
-    description: "Person Wearing Turban"
+    "id": 161,
+    "emoji": "🖖",
+    "unicode": "U+1F596",
+    "name": "vulcan salute"
   },
   {
-    name: "👳‍♂️ Man Wearing Turban",
-    type: "Smileys & People",
-    emoji: "👳‍♂️",
-    description: "Man Wearing Turban"
+    "id": 162,
+    "emoji": "👌",
+    "unicode": "U+1F44C",
+    "name": "OK hand"
   },
   {
-    name: "👳‍♀️ Woman Wearing Turban",
-    type: "Smileys & People",
-    emoji: "👳‍♀️",
-    description: "Woman Wearing Turban"
+    "id": 163,
+    "emoji": "🤌",
+    "unicode": "U+1F90C",
+    "name": "pinched fingers"
   },
   {
-    name: "👲 Man With Chinese Cap",
-    type: "Smileys & People",
-    emoji: "👲",
-    description: "Man With Chinese Cap"
+    "id": 164,
+    "emoji": "🤏",
+    "unicode": "U+1F90F",
+    "name": "pinching hand"
   },
   {
-    name: "🧕 Woman With Headscarf",
-    type: "Smileys & People",
-    emoji: "🧕",
-    description: "Woman With Headscarf"
+    "id": 165,
+    "emoji": "✌",
+    "unicode": "U+270C",
+    "name": "victory hand"
   },
   {
-    name: "🧔 Man: Beard",
-    type: "Smileys & People",
-    emoji: "🧔",
-    description: "Man: Beard"
+    "id": 166,
+    "emoji": "🤞",
+    "unicode": "U+1F91E",
+    "name": "crossed fingers"
   },
   {
-    name: "👱 Person: Blond Hair",
-    type: "Smileys & People",
-    emoji: "👱",
-    description: "Person: Blond Hair"
+    "id": 167,
+    "emoji": "🤟",
+    "unicode": "U+1F91F",
+    "name": "love-you gesture"
   },
   {
-    name: "👱‍♂️ Man: Blond Hair",
-    type: "Smileys & People",
-    emoji: "👱‍♂️",
-    description: "Man: Blond Hair"
+    "id": 168,
+    "emoji": "🤘",
+    "unicode": "U+1F918",
+    "name": "sign of the horns"
   },
   {
-    name: "👱‍♀️ Woman: Blond Hair",
-    type: "Smileys & People",
-    emoji: "👱‍♀️",
-    description: "Woman: Blond Hair"
+    "id": 169,
+    "emoji": "🤙",
+    "unicode": "U+1F919",
+    "name": "call me hand"
   },
   {
-    name: "👨‍🦰 Man: Red Hair",
-    type: "Smileys & People",
-    emoji: "👨‍🦰",
-    description: "Man: Red Hair"
+    "id": 170,
+    "emoji": "👈",
+    "unicode": "U+1F448",
+    "name": "backhand index pointing left"
   },
   {
-    name: "👩‍🦰 Woman: Red Hair",
-    type: "Smileys & People",
-    emoji: "👩‍🦰",
-    description: "Woman: Red Hair"
+    "id": 171,
+    "emoji": "👉",
+    "unicode": "U+1F449",
+    "name": "backhand index pointing right"
   },
   {
-    name: "👨‍🦱 Man: Curly Hair",
-    type: "Smileys & People",
-    emoji: "👨‍🦱",
-    description: "Man: Curly Hair"
+    "id": 172,
+    "emoji": "👆",
+    "unicode": "U+1F446",
+    "name": "backhand index pointing up"
   },
   {
-    name: "👩‍🦱 Woman: Curly Hair",
-    type: "Smileys & People",
-    emoji: "👩‍🦱",
-    description: "Woman: Curly Hair"
+    "id": 173,
+    "emoji": "🖕",
+    "unicode": "U+1F595",
+    "name": "middle finger"
   },
   {
-    name: "👨‍🦲 Man: Bald",
-    type: "Smileys & People",
-    emoji: "👨‍🦲",
-    description: "Man: Bald"
+    "id": 174,
+    "emoji": "👇",
+    "unicode": "U+1F447",
+    "name": "backhand index pointing down"
   },
   {
-    name: "👩‍🦲 Woman: Bald",
-    type: "Smileys & People",
-    emoji: "👩‍🦲",
-    description: "Woman: Bald"
+    "id": 175,
+    "emoji": "☝",
+    "unicode": "U+261D",
+    "name": "index pointing up"
   },
   {
-    name: "👨‍🦳 Man: White Hair",
-    type: "Smileys & People",
-    emoji: "👨‍🦳",
-    description: "Man: White Hair"
+    "id": 176,
+    "emoji": "👍",
+    "unicode": "U+1F44D",
+    "name": "thumbs up"
   },
   {
-    name: "👩‍🦳 Woman: White Hair",
-    type: "Smileys & People",
-    emoji: "👩‍🦳",
-    description: "Woman: White Hair"
+    "id": 177,
+    "emoji": "👎",
+    "unicode": "U+1F44E",
+    "name": "thumbs down"
   },
   {
-    name: "🤵 Man in Tuxedo",
-    type: "Smileys & People",
-    emoji: "🤵",
-    description: "Man in Tuxedo"
+    "id": 178,
+    "emoji": "✊",
+    "unicode": "U+270A",
+    "name": "raised fist"
   },
   {
-    name: "👰 Bride With Veil",
-    type: "Smileys & People",
-    emoji: "👰",
-    description: "Bride With Veil"
+    "id": 179,
+    "emoji": "👊",
+    "unicode": "U+1F44A",
+    "name": "oncoming fist"
   },
   {
-    name: "🤰 Pregnant Woman",
-    type: "Smileys & People",
-    emoji: "🤰",
-    description: "Pregnant Woman"
+    "id": 180,
+    "emoji": "🤛",
+    "unicode": "U+1F91B",
+    "name": "left-facing fist"
   },
   {
-    name: "🤱 Breast-Feeding",
-    type: "Smileys & People",
-    emoji: "🤱",
-    description: "Breast-Feeding"
+    "id": 181,
+    "emoji": "🤜",
+    "unicode": "U+1F91C",
+    "name": "right-facing fist"
   },
   {
-    name: "👼 Baby Angel",
-    type: "Smileys & People",
-    emoji: "👼",
-    description: "Baby Angel"
+    "id": 182,
+    "emoji": "👏",
+    "unicode": "U+1F44F",
+    "name": "clapping hands"
   },
   {
-    name: "🎅 Santa Claus",
-    type: "Smileys & People",
-    emoji: "🎅",
-    description: "Santa Claus"
+    "id": 183,
+    "emoji": "🙌",
+    "unicode": "U+1F64C",
+    "name": "raising hands"
   },
   {
-    name: "🤶 Mrs. Claus",
-    type: "Smileys & People",
-    emoji: "🤶",
-    description: "Mrs. Claus"
+    "id": 184,
+    "emoji": "👐",
+    "unicode": "U+1F450",
+    "name": "open hands"
   },
   {
-    name: "🦸 Superhero",
-    type: "Smileys & People",
-    emoji: "🦸",
-    description: "Superhero"
+    "id": 185,
+    "emoji": "🤲",
+    "unicode": "U+1F932",
+    "name": "palms up together"
   },
   {
-    name: "🦸‍♀️ Woman Superhero",
-    type: "Smileys & People",
-    emoji: "🦸‍♀️",
-    description: "Woman Superhero"
+    "id": 186,
+    "emoji": "🤝",
+    "unicode": "U+1F91D",
+    "name": "handshake"
   },
   {
-    name: "🦸‍♂️ Man Superhero",
-    type: "Smileys & People",
-    emoji: "🦸‍♂️",
-    description: "Man Superhero"
+    "id": 187,
+    "emoji": "🙏",
+    "unicode": "U+1F64F",
+    "name": "folded hands"
   },
   {
-    name: "🦹 Supervillain",
-    type: "Smileys & People",
-    emoji: "🦹",
-    description: "Supervillain"
+    "id": 188,
+    "emoji": "✍",
+    "unicode": "U+270D",
+    "name": "writing hand"
   },
   {
-    name: "🦹‍♀️ Woman Supervillain",
-    type: "Smileys & People",
-    emoji: "🦹‍♀️",
-    description: "Woman Supervillain"
+    "id": 189,
+    "emoji": "💅",
+    "unicode": "U+1F485",
+    "name": "nail polish"
   },
   {
-    name: "🦹‍♂️ Man Supervillain",
-    type: "Smileys & People",
-    emoji: "🦹‍♂️",
-    description: "Man Supervillain"
+    "id": 190,
+    "emoji": "🤳",
+    "unicode": "U+1F933",
+    "name": "selfie"
   },
   {
-    name: "🧙 Mage",
-    type: "Smileys & People",
-    emoji: "🧙",
-    description: "Mage"
+    "id": 191,
+    "emoji": "💪",
+    "unicode": "U+1F4AA",
+    "name": "flexed biceps"
   },
   {
-    name: "🧙‍♀️ Woman Mage",
-    type: "Smileys & People",
-    emoji: "🧙‍♀️",
-    description: "Woman Mage"
+    "id": 192,
+    "emoji": "🦾",
+    "unicode": "U+1F9BE",
+    "name": "mechanical arm"
   },
   {
-    name: "🧙‍♂️ Man Mage",
-    type: "Smileys & People",
-    emoji: "🧙‍♂️",
-    description: "Man Mage"
+    "id": 193,
+    "emoji": "🦿",
+    "unicode": "U+1F9BF",
+    "name": "mechanical leg"
   },
   {
-    name: "🧚‍♀️ Woman Fairy",
-    type: "Smileys & People",
-    emoji: "🧚‍♀️",
-    description: "Woman Fairy"
+    "id": 194,
+    "emoji": "🦵",
+    "unicode": "U+1F9B5",
+    "name": "leg"
   },
   {
-    name: "🧚‍♂️ Man Fairy",
-    type: "Smileys & People",
-    emoji: "🧚‍♂️",
-    description: "Man Fairy"
+    "id": 195,
+    "emoji": "🦶",
+    "unicode": "U+1F9B6",
+    "name": "foot"
   },
   {
-    name: "🧛 Vampire",
-    type: "Smileys & People",
-    emoji: "🧛",
-    description: "Vampire"
+    "id": 196,
+    "emoji": "👂",
+    "unicode": "U+1F442",
+    "name": "ear"
   },
   {
-    name: "🧛‍♀️ Woman Vampire",
-    type: "Smileys & People",
-    emoji: "🧛‍♀️",
-    description: "Woman Vampire"
+    "id": 197,
+    "emoji": "🦻",
+    "unicode": "U+1F9BB",
+    "name": "ear with hearing aid"
   },
   {
-    name: "🧛‍♂️ Man Vampire",
-    type: "Smileys & People",
-    emoji: "🧛‍♂️",
-    description: "Man Vampire"
+    "id": 198,
+    "emoji": "👃",
+    "unicode": "U+1F443",
+    "name": "nose"
   },
   {
-    name: "🧜 Merperson",
-    type: "Smileys & People",
-    emoji: "🧜",
-    description: "Merperson"
+    "id": 199,
+    "emoji": "🧠",
+    "unicode": "U+1F9E0",
+    "name": "brain"
   },
   {
-    name: "🧜‍♀️ Mermaid",
-    type: "Smileys & People",
-    emoji: "🧜‍♀️",
-    description: "Mermaid"
+    "id": 200,
+    "emoji": "🫀",
+    "unicode": "U+1FAC0",
+    "name": "anatomical heart"
   },
   {
-    name: "🧜‍♂️ Merman",
-    type: "Smileys & People",
-    emoji: "🧜‍♂️",
-    description: "Merman"
+    "id": 201,
+    "emoji": "🫁",
+    "unicode": "U+1FAC1",
+    "name": "lungs"
   },
   {
-    name: "🧝 Elf",
-    type: "Smileys & People",
-    emoji: "🧝",
-    description: "Elf"
+    "id": 202,
+    "emoji": "🦷",
+    "unicode": "U+1F9B7",
+    "name": "tooth"
   },
   {
-    name: "🧝‍♀️ Woman Elf",
-    type: "Smileys & People",
-    emoji: "🧝‍♀️",
-    description: "Woman Elf"
+    "id": 203,
+    "emoji": "🦴",
+    "unicode": "U+1F9B4",
+    "name": "bone"
   },
   {
-    name: "🧝‍♂️ Man Elf",
-    type: "Smileys & People",
-    emoji: "🧝‍♂️",
-    description: "Man Elf"
+    "id": 204,
+    "emoji": "👀",
+    "unicode": "U+1F440",
+    "name": "eyes"
   },
   {
-    name: "🧞 Genie",
-    type: "Smileys & People",
-    emoji: "🧞",
-    description: "Genie"
+    "id": 205,
+    "emoji": "👁",
+    "unicode": "U+1F441",
+    "name": "eye"
   },
   {
-    name: "🧞‍♀️ Woman Genie",
-    type: "Smileys & People",
-    emoji: "🧞‍♀️",
-    description: "Woman Genie"
+    "id": 206,
+    "emoji": "👅",
+    "unicode": "U+1F445",
+    "name": "tongue"
   },
   {
-    name: "🧞‍♂️ Man Genie",
-    type: "Smileys & People",
-    emoji: "🧞‍♂️",
-    description: "Man Genie"
+    "id": 207,
+    "emoji": "👄",
+    "unicode": "U+1F444",
+    "name": "mouth"
   },
   {
-    name: "🧟 Zombie",
-    type: "Smileys & People",
-    emoji: "🧟",
-    description: "Zombie"
+    "id": 208,
+    "emoji": "👶",
+    "unicode": "U+1F476",
+    "name": "baby"
   },
   {
-    name: "🧟‍♀️ Woman Zombie",
-    type: "Smileys & People",
-    emoji: "🧟‍♀️",
-    description: "Woman Zombie"
+    "id": 209,
+    "emoji": "🧒",
+    "unicode": "U+1F9D2",
+    "name": "child"
   },
   {
-    name: "🧟‍♂️ Man Zombie",
-    type: "Smileys & People",
-    emoji: "🧟‍♂️",
-    description: "Man Zombie"
+    "id": 210,
+    "emoji": "👦",
+    "unicode": "U+1F466",
+    "name": "boy"
   },
   {
-    name: "🙍 Person Frowning",
-    type: "Smileys & People",
-    emoji: "🙍",
-    description: "Person Frowning"
+    "id": 211,
+    "emoji": "👧",
+    "unicode": "U+1F467",
+    "name": "girl"
   },
   {
-    name: "🙍‍♂️ Man Frowning",
-    type: "Smileys & People",
-    emoji: "🙍‍♂️",
-    description: "Man Frowning"
+    "id": 212,
+    "emoji": "🧑",
+    "unicode": "U+1F9D1",
+    "name": "person"
   },
   {
-    name: "🙍‍♀️ Woman Frowning",
-    type: "Smileys & People",
-    emoji: "🙍‍♀️",
-    description: "Woman Frowning"
+    "id": 213,
+    "emoji": "👱",
+    "unicode": "U+1F471",
+    "name": "person: blond hair"
   },
   {
-    name: "🙎 Person Pouting",
-    type: "Smileys & People",
-    emoji: "🙎",
-    description: "Person Pouting"
+    "id": 214,
+    "emoji": "👨",
+    "unicode": "U+1F468",
+    "name": "man"
   },
   {
-    name: "🙎‍♂️ Man Pouting",
-    type: "Smileys & People",
-    emoji: "🙎‍♂️",
-    description: "Man Pouting"
+    "id": 215,
+    "emoji": "🧔",
+    "unicode": "U+1F9D4",
+    "name": "person: beard"
   },
   {
-    name: "🙎‍♀️ Woman Pouting",
-    type: "Smileys & People",
-    emoji: "🙎‍♀️",
-    description: "Woman Pouting"
+    "id": 216,
+    "emoji": "🧔‍♂️",
+    "unicode": "U+1F9D4 U+200D U+2642 U+FE0F",
+    "name": "⊛ man: beard"
   },
   {
-    name: "🙅 Person Gesturing No",
-    type: "Smileys & People",
-    emoji: "🙅",
-    description: "Person Gesturing No"
+    "id": 217,
+    "emoji": "🧔‍♀️",
+    "unicode": "U+1F9D4 U+200D U+2640 U+FE0F",
+    "name": "⊛ woman: beard"
   },
   {
-    name: "🙅‍♂️ Man Gesturing No",
-    type: "Smileys & People",
-    emoji: "🙅‍♂️",
-    description: "Man Gesturing No"
+    "id": 218,
+    "emoji": "👨‍🦰",
+    "unicode": "U+1F468 U+200D U+1F9B0",
+    "name": "man: red hair"
   },
   {
-    name: "🙅‍♀️ Woman Gesturing No",
-    type: "Smileys & People",
-    emoji: "🙅‍♀️",
-    description: "Woman Gesturing No"
+    "id": 219,
+    "emoji": "👨‍🦱",
+    "unicode": "U+1F468 U+200D U+1F9B1",
+    "name": "man: curly hair"
   },
   {
-    name: "🙆 Person Gesturing OK",
-    type: "Smileys & People",
-    emoji: "🙆",
-    description: "Person Gesturing OK"
+    "id": 220,
+    "emoji": "👨‍🦳",
+    "unicode": "U+1F468 U+200D U+1F9B3",
+    "name": "man: white hair"
   },
   {
-    name: "🙆‍♂️ Man Gesturing OK",
-    type: "Smileys & People",
-    emoji: "🙆‍♂️",
-    description: "Man Gesturing OK"
+    "id": 221,
+    "emoji": "👨‍🦲",
+    "unicode": "U+1F468 U+200D U+1F9B2",
+    "name": "man: bald"
   },
   {
-    name: "🙆‍♀️ Woman Gesturing OK",
-    type: "Smileys & People",
-    emoji: "🙆‍♀️",
-    description: "Woman Gesturing OK"
+    "id": 222,
+    "emoji": "👩",
+    "unicode": "U+1F469",
+    "name": "woman"
   },
   {
-    name: "💁 Person Tipping Hand",
-    type: "Smileys & People",
-    emoji: "💁",
-    description: "Person Tipping Hand"
+    "id": 223,
+    "emoji": "👩‍🦰",
+    "unicode": "U+1F469 U+200D U+1F9B0",
+    "name": "woman: red hair"
   },
   {
-    name: "💁‍♂️ Man Tipping Hand",
-    type: "Smileys & People",
-    emoji: "💁‍♂️",
-    description: "Man Tipping Hand"
+    "id": 224,
+    "emoji": "🧑‍🦰",
+    "unicode": "U+1F9D1 U+200D U+1F9B0",
+    "name": "person: red hair"
   },
   {
-    name: "💁‍♀️ Woman Tipping Hand",
-    type: "Smileys & People",
-    emoji: "💁‍♀️",
-    description: "Woman Tipping Hand"
+    "id": 225,
+    "emoji": "👩‍🦱",
+    "unicode": "U+1F469 U+200D U+1F9B1",
+    "name": "woman: curly hair"
   },
   {
-    name: "🙋 Person Raising Hand",
-    type: "Smileys & People",
-    emoji: "🙋",
-    description: "Person Raising Hand"
+    "id": 226,
+    "emoji": "🧑‍🦱",
+    "unicode": "U+1F9D1 U+200D U+1F9B1",
+    "name": "person: curly hair"
   },
   {
-    name: "🙋‍♂️ Man Raising Hand",
-    type: "Smileys & People",
-    emoji: "🙋‍♂️",
-    description: "Man Raising Hand"
+    "id": 227,
+    "emoji": "👩‍🦳",
+    "unicode": "U+1F469 U+200D U+1F9B3",
+    "name": "woman: white hair"
   },
   {
-    name: "🙋‍♀️ Woman Raising Hand",
-    type: "Smileys & People",
-    emoji: "🙋‍♀️",
-    description: "Woman Raising Hand"
+    "id": 228,
+    "emoji": "🧑‍🦳",
+    "unicode": "U+1F9D1 U+200D U+1F9B3",
+    "name": "person: white hair"
   },
   {
-    name: "🙇 Person Bowing",
-    type: "Smileys & People",
-    emoji: "🙇",
-    description: "Person Bowing"
+    "id": 229,
+    "emoji": "👩‍🦲",
+    "unicode": "U+1F469 U+200D U+1F9B2",
+    "name": "woman: bald"
   },
   {
-    name: "🙇‍♂️ Man Bowing",
-    type: "Smileys & People",
-    emoji: "🙇‍♂️",
-    description: "Man Bowing"
+    "id": 230,
+    "emoji": "🧑‍🦲",
+    "unicode": "U+1F9D1 U+200D U+1F9B2",
+    "name": "person: bald"
   },
   {
-    name: "🙇‍♀️ Woman Bowing",
-    type: "Smileys & People",
-    emoji: "🙇‍♀️",
-    description: "Woman Bowing"
+    "id": 231,
+    "emoji": "👱‍♀️",
+    "unicode": "U+1F471 U+200D U+2640 U+FE0F",
+    "name": "woman: blond hair"
   },
   {
-    name: "🤦 Person Facepalming",
-    type: "Smileys & People",
-    emoji: "🤦",
-    description: "Person Facepalming"
+    "id": 232,
+    "emoji": "👱‍♂️",
+    "unicode": "U+1F471 U+200D U+2642 U+FE0F",
+    "name": "man: blond hair"
   },
   {
-    name: "🤦‍♂️ Man Facepalming",
-    type: "Smileys & People",
-    emoji: "🤦‍♂️",
-    description: "Man Facepalming"
+    "id": 233,
+    "emoji": "🧓",
+    "unicode": "U+1F9D3",
+    "name": "older person"
   },
   {
-    name: "🤦‍♀️ Woman Facepalming",
-    type: "Smileys & People",
-    emoji: "🤦‍♀️",
-    description: "Woman Facepalming"
+    "id": 234,
+    "emoji": "👴",
+    "unicode": "U+1F474",
+    "name": "old man"
   },
   {
-    name: "🤷 Person Shrugging",
-    type: "Smileys & People",
-    emoji: "🤷",
-    description: "Person Shrugging"
+    "id": 235,
+    "emoji": "👵",
+    "unicode": "U+1F475",
+    "name": "old woman"
   },
   {
-    name: "🤷‍♂️ Man Shrugging",
-    type: "Smileys & People",
-    emoji: "🤷‍♂️",
-    description: "Man Shrugging"
+    "id": 236,
+    "emoji": "🙍",
+    "unicode": "U+1F64D",
+    "name": "person frowning"
   },
   {
-    name: "🤷‍♀️ Woman Shrugging",
-    type: "Smileys & People",
-    emoji: "🤷‍♀️",
-    description: "Woman Shrugging"
+    "id": 237,
+    "emoji": "🙍‍♂️",
+    "unicode": "U+1F64D U+200D U+2642 U+FE0F",
+    "name": "man frowning"
   },
   {
-    name: "💆 Person Getting Massage",
-    type: "Smileys & People",
-    emoji: "💆",
-    description: "Person Getting Massage"
+    "id": 238,
+    "emoji": "🙍‍♀️",
+    "unicode": "U+1F64D U+200D U+2640 U+FE0F",
+    "name": "woman frowning"
   },
   {
-    name: "💆‍♂️ Man Getting Massage",
-    type: "Smileys & People",
-    emoji: "💆‍♂️",
-    description: "Man Getting Massage"
+    "id": 239,
+    "emoji": "🙎",
+    "unicode": "U+1F64E",
+    "name": "person pouting"
   },
   {
-    name: "💆‍♀️ Woman Getting Massage",
-    type: "Smileys & People",
-    emoji: "💆‍♀️",
-    description: "Woman Getting Massage"
+    "id": 240,
+    "emoji": "🙎‍♂️",
+    "unicode": "U+1F64E U+200D U+2642 U+FE0F",
+    "name": "man pouting"
   },
   {
-    name: "💇 Person Getting Haircut",
-    type: "Smileys & People",
-    emoji: "💇",
-    description: "Person Getting Haircut"
+    "id": 241,
+    "emoji": "🙎‍♀️",
+    "unicode": "U+1F64E U+200D U+2640 U+FE0F",
+    "name": "woman pouting"
   },
   {
-    name: "💇‍♂️ Man Getting Haircut",
-    type: "Smileys & People",
-    emoji: "💇‍♂️",
-    description: "Man Getting Haircut"
+    "id": 242,
+    "emoji": "🙅",
+    "unicode": "U+1F645",
+    "name": "person gesturing NO"
   },
   {
-    name: "💇‍♀️ Woman Getting Haircut",
-    type: "Smileys & People",
-    emoji: "💇‍♀️",
-    description: "Woman Getting Haircut"
+    "id": 243,
+    "emoji": "🙅‍♂️",
+    "unicode": "U+1F645 U+200D U+2642 U+FE0F",
+    "name": "man gesturing NO"
   },
   {
-    name: "🚶 Person Walking",
-    type: "Smileys & People",
-    emoji: "🚶",
-    description: "Person Walking"
+    "id": 244,
+    "emoji": "🙅‍♀️",
+    "unicode": "U+1F645 U+200D U+2640 U+FE0F",
+    "name": "woman gesturing NO"
   },
   {
-    name: "🚶‍♂️ Man Walking",
-    type: "Smileys & People",
-    emoji: "🚶‍♂️",
-    description: "Man Walking"
+    "id": 245,
+    "emoji": "🙆",
+    "unicode": "U+1F646",
+    "name": "person gesturing OK"
   },
   {
-    name: "🚶‍♀️ Woman Walking",
-    type: "Smileys & People",
-    emoji: "🚶‍♀️",
-    description: "Woman Walking"
+    "id": 246,
+    "emoji": "🙆‍♂️",
+    "unicode": "U+1F646 U+200D U+2642 U+FE0F",
+    "name": "man gesturing OK"
   },
   {
-    name: "🏃 Person Running",
-    type: "Smileys & People",
-    emoji: "🏃",
-    description: "Person Running"
+    "id": 247,
+    "emoji": "🙆‍♀️",
+    "unicode": "U+1F646 U+200D U+2640 U+FE0F",
+    "name": "woman gesturing OK"
   },
   {
-    name: "🏃‍♂️ Man Running",
-    type: "Smileys & People",
-    emoji: "🏃‍♂️",
-    description: "Man Running"
+    "id": 248,
+    "emoji": "💁",
+    "unicode": "U+1F481",
+    "name": "person tipping hand"
   },
   {
-    name: "🏃‍♀️ Woman Running",
-    type: "Smileys & People",
-    emoji: "🏃‍♀️",
-    description: "Woman Running"
+    "id": 249,
+    "emoji": "💁‍♂️",
+    "unicode": "U+1F481 U+200D U+2642 U+FE0F",
+    "name": "man tipping hand"
   },
   {
-    name: "💃 Woman Dancing",
-    type: "Smileys & People",
-    emoji: "💃",
-    description: "Woman Dancing"
+    "id": 250,
+    "emoji": "💁‍♀️",
+    "unicode": "U+1F481 U+200D U+2640 U+FE0F",
+    "name": "woman tipping hand"
   },
   {
-    name: "🕺 Man Dancing",
-    type: "Smileys & People",
-    emoji: "🕺",
-    description: "Man Dancing"
+    "id": 251,
+    "emoji": "🙋",
+    "unicode": "U+1F64B",
+    "name": "person raising hand"
   },
   {
-    name: "👯 People With Bunny Ears",
-    type: "Smileys & People",
-    emoji: "👯",
-    description: "People With Bunny Ears"
+    "id": 252,
+    "emoji": "🙋‍♂️",
+    "unicode": "U+1F64B U+200D U+2642 U+FE0F",
+    "name": "man raising hand"
   },
   {
-    name: "👯‍♂️ Men With Bunny Ears",
-    type: "Smileys & People",
-    emoji: "👯‍♂️",
-    description: "Men With Bunny Ears"
+    "id": 253,
+    "emoji": "🙋‍♀️",
+    "unicode": "U+1F64B U+200D U+2640 U+FE0F",
+    "name": "woman raising hand"
   },
   {
-    name: "👯 ‍♀️ Women With Bunny Ears",
-    type: "Smileys & People",
-    emoji: "👯",
-    description: "‍♀️ Women With Bunny Ears"
+    "id": 254,
+    "emoji": "🧏",
+    "unicode": "U+1F9CF",
+    "name": "deaf person"
   },
   {
-    name: "🧖 Person in Steamy Room",
-    type: "Smileys & People",
-    emoji: "🧖",
-    description: "Person in Steamy Room"
+    "id": 255,
+    "emoji": "🧏‍♂️",
+    "unicode": "U+1F9CF U+200D U+2642 U+FE0F",
+    "name": "deaf man"
   },
   {
-    name: "🧖‍♀️ Woman in Steamy Room",
-    type: "Smileys & People",
-    emoji: "🧖‍♀️",
-    description: "Woman in Steamy Room"
+    "id": 256,
+    "emoji": "🧏‍♀️",
+    "unicode": "U+1F9CF U+200D U+2640 U+FE0F",
+    "name": "deaf woman"
   },
   {
-    name: "🧖‍♂️ Man in Steamy Room",
-    type: "Smileys & People",
-    emoji: "🧖‍♂️",
-    description: "Man in Steamy Room"
+    "id": 257,
+    "emoji": "🙇",
+    "unicode": "U+1F647",
+    "name": "person bowing"
   },
   {
-    name: "🧘 Person in Lotus Position",
-    type: "Smileys & People",
-    emoji: "🧘",
-    description: "Person in Lotus Position"
+    "id": 258,
+    "emoji": "🙇‍♂️",
+    "unicode": "U+1F647 U+200D U+2642 U+FE0F",
+    "name": "man bowing"
   },
   {
-    name: "🕴 Man in Suit Levitating",
-    type: "Smileys & People",
-    emoji: "🕴",
-    description: "Man in Suit Levitating"
+    "id": 259,
+    "emoji": "🙇‍♀️",
+    "unicode": "U+1F647 U+200D U+2640 U+FE0F",
+    "name": "woman bowing"
   },
   {
-    name: "🗣 Speaking Head",
-    type: "Smileys & People",
-    emoji: "🗣",
-    description: "Speaking Head"
+    "id": 260,
+    "emoji": "🤦",
+    "unicode": "U+1F926",
+    "name": "person facepalming"
   },
   {
-    name: "👤 Bust in Silhouette",
-    type: "Smileys & People",
-    emoji: "👤",
-    description: "Bust in Silhouette"
+    "id": 261,
+    "emoji": "🤦‍♂️",
+    "unicode": "U+1F926 U+200D U+2642 U+FE0F",
+    "name": "man facepalming"
   },
   {
-    name: "👥 Busts in Silhouette",
-    type: "Smileys & People",
-    emoji: "👥",
-    description: "Busts in Silhouette"
+    "id": 262,
+    "emoji": "🤦‍♀️",
+    "unicode": "U+1F926 U+200D U+2640 U+FE0F",
+    "name": "woman facepalming"
   },
   {
-    name: "👫 Man and Woman Holding Hands",
-    type: "Smileys & People",
-    emoji: "👫",
-    description: "Man and Woman Holding Hands"
+    "id": 263,
+    "emoji": "🤷",
+    "unicode": "U+1F937",
+    "name": "person shrugging"
   },
   {
-    name: "👬 Two Men Holding Hands",
-    type: "Smileys & People",
-    emoji: "👬",
-    description: "Two Men Holding Hands"
+    "id": 264,
+    "emoji": "🤷‍♂️",
+    "unicode": "U+1F937 U+200D U+2642 U+FE0F",
+    "name": "man shrugging"
   },
   {
-    name: "👭 Two Women Holding Hands",
-    type: "Smileys & People",
-    emoji: "👭",
-    description: "Two Women Holding Hands"
+    "id": 265,
+    "emoji": "🤷‍♀️",
+    "unicode": "U+1F937 U+200D U+2640 U+FE0F",
+    "name": "woman shrugging"
   },
   {
-    name: "💏 Kiss",
-    type: "Smileys & People",
-    emoji: "💏",
-    description: "Kiss"
+    "id": 266,
+    "emoji": "🧑‍⚕️",
+    "unicode": "U+1F9D1 U+200D U+2695 U+FE0F",
+    "name": "health worker"
   },
   {
-    name: "👨‍❤️‍💋‍👨 Kiss: Man, Man",
-    type: "Smileys & People",
-    emoji: "👨‍❤️‍💋‍👨",
-    description: "Kiss: Man, Man"
+    "id": 267,
+    "emoji": "👨‍⚕️",
+    "unicode": "U+1F468 U+200D U+2695 U+FE0F",
+    "name": "man health worker"
   },
   {
-    name: "👩‍❤️‍💋‍👩 Kiss: Woman, Woman",
-    type: "Smileys & People",
-    emoji: "👩‍❤️‍💋‍👩",
-    description: "Kiss: Woman, Woman"
+    "id": 268,
+    "emoji": "👩‍⚕️",
+    "unicode": "U+1F469 U+200D U+2695 U+FE0F",
+    "name": "woman health worker"
   },
   {
-    name: "💑 Couple With Heart",
-    type: "Smileys & People",
-    emoji: "💑",
-    description: "Couple With Heart"
+    "id": 269,
+    "emoji": "🧑‍🎓",
+    "unicode": "U+1F9D1 U+200D U+1F393",
+    "name": "student"
   },
   {
-    name: "👨‍❤️‍👨 Couple With Heart: Man, Man",
-    type: "Smileys & People",
-    emoji: "👨‍❤️‍👨",
-    description: "Couple With Heart: Man, Man"
+    "id": 270,
+    "emoji": "👨‍🎓",
+    "unicode": "U+1F468 U+200D U+1F393",
+    "name": "man student"
   },
   {
-    name: "👩‍❤️‍👩 Couple With Heart: Woman, Woman",
-    type: "Smileys & People",
-    emoji: "👩‍❤️‍👩",
-    description: "Couple With Heart: Woman, Woman"
+    "id": 271,
+    "emoji": "👩‍🎓",
+    "unicode": "U+1F469 U+200D U+1F393",
+    "name": "woman student"
   },
   {
-    name: "👪 Family",
-    type: "Smileys & People",
-    emoji: "👪",
-    description: "Family"
+    "id": 272,
+    "emoji": "🧑‍🏫",
+    "unicode": "U+1F9D1 U+200D U+1F3EB",
+    "name": "teacher"
   },
   {
-    name: "👨‍👩‍👦 Family: Man, Woman, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👩‍👦",
-    description: "Family: Man, Woman, Boy"
+    "id": 273,
+    "emoji": "👨‍🏫",
+    "unicode": "U+1F468 U+200D U+1F3EB",
+    "name": "man teacher"
   },
   {
-    name: "👨‍👩‍👧 Family: Man, Woman, Girl",
-    type: "Smileys & People",
-    emoji: "👨‍👩‍👧",
-    description: "Family: Man, Woman, Girl"
+    "id": 274,
+    "emoji": "👩‍🏫",
+    "unicode": "U+1F469 U+200D U+1F3EB",
+    "name": "woman teacher"
   },
   {
-    name: "👨‍👩‍👧‍👦 Family: Man, Woman, Girl, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👩‍👧‍👦",
-    description: "Family: Man, Woman, Girl, Boy"
+    "id": 275,
+    "emoji": "🧑‍⚖️",
+    "unicode": "U+1F9D1 U+200D U+2696 U+FE0F",
+    "name": "judge"
   },
   {
-    name: "👨‍👩‍👦‍👦 Family: Man, Woman, Boy, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👩‍👦‍👦",
-    description: "Family: Man, Woman, Boy, Boy"
+    "id": 276,
+    "emoji": "👨‍⚖️",
+    "unicode": "U+1F468 U+200D U+2696 U+FE0F",
+    "name": "man judge"
   },
   {
-    name: "👨‍👩‍👧‍👧 Family: Man, Woman, Girl, Girl",
-    type: "Smileys & People",
-    emoji: "👨‍👩‍👧‍👧",
-    description: "Family: Man, Woman, Girl, Girl"
+    "id": 277,
+    "emoji": "👩‍⚖️",
+    "unicode": "U+1F469 U+200D U+2696 U+FE0F",
+    "name": "woman judge"
   },
   {
-    name: "👨‍👨‍👦 Family: Man, Man, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👨‍👦",
-    description: "Family: Man, Man, Boy"
+    "id": 278,
+    "emoji": "🧑‍🌾",
+    "unicode": "U+1F9D1 U+200D U+1F33E",
+    "name": "farmer"
   },
   {
-    name: "👨‍👨‍👧 Family: Man, Man, Girl",
-    type: "Smileys & People",
-    emoji: "👨‍👨‍👧",
-    description: "Family: Man, Man, Girl"
+    "id": 279,
+    "emoji": "👨‍🌾",
+    "unicode": "U+1F468 U+200D U+1F33E",
+    "name": "man farmer"
   },
   {
-    name: "👨‍👨‍👧‍👦 Family: Man, Man, Girl, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👨‍👧‍👦",
-    description: "Family: Man, Man, Girl, Boy"
+    "id": 280,
+    "emoji": "👩‍🌾",
+    "unicode": "U+1F469 U+200D U+1F33E",
+    "name": "woman farmer"
   },
   {
-    name: "👨‍👨‍👦‍👦 Family: Man, Man, Boy, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👨‍👦‍👦",
-    description: "Family: Man, Man, Boy, Boy"
+    "id": 281,
+    "emoji": "🧑‍🍳",
+    "unicode": "U+1F9D1 U+200D U+1F373",
+    "name": "cook"
   },
   {
-    name: "👨‍👨‍👧‍👧 Family: Man, Man, Girl, Girl",
-    type: "Smileys & People",
-    emoji: "👨‍👨‍👧‍👧",
-    description: "Family: Man, Man, Girl, Girl"
+    "id": 282,
+    "emoji": "👨‍🍳",
+    "unicode": "U+1F468 U+200D U+1F373",
+    "name": "man cook"
   },
   {
-    name: "👩‍👩‍👦 Family: Woman, Woman, Boy",
-    type: "Smileys & People",
-    emoji: "👩‍👩‍👦",
-    description: "Family: Woman, Woman, Boy"
+    "id": 283,
+    "emoji": "👩‍🍳",
+    "unicode": "U+1F469 U+200D U+1F373",
+    "name": "woman cook"
   },
   {
-    name: "👩‍👩‍👧 Family: Woman, Woman, Girl",
-    type: "Smileys & People",
-    emoji: "👩‍👩‍👧",
-    description: "Family: Woman, Woman, Girl"
+    "id": 284,
+    "emoji": "🧑‍🔧",
+    "unicode": "U+1F9D1 U+200D U+1F527",
+    "name": "mechanic"
   },
   {
-    name: "👩‍👩‍👧‍👦 Family: Woman, Woman, Girl, Boy",
-    type: "Smileys & People",
-    emoji: "👩‍👩‍👧‍👦",
-    description: "Family: Woman, Woman, Girl, Boy"
+    "id": 285,
+    "emoji": "👨‍🔧",
+    "unicode": "U+1F468 U+200D U+1F527",
+    "name": "man mechanic"
   },
   {
-    name: "👩‍👩‍👦‍👦 Family: Woman, Woman, Boy, Boy",
-    type: "Smileys & People",
-    emoji: "👩‍👩‍👦‍👦",
-    description: "Family: Woman, Woman, Boy, Boy"
+    "id": 286,
+    "emoji": "👩‍🔧",
+    "unicode": "U+1F469 U+200D U+1F527",
+    "name": "woman mechanic"
   },
   {
-    name: "👩‍👩‍👧‍👧 Family: Woman, Woman, Girl, Girl",
-    type: "Smileys & People",
-    emoji: "👩‍👩‍👧‍👧",
-    description: "Family: Woman, Woman, Girl, Girl"
+    "id": 287,
+    "emoji": "🧑‍🏭",
+    "unicode": "U+1F9D1 U+200D U+1F3ED",
+    "name": "factory worker"
   },
   {
-    name: "👨‍👦 Family: Man, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👦",
-    description: "Family: Man, Boy"
+    "id": 288,
+    "emoji": "👨‍🏭",
+    "unicode": "U+1F468 U+200D U+1F3ED",
+    "name": "man factory worker"
   },
   {
-    name: "👨‍👦‍👦 Family: Man, Boy, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👦‍👦",
-    description: "Family: Man, Boy, Boy"
+    "id": 289,
+    "emoji": "👩‍🏭",
+    "unicode": "U+1F469 U+200D U+1F3ED",
+    "name": "woman factory worker"
   },
   {
-    name: "👨‍👧 Family: Man, Girl",
-    type: "Smileys & People",
-    emoji: "👨‍👧",
-    description: "Family: Man, Girl"
+    "id": 290,
+    "emoji": "🧑‍💼",
+    "unicode": "U+1F9D1 U+200D U+1F4BC",
+    "name": "office worker"
   },
   {
-    name: "👨‍👧‍👦 Family: Man, Girl, Boy",
-    type: "Smileys & People",
-    emoji: "👨‍👧‍👦",
-    description: "Family: Man, Girl, Boy"
+    "id": 291,
+    "emoji": "👨‍💼",
+    "unicode": "U+1F468 U+200D U+1F4BC",
+    "name": "man office worker"
   },
   {
-    name: "👨‍👧‍👧 Family: Man, Girl, Girl",
-    type: "Smileys & People",
-    emoji: "👨‍👧‍👧",
-    description: "Family: Man, Girl, Girl"
+    "id": 292,
+    "emoji": "👩‍💼",
+    "unicode": "U+1F469 U+200D U+1F4BC",
+    "name": "woman office worker"
   },
   {
-    name: "👩‍👦 Family: Woman, Boy",
-    type: "Smileys & People",
-    emoji: "👩‍👦",
-    description: "Family: Woman, Boy"
+    "id": 293,
+    "emoji": "🧑‍🔬",
+    "unicode": "U+1F9D1 U+200D U+1F52C",
+    "name": "scientist"
   },
   {
-    name: "👩‍👦‍👦 Family: Woman, Boy, Boy",
-    type: "Smileys & People",
-    emoji: "👩‍👦‍👦",
-    description: "Family: Woman, Boy, Boy"
+    "id": 294,
+    "emoji": "👨‍🔬",
+    "unicode": "U+1F468 U+200D U+1F52C",
+    "name": "man scientist"
   },
   {
-    name: "👩‍👧 Family: Woman, Girl",
-    type: "Smileys & People",
-    emoji: "👩‍👧",
-    description: "Family: Woman, Girl"
+    "id": 295,
+    "emoji": "👩‍🔬",
+    "unicode": "U+1F469 U+200D U+1F52C",
+    "name": "woman scientist"
   },
   {
-    name: "👩‍👧‍👦 Family: Woman, Girl, Boy",
-    type: "Smileys & People",
-    emoji: "👩‍👧‍👦",
-    description: "Family: Woman, Girl, Boy"
+    "id": 296,
+    "emoji": "🧑‍💻",
+    "unicode": "U+1F9D1 U+200D U+1F4BB",
+    "name": "technologist"
   },
   {
-    name: "👩‍👧‍👧 Family: Woman, Girl, Girl",
-    type: "Smileys & People",
-    emoji: "👩‍👧‍👧",
-    description: "Family: Woman, Girl, Girl"
+    "id": 297,
+    "emoji": "👨‍💻",
+    "unicode": "U+1F468 U+200D U+1F4BB",
+    "name": "man technologist"
   },
   {
-    name: "🤳 Selfie",
-    type: "Smileys & People",
-    emoji: "🤳",
-    description: "Selfie"
+    "id": 298,
+    "emoji": "👩‍💻",
+    "unicode": "U+1F469 U+200D U+1F4BB",
+    "name": "woman technologist"
   },
   {
-    name: "💪 Flexed Biceps",
-    type: "Smileys & People",
-    emoji: "💪",
-    description: "Flexed Biceps"
+    "id": 299,
+    "emoji": "🧑‍🎤",
+    "unicode": "U+1F9D1 U+200D U+1F3A4",
+    "name": "singer"
   },
   {
-    name: "🦵 Leg",
-    type: "Smileys & People",
-    emoji: "🦵",
-    description: "Leg"
+    "id": 300,
+    "emoji": "👨‍🎤",
+    "unicode": "U+1F468 U+200D U+1F3A4",
+    "name": "man singer"
   },
   {
-    name: "🦶 Foot",
-    type: "Smileys & People",
-    emoji: "🦶",
-    description: "Foot"
+    "id": 301,
+    "emoji": "👩‍🎤",
+    "unicode": "U+1F469 U+200D U+1F3A4",
+    "name": "woman singer"
   },
   {
-    name: "👈 Backhand Index Pointing Left",
-    type: "Smileys & People",
-    emoji: "👈",
-    description: "Backhand Index Pointing Left"
+    "id": 302,
+    "emoji": "🧑‍🎨",
+    "unicode": "U+1F9D1 U+200D U+1F3A8",
+    "name": "artist"
   },
   {
-    name: "👉 Backhand Index Pointing Right",
-    type: "Smileys & People",
-    emoji: "👉",
-    description: "Backhand Index Pointing Right"
+    "id": 303,
+    "emoji": "👨‍🎨",
+    "unicode": "U+1F468 U+200D U+1F3A8",
+    "name": "man artist"
   },
   {
-    name: "☝ Index Pointing Up",
-    type: "Smileys & People",
-    emoji: "☝",
-    description: "Index Pointing Up"
+    "id": 304,
+    "emoji": "👩‍🎨",
+    "unicode": "U+1F469 U+200D U+1F3A8",
+    "name": "woman artist"
   },
   {
-    name: "👆 Backhand Index Pointing Up",
-    type: "Smileys & People",
-    emoji: "👆",
-    description: "Backhand Index Pointing Up"
+    "id": 305,
+    "emoji": "🧑‍✈️",
+    "unicode": "U+1F9D1 U+200D U+2708 U+FE0F",
+    "name": "pilot"
   },
   {
-    name: "🖕 Middle Finger",
-    type: "Smileys & People",
-    emoji: "🖕",
-    description: "Middle Finger"
+    "id": 306,
+    "emoji": "👨‍✈️",
+    "unicode": "U+1F468 U+200D U+2708 U+FE0F",
+    "name": "man pilot"
   },
   {
-    name: "👇 Backhand Index Pointing Down",
-    type: "Smileys & People",
-    emoji: "👇",
-    description: "Backhand Index Pointing Down"
+    "id": 307,
+    "emoji": "👩‍✈️",
+    "unicode": "U+1F469 U+200D U+2708 U+FE0F",
+    "name": "woman pilot"
   },
   {
-    name: "✌ Victory Hand",
-    type: "Smileys & People",
-    emoji: "✌",
-    description: "Victory Hand"
+    "id": 308,
+    "emoji": "🧑‍🚀",
+    "unicode": "U+1F9D1 U+200D U+1F680",
+    "name": "astronaut"
   },
   {
-    name: "🤞 Crossed Fingers",
-    type: "Smileys & People",
-    emoji: "🤞",
-    description: "Crossed Fingers"
+    "id": 309,
+    "emoji": "👨‍🚀",
+    "unicode": "U+1F468 U+200D U+1F680",
+    "name": "man astronaut"
   },
   {
-    name: "🖖 Vulcan Salute",
-    type: "Smileys & People",
-    emoji: "🖖",
-    description: "Vulcan Salute"
+    "id": 310,
+    "emoji": "👩‍🚀",
+    "unicode": "U+1F469 U+200D U+1F680",
+    "name": "woman astronaut"
   },
   {
-    name: "🤘 Sign of the Horns",
-    type: "Smileys & People",
-    emoji: "🤘",
-    description: "Sign of the Horns"
+    "id": 311,
+    "emoji": "🧑‍🚒",
+    "unicode": "U+1F9D1 U+200D U+1F692",
+    "name": "firefighter"
   },
   {
-    name: "🖐 Hand With Fingers Splayed",
-    type: "Smileys & People",
-    emoji: "🖐",
-    description: "Hand With Fingers Splayed"
+    "id": 312,
+    "emoji": "👨‍🚒",
+    "unicode": "U+1F468 U+200D U+1F692",
+    "name": "man firefighter"
   },
   {
-    name: "✋ Raised Hand",
-    type: "Smileys & People",
-    emoji: "✋",
-    description: "Raised Hand"
+    "id": 313,
+    "emoji": "👩‍🚒",
+    "unicode": "U+1F469 U+200D U+1F692",
+    "name": "woman firefighter"
   },
   {
-    name: "👌 OK Hand",
-    type: "Smileys & People",
-    emoji: "👌",
-    description: "OK Hand"
+    "id": 314,
+    "emoji": "👮",
+    "unicode": "U+1F46E",
+    "name": "police officer"
   },
   {
-    name: "👍 Thumbs Up",
-    type: "Smileys & People",
-    emoji: "👍",
-    description: "Thumbs Up"
+    "id": 315,
+    "emoji": "👮‍♂️",
+    "unicode": "U+1F46E U+200D U+2642 U+FE0F",
+    "name": "man police officer"
   },
   {
-    name: "👎 Thumbs Down",
-    type: "Smileys & People",
-    emoji: "👎",
-    description: "Thumbs Down"
+    "id": 316,
+    "emoji": "👮‍♀️",
+    "unicode": "U+1F46E U+200D U+2640 U+FE0F",
+    "name": "woman police officer"
   },
   {
-    name: "✊ Raised Fist",
-    type: "Smileys & People",
-    emoji: "✊",
-    description: "Raised Fist"
+    "id": 317,
+    "emoji": "🕵",
+    "unicode": "U+1F575",
+    "name": "detective"
   },
   {
-    name: "👊 Oncoming Fist",
-    type: "Smileys & People",
-    emoji: "👊",
-    description: "Oncoming Fist"
+    "id": 318,
+    "emoji": "🕵️‍♂️",
+    "unicode": "U+1F575 U+FE0F U+200D U+2642 U+FE0F",
+    "name": "man detective"
   },
   {
-    name: "🤛 Left-Facing Fist",
-    type: "Smileys & People",
-    emoji: "🤛",
-    description: "Left-Facing Fist"
+    "id": 319,
+    "emoji": "🕵️‍♀️",
+    "unicode": "U+1F575 U+FE0F U+200D U+2640 U+FE0F",
+    "name": "woman detective"
   },
   {
-    name: "🤜 Right-Facing Fist",
-    type: "Smileys & People",
-    emoji: "🤜",
-    description: "Right-Facing Fist"
+    "id": 320,
+    "emoji": "💂",
+    "unicode": "U+1F482",
+    "name": "guard"
   },
   {
-    name: "🤚 Raised Back of Hand",
-    type: "Smileys & People",
-    emoji: "🤚",
-    description: "Raised Back of Hand"
+    "id": 321,
+    "emoji": "💂‍♂️",
+    "unicode": "U+1F482 U+200D U+2642 U+FE0F",
+    "name": "man guard"
   },
   {
-    name: "👋 Waving Hand",
-    type: "Smileys & People",
-    emoji: "👋",
-    description: "Waving Hand"
+    "id": 322,
+    "emoji": "💂‍♀️",
+    "unicode": "U+1F482 U+200D U+2640 U+FE0F",
+    "name": "woman guard"
   },
   {
-    name: "🤟 Love-You Gesture",
-    type: "Smileys & People",
-    emoji: "🤟",
-    description: "Love-You Gesture"
+    "id": 323,
+    "emoji": "🥷",
+    "unicode": "U+1F977",
+    "name": "ninja"
   },
   {
-    name: "✍ Writing Hand",
-    type: "Smileys & People",
-    emoji: "✍",
-    description: "Writing Hand"
+    "id": 324,
+    "emoji": "👷",
+    "unicode": "U+1F477",
+    "name": "construction worker"
   },
   {
-    name: "👏 Clapping Hands",
-    type: "Smileys & People",
-    emoji: "👏",
-    description: "Clapping Hands"
+    "id": 325,
+    "emoji": "👷‍♂️",
+    "unicode": "U+1F477 U+200D U+2642 U+FE0F",
+    "name": "man construction worker"
   },
   {
-    name: "👐 Open Hands",
-    type: "Smileys & People",
-    emoji: "👐",
-    description: "Open Hands"
+    "id": 326,
+    "emoji": "👷‍♀️",
+    "unicode": "U+1F477 U+200D U+2640 U+FE0F",
+    "name": "woman construction worker"
   },
   {
-    name: "🙌 Raising Hands",
-    type: "Smileys & People",
-    emoji: "🙌",
-    description: "Raising Hands"
+    "id": 327,
+    "emoji": "🤴",
+    "unicode": "U+1F934",
+    "name": "prince"
   },
   {
-    name: "🤲 Palms Up Together",
-    type: "Smileys & People",
-    emoji: "🤲",
-    description: "Palms Up Together"
+    "id": 328,
+    "emoji": "👸",
+    "unicode": "U+1F478",
+    "name": "princess"
   },
   {
-    name: "🙏 Folded Hands",
-    type: "Smileys & People",
-    emoji: "🙏",
-    description: "Folded Hands"
+    "id": 329,
+    "emoji": "👳",
+    "unicode": "U+1F473",
+    "name": "person wearing turban"
   },
   {
-    name: "🤝 Handshake",
-    type: "Smileys & People",
-    emoji: "🤝",
-    description: "Handshake"
+    "id": 330,
+    "emoji": "👳‍♂️",
+    "unicode": "U+1F473 U+200D U+2642 U+FE0F",
+    "name": "man wearing turban"
   },
   {
-    name: "💅 Nail Polish",
-    type: "Smileys & People",
-    emoji: "💅",
-    description: "Nail Polish"
+    "id": 331,
+    "emoji": "👳‍♀️",
+    "unicode": "U+1F473 U+200D U+2640 U+FE0F",
+    "name": "woman wearing turban"
   },
   {
-    name: "👂 Ear",
-    type: "Smileys & People",
-    emoji: "👂",
-    description: "Ear"
+    "id": 332,
+    "emoji": "👲",
+    "unicode": "U+1F472",
+    "name": "person with skullcap"
   },
   {
-    name: "👃 Nose",
-    type: "Smileys & People",
-    emoji: "👃",
-    description: "Nose"
+    "id": 333,
+    "emoji": "🧕",
+    "unicode": "U+1F9D5",
+    "name": "woman with headscarf"
   },
   {
-    name: "👣 Footprints",
-    type: "Smileys & People",
-    emoji: "👣",
-    description: "Footprints"
+    "id": 334,
+    "emoji": "🤵",
+    "unicode": "U+1F935",
+    "name": "person in tuxedo"
   },
   {
-    name: "👀 Eyes",
-    type: "Smileys & People",
-    emoji: "👀",
-    description: "Eyes"
+    "id": 335,
+    "emoji": "🤵‍♂️",
+    "unicode": "U+1F935 U+200D U+2642 U+FE0F",
+    "name": "man in tuxedo"
   },
   {
-    name: "👁 Eye",
-    type: "Smileys & People",
-    emoji: "👁",
-    description: "Eye"
+    "id": 336,
+    "emoji": "🤵‍♀️",
+    "unicode": "U+1F935 U+200D U+2640 U+FE0F",
+    "name": "woman in tuxedo"
   },
   {
-    name: "🧠 Brain",
-    type: "Smileys & People",
-    emoji: "🧠",
-    description: "Brain"
+    "id": 337,
+    "emoji": "👰",
+    "unicode": "U+1F470",
+    "name": "person with veil"
   },
   {
-    name: "🦴 Bone",
-    type: "Smileys & People",
-    emoji: "🦴",
-    description: "Bone"
+    "id": 338,
+    "emoji": "👰‍♂️",
+    "unicode": "U+1F470 U+200D U+2642 U+FE0F",
+    "name": "man with veil"
   },
   {
-    name: "🦷 Tooth",
-    type: "Smileys & People",
-    emoji: "🦷",
-    description: "Tooth"
+    "id": 339,
+    "emoji": "👰‍♀️",
+    "unicode": "U+1F470 U+200D U+2640 U+FE0F",
+    "name": "woman with veil"
   },
   {
-    name: "👅 Tongue",
-    type: "Smileys & People",
-    emoji: "👅",
-    description: "Tongue"
+    "id": 340,
+    "emoji": "🤰",
+    "unicode": "U+1F930",
+    "name": "pregnant woman"
   },
   {
-    name: "👄 Mouth",
-    type: "Smileys & People",
-    emoji: "👄",
-    description: "Mouth"
+    "id": 341,
+    "emoji": "🤱",
+    "unicode": "U+1F931",
+    "name": "breast-feeding"
   },
   {
-    name: "💋 Kiss Mark",
-    type: "Smileys & People",
-    emoji: "💋",
-    description: "Kiss Mark"
+    "id": 342,
+    "emoji": "👩‍🍼",
+    "unicode": "U+1F469 U+200D U+1F37C",
+    "name": "woman feeding baby"
   },
   {
-    name: "👓 Glasses",
-    type: "Smileys & People",
-    emoji: "👓",
-    description: "Glasses"
+    "id": 343,
+    "emoji": "👨‍🍼",
+    "unicode": "U+1F468 U+200D U+1F37C",
+    "name": "man feeding baby"
   },
   {
-    name: "🕶 Sunglasses",
-    type: "Smileys & People",
-    emoji: "🕶",
-    description: "Sunglasses"
+    "id": 344,
+    "emoji": "🧑‍🍼",
+    "unicode": "U+1F9D1 U+200D U+1F37C",
+    "name": "person feeding baby"
   },
   {
-    name: "🥽 Goggles",
-    type: "Smileys & People",
-    emoji: "🥽",
-    description: "Goggles"
+    "id": 345,
+    "emoji": "👼",
+    "unicode": "U+1F47C",
+    "name": "baby angel"
   },
   {
-    name: "🥼 Lab Coat",
-    type: "Smileys & People",
-    emoji: "🥼",
-    description: "Lab Coat"
+    "id": 346,
+    "emoji": "🎅",
+    "unicode": "U+1F385",
+    "name": "Santa Claus"
   },
   {
-    name: "👔 Necktie",
-    type: "Smileys & People",
-    emoji: "👔",
-    description: "Necktie"
+    "id": 347,
+    "emoji": "🤶",
+    "unicode": "U+1F936",
+    "name": "Mrs. Claus"
   },
   {
-    name: "👕 T-Shirt",
-    type: "Smileys & People",
-    emoji: "👕",
-    description: "T-Shirt"
+    "id": 348,
+    "emoji": "🧑‍🎄",
+    "unicode": "U+1F9D1 U+200D U+1F384",
+    "name": "mx claus"
   },
   {
-    name: "👖 Jeans",
-    type: "Smileys & People",
-    emoji: "👖",
-    description: "Jeans"
+    "id": 349,
+    "emoji": "🦸",
+    "unicode": "U+1F9B8",
+    "name": "superhero"
   },
   {
-    name: "🧣 Scarf",
-    type: "Smileys & People",
-    emoji: "🧣",
-    description: "Scarf"
+    "id": 350,
+    "emoji": "🦸‍♂️",
+    "unicode": "U+1F9B8 U+200D U+2642 U+FE0F",
+    "name": "man superhero"
   },
   {
-    name: "🧤 Gloves",
-    type: "Smileys & People",
-    emoji: "🧤",
-    description: "Gloves"
+    "id": 351,
+    "emoji": "🦸‍♀️",
+    "unicode": "U+1F9B8 U+200D U+2640 U+FE0F",
+    "name": "woman superhero"
   },
   {
-    name: "🧥 Coat",
-    type: "Smileys & People",
-    emoji: "🧥",
-    description: "Coat"
+    "id": 352,
+    "emoji": "🦹",
+    "unicode": "U+1F9B9",
+    "name": "supervillain"
   },
   {
-    name: "🧦 Socks",
-    type: "Smileys & People",
-    emoji: "🧦",
-    description: "Socks"
+    "id": 353,
+    "emoji": "🦹‍♂️",
+    "unicode": "U+1F9B9 U+200D U+2642 U+FE0F",
+    "name": "man supervillain"
   },
   {
-    name: "👗 Dress",
-    type: "Smileys & People",
-    emoji: "👗",
-    description: "Dress"
+    "id": 354,
+    "emoji": "🦹‍♀️",
+    "unicode": "U+1F9B9 U+200D U+2640 U+FE0F",
+    "name": "woman supervillain"
   },
   {
-    name: "👘 Kimono",
-    type: "Smileys & People",
-    emoji: "👘",
-    description: "Kimono"
+    "id": 355,
+    "emoji": "🧙",
+    "unicode": "U+1F9D9",
+    "name": "mage"
   },
   {
-    name: "👙 Bikini",
-    type: "Smileys & People",
-    emoji: "👙",
-    description: "Bikini"
+    "id": 356,
+    "emoji": "🧙‍♂️",
+    "unicode": "U+1F9D9 U+200D U+2642 U+FE0F",
+    "name": "man mage"
   },
   {
-    name: "👚 Woman’S Clothes",
-    type: "Smileys & People",
-    emoji: "👚",
-    description: "Woman’S Clothes"
+    "id": 357,
+    "emoji": "🧙‍♀️",
+    "unicode": "U+1F9D9 U+200D U+2640 U+FE0F",
+    "name": "woman mage"
   },
   {
-    name: "👛 Purse",
-    type: "Smileys & People",
-    emoji: "👛",
-    description: "Purse"
+    "id": 358,
+    "emoji": "🧚",
+    "unicode": "U+1F9DA",
+    "name": "fairy"
   },
   {
-    name: "👜 Handbag",
-    type: "Smileys & People",
-    emoji: "👜",
-    description: "Handbag"
+    "id": 359,
+    "emoji": "🧚‍♂️",
+    "unicode": "U+1F9DA U+200D U+2642 U+FE0F",
+    "name": "man fairy"
   },
   {
-    name: "👝 Clutch Bag",
-    type: "Smileys & People",
-    emoji: "👝",
-    description: "Clutch Bag"
+    "id": 360,
+    "emoji": "🧚‍♀️",
+    "unicode": "U+1F9DA U+200D U+2640 U+FE0F",
+    "name": "woman fairy"
   },
   {
-    name: "🎒 Backpack",
-    type: "Smileys & People",
-    emoji: "🎒",
-    description: "Backpack"
+    "id": 361,
+    "emoji": "🧛",
+    "unicode": "U+1F9DB",
+    "name": "vampire"
   },
   {
-    name: "👞 Man’S Shoe",
-    type: "Smileys & People",
-    emoji: "👞",
-    description: "Man’S Shoe"
+    "id": 362,
+    "emoji": "🧛‍♂️",
+    "unicode": "U+1F9DB U+200D U+2642 U+FE0F",
+    "name": "man vampire"
   },
   {
-    name: "👟 Running Shoe",
-    type: "Smileys & People",
-    emoji: "👟",
-    description: "Running Shoe"
+    "id": 363,
+    "emoji": "🧛‍♀️",
+    "unicode": "U+1F9DB U+200D U+2640 U+FE0F",
+    "name": "woman vampire"
   },
   {
-    name: "🥾 Hiking Boot",
-    type: "Smileys & People",
-    emoji: "🥾",
-    description: "Hiking Boot"
+    "id": 364,
+    "emoji": "🧜",
+    "unicode": "U+1F9DC",
+    "name": "merperson"
   },
   {
-    name: "🥿 Flat Shoe",
-    type: "Smileys & People",
-    emoji: "🥿",
-    description: "Flat Shoe"
+    "id": 365,
+    "emoji": "🧜‍♂️",
+    "unicode": "U+1F9DC U+200D U+2642 U+FE0F",
+    "name": "merman"
   },
   {
-    name: "👠 High-Heeled Shoe",
-    type: "Smileys & People",
-    emoji: "👠",
-    description: "High-Heeled Shoe"
+    "id": 366,
+    "emoji": "🧜‍♀️",
+    "unicode": "U+1F9DC U+200D U+2640 U+FE0F",
+    "name": "mermaid"
   },
   {
-    name: "👡 Woman’S Sandal",
-    type: "Smileys & People",
-    emoji: "👡",
-    description: "Woman’S Sandal"
+    "id": 367,
+    "emoji": "🧝",
+    "unicode": "U+1F9DD",
+    "name": "elf"
   },
   {
-    name: "👢 Woman’S Boot",
-    type: "Smileys & People",
-    emoji: "👢",
-    description: "Woman’S Boot"
+    "id": 368,
+    "emoji": "🧝‍♂️",
+    "unicode": "U+1F9DD U+200D U+2642 U+FE0F",
+    "name": "man elf"
   },
   {
-    name: "👑 Crown",
-    type: "Smileys & People",
-    emoji: "👑",
-    description: "Crown"
+    "id": 369,
+    "emoji": "🧝‍♀️",
+    "unicode": "U+1F9DD U+200D U+2640 U+FE0F",
+    "name": "woman elf"
   },
   {
-    name: "👒 Woman’S Hat",
-    type: "Smileys & People",
-    emoji: "👒",
-    description: "Woman’S Hat"
+    "id": 370,
+    "emoji": "🧞",
+    "unicode": "U+1F9DE",
+    "name": "genie"
   },
   {
-    name: "🎩 Top Hat",
-    type: "Smileys & People",
-    emoji: "🎩",
-    description: "Top Hat"
+    "id": 371,
+    "emoji": "🧞‍♂️",
+    "unicode": "U+1F9DE U+200D U+2642 U+FE0F",
+    "name": "man genie"
   },
   {
-    name: "🎓 Graduation Cap",
-    type: "Smileys & People",
-    emoji: "🎓",
-    description: "Graduation Cap"
+    "id": 372,
+    "emoji": "🧞‍♀️",
+    "unicode": "U+1F9DE U+200D U+2640 U+FE0F",
+    "name": "woman genie"
   },
   {
-    name: "🧢 Billed Cap",
-    type: "Smileys & People",
-    emoji: "🧢",
-    description: "Billed Cap"
+    "id": 373,
+    "emoji": "🧟",
+    "unicode": "U+1F9DF",
+    "name": "zombie"
   },
   {
-    name: "⛑ Rescue Worker’S Helmet",
-    type: "Smileys & People",
-    emoji: "⛑",
-    description: "Rescue Worker’S Helmet"
+    "id": 374,
+    "emoji": "🧟‍♂️",
+    "unicode": "U+1F9DF U+200D U+2642 U+FE0F",
+    "name": "man zombie"
   },
   {
-    name: "💄 Lipstick",
-    type: "Smileys & People",
-    emoji: "💄",
-    description: "Lipstick"
+    "id": 375,
+    "emoji": "🧟‍♀️",
+    "unicode": "U+1F9DF U+200D U+2640 U+FE0F",
+    "name": "woman zombie"
   },
   {
-    name: "💍 Ring",
-    type: "Smileys & People",
-    emoji: "💍",
-    description: "Ring"
+    "id": 376,
+    "emoji": "💆",
+    "unicode": "U+1F486",
+    "name": "person getting massage"
   },
   {
-    name: "🧳 Luggage",
-    type: "Smileys & People",
-    emoji: "🧳",
-    description: "Luggage"
+    "id": 377,
+    "emoji": "💆‍♂️",
+    "unicode": "U+1F486 U+200D U+2642 U+FE0F",
+    "name": "man getting massage"
   },
   {
-    name: "🌂 Closed Umbrella",
-    type: "Smileys & People",
-    emoji: "🌂",
-    description: "Closed Umbrella"
+    "id": 378,
+    "emoji": "💆‍♀️",
+    "unicode": "U+1F486 U+200D U+2640 U+FE0F",
+    "name": "woman getting massage"
   },
   {
-    name: "☂ Umbrella",
-    type: "Smileys & People",
-    emoji: "☂",
-    description: "Umbrella"
+    "id": 379,
+    "emoji": "💇",
+    "unicode": "U+1F487",
+    "name": "person getting haircut"
   },
   {
-    name: "💼 Briefcase",
-    type: "Smileys & People",
-    emoji: "💼",
-    description: "Briefcase"
+    "id": 380,
+    "emoji": "💇‍♂️",
+    "unicode": "U+1F487 U+200D U+2642 U+FE0F",
+    "name": "man getting haircut"
   },
   {
-    name: "🧵 Thread",
-    type: "Smileys & People",
-    emoji: "🧵",
-    description: "Thread"
+    "id": 381,
+    "emoji": "💇‍♀️",
+    "unicode": "U+1F487 U+200D U+2640 U+FE0F",
+    "name": "woman getting haircut"
   },
   {
-    name: "🧶 Yarn",
-    type: "Smileys & People",
-    emoji: "🧶",
-    description: "Yarn"
+    "id": 382,
+    "emoji": "🚶",
+    "unicode": "U+1F6B6",
+    "name": "person walking"
   },
   {
-    name: "C ategories",
-    type: "Smileys & People",
-    emoji: "C",
-    description: "ategories"
+    "id": 383,
+    "emoji": "🚶‍♂️",
+    "unicode": "U+1F6B6 U+200D U+2642 U+FE0F",
+    "name": "man walking"
   },
   {
-    name: "😃 Smileys & People",
-    type: "Smileys & People",
-    emoji: "😃",
-    description: "Smileys & People"
+    "id": 384,
+    "emoji": "🚶‍♀️",
+    "unicode": "U+1F6B6 U+200D U+2640 U+FE0F",
+    "name": "woman walking"
   },
   {
-    name: "🙈 See-No-Evil Monkey",
-    type: "Animals & Nature",
-    emoji: "🙈",
-    description: "See-No-Evil Monkey"
+    "id": 385,
+    "emoji": "🧍",
+    "unicode": "U+1F9CD",
+    "name": "person standing"
   },
   {
-    name: "🙉 Hear-No-Evil Monkey",
-    type: "Animals & Nature",
-    emoji: "🙉",
-    description: "Hear-No-Evil Monkey"
+    "id": 386,
+    "emoji": "🧍‍♂️",
+    "unicode": "U+1F9CD U+200D U+2642 U+FE0F",
+    "name": "man standing"
   },
   {
-    name: "🙊 Speak-No-Evil Monkey",
-    type: "Animals & Nature",
-    emoji: "🙊",
-    description: "Speak-No-Evil Monkey"
+    "id": 387,
+    "emoji": "🧍‍♀️",
+    "unicode": "U+1F9CD U+200D U+2640 U+FE0F",
+    "name": "woman standing"
   },
   {
-    name: "💥 Collision",
-    type: "Animals & Nature",
-    emoji: "💥",
-    description: "Collision"
+    "id": 388,
+    "emoji": "🧎",
+    "unicode": "U+1F9CE",
+    "name": "person kneeling"
   },
   {
-    name: "💦 Sweat Droplets",
-    type: "Animals & Nature",
-    emoji: "💦",
-    description: "Sweat Droplets"
+    "id": 389,
+    "emoji": "🧎‍♂️",
+    "unicode": "U+1F9CE U+200D U+2642 U+FE0F",
+    "name": "man kneeling"
   },
   {
-    name: "💨 Dashing Away",
-    type: "Animals & Nature",
-    emoji: "💨",
-    description: "Dashing Away"
+    "id": 390,
+    "emoji": "🧎‍♀️",
+    "unicode": "U+1F9CE U+200D U+2640 U+FE0F",
+    "name": "woman kneeling"
   },
   {
-    name: "💫 Dizzy",
-    type: "Animals & Nature",
-    emoji: "💫",
-    description: "Dizzy"
+    "id": 391,
+    "emoji": "🧑‍🦯",
+    "unicode": "U+1F9D1 U+200D U+1F9AF",
+    "name": "person with white cane"
   },
   {
-    name: "🐵 Monkey Face",
-    type: "Animals & Nature",
-    emoji: "🐵",
-    description: "Monkey Face"
+    "id": 392,
+    "emoji": "👨‍🦯",
+    "unicode": "U+1F468 U+200D U+1F9AF",
+    "name": "man with white cane"
   },
   {
-    name: "🐒 Monkey",
-    type: "Animals & Nature",
-    emoji: "🐒",
-    description: "Monkey"
+    "id": 393,
+    "emoji": "👩‍🦯",
+    "unicode": "U+1F469 U+200D U+1F9AF",
+    "name": "woman with white cane"
   },
   {
-    name: "🦍 Gorilla",
-    type: "Animals & Nature",
-    emoji: "🦍",
-    description: "Gorilla"
+    "id": 394,
+    "emoji": "🧑‍🦼",
+    "unicode": "U+1F9D1 U+200D U+1F9BC",
+    "name": "person in motorized wheelchair"
   },
   {
-    name: "🐶 Dog Face",
-    type: "Animals & Nature",
-    emoji: "🐶",
-    description: "Dog Face"
+    "id": 395,
+    "emoji": "👨‍🦼",
+    "unicode": "U+1F468 U+200D U+1F9BC",
+    "name": "man in motorized wheelchair"
   },
   {
-    name: "🐕 Dog",
-    type: "Animals & Nature",
-    emoji: "🐕",
-    description: "Dog"
+    "id": 396,
+    "emoji": "👩‍🦼",
+    "unicode": "U+1F469 U+200D U+1F9BC",
+    "name": "woman in motorized wheelchair"
   },
   {
-    name: "🐩 Poodle",
-    type: "Animals & Nature",
-    emoji: "🐩",
-    description: "Poodle"
+    "id": 397,
+    "emoji": "🧑‍🦽",
+    "unicode": "U+1F9D1 U+200D U+1F9BD",
+    "name": "person in manual wheelchair"
   },
   {
-    name: "🐺 Wolf Face",
-    type: "Animals & Nature",
-    emoji: "🐺",
-    description: "Wolf Face"
+    "id": 398,
+    "emoji": "👨‍🦽",
+    "unicode": "U+1F468 U+200D U+1F9BD",
+    "name": "man in manual wheelchair"
   },
   {
-    name: "🦊 Fox Face",
-    type: "Animals & Nature",
-    emoji: "🦊",
-    description: "Fox Face"
+    "id": 399,
+    "emoji": "👩‍🦽",
+    "unicode": "U+1F469 U+200D U+1F9BD",
+    "name": "woman in manual wheelchair"
   },
   {
-    name: "🦝 Raccoon",
-    type: "Animals & Nature",
-    emoji: "🦝",
-    description: "Raccoon"
+    "id": 400,
+    "emoji": "🏃",
+    "unicode": "U+1F3C3",
+    "name": "person running"
   },
   {
-    name: "🐱 Cat Face",
-    type: "Animals & Nature",
-    emoji: "🐱",
-    description: "Cat Face"
+    "id": 401,
+    "emoji": "🏃‍♂️",
+    "unicode": "U+1F3C3 U+200D U+2642 U+FE0F",
+    "name": "man running"
   },
   {
-    name: "🐈 Cat",
-    type: "Animals & Nature",
-    emoji: "🐈",
-    description: "Cat"
+    "id": 402,
+    "emoji": "🏃‍♀️",
+    "unicode": "U+1F3C3 U+200D U+2640 U+FE0F",
+    "name": "woman running"
   },
   {
-    name: "🦁 Lion Face",
-    type: "Animals & Nature",
-    emoji: "🦁",
-    description: "Lion Face"
+    "id": 403,
+    "emoji": "💃",
+    "unicode": "U+1F483",
+    "name": "woman dancing"
   },
   {
-    name: "🐯 Tiger Face",
-    type: "Animals & Nature",
-    emoji: "🐯",
-    description: "Tiger Face"
+    "id": 404,
+    "emoji": "🕺",
+    "unicode": "U+1F57A",
+    "name": "man dancing"
   },
   {
-    name: "🐅 Tiger",
-    type: "Animals & Nature",
-    emoji: "🐅",
-    description: "Tiger"
+    "id": 405,
+    "emoji": "🕴",
+    "unicode": "U+1F574",
+    "name": "person in suit levitating"
   },
   {
-    name: "🐆 Leopard",
-    type: "Animals & Nature",
-    emoji: "🐆",
-    description: "Leopard"
+    "id": 406,
+    "emoji": "👯",
+    "unicode": "U+1F46F",
+    "name": "people with bunny ears"
   },
   {
-    name: "🐴 Horse Face",
-    type: "Animals & Nature",
-    emoji: "🐴",
-    description: "Horse Face"
+    "id": 407,
+    "emoji": "👯‍♂️",
+    "unicode": "U+1F46F U+200D U+2642 U+FE0F",
+    "name": "men with bunny ears"
   },
   {
-    name: "🐎 Horse",
-    type: "Animals & Nature",
-    emoji: "🐎",
-    description: "Horse"
+    "id": 408,
+    "emoji": "👯‍♀️",
+    "unicode": "U+1F46F U+200D U+2640 U+FE0F",
+    "name": "women with bunny ears"
   },
   {
-    name: "🦄 Unicorn Face",
-    type: "Animals & Nature",
-    emoji: "🦄",
-    description: "Unicorn Face"
+    "id": 409,
+    "emoji": "🧖",
+    "unicode": "U+1F9D6",
+    "name": "person in steamy room"
   },
   {
-    name: "🦓 Zebra",
-    type: "Animals & Nature",
-    emoji: "🦓",
-    description: "Zebra"
+    "id": 410,
+    "emoji": "🧖‍♂️",
+    "unicode": "U+1F9D6 U+200D U+2642 U+FE0F",
+    "name": "man in steamy room"
   },
   {
-    name: "🐮 Cow Face",
-    type: "Animals & Nature",
-    emoji: "🐮",
-    description: "Cow Face"
+    "id": 411,
+    "emoji": "🧖‍♀️",
+    "unicode": "U+1F9D6 U+200D U+2640 U+FE0F",
+    "name": "woman in steamy room"
   },
   {
-    name: "🐂 Ox",
-    type: "Animals & Nature",
-    emoji: "🐂",
-    description: "Ox"
+    "id": 412,
+    "emoji": "🧗",
+    "unicode": "U+1F9D7",
+    "name": "person climbing"
   },
   {
-    name: "🐃 Water Buffalo",
-    type: "Animals & Nature",
-    emoji: "🐃",
-    description: "Water Buffalo"
+    "id": 413,
+    "emoji": "🧗‍♂️",
+    "unicode": "U+1F9D7 U+200D U+2642 U+FE0F",
+    "name": "man climbing"
   },
   {
-    name: "🐄 Cow",
-    type: "Animals & Nature",
-    emoji: "🐄",
-    description: "Cow"
+    "id": 414,
+    "emoji": "🧗‍♀️",
+    "unicode": "U+1F9D7 U+200D U+2640 U+FE0F",
+    "name": "woman climbing"
   },
   {
-    name: "🐷 Pig Face",
-    type: "Animals & Nature",
-    emoji: "🐷",
-    description: "Pig Face"
+    "id": 415,
+    "emoji": "🤺",
+    "unicode": "U+1F93A",
+    "name": "person fencing"
   },
   {
-    name: "🐖 Pig",
-    type: "Animals & Nature",
-    emoji: "🐖",
-    description: "Pig"
+    "id": 416,
+    "emoji": "🏇",
+    "unicode": "U+1F3C7",
+    "name": "horse racing"
   },
   {
-    name: "🐗 Boar",
-    type: "Animals & Nature",
-    emoji: "🐗",
-    description: "Boar"
+    "id": 417,
+    "emoji": "⛷",
+    "unicode": "U+26F7",
+    "name": "skier"
   },
   {
-    name: "🐽 Pig Nose",
-    type: "Animals & Nature",
-    emoji: "🐽",
-    description: "Pig Nose"
+    "id": 418,
+    "emoji": "🏂",
+    "unicode": "U+1F3C2",
+    "name": "snowboarder"
   },
   {
-    name: "🐏 Ram",
-    type: "Animals & Nature",
-    emoji: "🐏",
-    description: "Ram"
+    "id": 419,
+    "emoji": "🏌",
+    "unicode": "U+1F3CC",
+    "name": "person golfing"
   },
   {
-    name: "🐑 Ewe",
-    type: "Animals & Nature",
-    emoji: "🐑",
-    description: "Ewe"
+    "id": 420,
+    "emoji": "🏌️‍♂️",
+    "unicode": "U+1F3CC U+FE0F U+200D U+2642 U+FE0F",
+    "name": "man golfing"
   },
   {
-    name: "🐐 Goat",
-    type: "Animals & Nature",
-    emoji: "🐐",
-    description: "Goat"
+    "id": 421,
+    "emoji": "🏌️‍♀️",
+    "unicode": "U+1F3CC U+FE0F U+200D U+2640 U+FE0F",
+    "name": "woman golfing"
   },
   {
-    name: "🐪 Camel",
-    type: "Animals & Nature",
-    emoji: "🐪",
-    description: "Camel"
+    "id": 422,
+    "emoji": "🏄",
+    "unicode": "U+1F3C4",
+    "name": "person surfing"
   },
   {
-    name: "🐫 Two-Hump Camel",
-    type: "Animals & Nature",
-    emoji: "🐫",
-    description: "Two-Hump Camel"
+    "id": 423,
+    "emoji": "🏄‍♂️",
+    "unicode": "U+1F3C4 U+200D U+2642 U+FE0F",
+    "name": "man surfing"
   },
   {
-    name: "🦙 Llama",
-    type: "Animals & Nature",
-    emoji: "🦙",
-    description: "Llama"
+    "id": 424,
+    "emoji": "🏄‍♀️",
+    "unicode": "U+1F3C4 U+200D U+2640 U+FE0F",
+    "name": "woman surfing"
   },
   {
-    name: "🦒 Giraffe",
-    type: "Animals & Nature",
-    emoji: "🦒",
-    description: "Giraffe"
+    "id": 425,
+    "emoji": "🚣",
+    "unicode": "U+1F6A3",
+    "name": "person rowing boat"
   },
   {
-    name: "🐘 Elephant",
-    type: "Animals & Nature",
-    emoji: "🐘",
-    description: "Elephant"
+    "id": 426,
+    "emoji": "🚣‍♂️",
+    "unicode": "U+1F6A3 U+200D U+2642 U+FE0F",
+    "name": "man rowing boat"
   },
   {
-    name: "🦏 Rhinoceros",
-    type: "Animals & Nature",
-    emoji: "🦏",
-    description: "Rhinoceros"
+    "id": 427,
+    "emoji": "🚣‍♀️",
+    "unicode": "U+1F6A3 U+200D U+2640 U+FE0F",
+    "name": "woman rowing boat"
   },
   {
-    name: "🦛 Hippopotamus",
-    type: "Animals & Nature",
-    emoji: "🦛",
-    description: "Hippopotamus"
+    "id": 428,
+    "emoji": "🏊",
+    "unicode": "U+1F3CA",
+    "name": "person swimming"
   },
   {
-    name: "🐭 Mouse Face",
-    type: "Animals & Nature",
-    emoji: "🐭",
-    description: "Mouse Face"
+    "id": 429,
+    "emoji": "🏊‍♂️",
+    "unicode": "U+1F3CA U+200D U+2642 U+FE0F",
+    "name": "man swimming"
   },
   {
-    name: "🐁 Mouse",
-    type: "Animals & Nature",
-    emoji: "🐁",
-    description: "Mouse"
+    "id": 430,
+    "emoji": "🏊‍♀️",
+    "unicode": "U+1F3CA U+200D U+2640 U+FE0F",
+    "name": "woman swimming"
   },
   {
-    name: "🐀 Rat",
-    type: "Animals & Nature",
-    emoji: "🐀",
-    description: "Rat"
+    "id": 431,
+    "emoji": "⛹",
+    "unicode": "U+26F9",
+    "name": "person bouncing ball"
   },
   {
-    name: "🐹 Hamster Face",
-    type: "Animals & Nature",
-    emoji: "🐹",
-    description: "Hamster Face"
+    "id": 432,
+    "emoji": "⛹️‍♂️",
+    "unicode": "U+26F9 U+FE0F U+200D U+2642 U+FE0F",
+    "name": "man bouncing ball"
   },
   {
-    name: "🐰 Rabbit Face",
-    type: "Animals & Nature",
-    emoji: "🐰",
-    description: "Rabbit Face"
+    "id": 433,
+    "emoji": "⛹️‍♀️",
+    "unicode": "U+26F9 U+FE0F U+200D U+2640 U+FE0F",
+    "name": "woman bouncing ball"
   },
   {
-    name: "🐇 Rabbit",
-    type: "Animals & Nature",
-    emoji: "🐇",
-    description: "Rabbit"
+    "id": 434,
+    "emoji": "🏋",
+    "unicode": "U+1F3CB",
+    "name": "person lifting weights"
   },
   {
-    name: "🐿 Chipmunk",
-    type: "Animals & Nature",
-    emoji: "🐿",
-    description: "Chipmunk"
+    "id": 435,
+    "emoji": "🏋️‍♂️",
+    "unicode": "U+1F3CB U+FE0F U+200D U+2642 U+FE0F",
+    "name": "man lifting weights"
   },
   {
-    name: "🦔 Hedgehog",
-    type: "Animals & Nature",
-    emoji: "🦔",
-    description: "Hedgehog"
+    "id": 436,
+    "emoji": "🏋️‍♀️",
+    "unicode": "U+1F3CB U+FE0F U+200D U+2640 U+FE0F",
+    "name": "woman lifting weights"
   },
   {
-    name: "🦇 Bat",
-    type: "Animals & Nature",
-    emoji: "🦇",
-    description: "Bat"
+    "id": 437,
+    "emoji": "🚴",
+    "unicode": "U+1F6B4",
+    "name": "person biking"
   },
   {
-    name: "🐻 Bear Face",
-    type: "Animals & Nature",
-    emoji: "🐻",
-    description: "Bear Face"
+    "id": 438,
+    "emoji": "🚴‍♂️",
+    "unicode": "U+1F6B4 U+200D U+2642 U+FE0F",
+    "name": "man biking"
   },
   {
-    name: "🐨 Koala",
-    type: "Animals & Nature",
-    emoji: "🐨",
-    description: "Koala"
+    "id": 439,
+    "emoji": "🚴‍♀️",
+    "unicode": "U+1F6B4 U+200D U+2640 U+FE0F",
+    "name": "woman biking"
   },
   {
-    name: "🐼 Panda Face",
-    type: "Animals & Nature",
-    emoji: "🐼",
-    description: "Panda Face"
+    "id": 440,
+    "emoji": "🚵",
+    "unicode": "U+1F6B5",
+    "name": "person mountain biking"
   },
   {
-    name: "🦘 Kangaroo",
-    type: "Animals & Nature",
-    emoji: "🦘",
-    description: "Kangaroo"
+    "id": 441,
+    "emoji": "🚵‍♂️",
+    "unicode": "U+1F6B5 U+200D U+2642 U+FE0F",
+    "name": "man mountain biking"
   },
   {
-    name: "🦡 Badger",
-    type: "Animals & Nature",
-    emoji: "🦡",
-    description: "Badger"
+    "id": 442,
+    "emoji": "🚵‍♀️",
+    "unicode": "U+1F6B5 U+200D U+2640 U+FE0F",
+    "name": "woman mountain biking"
   },
   {
-    name: "🐾 Paw Prints",
-    type: "Animals & Nature",
-    emoji: "🐾",
-    description: "Paw Prints"
+    "id": 443,
+    "emoji": "🤸",
+    "unicode": "U+1F938",
+    "name": "person cartwheeling"
   },
   {
-    name: "🦃 Turkey",
-    type: "Animals & Nature",
-    emoji: "🦃",
-    description: "Turkey"
+    "id": 444,
+    "emoji": "🤸‍♂️",
+    "unicode": "U+1F938 U+200D U+2642 U+FE0F",
+    "name": "man cartwheeling"
   },
   {
-    name: "🐔 Chicken",
-    type: "Animals & Nature",
-    emoji: "🐔",
-    description: "Chicken"
+    "id": 445,
+    "emoji": "🤸‍♀️",
+    "unicode": "U+1F938 U+200D U+2640 U+FE0F",
+    "name": "woman cartwheeling"
   },
   {
-    name: "🐓 Rooster",
-    type: "Animals & Nature",
-    emoji: "🐓",
-    description: "Rooster"
+    "id": 446,
+    "emoji": "🤼",
+    "unicode": "U+1F93C",
+    "name": "people wrestling"
   },
   {
-    name: "🐣 Hatching Chick",
-    type: "Animals & Nature",
-    emoji: "🐣",
-    description: "Hatching Chick"
+    "id": 447,
+    "emoji": "🤼‍♂️",
+    "unicode": "U+1F93C U+200D U+2642 U+FE0F",
+    "name": "men wrestling"
   },
   {
-    name: "🐤 Baby Chick",
-    type: "Animals & Nature",
-    emoji: "🐤",
-    description: "Baby Chick"
+    "id": 448,
+    "emoji": "🤼‍♀️",
+    "unicode": "U+1F93C U+200D U+2640 U+FE0F",
+    "name": "women wrestling"
   },
   {
-    name: "🐥 Front-Facing Baby Chick",
-    type: "Animals & Nature",
-    emoji: "🐥",
-    description: "Front-Facing Baby Chick"
+    "id": 449,
+    "emoji": "🤽",
+    "unicode": "U+1F93D",
+    "name": "person playing water polo"
   },
   {
-    name: "🐦 Bird",
-    type: "Animals & Nature",
-    emoji: "🐦",
-    description: "Bird"
+    "id": 450,
+    "emoji": "🤽‍♂️",
+    "unicode": "U+1F93D U+200D U+2642 U+FE0F",
+    "name": "man playing water polo"
   },
   {
-    name: "🐧 Penguin",
-    type: "Animals & Nature",
-    emoji: "🐧",
-    description: "Penguin"
+    "id": 451,
+    "emoji": "🤽‍♀️",
+    "unicode": "U+1F93D U+200D U+2640 U+FE0F",
+    "name": "woman playing water polo"
   },
   {
-    name: "🕊 Dove",
-    type: "Animals & Nature",
-    emoji: "🕊",
-    description: "Dove"
+    "id": 452,
+    "emoji": "🤾",
+    "unicode": "U+1F93E",
+    "name": "person playing handball"
   },
   {
-    name: "🦅 Eagle",
-    type: "Animals & Nature",
-    emoji: "🦅",
-    description: "Eagle"
+    "id": 453,
+    "emoji": "🤾‍♂️",
+    "unicode": "U+1F93E U+200D U+2642 U+FE0F",
+    "name": "man playing handball"
   },
   {
-    name: "🦆 Duck",
-    type: "Animals & Nature",
-    emoji: "🦆",
-    description: "Duck"
+    "id": 454,
+    "emoji": "🤾‍♀️",
+    "unicode": "U+1F93E U+200D U+2640 U+FE0F",
+    "name": "woman playing handball"
   },
   {
-    name: "🦢 Swan",
-    type: "Animals & Nature",
-    emoji: "🦢",
-    description: "Swan"
+    "id": 455,
+    "emoji": "🤹",
+    "unicode": "U+1F939",
+    "name": "person juggling"
   },
   {
-    name: "🦉 Owl",
-    type: "Animals & Nature",
-    emoji: "🦉",
-    description: "Owl"
+    "id": 456,
+    "emoji": "🤹‍♂️",
+    "unicode": "U+1F939 U+200D U+2642 U+FE0F",
+    "name": "man juggling"
   },
   {
-    name: "🦚 Peacock",
-    type: "Animals & Nature",
-    emoji: "🦚",
-    description: "Peacock"
+    "id": 457,
+    "emoji": "🤹‍♀️",
+    "unicode": "U+1F939 U+200D U+2640 U+FE0F",
+    "name": "woman juggling"
   },
   {
-    name: "🦜 Parrot",
-    type: "Animals & Nature",
-    emoji: "🦜",
-    description: "Parrot"
+    "id": 458,
+    "emoji": "🧘",
+    "unicode": "U+1F9D8",
+    "name": "person in lotus position"
   },
   {
-    name: "🐸 Frog Face",
-    type: "Animals & Nature",
-    emoji: "🐸",
-    description: "Frog Face"
+    "id": 459,
+    "emoji": "🧘‍♂️",
+    "unicode": "U+1F9D8 U+200D U+2642 U+FE0F",
+    "name": "man in lotus position"
   },
   {
-    name: "🐊 Crocodile",
-    type: "Animals & Nature",
-    emoji: "🐊",
-    description: "Crocodile"
+    "id": 460,
+    "emoji": "🧘‍♀️",
+    "unicode": "U+1F9D8 U+200D U+2640 U+FE0F",
+    "name": "woman in lotus position"
   },
   {
-    name: "🐢 Turtle",
-    type: "Animals & Nature",
-    emoji: "🐢",
-    description: "Turtle"
+    "id": 461,
+    "emoji": "🛀",
+    "unicode": "U+1F6C0",
+    "name": "person taking bath"
   },
   {
-    name: "🦎 Lizard",
-    type: "Animals & Nature",
-    emoji: "🦎",
-    description: "Lizard"
+    "id": 462,
+    "emoji": "🛌",
+    "unicode": "U+1F6CC",
+    "name": "person in bed"
   },
   {
-    name: "🐍 Snake",
-    type: "Animals & Nature",
-    emoji: "🐍",
-    description: "Snake"
+    "id": 463,
+    "emoji": "🧑‍🤝‍🧑",
+    "unicode": "U+1F9D1 U+200D U+1F91D U+200D U+1F9D1",
+    "name": "people holding hands"
   },
   {
-    name: "🐲 Dragon Face",
-    type: "Animals & Nature",
-    emoji: "🐲",
-    description: "Dragon Face"
+    "id": 464,
+    "emoji": "👭",
+    "unicode": "U+1F46D",
+    "name": "women holding hands"
   },
   {
-    name: "🐉 Dragon",
-    type: "Animals & Nature",
-    emoji: "🐉",
-    description: "Dragon"
+    "id": 465,
+    "emoji": "👫",
+    "unicode": "U+1F46B",
+    "name": "woman and man holding hands"
   },
   {
-    name: "🦕 Sauropod",
-    type: "Animals & Nature",
-    emoji: "🦕",
-    description: "Sauropod"
+    "id": 466,
+    "emoji": "👬",
+    "unicode": "U+1F46C",
+    "name": "men holding hands"
   },
   {
-    name: "🦖 T-Rex",
-    type: "Animals & Nature",
-    emoji: "🦖",
-    description: "T-Rex"
+    "id": 467,
+    "emoji": "💏",
+    "unicode": "U+1F48F",
+    "name": "kiss"
   },
   {
-    name: "🐳 Spouting Whale",
-    type: "Animals & Nature",
-    emoji: "🐳",
-    description: "Spouting Whale"
+    "id": 468,
+    "emoji": "👩‍❤️‍💋‍👨",
+    "unicode": "U+1F469 U+200D U+2764 U+FE0F U+200D U+1F48B U+200D U+1F468",
+    "name": "kiss: woman, man"
   },
   {
-    name: "🐋 Whale",
-    type: "Animals & Nature",
-    emoji: "🐋",
-    description: "Whale"
+    "id": 469,
+    "emoji": "👨‍❤️‍💋‍👨",
+    "unicode": "U+1F468 U+200D U+2764 U+FE0F U+200D U+1F48B U+200D U+1F468",
+    "name": "kiss: man, man"
   },
   {
-    name: "🐬 Dolphin",
-    type: "Animals & Nature",
-    emoji: "🐬",
-    description: "Dolphin"
+    "id": 470,
+    "emoji": "👩‍❤️‍💋‍👩",
+    "unicode": "U+1F469 U+200D U+2764 U+FE0F U+200D U+1F48B U+200D U+1F469",
+    "name": "kiss: woman, woman"
   },
   {
-    name: "🐟 Fish",
-    type: "Animals & Nature",
-    emoji: "🐟",
-    description: "Fish"
+    "id": 471,
+    "emoji": "💑",
+    "unicode": "U+1F491",
+    "name": "couple with heart"
   },
   {
-    name: "🐠 Tropical Fish",
-    type: "Animals & Nature",
-    emoji: "🐠",
-    description: "Tropical Fish"
+    "id": 472,
+    "emoji": "👩‍❤️‍👨",
+    "unicode": "U+1F469 U+200D U+2764 U+FE0F U+200D U+1F468",
+    "name": "couple with heart: woman, man"
   },
   {
-    name: "🐡 Blowfish",
-    type: "Animals & Nature",
-    emoji: "🐡",
-    description: "Blowfish"
+    "id": 473,
+    "emoji": "👨‍❤️‍👨",
+    "unicode": "U+1F468 U+200D U+2764 U+FE0F U+200D U+1F468",
+    "name": "couple with heart: man, man"
   },
   {
-    name: "🦈 Shark",
-    type: "Animals & Nature",
-    emoji: "🦈",
-    description: "Shark"
+    "id": 474,
+    "emoji": "👩‍❤️‍👩",
+    "unicode": "U+1F469 U+200D U+2764 U+FE0F U+200D U+1F469",
+    "name": "couple with heart: woman, woman"
   },
   {
-    name: "🐙 Octopus",
-    type: "Animals & Nature",
-    emoji: "🐙",
-    description: "Octopus"
+    "id": 475,
+    "emoji": "👪",
+    "unicode": "U+1F46A",
+    "name": "family"
   },
   {
-    name: "🐚 Spiral Shell",
-    type: "Animals & Nature",
-    emoji: "🐚",
-    description: "Spiral Shell"
+    "id": 476,
+    "emoji": "👨‍👩‍👦",
+    "unicode": "U+1F468 U+200D U+1F469 U+200D U+1F466",
+    "name": "family: man, woman, boy"
   },
   {
-    name: "🦀 Crab",
-    type: "Animals & Nature",
-    emoji: "🦀",
-    description: "Crab"
+    "id": 477,
+    "emoji": "👨‍👩‍👧",
+    "unicode": "U+1F468 U+200D U+1F469 U+200D U+1F467",
+    "name": "family: man, woman, girl"
   },
   {
-    name: "🦞 Lobster",
-    type: "Animals & Nature",
-    emoji: "🦞",
-    description: "Lobster"
+    "id": 478,
+    "emoji": "👨‍👩‍👧‍👦",
+    "unicode": "U+1F468 U+200D U+1F469 U+200D U+1F467 U+200D U+1F466",
+    "name": "family: man, woman, girl, boy"
   },
   {
-    name: "🦐 Shrimp",
-    type: "Animals & Nature",
-    emoji: "🦐",
-    description: "Shrimp"
+    "id": 479,
+    "emoji": "👨‍👩‍👦‍👦",
+    "unicode": "U+1F468 U+200D U+1F469 U+200D U+1F466 U+200D U+1F466",
+    "name": "family: man, woman, boy, boy"
   },
   {
-    name: "🦑 Squid",
-    type: "Animals & Nature",
-    emoji: "🦑",
-    description: "Squid"
+    "id": 480,
+    "emoji": "👨‍👩‍👧‍👧",
+    "unicode": "U+1F468 U+200D U+1F469 U+200D U+1F467 U+200D U+1F467",
+    "name": "family: man, woman, girl, girl"
   },
   {
-    name: "🐌 Snail",
-    type: "Animals & Nature",
-    emoji: "🐌",
-    description: "Snail"
+    "id": 481,
+    "emoji": "👨‍👨‍👦",
+    "unicode": "U+1F468 U+200D U+1F468 U+200D U+1F466",
+    "name": "family: man, man, boy"
   },
   {
-    name: "🦋 Butterfly",
-    type: "Animals & Nature",
-    emoji: "🦋",
-    description: "Butterfly"
+    "id": 482,
+    "emoji": "👨‍👨‍👧",
+    "unicode": "U+1F468 U+200D U+1F468 U+200D U+1F467",
+    "name": "family: man, man, girl"
   },
   {
-    name: "🐛 Bug",
-    type: "Animals & Nature",
-    emoji: "🐛",
-    description: "Bug"
+    "id": 483,
+    "emoji": "👨‍👨‍👧‍👦",
+    "unicode": "U+1F468 U+200D U+1F468 U+200D U+1F467 U+200D U+1F466",
+    "name": "family: man, man, girl, boy"
   },
   {
-    name: "🐜 Ant",
-    type: "Animals & Nature",
-    emoji: "🐜",
-    description: "Ant"
+    "id": 484,
+    "emoji": "👨‍👨‍👦‍👦",
+    "unicode": "U+1F468 U+200D U+1F468 U+200D U+1F466 U+200D U+1F466",
+    "name": "family: man, man, boy, boy"
   },
   {
-    name: "🐝 Honeybee",
-    type: "Animals & Nature",
-    emoji: "🐝",
-    description: "Honeybee"
+    "id": 485,
+    "emoji": "👨‍👨‍👧‍👧",
+    "unicode": "U+1F468 U+200D U+1F468 U+200D U+1F467 U+200D U+1F467",
+    "name": "family: man, man, girl, girl"
   },
   {
-    name: "🐞 Lady Beetle",
-    type: "Animals & Nature",
-    emoji: "🐞",
-    description: "Lady Beetle"
+    "id": 486,
+    "emoji": "👩‍👩‍👦",
+    "unicode": "U+1F469 U+200D U+1F469 U+200D U+1F466",
+    "name": "family: woman, woman, boy"
   },
   {
-    name: "🦗 Cricket",
-    type: "Animals & Nature",
-    emoji: "🦗",
-    description: "Cricket"
+    "id": 487,
+    "emoji": "👩‍👩‍👧",
+    "unicode": "U+1F469 U+200D U+1F469 U+200D U+1F467",
+    "name": "family: woman, woman, girl"
   },
   {
-    name: "🕷 Spider",
-    type: "Animals & Nature",
-    emoji: "🕷",
-    description: "Spider"
+    "id": 488,
+    "emoji": "👩‍👩‍👧‍👦",
+    "unicode": "U+1F469 U+200D U+1F469 U+200D U+1F467 U+200D U+1F466",
+    "name": "family: woman, woman, girl, boy"
   },
   {
-    name: "🕸 Spider Web",
-    type: "Animals & Nature",
-    emoji: "🕸",
-    description: "Spider Web"
+    "id": 489,
+    "emoji": "👩‍👩‍👦‍👦",
+    "unicode": "U+1F469 U+200D U+1F469 U+200D U+1F466 U+200D U+1F466",
+    "name": "family: woman, woman, boy, boy"
   },
   {
-    name: "🦂 Scorpion",
-    type: "Animals & Nature",
-    emoji: "🦂",
-    description: "Scorpion"
+    "id": 490,
+    "emoji": "👩‍👩‍👧‍👧",
+    "unicode": "U+1F469 U+200D U+1F469 U+200D U+1F467 U+200D U+1F467",
+    "name": "family: woman, woman, girl, girl"
   },
   {
-    name: "🦟 Mosquito",
-    type: "Animals & Nature",
-    emoji: "🦟",
-    description: "Mosquito"
+    "id": 491,
+    "emoji": "👨‍👦",
+    "unicode": "U+1F468 U+200D U+1F466",
+    "name": "family: man, boy"
   },
   {
-    name: "🦠 Microbe",
-    type: "Animals & Nature",
-    emoji: "🦠",
-    description: "Microbe"
+    "id": 492,
+    "emoji": "👨‍👦‍👦",
+    "unicode": "U+1F468 U+200D U+1F466 U+200D U+1F466",
+    "name": "family: man, boy, boy"
   },
   {
-    name: "💐 Bouquet",
-    type: "Animals & Nature",
-    emoji: "💐",
-    description: "Bouquet"
+    "id": 493,
+    "emoji": "👨‍👧",
+    "unicode": "U+1F468 U+200D U+1F467",
+    "name": "family: man, girl"
   },
   {
-    name: "🌸 Cherry Blossom",
-    type: "Animals & Nature",
-    emoji: "🌸",
-    description: "Cherry Blossom"
+    "id": 494,
+    "emoji": "👨‍👧‍👦",
+    "unicode": "U+1F468 U+200D U+1F467 U+200D U+1F466",
+    "name": "family: man, girl, boy"
   },
   {
-    name: "💮 White Flower",
-    type: "Animals & Nature",
-    emoji: "💮",
-    description: "White Flower"
+    "id": 495,
+    "emoji": "👨‍👧‍👧",
+    "unicode": "U+1F468 U+200D U+1F467 U+200D U+1F467",
+    "name": "family: man, girl, girl"
   },
   {
-    name: "🏵 Rosette",
-    type: "Animals & Nature",
-    emoji: "🏵",
-    description: "Rosette"
+    "id": 496,
+    "emoji": "👩‍👦",
+    "unicode": "U+1F469 U+200D U+1F466",
+    "name": "family: woman, boy"
   },
   {
-    name: "🌹 Rose",
-    type: "Animals & Nature",
-    emoji: "🌹",
-    description: "Rose"
+    "id": 497,
+    "emoji": "👩‍👦‍👦",
+    "unicode": "U+1F469 U+200D U+1F466 U+200D U+1F466",
+    "name": "family: woman, boy, boy"
   },
   {
-    name: "🥀 Wilted Flower",
-    type: "Animals & Nature",
-    emoji: "🥀",
-    description: "Wilted Flower"
+    "id": 498,
+    "emoji": "👩‍👧",
+    "unicode": "U+1F469 U+200D U+1F467",
+    "name": "family: woman, girl"
   },
   {
-    name: "🌺 Hibiscus",
-    type: "Animals & Nature",
-    emoji: "🌺",
-    description: "Hibiscus"
+    "id": 499,
+    "emoji": "👩‍👧‍👦",
+    "unicode": "U+1F469 U+200D U+1F467 U+200D U+1F466",
+    "name": "family: woman, girl, boy"
   },
   {
-    name: "🌻 Sunflower",
-    type: "Animals & Nature",
-    emoji: "🌻",
-    description: "Sunflower"
+    "id": 500,
+    "emoji": "👩‍👧‍👧",
+    "unicode": "U+1F469 U+200D U+1F467 U+200D U+1F467",
+    "name": "family: woman, girl, girl"
   },
   {
-    name: "🌼 Blossom",
-    type: "Animals & Nature",
-    emoji: "🌼",
-    description: "Blossom"
+    "id": 501,
+    "emoji": "🗣",
+    "unicode": "U+1F5E3",
+    "name": "speaking head"
   },
   {
-    name: "🌷 Tulip",
-    type: "Animals & Nature",
-    emoji: "🌷",
-    description: "Tulip"
+    "id": 502,
+    "emoji": "👤",
+    "unicode": "U+1F464",
+    "name": "bust in silhouette"
   },
   {
-    name: "🌱 Seedling",
-    type: "Animals & Nature",
-    emoji: "🌱",
-    description: "Seedling"
+    "id": 503,
+    "emoji": "👥",
+    "unicode": "U+1F465",
+    "name": "busts in silhouette"
   },
   {
-    name: "🌲 Evergreen Tree",
-    type: "Animals & Nature",
-    emoji: "🌲",
-    description: "Evergreen Tree"
+    "id": 504,
+    "emoji": "🫂",
+    "unicode": "U+1FAC2",
+    "name": "people hugging"
   },
   {
-    name: "🌳 Deciduous Tree",
-    type: "Animals & Nature",
-    emoji: "🌳",
-    description: "Deciduous Tree"
+    "id": 505,
+    "emoji": "👣",
+    "unicode": "U+1F463",
+    "name": "footprints"
   },
   {
-    name: "🌴 Palm Tree",
-    type: "Animals & Nature",
-    emoji: "🌴",
-    description: "Palm Tree"
+    "id": 506,
+    "emoji": "🦰",
+    "unicode": "U+1F9B0",
+    "name": "red hair"
   },
   {
-    name: "🌵 Cactus",
-    type: "Animals & Nature",
-    emoji: "🌵",
-    description: "Cactus"
+    "id": 507,
+    "emoji": "🦱",
+    "unicode": "U+1F9B1",
+    "name": "curly hair"
   },
   {
-    name: "🌾 Sheaf of Rice",
-    type: "Animals & Nature",
-    emoji: "🌾",
-    description: "Sheaf of Rice"
+    "id": 508,
+    "emoji": "🦳",
+    "unicode": "U+1F9B3",
+    "name": "white hair"
   },
   {
-    name: "🌿 Herb",
-    type: "Animals & Nature",
-    emoji: "🌿",
-    description: "Herb"
+    "id": 509,
+    "emoji": "🦲",
+    "unicode": "U+1F9B2",
+    "name": "bald"
   },
   {
-    name: "☘ Shamrock",
-    type: "Animals & Nature",
-    emoji: "☘",
-    description: "Shamrock"
+    "id": 510,
+    "emoji": "🐵",
+    "unicode": "U+1F435",
+    "name": "monkey face"
   },
   {
-    name: "🍀 Four Leaf Clover",
-    type: "Animals & Nature",
-    emoji: "🍀",
-    description: "Four Leaf Clover"
+    "id": 511,
+    "emoji": "🐒",
+    "unicode": "U+1F412",
+    "name": "monkey"
   },
   {
-    name: "🍁 Maple Leaf",
-    type: "Animals & Nature",
-    emoji: "🍁",
-    description: "Maple Leaf"
+    "id": 512,
+    "emoji": "🦍",
+    "unicode": "U+1F98D",
+    "name": "gorilla"
   },
   {
-    name: "🍂 Fallen Leaf",
-    type: "Animals & Nature",
-    emoji: "🍂",
-    description: "Fallen Leaf"
+    "id": 513,
+    "emoji": "🦧",
+    "unicode": "U+1F9A7",
+    "name": "orangutan"
   },
   {
-    name: "🍃 Leaf Fluttering in Wind",
-    type: "Animals & Nature",
-    emoji: "🍃",
-    description: "Leaf Fluttering in Wind"
+    "id": 514,
+    "emoji": "🐶",
+    "unicode": "U+1F436",
+    "name": "dog face"
   },
   {
-    name: "🍄 Mushroom",
-    type: "Animals & Nature",
-    emoji: "🍄",
-    description: "Mushroom"
+    "id": 515,
+    "emoji": "🐕",
+    "unicode": "U+1F415",
+    "name": "dog"
   },
   {
-    name: "🌰 Chestnut",
-    type: "Animals & Nature",
-    emoji: "🌰",
-    description: "Chestnut"
+    "id": 516,
+    "emoji": "🦮",
+    "unicode": "U+1F9AE",
+    "name": "guide dog"
   },
   {
-    name: "🌍 Globe Showing Europe-Africa",
-    type: "Animals & Nature",
-    emoji: "🌍",
-    description: "Globe Showing Europe-Africa"
+    "id": 517,
+    "emoji": "🐕‍🦺",
+    "unicode": "U+1F415 U+200D U+1F9BA",
+    "name": "service dog"
   },
   {
-    name: "🌎 Globe Showing Americas",
-    type: "Animals & Nature",
-    emoji: "🌎",
-    description: "Globe Showing Americas"
+    "id": 518,
+    "emoji": "🐩",
+    "unicode": "U+1F429",
+    "name": "poodle"
   },
   {
-    name: "🌏 Globe Showing Asia-Australia",
-    type: "Animals & Nature",
-    emoji: "🌏",
-    description: "Globe Showing Asia-Australia"
+    "id": 519,
+    "emoji": "🐺",
+    "unicode": "U+1F43A",
+    "name": "wolf"
   },
   {
-    name: "🌐 Globe With Meridians",
-    type: "Animals & Nature",
-    emoji: "🌐",
-    description: "Globe With Meridians"
+    "id": 520,
+    "emoji": "🦊",
+    "unicode": "U+1F98A",
+    "name": "fox"
   },
   {
-    name: "🌑 New Moon",
-    type: "Animals & Nature",
-    emoji: "🌑",
-    description: "New Moon"
+    "id": 521,
+    "emoji": "🦝",
+    "unicode": "U+1F99D",
+    "name": "raccoon"
   },
   {
-    name: "🌒 Waxing Crescent Moon",
-    type: "Animals & Nature",
-    emoji: "🌒",
-    description: "Waxing Crescent Moon"
+    "id": 522,
+    "emoji": "🐱",
+    "unicode": "U+1F431",
+    "name": "cat face"
   },
   {
-    name: "🌓 First Quarter Moon",
-    type: "Animals & Nature",
-    emoji: "🌓",
-    description: "First Quarter Moon"
+    "id": 523,
+    "emoji": "🐈",
+    "unicode": "U+1F408",
+    "name": "cat"
   },
   {
-    name: "🌔 Waxing Gibbous Moon",
-    type: "Animals & Nature",
-    emoji: "🌔",
-    description: "Waxing Gibbous Moon"
+    "id": 524,
+    "emoji": "🐈‍⬛",
+    "unicode": "U+1F408 U+200D U+2B1B",
+    "name": "black cat"
   },
   {
-    name: "🌕 Full Moon",
-    type: "Animals & Nature",
-    emoji: "🌕",
-    description: "Full Moon"
+    "id": 525,
+    "emoji": "🦁",
+    "unicode": "U+1F981",
+    "name": "lion"
   },
   {
-    name: "🌖 Waning Gibbous Moon",
-    type: "Animals & Nature",
-    emoji: "🌖",
-    description: "Waning Gibbous Moon"
+    "id": 526,
+    "emoji": "🐯",
+    "unicode": "U+1F42F",
+    "name": "tiger face"
   },
   {
-    name: "🌗 Last Quarter Moon",
-    type: "Animals & Nature",
-    emoji: "🌗",
-    description: "Last Quarter Moon"
+    "id": 527,
+    "emoji": "🐅",
+    "unicode": "U+1F405",
+    "name": "tiger"
   },
   {
-    name: "🌘 Waning Crescent Moon",
-    type: "Animals & Nature",
-    emoji: "🌘",
-    description: "Waning Crescent Moon"
+    "id": 528,
+    "emoji": "🐆",
+    "unicode": "U+1F406",
+    "name": "leopard"
   },
   {
-    name: "🌙 Crescent Moon",
-    type: "Animals & Nature",
-    emoji: "🌙",
-    description: "Crescent Moon"
+    "id": 529,
+    "emoji": "🐴",
+    "unicode": "U+1F434",
+    "name": "horse face"
   },
   {
-    name: "🌚 New Moon Face",
-    type: "Animals & Nature",
-    emoji: "🌚",
-    description: "New Moon Face"
+    "id": 530,
+    "emoji": "🐎",
+    "unicode": "U+1F40E",
+    "name": "horse"
   },
   {
-    name: "🌛 First Quarter Moon Face",
-    type: "Animals & Nature",
-    emoji: "🌛",
-    description: "First Quarter Moon Face"
+    "id": 531,
+    "emoji": "🦄",
+    "unicode": "U+1F984",
+    "name": "unicorn"
   },
   {
-    name: "🌜 Last Quarter Moon Face",
-    type: "Animals & Nature",
-    emoji: "🌜",
-    description: "Last Quarter Moon Face"
+    "id": 532,
+    "emoji": "🦓",
+    "unicode": "U+1F993",
+    "name": "zebra"
   },
   {
-    name: "☀ Sun",
-    type: "Animals & Nature",
-    emoji: "☀",
-    description: "Sun"
+    "id": 533,
+    "emoji": "🦌",
+    "unicode": "U+1F98C",
+    "name": "deer"
   },
   {
-    name: "🌝 Full Moon Face",
-    type: "Animals & Nature",
-    emoji: "🌝",
-    description: "Full Moon Face"
+    "id": 534,
+    "emoji": "🦬",
+    "unicode": "U+1F9AC",
+    "name": "bison"
   },
   {
-    name: "🌞 Sun With Face",
-    type: "Animals & Nature",
-    emoji: "🌞",
-    description: "Sun With Face"
+    "id": 535,
+    "emoji": "🐮",
+    "unicode": "U+1F42E",
+    "name": "cow face"
   },
   {
-    name: "⭐ Star",
-    type: "Animals & Nature",
-    emoji: "⭐",
-    description: "Star"
+    "id": 536,
+    "emoji": "🐂",
+    "unicode": "U+1F402",
+    "name": "ox"
   },
   {
-    name: "🌟 Glowing Star",
-    type: "Animals & Nature",
-    emoji: "🌟",
-    description: "Glowing Star"
+    "id": 537,
+    "emoji": "🐃",
+    "unicode": "U+1F403",
+    "name": "water buffalo"
   },
   {
-    name: "🌠 Shooting Star",
-    type: "Animals & Nature",
-    emoji: "🌠",
-    description: "Shooting Star"
+    "id": 538,
+    "emoji": "🐄",
+    "unicode": "U+1F404",
+    "name": "cow"
   },
   {
-    name: "☁ Cloud",
-    type: "Animals & Nature",
-    emoji: "☁",
-    description: "Cloud"
+    "id": 539,
+    "emoji": "🐷",
+    "unicode": "U+1F437",
+    "name": "pig face"
   },
   {
-    name: "⛅ Sun Behind Cloud",
-    type: "Animals & Nature",
-    emoji: "⛅",
-    description: "Sun Behind Cloud"
+    "id": 540,
+    "emoji": "🐖",
+    "unicode": "U+1F416",
+    "name": "pig"
   },
   {
-    name: "⛈ Cloud With Lightning and Rain",
-    type: "Animals & Nature",
-    emoji: "⛈",
-    description: "Cloud With Lightning and Rain"
+    "id": 541,
+    "emoji": "🐗",
+    "unicode": "U+1F417",
+    "name": "boar"
   },
   {
-    name: "🌤 Sun Behind Small Cloud",
-    type: "Animals & Nature",
-    emoji: "🌤",
-    description: "Sun Behind Small Cloud"
+    "id": 542,
+    "emoji": "🐽",
+    "unicode": "U+1F43D",
+    "name": "pig nose"
   },
   {
-    name: "🌥 Sun Behind Large Cloud",
-    type: "Animals & Nature",
-    emoji: "🌥",
-    description: "Sun Behind Large Cloud"
+    "id": 543,
+    "emoji": "🐏",
+    "unicode": "U+1F40F",
+    "name": "ram"
   },
   {
-    name: "🌦 Sun Behind Rain Cloud",
-    type: "Animals & Nature",
-    emoji: "🌦",
-    description: "Sun Behind Rain Cloud"
+    "id": 544,
+    "emoji": "🐑",
+    "unicode": "U+1F411",
+    "name": "ewe"
   },
   {
-    name: "🌧 Cloud With Rain",
-    type: "Animals & Nature",
-    emoji: "🌧",
-    description: "Cloud With Rain"
+    "id": 545,
+    "emoji": "🐐",
+    "unicode": "U+1F410",
+    "name": "goat"
   },
   {
-    name: "🌨 Cloud With Snow",
-    type: "Animals & Nature",
-    emoji: "🌨",
-    description: "Cloud With Snow"
+    "id": 546,
+    "emoji": "🐪",
+    "unicode": "U+1F42A",
+    "name": "camel"
   },
   {
-    name: "🌩 Cloud With Lightning",
-    type: "Animals & Nature",
-    emoji: "🌩",
-    description: "Cloud With Lightning"
+    "id": 547,
+    "emoji": "🐫",
+    "unicode": "U+1F42B",
+    "name": "two-hump camel"
   },
   {
-    name: "🌪 Tornado",
-    type: "Animals & Nature",
-    emoji: "🌪",
-    description: "Tornado"
+    "id": 548,
+    "emoji": "🦙",
+    "unicode": "U+1F999",
+    "name": "llama"
   },
   {
-    name: "🌫 Fog",
-    type: "Animals & Nature",
-    emoji: "🌫",
-    description: "Fog"
+    "id": 549,
+    "emoji": "🦒",
+    "unicode": "U+1F992",
+    "name": "giraffe"
   },
   {
-    name: "🌬 Wind Face",
-    type: "Animals & Nature",
-    emoji: "🌬",
-    description: "Wind Face"
+    "id": 550,
+    "emoji": "🐘",
+    "unicode": "U+1F418",
+    "name": "elephant"
   },
   {
-    name: "🌈 Rainbow",
-    type: "Animals & Nature",
-    emoji: "🌈",
-    description: "Rainbow"
+    "id": 551,
+    "emoji": "🦣",
+    "unicode": "U+1F9A3",
+    "name": "mammoth"
   },
   {
-    name: "☂ Umbrella",
-    type: "Animals & Nature",
-    emoji: "☂",
-    description: "Umbrella"
+    "id": 552,
+    "emoji": "🦏",
+    "unicode": "U+1F98F",
+    "name": "rhinoceros"
   },
   {
-    name: "☔ Umbrella With Rain Drops",
-    type: "Animals & Nature",
-    emoji: "☔",
-    description: "Umbrella With Rain Drops"
+    "id": 553,
+    "emoji": "🦛",
+    "unicode": "U+1F99B",
+    "name": "hippopotamus"
   },
   {
-    name: "⚡ High Voltage",
-    type: "Animals & Nature",
-    emoji: "⚡",
-    description: "High Voltage"
+    "id": 554,
+    "emoji": "🐭",
+    "unicode": "U+1F42D",
+    "name": "mouse face"
   },
   {
-    name: "❄ Snowflake",
-    type: "Animals & Nature",
-    emoji: "❄",
-    description: "Snowflake"
+    "id": 555,
+    "emoji": "🐁",
+    "unicode": "U+1F401",
+    "name": "mouse"
   },
   {
-    name: "☃ Snowman",
-    type: "Animals & Nature",
-    emoji: "☃",
-    description: "Snowman"
+    "id": 556,
+    "emoji": "🐀",
+    "unicode": "U+1F400",
+    "name": "rat"
   },
   {
-    name: "⛄ Snowman Without Snow",
-    type: "Animals & Nature",
-    emoji: "⛄",
-    description: "Snowman Without Snow"
+    "id": 557,
+    "emoji": "🐹",
+    "unicode": "U+1F439",
+    "name": "hamster"
   },
   {
-    name: "☄ Comet",
-    type: "Animals & Nature",
-    emoji: "☄",
-    description: "Comet"
+    "id": 558,
+    "emoji": "🐰",
+    "unicode": "U+1F430",
+    "name": "rabbit face"
   },
   {
-    name: "🔥 Fire",
-    type: "Animals & Nature",
-    emoji: "🔥",
-    description: "Fire"
+    "id": 559,
+    "emoji": "🐇",
+    "unicode": "U+1F407",
+    "name": "rabbit"
   },
   {
-    name: "💧 Droplet",
-    type: "Animals & Nature",
-    emoji: "💧",
-    description: "Droplet"
+    "id": 560,
+    "emoji": "🐿",
+    "unicode": "U+1F43F",
+    "name": "chipmunk"
   },
   {
-    name: "🌊 Water Wave",
-    type: "Animals & Nature",
-    emoji: "🌊",
-    description: "Water Wave"
+    "id": 561,
+    "emoji": "🦫",
+    "unicode": "U+1F9AB",
+    "name": "beaver"
   },
   {
-    name: "🎄 Christmas Tree",
-    type: "Animals & Nature",
-    emoji: "🎄",
-    description: "Christmas Tree"
+    "id": 562,
+    "emoji": "🦔",
+    "unicode": "U+1F994",
+    "name": "hedgehog"
   },
   {
-    name: "✨ Sparkles",
-    type: "Animals & Nature",
-    emoji: "✨",
-    description: "Sparkles"
+    "id": 563,
+    "emoji": "🦇",
+    "unicode": "U+1F987",
+    "name": "bat"
   },
   {
-    name: "🎋 Tanabata Tree",
-    type: "Animals & Nature",
-    emoji: "🎋",
-    description: "Tanabata Tree"
+    "id": 564,
+    "emoji": "🐻",
+    "unicode": "U+1F43B",
+    "name": "bear"
   },
   {
-    name: "🎍 Pine Decoration",
-    type: "Animals & Nature",
-    emoji: "🎍",
-    description: "Pine Decoration"
+    "id": 565,
+    "emoji": "🐻‍❄️",
+    "unicode": "U+1F43B U+200D U+2744 U+FE0F",
+    "name": "polar bear"
   },
   {
-    name: "🍇 Grapes",
-    type: "Food & Drink",
-    emoji: "🍇",
-    description: "Grapes"
+    "id": 566,
+    "emoji": "🐨",
+    "unicode": "U+1F428",
+    "name": "koala"
   },
   {
-    name: "🍈 Melon",
-    type: "Food & Drink",
-    emoji: "🍈",
-    description: "Melon"
+    "id": 567,
+    "emoji": "🐼",
+    "unicode": "U+1F43C",
+    "name": "panda"
   },
   {
-    name: "🍉 Watermelon",
-    type: "Food & Drink",
-    emoji: "🍉",
-    description: "Watermelon"
+    "id": 568,
+    "emoji": "🦥",
+    "unicode": "U+1F9A5",
+    "name": "sloth"
   },
   {
-    name: "🍊 Tangerine",
-    type: "Food & Drink",
-    emoji: "🍊",
-    description: "Tangerine"
+    "id": 569,
+    "emoji": "🦦",
+    "unicode": "U+1F9A6",
+    "name": "otter"
   },
   {
-    name: "🍋 Lemon",
-    type: "Food & Drink",
-    emoji: "🍋",
-    description: "Lemon"
+    "id": 570,
+    "emoji": "🦨",
+    "unicode": "U+1F9A8",
+    "name": "skunk"
   },
   {
-    name: "🍌 Banana",
-    type: "Food & Drink",
-    emoji: "🍌",
-    description: "Banana"
+    "id": 571,
+    "emoji": "🦘",
+    "unicode": "U+1F998",
+    "name": "kangaroo"
   },
   {
-    name: "🍍 Pineapple",
-    type: "Food & Drink",
-    emoji: "🍍",
-    description: "Pineapple"
+    "id": 572,
+    "emoji": "🦡",
+    "unicode": "U+1F9A1",
+    "name": "badger"
   },
   {
-    name: "🥭 Mango",
-    type: "Food & Drink",
-    emoji: "🥭",
-    description: "Mango"
+    "id": 573,
+    "emoji": "🐾",
+    "unicode": "U+1F43E",
+    "name": "paw prints"
   },
   {
-    name: "🍎 Red Apple",
-    type: "Food & Drink",
-    emoji: "🍎",
-    description: "Red Apple"
+    "id": 574,
+    "emoji": "🦃",
+    "unicode": "U+1F983",
+    "name": "turkey"
   },
   {
-    name: "🍏 Green Apple",
-    type: "Food & Drink",
-    emoji: "🍏",
-    description: "Green Apple"
+    "id": 575,
+    "emoji": "🐔",
+    "unicode": "U+1F414",
+    "name": "chicken"
   },
   {
-    name: "🍐 Pear",
-    type: "Food & Drink",
-    emoji: "🍐",
-    description: "Pear"
+    "id": 576,
+    "emoji": "🐓",
+    "unicode": "U+1F413",
+    "name": "rooster"
   },
   {
-    name: "🍑 Peach",
-    type: "Food & Drink",
-    emoji: "🍑",
-    description: "Peach"
+    "id": 577,
+    "emoji": "🐣",
+    "unicode": "U+1F423",
+    "name": "hatching chick"
   },
   {
-    name: "🍒 Cherries",
-    type: "Food & Drink",
-    emoji: "🍒",
-    description: "Cherries"
+    "id": 578,
+    "emoji": "🐤",
+    "unicode": "U+1F424",
+    "name": "baby chick"
   },
   {
-    name: "🍓 Strawberry",
-    type: "Food & Drink",
-    emoji: "🍓",
-    description: "Strawberry"
+    "id": 579,
+    "emoji": "🐥",
+    "unicode": "U+1F425",
+    "name": "front-facing baby chick"
   },
   {
-    name: "🥝 Kiwi Fruit",
-    type: "Food & Drink",
-    emoji: "🥝",
-    description: "Kiwi Fruit"
+    "id": 580,
+    "emoji": "🐦",
+    "unicode": "U+1F426",
+    "name": "bird"
   },
   {
-    name: "🍅 Tomato",
-    type: "Food & Drink",
-    emoji: "🍅",
-    description: "Tomato"
+    "id": 581,
+    "emoji": "🐧",
+    "unicode": "U+1F427",
+    "name": "penguin"
   },
   {
-    name: "🥥 Coconut",
-    type: "Food & Drink",
-    emoji: "🥥",
-    description: "Coconut"
+    "id": 582,
+    "emoji": "🕊",
+    "unicode": "U+1F54A",
+    "name": "dove"
   },
   {
-    name: "🥑 Avocado",
-    type: "Food & Drink",
-    emoji: "🥑",
-    description: "Avocado"
+    "id": 583,
+    "emoji": "🦅",
+    "unicode": "U+1F985",
+    "name": "eagle"
   },
   {
-    name: "🍆 Eggplant",
-    type: "Food & Drink",
-    emoji: "🍆",
-    description: "Eggplant"
+    "id": 584,
+    "emoji": "🦆",
+    "unicode": "U+1F986",
+    "name": "duck"
   },
   {
-    name: "🥔 Potato",
-    type: "Food & Drink",
-    emoji: "🥔",
-    description: "Potato"
+    "id": 585,
+    "emoji": "🦢",
+    "unicode": "U+1F9A2",
+    "name": "swan"
   },
   {
-    name: "🥕 Carrot",
-    type: "Food & Drink",
-    emoji: "🥕",
-    description: "Carrot"
+    "id": 586,
+    "emoji": "🦉",
+    "unicode": "U+1F989",
+    "name": "owl"
   },
   {
-    name: "🌽 Ear of Corn",
-    type: "Food & Drink",
-    emoji: "🌽",
-    description: "Ear of Corn"
+    "id": 587,
+    "emoji": "🦤",
+    "unicode": "U+1F9A4",
+    "name": "dodo"
   },
   {
-    name: "🌶 Hot Pepper",
-    type: "Food & Drink",
-    emoji: "🌶",
-    description: "Hot Pepper"
+    "id": 588,
+    "emoji": "🪶",
+    "unicode": "U+1FAB6",
+    "name": "feather"
   },
   {
-    name: "🥒 Cucumber",
-    type: "Food & Drink",
-    emoji: "🥒",
-    description: "Cucumber"
+    "id": 589,
+    "emoji": "🦩",
+    "unicode": "U+1F9A9",
+    "name": "flamingo"
   },
   {
-    name: "🥬 Leafy Green",
-    type: "Food & Drink",
-    emoji: "🥬",
-    description: "Leafy Green"
+    "id": 590,
+    "emoji": "🦚",
+    "unicode": "U+1F99A",
+    "name": "peacock"
   },
   {
-    name: "🥦 Broccoli",
-    type: "Food & Drink",
-    emoji: "🥦",
-    description: "Broccoli"
+    "id": 591,
+    "emoji": "🦜",
+    "unicode": "U+1F99C",
+    "name": "parrot"
   },
   {
-    name: "🍄 Mushroom",
-    type: "Food & Drink",
-    emoji: "🍄",
-    description: "Mushroom"
+    "id": 592,
+    "emoji": "🐸",
+    "unicode": "U+1F438",
+    "name": "frog"
   },
   {
-    name: "🥜 Peanuts",
-    type: "Food & Drink",
-    emoji: "🥜",
-    description: "Peanuts"
+    "id": 593,
+    "emoji": "🐊",
+    "unicode": "U+1F40A",
+    "name": "crocodile"
   },
   {
-    name: "🌰 Chestnut",
-    type: "Food & Drink",
-    emoji: "🌰",
-    description: "Chestnut"
+    "id": 594,
+    "emoji": "🐢",
+    "unicode": "U+1F422",
+    "name": "turtle"
   },
   {
-    name: "🍞 Bread",
-    type: "Food & Drink",
-    emoji: "🍞",
-    description: "Bread"
+    "id": 595,
+    "emoji": "🦎",
+    "unicode": "U+1F98E",
+    "name": "lizard"
   },
   {
-    name: "🥐 Croissant",
-    type: "Food & Drink",
-    emoji: "🥐",
-    description: "Croissant"
+    "id": 596,
+    "emoji": "🐍",
+    "unicode": "U+1F40D",
+    "name": "snake"
   },
   {
-    name: "🥖 Baguette Bread",
-    type: "Food & Drink",
-    emoji: "🥖",
-    description: "Baguette Bread"
+    "id": 597,
+    "emoji": "🐲",
+    "unicode": "U+1F432",
+    "name": "dragon face"
   },
   {
-    name: "🥨 Pretzel",
-    type: "Food & Drink",
-    emoji: "🥨",
-    description: "Pretzel"
+    "id": 598,
+    "emoji": "🐉",
+    "unicode": "U+1F409",
+    "name": "dragon"
   },
   {
-    name: "🥯 Bagel",
-    type: "Food & Drink",
-    emoji: "🥯",
-    description: "Bagel"
+    "id": 599,
+    "emoji": "🦕",
+    "unicode": "U+1F995",
+    "name": "sauropod"
   },
   {
-    name: "🥞 Pancakes",
-    type: "Food & Drink",
-    emoji: "🥞",
-    description: "Pancakes"
+    "id": 600,
+    "emoji": "🦖",
+    "unicode": "U+1F996",
+    "name": "T-Rex"
   },
   {
-    name: "🧀 Cheese Wedge",
-    type: "Food & Drink",
-    emoji: "🧀",
-    description: "Cheese Wedge"
+    "id": 601,
+    "emoji": "🐳",
+    "unicode": "U+1F433",
+    "name": "spouting whale"
   },
   {
-    name: "🍖 Meat on Bone",
-    type: "Food & Drink",
-    emoji: "🍖",
-    description: "Meat on Bone"
+    "id": 602,
+    "emoji": "🐋",
+    "unicode": "U+1F40B",
+    "name": "whale"
   },
   {
-    name: "🍗 Poultry Leg",
-    type: "Food & Drink",
-    emoji: "🍗",
-    description: "Poultry Leg"
+    "id": 603,
+    "emoji": "🐬",
+    "unicode": "U+1F42C",
+    "name": "dolphin"
   },
   {
-    name: "🥩 Cut of Meat",
-    type: "Food & Drink",
-    emoji: "🥩",
-    description: "Cut of Meat"
+    "id": 604,
+    "emoji": "🦭",
+    "unicode": "U+1F9AD",
+    "name": "seal"
   },
   {
-    name: "🥓 Bacon",
-    type: "Food & Drink",
-    emoji: "🥓",
-    description: "Bacon"
+    "id": 605,
+    "emoji": "🐟",
+    "unicode": "U+1F41F",
+    "name": "fish"
   },
   {
-    name: "🍔 Hamburger",
-    type: "Food & Drink",
-    emoji: "🍔",
-    description: "Hamburger"
+    "id": 606,
+    "emoji": "🐠",
+    "unicode": "U+1F420",
+    "name": "tropical fish"
   },
   {
-    name: "🍟 French Fries",
-    type: "Food & Drink",
-    emoji: "🍟",
-    description: "French Fries"
+    "id": 607,
+    "emoji": "🐡",
+    "unicode": "U+1F421",
+    "name": "blowfish"
   },
   {
-    name: "🍕 Pizza",
-    type: "Food & Drink",
-    emoji: "🍕",
-    description: "Pizza"
+    "id": 608,
+    "emoji": "🦈",
+    "unicode": "U+1F988",
+    "name": "shark"
   },
   {
-    name: "🌭 Hot Dog",
-    type: "Food & Drink",
-    emoji: "🌭",
-    description: "Hot Dog"
+    "id": 609,
+    "emoji": "🐙",
+    "unicode": "U+1F419",
+    "name": "octopus"
   },
   {
-    name: "🥪 Sandwich",
-    type: "Food & Drink",
-    emoji: "🥪",
-    description: "Sandwich"
+    "id": 610,
+    "emoji": "🐚",
+    "unicode": "U+1F41A",
+    "name": "spiral shell"
   },
   {
-    name: "🌮 Taco",
-    type: "Food & Drink",
-    emoji: "🌮",
-    description: "Taco"
+    "id": 611,
+    "emoji": "🐌",
+    "unicode": "U+1F40C",
+    "name": "snail"
   },
   {
-    name: "🌯 Burrito",
-    type: "Food & Drink",
-    emoji: "🌯",
-    description: "Burrito"
+    "id": 612,
+    "emoji": "🦋",
+    "unicode": "U+1F98B",
+    "name": "butterfly"
   },
   {
-    name: "🥙 Stuffed Flatbread",
-    type: "Food & Drink",
-    emoji: "🥙",
-    description: "Stuffed Flatbread"
+    "id": 613,
+    "emoji": "🐛",
+    "unicode": "U+1F41B",
+    "name": "bug"
   },
   {
-    name: "🍳 Cooking",
-    type: "Food & Drink",
-    emoji: "🍳",
-    description: "Cooking"
+    "id": 614,
+    "emoji": "🐜",
+    "unicode": "U+1F41C",
+    "name": "ant"
   },
   {
-    name: "🥘 Shallow Pan of Food",
-    type: "Food & Drink",
-    emoji: "🥘",
-    description: "Shallow Pan of Food"
+    "id": 615,
+    "emoji": "🐝",
+    "unicode": "U+1F41D",
+    "name": "honeybee"
   },
   {
-    name: "🍲 Pot of Food",
-    type: "Food & Drink",
-    emoji: "🍲",
-    description: "Pot of Food"
+    "id": 616,
+    "emoji": "🪲",
+    "unicode": "U+1FAB2",
+    "name": "beetle"
   },
   {
-    name: "🥣 Bowl With Spoon",
-    type: "Food & Drink",
-    emoji: "🥣",
-    description: "Bowl With Spoon"
+    "id": 617,
+    "emoji": "🐞",
+    "unicode": "U+1F41E",
+    "name": "lady beetle"
   },
   {
-    name: "🥗 Green Salad",
-    type: "Food & Drink",
-    emoji: "🥗",
-    description: "Green Salad"
+    "id": 618,
+    "emoji": "🦗",
+    "unicode": "U+1F997",
+    "name": "cricket"
   },
   {
-    name: "🍿 Popcorn",
-    type: "Food & Drink",
-    emoji: "🍿",
-    description: "Popcorn"
+    "id": 619,
+    "emoji": "🪳",
+    "unicode": "U+1FAB3",
+    "name": "cockroach"
   },
   {
-    name: "🧂 Salt",
-    type: "Food & Drink",
-    emoji: "🧂",
-    description: "Salt"
+    "id": 620,
+    "emoji": "🕷",
+    "unicode": "U+1F577",
+    "name": "spider"
   },
   {
-    name: "🥫 Canned Food",
-    type: "Food & Drink",
-    emoji: "🥫",
-    description: "Canned Food"
+    "id": 621,
+    "emoji": "🕸",
+    "unicode": "U+1F578",
+    "name": "spider web"
   },
   {
-    name: "🍱 Bento Box",
-    type: "Food & Drink",
-    emoji: "🍱",
-    description: "Bento Box"
+    "id": 622,
+    "emoji": "🦂",
+    "unicode": "U+1F982",
+    "name": "scorpion"
   },
   {
-    name: "🍘 Rice Cracker",
-    type: "Food & Drink",
-    emoji: "🍘",
-    description: "Rice Cracker"
+    "id": 623,
+    "emoji": "🦟",
+    "unicode": "U+1F99F",
+    "name": "mosquito"
   },
   {
-    name: "🍙 Rice Ball",
-    type: "Food & Drink",
-    emoji: "🍙",
-    description: "Rice Ball"
+    "id": 624,
+    "emoji": "🪰",
+    "unicode": "U+1FAB0",
+    "name": "fly"
   },
   {
-    name: "🍚 Cooked Rice",
-    type: "Food & Drink",
-    emoji: "🍚",
-    description: "Cooked Rice"
+    "id": 625,
+    "emoji": "🪱",
+    "unicode": "U+1FAB1",
+    "name": "worm"
   },
   {
-    name: "🍛 Curry Rice",
-    type: "Food & Drink",
-    emoji: "🍛",
-    description: "Curry Rice"
+    "id": 626,
+    "emoji": "🦠",
+    "unicode": "U+1F9A0",
+    "name": "microbe"
   },
   {
-    name: "🍜 Steaming Bowl",
-    type: "Food & Drink",
-    emoji: "🍜",
-    description: "Steaming Bowl"
+    "id": 627,
+    "emoji": "💐",
+    "unicode": "U+1F490",
+    "name": "bouquet"
   },
   {
-    name: "🍝 Spaghetti",
-    type: "Food & Drink",
-    emoji: "🍝",
-    description: "Spaghetti"
+    "id": 628,
+    "emoji": "🌸",
+    "unicode": "U+1F338",
+    "name": "cherry blossom"
   },
   {
-    name: "🍠 Roasted Sweet Potato",
-    type: "Food & Drink",
-    emoji: "🍠",
-    description: "Roasted Sweet Potato"
+    "id": 629,
+    "emoji": "💮",
+    "unicode": "U+1F4AE",
+    "name": "white flower"
   },
   {
-    name: "🍢 Oden",
-    type: "Food & Drink",
-    emoji: "🍢",
-    description: "Oden"
+    "id": 630,
+    "emoji": "🏵",
+    "unicode": "U+1F3F5",
+    "name": "rosette"
   },
   {
-    name: "🍣 Sushi",
-    type: "Food & Drink",
-    emoji: "🍣",
-    description: "Sushi"
+    "id": 631,
+    "emoji": "🌹",
+    "unicode": "U+1F339",
+    "name": "rose"
   },
   {
-    name: "🍤 Fried Shrimp",
-    type: "Food & Drink",
-    emoji: "🍤",
-    description: "Fried Shrimp"
+    "id": 632,
+    "emoji": "🥀",
+    "unicode": "U+1F940",
+    "name": "wilted flower"
   },
   {
-    name: "🍥 Fish Cake With Swirl",
-    type: "Food & Drink",
-    emoji: "🍥",
-    description: "Fish Cake With Swirl"
+    "id": 633,
+    "emoji": "🌺",
+    "unicode": "U+1F33A",
+    "name": "hibiscus"
   },
   {
-    name: "🥮 Moon Cake",
-    type: "Food & Drink",
-    emoji: "🥮",
-    description: "Moon Cake"
+    "id": 634,
+    "emoji": "🌻",
+    "unicode": "U+1F33B",
+    "name": "sunflower"
   },
   {
-    name: "🍡 Dango",
-    type: "Food & Drink",
-    emoji: "🍡",
-    description: "Dango"
+    "id": 635,
+    "emoji": "🌼",
+    "unicode": "U+1F33C",
+    "name": "blossom"
   },
   {
-    name: "🥟 Dumpling",
-    type: "Food & Drink",
-    emoji: "🥟",
-    description: "Dumpling"
+    "id": 636,
+    "emoji": "🌷",
+    "unicode": "U+1F337",
+    "name": "tulip"
   },
   {
-    name: "🥠 Fortune Cookie",
-    type: "Food & Drink",
-    emoji: "🥠",
-    description: "Fortune Cookie"
+    "id": 637,
+    "emoji": "🌱",
+    "unicode": "U+1F331",
+    "name": "seedling"
   },
   {
-    name: "🥡 Takeout Box",
-    type: "Food & Drink",
-    emoji: "🥡",
-    description: "Takeout Box"
+    "id": 638,
+    "emoji": "🪴",
+    "unicode": "U+1FAB4",
+    "name": "potted plant"
   },
   {
-    name: "🍦 Soft Ice Cream",
-    type: "Food & Drink",
-    emoji: "🍦",
-    description: "Soft Ice Cream"
+    "id": 639,
+    "emoji": "🌲",
+    "unicode": "U+1F332",
+    "name": "evergreen tree"
   },
   {
-    name: "🍧 Shaved Ice",
-    type: "Food & Drink",
-    emoji: "🍧",
-    description: "Shaved Ice"
+    "id": 640,
+    "emoji": "🌳",
+    "unicode": "U+1F333",
+    "name": "deciduous tree"
   },
   {
-    name: "🍨 Ice Cream",
-    type: "Food & Drink",
-    emoji: "🍨",
-    description: "Ice Cream"
+    "id": 641,
+    "emoji": "🌴",
+    "unicode": "U+1F334",
+    "name": "palm tree"
   },
   {
-    name: "🍩 Doughnut",
-    type: "Food & Drink",
-    emoji: "🍩",
-    description: "Doughnut"
+    "id": 642,
+    "emoji": "🌵",
+    "unicode": "U+1F335",
+    "name": "cactus"
   },
   {
-    name: "🍪 Cookie",
-    type: "Food & Drink",
-    emoji: "🍪",
-    description: "Cookie"
+    "id": 643,
+    "emoji": "🌾",
+    "unicode": "U+1F33E",
+    "name": "sheaf of rice"
   },
   {
-    name: "🎂 Birthday Cake",
-    type: "Food & Drink",
-    emoji: "🎂",
-    description: "Birthday Cake"
+    "id": 644,
+    "emoji": "🌿",
+    "unicode": "U+1F33F",
+    "name": "herb"
   },
   {
-    name: "🍰 Shortcake",
-    type: "Food & Drink",
-    emoji: "🍰",
-    description: "Shortcake"
+    "id": 645,
+    "emoji": "☘",
+    "unicode": "U+2618",
+    "name": "shamrock"
   },
   {
-    name: "🧁 Cupcake",
-    type: "Food & Drink",
-    emoji: "🧁",
-    description: "Cupcake"
+    "id": 646,
+    "emoji": "🍀",
+    "unicode": "U+1F340",
+    "name": "four leaf clover"
   },
   {
-    name: "🥧 Pie",
-    type: "Food & Drink",
-    emoji: "🥧",
-    description: "Pie"
+    "id": 647,
+    "emoji": "🍁",
+    "unicode": "U+1F341",
+    "name": "maple leaf"
   },
   {
-    name: "🍫 Chocolate Bar",
-    type: "Food & Drink",
-    emoji: "🍫",
-    description: "Chocolate Bar"
+    "id": 648,
+    "emoji": "🍂",
+    "unicode": "U+1F342",
+    "name": "fallen leaf"
   },
   {
-    name: "🍬 Candy",
-    type: "Food & Drink",
-    emoji: "🍬",
-    description: "Candy"
+    "id": 649,
+    "emoji": "🍃",
+    "unicode": "U+1F343",
+    "name": "leaf fluttering in wind"
   },
   {
-    name: "🍭 Lollipop",
-    type: "Food & Drink",
-    emoji: "🍭",
-    description: "Lollipop"
+    "id": 650,
+    "emoji": "🍇",
+    "unicode": "U+1F347",
+    "name": "grapes"
   },
   {
-    name: "🍮 Custard",
-    type: "Food & Drink",
-    emoji: "🍮",
-    description: "Custard"
+    "id": 651,
+    "emoji": "🍈",
+    "unicode": "U+1F348",
+    "name": "melon"
   },
   {
-    name: "🍯 Honey Pot",
-    type: "Food & Drink",
-    emoji: "🍯",
-    description: "Honey Pot"
+    "id": 652,
+    "emoji": "🍉",
+    "unicode": "U+1F349",
+    "name": "watermelon"
   },
   {
-    name: "🍼 Baby Bottle",
-    type: "Food & Drink",
-    emoji: "🍼",
-    description: "Baby Bottle"
+    "id": 653,
+    "emoji": "🍊",
+    "unicode": "U+1F34A",
+    "name": "tangerine"
   },
   {
-    name: "🥛 Glass of Milk",
-    type: "Food & Drink",
-    emoji: "🥛",
-    description: "Glass of Milk"
+    "id": 654,
+    "emoji": "🍋",
+    "unicode": "U+1F34B",
+    "name": "lemon"
   },
   {
-    name: "☕ Hot Beverage",
-    type: "Food & Drink",
-    emoji: "☕",
-    description: "Hot Beverage"
+    "id": 655,
+    "emoji": "🍌",
+    "unicode": "U+1F34C",
+    "name": "banana"
   },
   {
-    name: "🍵 Teacup Without Handle",
-    type: "Food & Drink",
-    emoji: "🍵",
-    description: "Teacup Without Handle"
+    "id": 656,
+    "emoji": "🍍",
+    "unicode": "U+1F34D",
+    "name": "pineapple"
   },
   {
-    name: "🍶 Sake",
-    type: "Food & Drink",
-    emoji: "🍶",
-    description: "Sake"
+    "id": 657,
+    "emoji": "🥭",
+    "unicode": "U+1F96D",
+    "name": "mango"
   },
   {
-    name: "🍾 Bottle With Popping Cork",
-    type: "Food & Drink",
-    emoji: "🍾",
-    description: "Bottle With Popping Cork"
+    "id": 658,
+    "emoji": "🍎",
+    "unicode": "U+1F34E",
+    "name": "red apple"
   },
   {
-    name: "🍷 Wine Glass",
-    type: "Food & Drink",
-    emoji: "🍷",
-    description: "Wine Glass"
+    "id": 659,
+    "emoji": "🍏",
+    "unicode": "U+1F34F",
+    "name": "green apple"
   },
   {
-    name: "🍸 Cocktail Glass",
-    type: "Food & Drink",
-    emoji: "🍸",
-    description: "Cocktail Glass"
+    "id": 660,
+    "emoji": "🍐",
+    "unicode": "U+1F350",
+    "name": "pear"
   },
   {
-    name: "🍹 Tropical Drink",
-    type: "Food & Drink",
-    emoji: "🍹",
-    description: "Tropical Drink"
+    "id": 661,
+    "emoji": "🍑",
+    "unicode": "U+1F351",
+    "name": "peach"
   },
   {
-    name: "🍺 Beer Mug",
-    type: "Food & Drink",
-    emoji: "🍺",
-    description: "Beer Mug"
+    "id": 662,
+    "emoji": "🍒",
+    "unicode": "U+1F352",
+    "name": "cherries"
   },
   {
-    name: "🍻 Clinking Beer Mugs",
-    type: "Food & Drink",
-    emoji: "🍻",
-    description: "Clinking Beer Mugs"
+    "id": 663,
+    "emoji": "🍓",
+    "unicode": "U+1F353",
+    "name": "strawberry"
   },
   {
-    name: "🥂 Clinking Glasses",
-    type: "Food & Drink",
-    emoji: "🥂",
-    description: "Clinking Glasses"
+    "id": 664,
+    "emoji": "🫐",
+    "unicode": "U+1FAD0",
+    "name": "blueberries"
   },
   {
-    name: "🥃 Tumbler Glass",
-    type: "Food & Drink",
-    emoji: "🥃",
-    description: "Tumbler Glass"
+    "id": 665,
+    "emoji": "🥝",
+    "unicode": "U+1F95D",
+    "name": "kiwi fruit"
   },
   {
-    name: "🥤 Cup With Straw",
-    type: "Food & Drink",
-    emoji: "🥤",
-    description: "Cup With Straw"
+    "id": 666,
+    "emoji": "🍅",
+    "unicode": "U+1F345",
+    "name": "tomato"
   },
   {
-    name: "🥢 Chopsticks",
-    type: "Food & Drink",
-    emoji: "🥢",
-    description: "Chopsticks"
+    "id": 667,
+    "emoji": "🫒",
+    "unicode": "U+1FAD2",
+    "name": "olive"
   },
   {
-    name: "🍽 Fork and Knife With Plate",
-    type: "Food & Drink",
-    emoji: "🍽",
-    description: "Fork and Knife With Plate"
+    "id": 668,
+    "emoji": "🥥",
+    "unicode": "U+1F965",
+    "name": "coconut"
   },
   {
-    name: "🍴 Fork and Knife",
-    type: "Food & Drink",
-    emoji: "🍴",
-    description: "Fork and Knife"
+    "id": 669,
+    "emoji": "🥑",
+    "unicode": "U+1F951",
+    "name": "avocado"
   },
   {
-    name: "🥄 Spoon",
-    type: "Food & Drink",
-    emoji: "🥄",
-    description: "Spoon"
+    "id": 670,
+    "emoji": "🍆",
+    "unicode": "U+1F346",
+    "name": "eggplant"
   },
   {
-    name: "🧗 Person Climbing",
-    type: "Activity",
-    emoji: "🧗",
-    description: "Person Climbing"
+    "id": 671,
+    "emoji": "🥔",
+    "unicode": "U+1F954",
+    "name": "potato"
   },
   {
-    name: "🧗‍♀️ Woman Climbing",
-    type: "Activity",
-    emoji: "🧗‍♀️",
-    description: "Woman Climbing"
+    "id": 672,
+    "emoji": "🥕",
+    "unicode": "U+1F955",
+    "name": "carrot"
   },
   {
-    name: "🧗‍♂️ Man Climbing",
-    type: "Activity",
-    emoji: "🧗‍♂️",
-    description: "Man Climbing"
+    "id": 673,
+    "emoji": "🌽",
+    "unicode": "U+1F33D",
+    "name": "ear of corn"
   },
   {
-    name: "🧘 Person in Lotus Position",
-    type: "Activity",
-    emoji: "🧘",
-    description: "Person in Lotus Position"
+    "id": 674,
+    "emoji": "🌶",
+    "unicode": "U+1F336",
+    "name": "hot pepper"
   },
   {
-    name: "🧘‍♀️ Woman in Lotus Position",
-    type: "Activity",
-    emoji: "🧘‍♀️",
-    description: "Woman in Lotus Position"
+    "id": 675,
+    "emoji": "🫑",
+    "unicode": "U+1FAD1",
+    "name": "bell pepper"
   },
   {
-    name: "🧘‍♂️ Man in Lotus Position",
-    type: "Activity",
-    emoji: "🧘‍♂️",
-    description: "Man in Lotus Position"
+    "id": 676,
+    "emoji": "🥒",
+    "unicode": "U+1F952",
+    "name": "cucumber"
   },
   {
-    name: "🕴 Man in Suit Levitating",
-    type: "Activity",
-    emoji: "🕴",
-    description: "Man in Suit Levitating"
+    "id": 677,
+    "emoji": "🥬",
+    "unicode": "U+1F96C",
+    "name": "leafy green"
   },
   {
-    name: "🏇 Horse Racing",
-    type: "Activity",
-    emoji: "🏇",
-    description: "Horse Racing"
+    "id": 678,
+    "emoji": "🥦",
+    "unicode": "U+1F966",
+    "name": "broccoli"
   },
   {
-    name: "⛷ Skier",
-    type: "Activity",
-    emoji: "⛷",
-    description: "Skier"
+    "id": 679,
+    "emoji": "🧄",
+    "unicode": "U+1F9C4",
+    "name": "garlic"
   },
   {
-    name: "🏂 Snowboarder",
-    type: "Activity",
-    emoji: "🏂",
-    description: "Snowboarder"
+    "id": 680,
+    "emoji": "🧅",
+    "unicode": "U+1F9C5",
+    "name": "onion"
   },
   {
-    name: "🏌 Person Golfing",
-    type: "Activity",
-    emoji: "🏌",
-    description: "Person Golfing"
+    "id": 681,
+    "emoji": "🍄",
+    "unicode": "U+1F344",
+    "name": "mushroom"
   },
   {
-    name: "🏌️‍♂️  Man Golfing",
-    type: "Activity",
-    emoji: "🏌️‍♂️",
-    description: "Man Golfing"
+    "id": 682,
+    "emoji": "🥜",
+    "unicode": "U+1F95C",
+    "name": "peanuts"
   },
   {
-    name: "🏌️‍♀️  Woman Golfing",
-    type: "Activity",
-    emoji: "🏌️‍♀️",
-    description: "Woman Golfing"
+    "id": 683,
+    "emoji": "🌰",
+    "unicode": "U+1F330",
+    "name": "chestnut"
   },
   {
-    name: "🏄 Person Surfing",
-    type: "Activity",
-    emoji: "🏄",
-    description: "Person Surfing"
+    "id": 684,
+    "emoji": "🍞",
+    "unicode": "U+1F35E",
+    "name": "bread"
   },
   {
-    name: "🏄‍♂️ Man Surfing",
-    type: "Activity",
-    emoji: "🏄‍♂️",
-    description: "Man Surfing"
+    "id": 685,
+    "emoji": "🥐",
+    "unicode": "U+1F950",
+    "name": "croissant"
   },
   {
-    name: "🏄‍♀️ Woman Surfing",
-    type: "Activity",
-    emoji: "🏄‍♀️",
-    description: "Woman Surfing"
+    "id": 686,
+    "emoji": "🥖",
+    "unicode": "U+1F956",
+    "name": "baguette bread"
   },
   {
-    name: "🚣 Person Rowing Boat",
-    type: "Activity",
-    emoji: "🚣",
-    description: "Person Rowing Boat"
+    "id": 687,
+    "emoji": "🫓",
+    "unicode": "U+1FAD3",
+    "name": "flatbread"
   },
   {
-    name: "🚣‍♂️ Man Rowing Boat",
-    type: "Activity",
-    emoji: "🚣‍♂️",
-    description: "Man Rowing Boat"
+    "id": 688,
+    "emoji": "🥨",
+    "unicode": "U+1F968",
+    "name": "pretzel"
   },
   {
-    name: "🚣‍♀️ Woman Rowing Boat",
-    type: "Activity",
-    emoji: "🚣‍♀️",
-    description: "Woman Rowing Boat"
+    "id": 689,
+    "emoji": "🥯",
+    "unicode": "U+1F96F",
+    "name": "bagel"
   },
   {
-    name: "🏊 Person Swimming",
-    type: "Activity",
-    emoji: "🏊",
-    description: "Person Swimming"
+    "id": 690,
+    "emoji": "🥞",
+    "unicode": "U+1F95E",
+    "name": "pancakes"
   },
   {
-    name: "🏊‍♂️ Man Swimming",
-    type: "Activity",
-    emoji: "🏊‍♂️",
-    description: "Man Swimming"
+    "id": 691,
+    "emoji": "🧇",
+    "unicode": "U+1F9C7",
+    "name": "waffle"
   },
   {
-    name: "🏊‍♀️ Woman Swimming",
-    type: "Activity",
-    emoji: "🏊‍♀️",
-    description: "Woman Swimming"
+    "id": 692,
+    "emoji": "🧀",
+    "unicode": "U+1F9C0",
+    "name": "cheese wedge"
   },
   {
-    name: "⛹ Person Bouncing Ball",
-    type: "Activity",
-    emoji: "⛹",
-    description: "Person Bouncing Ball"
+    "id": 693,
+    "emoji": "🍖",
+    "unicode": "U+1F356",
+    "name": "meat on bone"
   },
   {
-    name: "⛹️‍♂️ Man Bouncing Ball",
-    type: "Activity",
-    emoji: "⛹️‍♂️",
-    description: "Man Bouncing Ball"
+    "id": 694,
+    "emoji": "🍗",
+    "unicode": "U+1F357",
+    "name": "poultry leg"
   },
   {
-    name: "⛹️‍♀️ Woman Bouncing Ball",
-    type: "Activity",
-    emoji: "⛹️‍♀️",
-    description: "Woman Bouncing Ball"
+    "id": 695,
+    "emoji": "🥩",
+    "unicode": "U+1F969",
+    "name": "cut of meat"
   },
   {
-    name: "🏋 Person Lifting Weights",
-    type: "Activity",
-    emoji: "🏋",
-    description: "Person Lifting Weights"
+    "id": 696,
+    "emoji": "🥓",
+    "unicode": "U+1F953",
+    "name": "bacon"
   },
   {
-    name: "🏋️‍♂️  Man Lifting Weights",
-    type: "Activity",
-    emoji: "🏋️‍♂️",
-    description: "Man Lifting Weights"
+    "id": 697,
+    "emoji": "🍔",
+    "unicode": "U+1F354",
+    "name": "hamburger"
   },
   {
-    name: "🏋️‍♀️  Woman Lifting Weights",
-    type: "Activity",
-    emoji: "🏋️‍♀️",
-    description: "Woman Lifting Weights"
+    "id": 698,
+    "emoji": "🍟",
+    "unicode": "U+1F35F",
+    "name": "french fries"
   },
   {
-    name: "🚴 Person Biking",
-    type: "Activity",
-    emoji: "🚴",
-    description: "Person Biking"
+    "id": 699,
+    "emoji": "🍕",
+    "unicode": "U+1F355",
+    "name": "pizza"
   },
   {
-    name: "🚴‍♂️ Man Biking",
-    type: "Activity",
-    emoji: "🚴‍♂️",
-    description: "Man Biking"
+    "id": 700,
+    "emoji": "🌭",
+    "unicode": "U+1F32D",
+    "name": "hot dog"
   },
   {
-    name: "🚴‍♀️ Woman Biking",
-    type: "Activity",
-    emoji: "🚴‍♀️",
-    description: "Woman Biking"
+    "id": 701,
+    "emoji": "🥪",
+    "unicode": "U+1F96A",
+    "name": "sandwich"
   },
   {
-    name: "🚵 Person Mountain Biking",
-    type: "Activity",
-    emoji: "🚵",
-    description: "Person Mountain Biking"
+    "id": 702,
+    "emoji": "🌮",
+    "unicode": "U+1F32E",
+    "name": "taco"
   },
   {
-    name: "🚵‍♂️ Man Mountain Biking",
-    type: "Activity",
-    emoji: "🚵‍♂️",
-    description: "Man Mountain Biking"
+    "id": 703,
+    "emoji": "🌯",
+    "unicode": "U+1F32F",
+    "name": "burrito"
   },
   {
-    name: "🚵‍♀️ Woman Mountain Biking",
-    type: "Activity",
-    emoji: "🚵‍♀️",
-    description: "Woman Mountain Biking"
+    "id": 704,
+    "emoji": "🫔",
+    "unicode": "U+1FAD4",
+    "name": "tamale"
   },
   {
-    name: "🤸 Person Cartwheeling",
-    type: "Activity",
-    emoji: "🤸",
-    description: "Person Cartwheeling"
+    "id": 705,
+    "emoji": "🥙",
+    "unicode": "U+1F959",
+    "name": "stuffed flatbread"
   },
   {
-    name: "🤸‍♂️ Man Cartwheeling",
-    type: "Activity",
-    emoji: "🤸‍♂️",
-    description: "Man Cartwheeling"
+    "id": 706,
+    "emoji": "🧆",
+    "unicode": "U+1F9C6",
+    "name": "falafel"
   },
   {
-    name: "🤸‍♀️ Woman Cartwheeling",
-    type: "Activity",
-    emoji: "🤸‍♀️",
-    description: "Woman Cartwheeling"
+    "id": 707,
+    "emoji": "🥚",
+    "unicode": "U+1F95A",
+    "name": "egg"
   },
   {
-    name: "🤼 People Wrestling",
-    type: "Activity",
-    emoji: "🤼",
-    description: "People Wrestling"
+    "id": 708,
+    "emoji": "🍳",
+    "unicode": "U+1F373",
+    "name": "cooking"
   },
   {
-    name: "🤼‍♂️ Men Wrestling",
-    type: "Activity",
-    emoji: "🤼‍♂️",
-    description: "Men Wrestling"
+    "id": 709,
+    "emoji": "🥘",
+    "unicode": "U+1F958",
+    "name": "shallow pan of food"
   },
   {
-    name: "🤼‍♀️ Women Wrestling",
-    type: "Activity",
-    emoji: "🤼‍♀️",
-    description: "Women Wrestling"
+    "id": 710,
+    "emoji": "🍲",
+    "unicode": "U+1F372",
+    "name": "pot of food"
   },
   {
-    name: "🤽 Person Playing Water Polo",
-    type: "Activity",
-    emoji: "🤽",
-    description: "Person Playing Water Polo"
+    "id": 711,
+    "emoji": "🫕",
+    "unicode": "U+1FAD5",
+    "name": "fondue"
   },
   {
-    name: "🤽‍♂️ Man Playing Water Polo",
-    type: "Activity",
-    emoji: "🤽‍♂️",
-    description: "Man Playing Water Polo"
+    "id": 712,
+    "emoji": "🥣",
+    "unicode": "U+1F963",
+    "name": "bowl with spoon"
   },
   {
-    name: "🤽‍♀️ Woman Playing Water Polo",
-    type: "Activity",
-    emoji: "🤽‍♀️",
-    description: "Woman Playing Water Polo"
+    "id": 713,
+    "emoji": "🥗",
+    "unicode": "U+1F957",
+    "name": "green salad"
   },
   {
-    name: "🤾 Person Playing Handball",
-    type: "Activity",
-    emoji: "🤾",
-    description: "Person Playing Handball"
+    "id": 714,
+    "emoji": "🍿",
+    "unicode": "U+1F37F",
+    "name": "popcorn"
   },
   {
-    name: "🤾‍♂️ Man Playing Handball",
-    type: "Activity",
-    emoji: "🤾‍♂️",
-    description: "Man Playing Handball"
+    "id": 715,
+    "emoji": "🧈",
+    "unicode": "U+1F9C8",
+    "name": "butter"
   },
   {
-    name: "🤾‍♀️ Woman Playing Handball",
-    type: "Activity",
-    emoji: "🤾‍♀️",
-    description: "Woman Playing Handball"
+    "id": 716,
+    "emoji": "🧂",
+    "unicode": "U+1F9C2",
+    "name": "salt"
   },
   {
-    name: "🤹 Person Juggling",
-    type: "Activity",
-    emoji: "🤹",
-    description: "Person Juggling"
+    "id": 717,
+    "emoji": "🥫",
+    "unicode": "U+1F96B",
+    "name": "canned food"
   },
   {
-    name: "🤹‍♂️ Man Juggling",
-    type: "Activity",
-    emoji: "🤹‍♂️",
-    description: "Man Juggling"
+    "id": 718,
+    "emoji": "🍱",
+    "unicode": "U+1F371",
+    "name": "bento box"
   },
   {
-    name: "🤹‍♀️ Woman Juggling",
-    type: "Activity",
-    emoji: "🤹‍♀️",
-    description: "Woman Juggling"
+    "id": 719,
+    "emoji": "🍘",
+    "unicode": "U+1F358",
+    "name": "rice cracker"
   },
   {
-    name: "🎪 Circus Tent",
-    type: "Activity",
-    emoji: "🎪",
-    description: "Circus Tent"
+    "id": 720,
+    "emoji": "🍙",
+    "unicode": "U+1F359",
+    "name": "rice ball"
   },
   {
-    name: "🛹 Skateboard",
-    type: "Activity",
-    emoji: "🛹",
-    description: "Skateboard"
+    "id": 721,
+    "emoji": "🍚",
+    "unicode": "U+1F35A",
+    "name": "cooked rice"
   },
   {
-    name: "🎗 Reminder Ribbon",
-    type: "Activity",
-    emoji: "🎗",
-    description: "Reminder Ribbon"
+    "id": 722,
+    "emoji": "🍛",
+    "unicode": "U+1F35B",
+    "name": "curry rice"
   },
   {
-    name: "🎟 Admission Tickets",
-    type: "Activity",
-    emoji: "🎟",
-    description: "Admission Tickets"
+    "id": 723,
+    "emoji": "🍜",
+    "unicode": "U+1F35C",
+    "name": "steaming bowl"
   },
   {
-    name: "🎫 Ticket",
-    type: "Activity",
-    emoji: "🎫",
-    description: "Ticket"
+    "id": 724,
+    "emoji": "🍝",
+    "unicode": "U+1F35D",
+    "name": "spaghetti"
   },
   {
-    name: "🎖 Military Medal",
-    type: "Activity",
-    emoji: "🎖",
-    description: "Military Medal"
+    "id": 725,
+    "emoji": "🍠",
+    "unicode": "U+1F360",
+    "name": "roasted sweet potato"
   },
   {
-    name: "🏆 Trophy",
-    type: "Activity",
-    emoji: "🏆",
-    description: "Trophy"
+    "id": 726,
+    "emoji": "🍢",
+    "unicode": "U+1F362",
+    "name": "oden"
   },
   {
-    name: "🏅 Sports Medal",
-    type: "Activity",
-    emoji: "🏅",
-    description: "Sports Medal"
+    "id": 727,
+    "emoji": "🍣",
+    "unicode": "U+1F363",
+    "name": "sushi"
   },
   {
-    name: "🥇 1St Place Medal",
-    type: "Activity",
-    emoji: "🥇",
-    description: "1St Place Medal"
+    "id": 728,
+    "emoji": "🍤",
+    "unicode": "U+1F364",
+    "name": "fried shrimp"
   },
   {
-    name: "🥈 2Nd Place Medal",
-    type: "Activity",
-    emoji: "🥈",
-    description: "2Nd Place Medal"
+    "id": 729,
+    "emoji": "🍥",
+    "unicode": "U+1F365",
+    "name": "fish cake with swirl"
   },
   {
-    name: "🥉 3Rd Place Medal",
-    type: "Activity",
-    emoji: "🥉",
-    description: "3Rd Place Medal"
+    "id": 730,
+    "emoji": "🥮",
+    "unicode": "U+1F96E",
+    "name": "moon cake"
   },
   {
-    name: "⚽ Soccer Ball",
-    type: "Activity",
-    emoji: "⚽",
-    description: "Soccer Ball"
+    "id": 731,
+    "emoji": "🍡",
+    "unicode": "U+1F361",
+    "name": "dango"
   },
   {
-    name: "⚾ Baseball",
-    type: "Activity",
-    emoji: "⚾",
-    description: "Baseball"
+    "id": 732,
+    "emoji": "🥟",
+    "unicode": "U+1F95F",
+    "name": "dumpling"
   },
   {
-    name: "🥎 Softball",
-    type: "Activity",
-    emoji: "🥎",
-    description: "Softball"
+    "id": 733,
+    "emoji": "🥠",
+    "unicode": "U+1F960",
+    "name": "fortune cookie"
   },
   {
-    name: "🏀 Basketball",
-    type: "Activity",
-    emoji: "🏀",
-    description: "Basketball"
+    "id": 734,
+    "emoji": "🥡",
+    "unicode": "U+1F961",
+    "name": "takeout box"
   },
   {
-    name: "🏐 Volleyball",
-    type: "Activity",
-    emoji: "🏐",
-    description: "Volleyball"
+    "id": 735,
+    "emoji": "🦀",
+    "unicode": "U+1F980",
+    "name": "crab"
   },
   {
-    name: "🏈 American Football",
-    type: "Activity",
-    emoji: "🏈",
-    description: "American Football"
+    "id": 736,
+    "emoji": "🦞",
+    "unicode": "U+1F99E",
+    "name": "lobster"
   },
   {
-    name: "🏉 Rugby Football",
-    type: "Activity",
-    emoji: "🏉",
-    description: "Rugby Football"
+    "id": 737,
+    "emoji": "🦐",
+    "unicode": "U+1F990",
+    "name": "shrimp"
   },
   {
-    name: "🎾 Tennis",
-    type: "Activity",
-    emoji: "🎾",
-    description: "Tennis"
+    "id": 738,
+    "emoji": "🦑",
+    "unicode": "U+1F991",
+    "name": "squid"
   },
   {
-    name: "🥏 Flying Disc",
-    type: "Activity",
-    emoji: "🥏",
-    description: "Flying Disc"
+    "id": 739,
+    "emoji": "🦪",
+    "unicode": "U+1F9AA",
+    "name": "oyster"
   },
   {
-    name: "🎳 Bowling",
-    type: "Activity",
-    emoji: "🎳",
-    description: "Bowling"
+    "id": 740,
+    "emoji": "🍦",
+    "unicode": "U+1F366",
+    "name": "soft ice cream"
   },
   {
-    name: "🏏 Cricket Game",
-    type: "Activity",
-    emoji: "🏏",
-    description: "Cricket Game"
+    "id": 741,
+    "emoji": "🍧",
+    "unicode": "U+1F367",
+    "name": "shaved ice"
   },
   {
-    name: "🏑 Field Hockey",
-    type: "Activity",
-    emoji: "🏑",
-    description: "Field Hockey"
+    "id": 742,
+    "emoji": "🍨",
+    "unicode": "U+1F368",
+    "name": "ice cream"
   },
   {
-    name: "🏒 Ice Hockey",
-    type: "Activity",
-    emoji: "🏒",
-    description: "Ice Hockey"
+    "id": 743,
+    "emoji": "🍩",
+    "unicode": "U+1F369",
+    "name": "doughnut"
   },
   {
-    name: "🥍 Lacrosse",
-    type: "Activity",
-    emoji: "🥍",
-    description: "Lacrosse"
+    "id": 744,
+    "emoji": "🍪",
+    "unicode": "U+1F36A",
+    "name": "cookie"
   },
   {
-    name: "🏓 Ping Pong",
-    type: "Activity",
-    emoji: "🏓",
-    description: "Ping Pong"
+    "id": 745,
+    "emoji": "🎂",
+    "unicode": "U+1F382",
+    "name": "birthday cake"
   },
   {
-    name: "🏸 Badminton",
-    type: "Activity",
-    emoji: "🏸",
-    description: "Badminton"
+    "id": 746,
+    "emoji": "🍰",
+    "unicode": "U+1F370",
+    "name": "shortcake"
   },
   {
-    name: "🥊 Boxing Glove",
-    type: "Activity",
-    emoji: "🥊",
-    description: "Boxing Glove"
+    "id": 747,
+    "emoji": "🧁",
+    "unicode": "U+1F9C1",
+    "name": "cupcake"
   },
   {
-    name: "🥋 Martial Arts Uniform",
-    type: "Activity",
-    emoji: "🥋",
-    description: "Martial Arts Uniform"
+    "id": 748,
+    "emoji": "🥧",
+    "unicode": "U+1F967",
+    "name": "pie"
   },
   {
-    name: "⛳ Flag in Hole",
-    type: "Activity",
-    emoji: "⛳",
-    description: "Flag in Hole"
+    "id": 749,
+    "emoji": "🍫",
+    "unicode": "U+1F36B",
+    "name": "chocolate bar"
   },
   {
-    name: "⛸ Ice Skate",
-    type: "Activity",
-    emoji: "⛸",
-    description: "Ice Skate"
+    "id": 750,
+    "emoji": "🍬",
+    "unicode": "U+1F36C",
+    "name": "candy"
   },
   {
-    name: "🎣 Fishing Pole",
-    type: "Activity",
-    emoji: "🎣",
-    description: "Fishing Pole"
+    "id": 751,
+    "emoji": "🍭",
+    "unicode": "U+1F36D",
+    "name": "lollipop"
   },
   {
-    name: "🎽 Running Shirt",
-    type: "Activity",
-    emoji: "🎽",
-    description: "Running Shirt"
+    "id": 752,
+    "emoji": "🍮",
+    "unicode": "U+1F36E",
+    "name": "custard"
   },
   {
-    name: "🎿 Skis",
-    type: "Activity",
-    emoji: "🎿",
-    description: "Skis"
+    "id": 753,
+    "emoji": "🍯",
+    "unicode": "U+1F36F",
+    "name": "honey pot"
   },
   {
-    name: "🛷 Sled",
-    type: "Activity",
-    emoji: "🛷",
-    description: "Sled"
+    "id": 754,
+    "emoji": "🍼",
+    "unicode": "U+1F37C",
+    "name": "baby bottle"
   },
   {
-    name: "🥌 Curling Stone",
-    type: "Activity",
-    emoji: "🥌",
-    description: "Curling Stone"
+    "id": 755,
+    "emoji": "🥛",
+    "unicode": "U+1F95B",
+    "name": "glass of milk"
   },
   {
-    name: "🎯 Direct Hit",
-    type: "Activity",
-    emoji: "🎯",
-    description: "Direct Hit"
+    "id": 756,
+    "emoji": "☕",
+    "unicode": "U+2615",
+    "name": "hot beverage"
   },
   {
-    name: "🎱 Pool 8 Ball",
-    type: "Activity",
-    emoji: "🎱",
-    description: "Pool 8 Ball"
+    "id": 757,
+    "emoji": "🫖",
+    "unicode": "U+1FAD6",
+    "name": "teapot"
   },
   {
-    name: "🎮 Video Game",
-    type: "Activity",
-    emoji: "🎮",
-    description: "Video Game"
+    "id": 758,
+    "emoji": "🍵",
+    "unicode": "U+1F375",
+    "name": "teacup without handle"
   },
   {
-    name: "🎰 Slot Machine",
-    type: "Activity",
-    emoji: "🎰",
-    description: "Slot Machine"
+    "id": 759,
+    "emoji": "🍶",
+    "unicode": "U+1F376",
+    "name": "sake"
   },
   {
-    name: "🎲 Game Die",
-    type: "Activity",
-    emoji: "🎲",
-    description: "Game Die"
+    "id": 760,
+    "emoji": "🍾",
+    "unicode": "U+1F37E",
+    "name": "bottle with popping cork"
   },
   {
-    name: "🧩 Jigsaw",
-    type: "Activity",
-    emoji: "🧩",
-    description: "Jigsaw"
+    "id": 761,
+    "emoji": "🍷",
+    "unicode": "U+1F377",
+    "name": "wine glass"
   },
   {
-    name: "♟ Chess Pawn",
-    type: "Activity",
-    emoji: "♟",
-    description: "Chess Pawn"
+    "id": 762,
+    "emoji": "🍸",
+    "unicode": "U+1F378",
+    "name": "cocktail glass"
   },
   {
-    name: "🎭 Performing Arts",
-    type: "Activity",
-    emoji: "🎭",
-    description: "Performing Arts"
+    "id": 763,
+    "emoji": "🍹",
+    "unicode": "U+1F379",
+    "name": "tropical drink"
   },
   {
-    name: "🎨 Artist Palette",
-    type: "Activity",
-    emoji: "🎨",
-    description: "Artist Palette"
+    "id": 764,
+    "emoji": "🍺",
+    "unicode": "U+1F37A",
+    "name": "beer mug"
   },
   {
-    name: "🎼 Musical Score",
-    type: "Activity",
-    emoji: "🎼",
-    description: "Musical Score"
+    "id": 765,
+    "emoji": "🍻",
+    "unicode": "U+1F37B",
+    "name": "clinking beer mugs"
   },
   {
-    name: "🎤 Microphone",
-    type: "Activity",
-    emoji: "🎤",
-    description: "Microphone"
+    "id": 766,
+    "emoji": "🥂",
+    "unicode": "U+1F942",
+    "name": "clinking glasses"
   },
   {
-    name: "🎧 Headphone",
-    type: "Activity",
-    emoji: "🎧",
-    description: "Headphone"
+    "id": 767,
+    "emoji": "🥃",
+    "unicode": "U+1F943",
+    "name": "tumbler glass"
   },
   {
-    name: "🎷 Saxophone",
-    type: "Activity",
-    emoji: "🎷",
-    description: "Saxophone"
+    "id": 768,
+    "emoji": "🥤",
+    "unicode": "U+1F964",
+    "name": "cup with straw"
   },
   {
-    name: "🎸 Guitar",
-    type: "Activity",
-    emoji: "🎸",
-    description: "Guitar"
+    "id": 769,
+    "emoji": "🧋",
+    "unicode": "U+1F9CB",
+    "name": "bubble tea"
   },
   {
-    name: "🎹 Musical Keyboard",
-    type: "Activity",
-    emoji: "🎹",
-    description: "Musical Keyboard"
+    "id": 770,
+    "emoji": "🧃",
+    "unicode": "U+1F9C3",
+    "name": "beverage box"
   },
   {
-    name: "🎺 Trumpet",
-    type: "Activity",
-    emoji: "🎺",
-    description: "Trumpet"
+    "id": 771,
+    "emoji": "🧉",
+    "unicode": "U+1F9C9",
+    "name": "mate"
   },
   {
-    name: "🎻 Violin",
-    type: "Activity",
-    emoji: "🎻",
-    description: "Violin"
+    "id": 772,
+    "emoji": "🧊",
+    "unicode": "U+1F9CA",
+    "name": "ice"
   },
   {
-    name: "🥁 Drum",
-    type: "Activity",
-    emoji: "🥁",
-    description: "Drum"
+    "id": 773,
+    "emoji": "🥢",
+    "unicode": "U+1F962",
+    "name": "chopsticks"
   },
   {
-    name: "🎬 Clapper Board",
-    type: "Activity",
-    emoji: "🎬",
-    description: "Clapper Board"
+    "id": 774,
+    "emoji": "🍽",
+    "unicode": "U+1F37D",
+    "name": "fork and knife with plate"
   },
   {
-    name: "🏹 Bow and Arrow",
-    type: "Activity",
-    emoji: "🏹",
-    description: "Bow and Arrow"
+    "id": 775,
+    "emoji": "🍴",
+    "unicode": "U+1F374",
+    "name": "fork and knife"
   },
   {
-    name: "🧵 Thread",
-    type: "Activity",
-    emoji: "🧵",
-    description: "Thread"
+    "id": 776,
+    "emoji": "🥄",
+    "unicode": "U+1F944",
+    "name": "spoon"
   },
   {
-    name: "🧶 Yarn",
-    type: "Activity",
-    emoji: "🧶",
-    description: "Yarn"
+    "id": 777,
+    "emoji": "🔪",
+    "unicode": "U+1F52A",
+    "name": "kitchen knife"
   },
   {
-    name: "🚣 Person Rowing Boat",
-    type: "Travel & Places",
-    emoji: "🚣",
-    description: "Person Rowing Boat"
+    "id": 778,
+    "emoji": "🏺",
+    "unicode": "U+1F3FA",
+    "name": "amphora"
   },
   {
-    name: "🏎 Racing Car",
-    type: "Travel & Places",
-    emoji: "🏎",
-    description: "Racing Car"
+    "id": 779,
+    "emoji": "🌍",
+    "unicode": "U+1F30D",
+    "name": "globe showing Europe-Africa"
   },
   {
-    name: "🏍 Motorcycle",
-    type: "Travel & Places",
-    emoji: "🏍",
-    description: "Motorcycle"
+    "id": 780,
+    "emoji": "🌎",
+    "unicode": "U+1F30E",
+    "name": "globe showing Americas"
   },
   {
-    name: "🗾 Map of Japan",
-    type: "Travel & Places",
-    emoji: "🗾",
-    description: "Map of Japan"
+    "id": 781,
+    "emoji": "🌏",
+    "unicode": "U+1F30F",
+    "name": "globe showing Asia-Australia"
   },
   {
-    name: "🏔 Snow-Capped Mountain",
-    type: "Travel & Places",
-    emoji: "🏔",
-    description: "Snow-Capped Mountain"
+    "id": 782,
+    "emoji": "🌐",
+    "unicode": "U+1F310",
+    "name": "globe with meridians"
   },
   {
-    name: "⛰ Mountain",
-    type: "Travel & Places",
-    emoji: "⛰",
-    description: "Mountain"
+    "id": 783,
+    "emoji": "🗺",
+    "unicode": "U+1F5FA",
+    "name": "world map"
   },
   {
-    name: "🌋 Volcano",
-    type: "Travel & Places",
-    emoji: "🌋",
-    description: "Volcano"
+    "id": 784,
+    "emoji": "🗾",
+    "unicode": "U+1F5FE",
+    "name": "map of Japan"
   },
   {
-    name: "🗻 Mount Fuji",
-    type: "Travel & Places",
-    emoji: "🗻",
-    description: "Mount Fuji"
+    "id": 785,
+    "emoji": "🧭",
+    "unicode": "U+1F9ED",
+    "name": "compass"
   },
   {
-    name: "🏕 Camping",
-    type: "Travel & Places",
-    emoji: "🏕",
-    description: "Camping"
+    "id": 786,
+    "emoji": "🏔",
+    "unicode": "U+1F3D4",
+    "name": "snow-capped mountain"
   },
   {
-    name: "🏖 Beach With Umbrella",
-    type: "Travel & Places",
-    emoji: "🏖",
-    description: "Beach With Umbrella"
+    "id": 787,
+    "emoji": "⛰",
+    "unicode": "U+26F0",
+    "name": "mountain"
   },
   {
-    name: "🏜 Desert",
-    type: "Travel & Places",
-    emoji: "🏜",
-    description: "Desert"
+    "id": 788,
+    "emoji": "🌋",
+    "unicode": "U+1F30B",
+    "name": "volcano"
   },
   {
-    name: "🏝 Desert Island",
-    type: "Travel & Places",
-    emoji: "🏝",
-    description: "Desert Island"
+    "id": 789,
+    "emoji": "🗻",
+    "unicode": "U+1F5FB",
+    "name": "mount fuji"
   },
   {
-    name: "🏞 National Park",
-    type: "Travel & Places",
-    emoji: "🏞",
-    description: "National Park"
+    "id": 790,
+    "emoji": "🏕",
+    "unicode": "U+1F3D5",
+    "name": "camping"
   },
   {
-    name: "🏟 Stadium",
-    type: "Travel & Places",
-    emoji: "🏟",
-    description: "Stadium"
+    "id": 791,
+    "emoji": "🏖",
+    "unicode": "U+1F3D6",
+    "name": "beach with umbrella"
   },
   {
-    name: "🏛 Classical Building",
-    type: "Travel & Places",
-    emoji: "🏛",
-    description: "Classical Building"
+    "id": 792,
+    "emoji": "🏜",
+    "unicode": "U+1F3DC",
+    "name": "desert"
   },
   {
-    name: "🏗 Building Construction",
-    type: "Travel & Places",
-    emoji: "🏗",
-    description: "Building Construction"
+    "id": 793,
+    "emoji": "🏝",
+    "unicode": "U+1F3DD",
+    "name": "desert island"
   },
   {
-    name: "🏘 Houses",
-    type: "Travel & Places",
-    emoji: "🏘",
-    description: "Houses"
+    "id": 794,
+    "emoji": "🏞",
+    "unicode": "U+1F3DE",
+    "name": "national park"
   },
   {
-    name: "🏚 Derelict House",
-    type: "Travel & Places",
-    emoji: "🏚",
-    description: "Derelict House"
+    "id": 795,
+    "emoji": "🏟",
+    "unicode": "U+1F3DF",
+    "name": "stadium"
   },
   {
-    name: "🏠 House",
-    type: "Travel & Places",
-    emoji: "🏠",
-    description: "House"
+    "id": 796,
+    "emoji": "🏛",
+    "unicode": "U+1F3DB",
+    "name": "classical building"
   },
   {
-    name: "🏡 House With Garden",
-    type: "Travel & Places",
-    emoji: "🏡",
-    description: "House With Garden"
+    "id": 797,
+    "emoji": "🏗",
+    "unicode": "U+1F3D7",
+    "name": "building construction"
   },
   {
-    name: "🏢 Office Building",
-    type: "Travel & Places",
-    emoji: "🏢",
-    description: "Office Building"
+    "id": 798,
+    "emoji": "🧱",
+    "unicode": "U+1F9F1",
+    "name": "brick"
   },
   {
-    name: "🏣 Japanese Post Office",
-    type: "Travel & Places",
-    emoji: "🏣",
-    description: "Japanese Post Office"
+    "id": 799,
+    "emoji": "🪨",
+    "unicode": "U+1FAA8",
+    "name": "rock"
   },
   {
-    name: "🏤 Post Office",
-    type: "Travel & Places",
-    emoji: "🏤",
-    description: "Post Office"
+    "id": 800,
+    "emoji": "🪵",
+    "unicode": "U+1FAB5",
+    "name": "wood"
   },
   {
-    name: "🏥 Hospital",
-    type: "Travel & Places",
-    emoji: "🏥",
-    description: "Hospital"
+    "id": 801,
+    "emoji": "🛖",
+    "unicode": "U+1F6D6",
+    "name": "hut"
   },
   {
-    name: "🏦 Bank",
-    type: "Travel & Places",
-    emoji: "🏦",
-    description: "Bank"
+    "id": 802,
+    "emoji": "🏘",
+    "unicode": "U+1F3D8",
+    "name": "houses"
   },
   {
-    name: "🏨 Hotel",
-    type: "Travel & Places",
-    emoji: "🏨",
-    description: "Hotel"
+    "id": 803,
+    "emoji": "🏚",
+    "unicode": "U+1F3DA",
+    "name": "derelict house"
   },
   {
-    name: "🏩 Love Hotel",
-    type: "Travel & Places",
-    emoji: "🏩",
-    description: "Love Hotel"
+    "id": 804,
+    "emoji": "🏠",
+    "unicode": "U+1F3E0",
+    "name": "house"
   },
   {
-    name: "🏪 Convenience Store",
-    type: "Travel & Places",
-    emoji: "🏪",
-    description: "Convenience Store"
+    "id": 805,
+    "emoji": "🏡",
+    "unicode": "U+1F3E1",
+    "name": "house with garden"
   },
   {
-    name: "🏫 School",
-    type: "Travel & Places",
-    emoji: "🏫",
-    description: "School"
+    "id": 806,
+    "emoji": "🏢",
+    "unicode": "U+1F3E2",
+    "name": "office building"
   },
   {
-    name: "🏬 Department Store",
-    type: "Travel & Places",
-    emoji: "🏬",
-    description: "Department Store"
+    "id": 807,
+    "emoji": "🏣",
+    "unicode": "U+1F3E3",
+    "name": "Japanese post office"
   },
   {
-    name: "🏭 Factory",
-    type: "Travel & Places",
-    emoji: "🏭",
-    description: "Factory"
+    "id": 808,
+    "emoji": "🏤",
+    "unicode": "U+1F3E4",
+    "name": "post office"
   },
   {
-    name: "🏯 Japanese Castle",
-    type: "Travel & Places",
-    emoji: "🏯",
-    description: "Japanese Castle"
+    "id": 809,
+    "emoji": "🏥",
+    "unicode": "U+1F3E5",
+    "name": "hospital"
   },
   {
-    name: "🏰 Castle",
-    type: "Travel & Places",
-    emoji: "🏰",
-    description: "Castle"
+    "id": 810,
+    "emoji": "🏦",
+    "unicode": "U+1F3E6",
+    "name": "bank"
   },
   {
-    name: "💒 Wedding",
-    type: "Travel & Places",
-    emoji: "💒",
-    description: "Wedding"
+    "id": 811,
+    "emoji": "🏨",
+    "unicode": "U+1F3E8",
+    "name": "hotel"
   },
   {
-    name: "🗼 Tokyo Tower",
-    type: "Travel & Places",
-    emoji: "🗼",
-    description: "Tokyo Tower"
+    "id": 812,
+    "emoji": "🏩",
+    "unicode": "U+1F3E9",
+    "name": "love hotel"
   },
   {
-    name: "🗽 Statue of Liberty",
-    type: "Travel & Places",
-    emoji: "🗽",
-    description: "Statue of Liberty"
+    "id": 813,
+    "emoji": "🏪",
+    "unicode": "U+1F3EA",
+    "name": "convenience store"
   },
   {
-    name: "⛪ Church",
-    type: "Travel & Places",
-    emoji: "⛪",
-    description: "Church"
+    "id": 814,
+    "emoji": "🏫",
+    "unicode": "U+1F3EB",
+    "name": "school"
   },
   {
-    name: "🕌 Mosque",
-    type: "Travel & Places",
-    emoji: "🕌",
-    description: "Mosque"
+    "id": 815,
+    "emoji": "🏬",
+    "unicode": "U+1F3EC",
+    "name": "department store"
   },
   {
-    name: "🕍 Synagogue",
-    type: "Travel & Places",
-    emoji: "🕍",
-    description: "Synagogue"
+    "id": 816,
+    "emoji": "🏭",
+    "unicode": "U+1F3ED",
+    "name": "factory"
   },
   {
-    name: "⛩ Shinto Shrine",
-    type: "Travel & Places",
-    emoji: "⛩",
-    description: "Shinto Shrine"
+    "id": 817,
+    "emoji": "🏯",
+    "unicode": "U+1F3EF",
+    "name": "Japanese castle"
   },
   {
-    name: "🕋 Kaaba",
-    type: "Travel & Places",
-    emoji: "🕋",
-    description: "Kaaba"
+    "id": 818,
+    "emoji": "🏰",
+    "unicode": "U+1F3F0",
+    "name": "castle"
   },
   {
-    name: "⛲ Fountain",
-    type: "Travel & Places",
-    emoji: "⛲",
-    description: "Fountain"
+    "id": 819,
+    "emoji": "💒",
+    "unicode": "U+1F492",
+    "name": "wedding"
   },
   {
-    name: "⛺ Tent",
-    type: "Travel & Places",
-    emoji: "⛺",
-    description: "Tent"
+    "id": 820,
+    "emoji": "🗼",
+    "unicode": "U+1F5FC",
+    "name": "Tokyo tower"
   },
   {
-    name: "🌁 Foggy",
-    type: "Travel & Places",
-    emoji: "🌁",
-    description: "Foggy"
+    "id": 821,
+    "emoji": "🗽",
+    "unicode": "U+1F5FD",
+    "name": "Statue of Liberty"
   },
   {
-    name: "🌃 Night With Stars",
-    type: "Travel & Places",
-    emoji: "🌃",
-    description: "Night With Stars"
+    "id": 822,
+    "emoji": "⛪",
+    "unicode": "U+26EA",
+    "name": "church"
   },
   {
-    name: "🏙 Cityscape",
-    type: "Travel & Places",
-    emoji: "🏙",
-    description: "Cityscape"
+    "id": 823,
+    "emoji": "🕌",
+    "unicode": "U+1F54C",
+    "name": "mosque"
   },
   {
-    name: "🌄 Sunrise Over Mountains",
-    type: "Travel & Places",
-    emoji: "🌄",
-    description: "Sunrise Over Mountains"
+    "id": 824,
+    "emoji": "🛕",
+    "unicode": "U+1F6D5",
+    "name": "hindu temple"
   },
   {
-    name: "🌅 Sunrise",
-    type: "Travel & Places",
-    emoji: "🌅",
-    description: "Sunrise"
+    "id": 825,
+    "emoji": "🕍",
+    "unicode": "U+1F54D",
+    "name": "synagogue"
   },
   {
-    name: "🌆 Cityscape at Dusk",
-    type: "Travel & Places",
-    emoji: "🌆",
-    description: "Cityscape at Dusk"
+    "id": 826,
+    "emoji": "⛩",
+    "unicode": "U+26E9",
+    "name": "shinto shrine"
   },
   {
-    name: "🌇 Sunset",
-    type: "Travel & Places",
-    emoji: "🌇",
-    description: "Sunset"
+    "id": 827,
+    "emoji": "🕋",
+    "unicode": "U+1F54B",
+    "name": "kaaba"
   },
   {
-    name: "🌉 Bridge at Night",
-    type: "Travel & Places",
-    emoji: "🌉",
-    description: "Bridge at Night"
+    "id": 828,
+    "emoji": "⛲",
+    "unicode": "U+26F2",
+    "name": "fountain"
   },
   {
-    name: "🌌 Milky Way",
-    type: "Travel & Places",
-    emoji: "🌌",
-    description: "Milky Way"
+    "id": 829,
+    "emoji": "⛺",
+    "unicode": "U+26FA",
+    "name": "tent"
   },
   {
-    name: "🎠 Carousel Horse",
-    type: "Travel & Places",
-    emoji: "🎠",
-    description: "Carousel Horse"
+    "id": 830,
+    "emoji": "🌁",
+    "unicode": "U+1F301",
+    "name": "foggy"
   },
   {
-    name: "🎡 Ferris Wheel",
-    type: "Travel & Places",
-    emoji: "🎡",
-    description: "Ferris Wheel"
+    "id": 831,
+    "emoji": "🌃",
+    "unicode": "U+1F303",
+    "name": "night with stars"
   },
   {
-    name: "🎢 Roller Coaster",
-    type: "Travel & Places",
-    emoji: "🎢",
-    description: "Roller Coaster"
+    "id": 832,
+    "emoji": "🏙",
+    "unicode": "U+1F3D9",
+    "name": "cityscape"
   },
   {
-    name: "🚂 Locomotive",
-    type: "Travel & Places",
-    emoji: "🚂",
-    description: "Locomotive"
+    "id": 833,
+    "emoji": "🌄",
+    "unicode": "U+1F304",
+    "name": "sunrise over mountains"
   },
   {
-    name: "🚃 Railway Car",
-    type: "Travel & Places",
-    emoji: "🚃",
-    description: "Railway Car"
+    "id": 834,
+    "emoji": "🌅",
+    "unicode": "U+1F305",
+    "name": "sunrise"
   },
   {
-    name: "🚄 High-Speed Train",
-    type: "Travel & Places",
-    emoji: "🚄",
-    description: "High-Speed Train"
+    "id": 835,
+    "emoji": "🌆",
+    "unicode": "U+1F306",
+    "name": "cityscape at dusk"
   },
   {
-    name: "🚅 Bullet Train",
-    type: "Travel & Places",
-    emoji: "🚅",
-    description: "Bullet Train"
+    "id": 836,
+    "emoji": "🌇",
+    "unicode": "U+1F307",
+    "name": "sunset"
   },
   {
-    name: "🚆 Train",
-    type: "Travel & Places",
-    emoji: "🚆",
-    description: "Train"
+    "id": 837,
+    "emoji": "🌉",
+    "unicode": "U+1F309",
+    "name": "bridge at night"
   },
   {
-    name: "🚇 Metro",
-    type: "Travel & Places",
-    emoji: "🚇",
-    description: "Metro"
+    "id": 838,
+    "emoji": "♨",
+    "unicode": "U+2668",
+    "name": "hot springs"
   },
   {
-    name: "🚈 Light Rail",
-    type: "Travel & Places",
-    emoji: "🚈",
-    description: "Light Rail"
+    "id": 839,
+    "emoji": "🎠",
+    "unicode": "U+1F3A0",
+    "name": "carousel horse"
   },
   {
-    name: "🚉 Station",
-    type: "Travel & Places",
-    emoji: "🚉",
-    description: "Station"
+    "id": 840,
+    "emoji": "🎡",
+    "unicode": "U+1F3A1",
+    "name": "ferris wheel"
   },
   {
-    name: "🚊 Tram",
-    type: "Travel & Places",
-    emoji: "🚊",
-    description: "Tram"
+    "id": 841,
+    "emoji": "🎢",
+    "unicode": "U+1F3A2",
+    "name": "roller coaster"
   },
   {
-    name: "🚝 Monorail",
-    type: "Travel & Places",
-    emoji: "🚝",
-    description: "Monorail"
+    "id": 842,
+    "emoji": "💈",
+    "unicode": "U+1F488",
+    "name": "barber pole"
   },
   {
-    name: "🚞 Mountain Railway",
-    type: "Travel & Places",
-    emoji: "🚞",
-    description: "Mountain Railway"
+    "id": 843,
+    "emoji": "🎪",
+    "unicode": "U+1F3AA",
+    "name": "circus tent"
   },
   {
-    name: "🚋 Tram Car",
-    type: "Travel & Places",
-    emoji: "🚋",
-    description: "Tram Car"
+    "id": 844,
+    "emoji": "🚂",
+    "unicode": "U+1F682",
+    "name": "locomotive"
   },
   {
-    name: "🚌 Bus",
-    type: "Travel & Places",
-    emoji: "🚌",
-    description: "Bus"
+    "id": 845,
+    "emoji": "🚃",
+    "unicode": "U+1F683",
+    "name": "railway car"
   },
   {
-    name: "🚍 Oncoming Bus",
-    type: "Travel & Places",
-    emoji: "🚍",
-    description: "Oncoming Bus"
+    "id": 846,
+    "emoji": "🚄",
+    "unicode": "U+1F684",
+    "name": "high-speed train"
   },
   {
-    name: "🚎 Trolleybus",
-    type: "Travel & Places",
-    emoji: "🚎",
-    description: "Trolleybus"
+    "id": 847,
+    "emoji": "🚅",
+    "unicode": "U+1F685",
+    "name": "bullet train"
   },
   {
-    name: "🚐 Minibus",
-    type: "Travel & Places",
-    emoji: "🚐",
-    description: "Minibus"
+    "id": 848,
+    "emoji": "🚆",
+    "unicode": "U+1F686",
+    "name": "train"
   },
   {
-    name: "🚑 Ambulance",
-    type: "Travel & Places",
-    emoji: "🚑",
-    description: "Ambulance"
+    "id": 849,
+    "emoji": "🚇",
+    "unicode": "U+1F687",
+    "name": "metro"
   },
   {
-    name: "🚒 Fire Engine",
-    type: "Travel & Places",
-    emoji: "🚒",
-    description: "Fire Engine"
+    "id": 850,
+    "emoji": "🚈",
+    "unicode": "U+1F688",
+    "name": "light rail"
   },
   {
-    name: "🚓 Police Car",
-    type: "Travel & Places",
-    emoji: "🚓",
-    description: "Police Car"
+    "id": 851,
+    "emoji": "🚉",
+    "unicode": "U+1F689",
+    "name": "station"
   },
   {
-    name: "🚔 Oncoming Police Car",
-    type: "Travel & Places",
-    emoji: "🚔",
-    description: "Oncoming Police Car"
+    "id": 852,
+    "emoji": "🚊",
+    "unicode": "U+1F68A",
+    "name": "tram"
   },
   {
-    name: "🚕 Taxi",
-    type: "Travel & Places",
-    emoji: "🚕",
-    description: "Taxi"
+    "id": 853,
+    "emoji": "🚝",
+    "unicode": "U+1F69D",
+    "name": "monorail"
   },
   {
-    name: "🚖 Oncoming Taxi",
-    type: "Travel & Places",
-    emoji: "🚖",
-    description: "Oncoming Taxi"
+    "id": 854,
+    "emoji": "🚞",
+    "unicode": "U+1F69E",
+    "name": "mountain railway"
   },
   {
-    name: "🚗 Automobile",
-    type: "Travel & Places",
-    emoji: "🚗",
-    description: "Automobile"
+    "id": 855,
+    "emoji": "🚋",
+    "unicode": "U+1F68B",
+    "name": "tram car"
   },
   {
-    name: "🚘 Oncoming Automobile",
-    type: "Travel & Places",
-    emoji: "🚘",
-    description: "Oncoming Automobile"
+    "id": 856,
+    "emoji": "🚌",
+    "unicode": "U+1F68C",
+    "name": "bus"
   },
   {
-    name: "🚚 Delivery Truck",
-    type: "Travel & Places",
-    emoji: "🚚",
-    description: "Delivery Truck"
+    "id": 857,
+    "emoji": "🚍",
+    "unicode": "U+1F68D",
+    "name": "oncoming bus"
   },
   {
-    name: "🚛 Articulated Lorry",
-    type: "Travel & Places",
-    emoji: "🚛",
-    description: "Articulated Lorry"
+    "id": 858,
+    "emoji": "🚎",
+    "unicode": "U+1F68E",
+    "name": "trolleybus"
   },
   {
-    name: "🚜 Tractor",
-    type: "Travel & Places",
-    emoji: "🚜",
-    description: "Tractor"
+    "id": 859,
+    "emoji": "🚐",
+    "unicode": "U+1F690",
+    "name": "minibus"
   },
   {
-    name: "🚲 Bicycle",
-    type: "Travel & Places",
-    emoji: "🚲",
-    description: "Bicycle"
+    "id": 860,
+    "emoji": "🚑",
+    "unicode": "U+1F691",
+    "name": "ambulance"
   },
   {
-    name: "🛴 Kick Scooter",
-    type: "Travel & Places",
-    emoji: "🛴",
-    description: "Kick Scooter"
+    "id": 861,
+    "emoji": "🚒",
+    "unicode": "U+1F692",
+    "name": "fire engine"
   },
   {
-    name: "🛵 Motor Scooter",
-    type: "Travel & Places",
-    emoji: "🛵",
-    description: "Motor Scooter"
+    "id": 862,
+    "emoji": "🚓",
+    "unicode": "U+1F693",
+    "name": "police car"
   },
   {
-    name: "🚏 Bus Stop",
-    type: "Travel & Places",
-    emoji: "🚏",
-    description: "Bus Stop"
+    "id": 863,
+    "emoji": "🚔",
+    "unicode": "U+1F694",
+    "name": "oncoming police car"
   },
   {
-    name: "🛤 Railway Track",
-    type: "Travel & Places",
-    emoji: "🛤",
-    description: "Railway Track"
+    "id": 864,
+    "emoji": "🚕",
+    "unicode": "U+1F695",
+    "name": "taxi"
   },
   {
-    name: "⛽ Fuel Pump",
-    type: "Travel & Places",
-    emoji: "⛽",
-    description: "Fuel Pump"
+    "id": 865,
+    "emoji": "🚖",
+    "unicode": "U+1F696",
+    "name": "oncoming taxi"
   },
   {
-    name: "🚨 Police Car Light",
-    type: "Travel & Places",
-    emoji: "🚨",
-    description: "Police Car Light"
+    "id": 866,
+    "emoji": "🚗",
+    "unicode": "U+1F697",
+    "name": "automobile"
   },
   {
-    name: "🚥 Horizontal Traffic Light",
-    type: "Travel & Places",
-    emoji: "🚥",
-    description: "Horizontal Traffic Light"
+    "id": 867,
+    "emoji": "🚘",
+    "unicode": "U+1F698",
+    "name": "oncoming automobile"
   },
   {
-    name: "🚦 Vertical Traffic Light",
-    type: "Travel & Places",
-    emoji: "🚦",
-    description: "Vertical Traffic Light"
+    "id": 868,
+    "emoji": "🚙",
+    "unicode": "U+1F699",
+    "name": "sport utility vehicle"
   },
   {
-    name: "🚧 Construction",
-    type: "Travel & Places",
-    emoji: "🚧",
-    description: "Construction"
+    "id": 869,
+    "emoji": "🛻",
+    "unicode": "U+1F6FB",
+    "name": "pickup truck"
   },
   {
-    name: "⚓ Anchor",
-    type: "Travel & Places",
-    emoji: "⚓",
-    description: "Anchor"
+    "id": 870,
+    "emoji": "🚚",
+    "unicode": "U+1F69A",
+    "name": "delivery truck"
   },
   {
-    name: "⛵ Sailboat",
-    type: "Travel & Places",
-    emoji: "⛵",
-    description: "Sailboat"
+    "id": 871,
+    "emoji": "🚛",
+    "unicode": "U+1F69B",
+    "name": "articulated lorry"
   },
   {
-    name: "🚤 Speedboat",
-    type: "Travel & Places",
-    emoji: "🚤",
-    description: "Speedboat"
+    "id": 872,
+    "emoji": "🚜",
+    "unicode": "U+1F69C",
+    "name": "tractor"
   },
   {
-    name: "🛳 Passenger Ship",
-    type: "Travel & Places",
-    emoji: "🛳",
-    description: "Passenger Ship"
+    "id": 873,
+    "emoji": "🏎",
+    "unicode": "U+1F3CE",
+    "name": "racing car"
   },
   {
-    name: "⛴ Ferry",
-    type: "Travel & Places",
-    emoji: "⛴",
-    description: "Ferry"
+    "id": 874,
+    "emoji": "🏍",
+    "unicode": "U+1F3CD",
+    "name": "motorcycle"
   },
   {
-    name: "🛥 Motor Boat",
-    type: "Travel & Places",
-    emoji: "🛥",
-    description: "Motor Boat"
+    "id": 875,
+    "emoji": "🛵",
+    "unicode": "U+1F6F5",
+    "name": "motor scooter"
   },
   {
-    name: "🚢 Ship",
-    type: "Travel & Places",
-    emoji: "🚢",
-    description: "Ship"
+    "id": 876,
+    "emoji": "🦽",
+    "unicode": "U+1F9BD",
+    "name": "manual wheelchair"
   },
   {
-    name: "✈ Airplane",
-    type: "Travel & Places",
-    emoji: "✈",
-    description: "Airplane"
+    "id": 877,
+    "emoji": "🦼",
+    "unicode": "U+1F9BC",
+    "name": "motorized wheelchair"
   },
   {
-    name: "🛩 Small Airplane",
-    type: "Travel & Places",
-    emoji: "🛩",
-    description: "Small Airplane"
+    "id": 878,
+    "emoji": "🛺",
+    "unicode": "U+1F6FA",
+    "name": "auto rickshaw"
   },
   {
-    name: "🛫 Airplane Departure",
-    type: "Travel & Places",
-    emoji: "🛫",
-    description: "Airplane Departure"
+    "id": 879,
+    "emoji": "🚲",
+    "unicode": "U+1F6B2",
+    "name": "bicycle"
   },
   {
-    name: "🛬 Airplane Arrival",
-    type: "Travel & Places",
-    emoji: "🛬",
-    description: "Airplane Arrival"
+    "id": 880,
+    "emoji": "🛴",
+    "unicode": "U+1F6F4",
+    "name": "kick scooter"
   },
   {
-    name: "💺 Seat",
-    type: "Travel & Places",
-    emoji: "💺",
-    description: "Seat"
+    "id": 881,
+    "emoji": "🛹",
+    "unicode": "U+1F6F9",
+    "name": "skateboard"
   },
   {
-    name: "🚁 Helicopter",
-    type: "Travel & Places",
-    emoji: "🚁",
-    description: "Helicopter"
+    "id": 882,
+    "emoji": "🛼",
+    "unicode": "U+1F6FC",
+    "name": "roller skate"
   },
   {
-    name: "🚟 Suspension Railway",
-    type: "Travel & Places",
-    emoji: "🚟",
-    description: "Suspension Railway"
+    "id": 883,
+    "emoji": "🚏",
+    "unicode": "U+1F68F",
+    "name": "bus stop"
   },
   {
-    name: "🚠 Mountain Cableway",
-    type: "Travel & Places",
-    emoji: "🚠",
-    description: "Mountain Cableway"
+    "id": 884,
+    "emoji": "🛣",
+    "unicode": "U+1F6E3",
+    "name": "motorway"
   },
   {
-    name: "🚡 Aerial Tramway",
-    type: "Travel & Places",
-    emoji: "🚡",
-    description: "Aerial Tramway"
+    "id": 885,
+    "emoji": "🛤",
+    "unicode": "U+1F6E4",
+    "name": "railway track"
   },
   {
-    name: "🛰 Satellite",
-    type: "Travel & Places",
-    emoji: "🛰",
-    description: "Satellite"
+    "id": 886,
+    "emoji": "🛢",
+    "unicode": "U+1F6E2",
+    "name": "oil drum"
   },
   {
-    name: "🚀 Rocket",
-    type: "Travel & Places",
-    emoji: "🚀",
-    description: "Rocket"
+    "id": 887,
+    "emoji": "⛽",
+    "unicode": "U+26FD",
+    "name": "fuel pump"
   },
   {
-    name: "🛸 Flying Saucer",
-    type: "Travel & Places",
-    emoji: "🛸",
-    description: "Flying Saucer"
+    "id": 888,
+    "emoji": "🚨",
+    "unicode": "U+1F6A8",
+    "name": "police car light"
   },
   {
-    name: "🌠 Shooting Star",
-    type: "Travel & Places",
-    emoji: "🌠",
-    description: "Shooting Star"
+    "id": 889,
+    "emoji": "🚥",
+    "unicode": "U+1F6A5",
+    "name": "horizontal traffic light"
   },
   {
-    name: "⛱ Umbrella on Ground",
-    type: "Travel & Places",
-    emoji: "⛱",
-    description: "Umbrella on Ground"
+    "id": 890,
+    "emoji": "🚦",
+    "unicode": "U+1F6A6",
+    "name": "vertical traffic light"
   },
   {
-    name: "🎆 Fireworks",
-    type: "Travel & Places",
-    emoji: "🎆",
-    description: "Fireworks"
+    "id": 891,
+    "emoji": "🛑",
+    "unicode": "U+1F6D1",
+    "name": "stop sign"
   },
   {
-    name: "🎇 Sparkler",
-    type: "Travel & Places",
-    emoji: "🎇",
-    description: "Sparkler"
+    "id": 892,
+    "emoji": "🚧",
+    "unicode": "U+1F6A7",
+    "name": "construction"
   },
   {
-    name: "🎑 Moon Viewing Ceremony",
-    type: "Travel & Places",
-    emoji: "🎑",
-    description: "Moon Viewing Ceremony"
+    "id": 893,
+    "emoji": "⚓",
+    "unicode": "U+2693",
+    "name": "anchor"
   },
   {
-    name: "💴 Yen Banknote",
-    type: "Travel & Places",
-    emoji: "💴",
-    description: "Yen Banknote"
+    "id": 894,
+    "emoji": "⛵",
+    "unicode": "U+26F5",
+    "name": "sailboat"
   },
   {
-    name: "💵 Dollar Banknote",
-    type: "Travel & Places",
-    emoji: "💵",
-    description: "Dollar Banknote"
+    "id": 895,
+    "emoji": "🛶",
+    "unicode": "U+1F6F6",
+    "name": "canoe"
   },
   {
-    name: "💶 Euro Banknote",
-    type: "Travel & Places",
-    emoji: "💶",
-    description: "Euro Banknote"
+    "id": 896,
+    "emoji": "🚤",
+    "unicode": "U+1F6A4",
+    "name": "speedboat"
   },
   {
-    name: "💷 Pound Banknote",
-    type: "Travel & Places",
-    emoji: "💷",
-    description: "Pound Banknote"
+    "id": 897,
+    "emoji": "🛳",
+    "unicode": "U+1F6F3",
+    "name": "passenger ship"
   },
   {
-    name: "🗿 Moai",
-    type: "Travel & Places",
-    emoji: "🗿",
-    description: "Moai"
+    "id": 898,
+    "emoji": "⛴",
+    "unicode": "U+26F4",
+    "name": "ferry"
   },
   {
-    name: "🛂 Passport Control",
-    type: "Travel & Places",
-    emoji: "🛂",
-    description: "Passport Control"
+    "id": 899,
+    "emoji": "🛥",
+    "unicode": "U+1F6E5",
+    "name": "motor boat"
   },
   {
-    name: "🛃 Customs",
-    type: "Travel & Places",
-    emoji: "🛃",
-    description: "Customs"
+    "id": 900,
+    "emoji": "🚢",
+    "unicode": "U+1F6A2",
+    "name": "ship"
   },
   {
-    name: "🛄 Baggage Claim",
-    type: "Travel & Places",
-    emoji: "🛄",
-    description: "Baggage Claim"
+    "id": 901,
+    "emoji": "✈",
+    "unicode": "U+2708",
+    "name": "airplane"
   },
   {
-    name: "🛅 Left Luggage",
-    type: "Travel & Places",
-    emoji: "🛅",
-    description: "Left Luggage"
+    "id": 902,
+    "emoji": "🛩",
+    "unicode": "U+1F6E9",
+    "name": "small airplane"
   },
   {
-    name: "☠ Skull and Crossbones",
-    type: "Objects",
-    emoji: "☠",
-    description: "Skull and Crossbones"
+    "id": 903,
+    "emoji": "🛫",
+    "unicode": "U+1F6EB",
+    "name": "airplane departure"
   },
   {
-    name: "🛀 Person Taking Bath",
-    type: "Objects",
-    emoji: "🛀",
-    description: "Person Taking Bath"
+    "id": 904,
+    "emoji": "🛬",
+    "unicode": "U+1F6EC",
+    "name": "airplane arrival"
   },
   {
-    name: "🛌 Person in Bed",
-    type: "Objects",
-    emoji: "🛌",
-    description: "Person in Bed"
+    "id": 905,
+    "emoji": "🪂",
+    "unicode": "U+1FA82",
+    "name": "parachute"
   },
   {
-    name: "💌 Love Letter",
-    type: "Objects",
-    emoji: "💌",
-    description: "Love Letter"
+    "id": 906,
+    "emoji": "💺",
+    "unicode": "U+1F4BA",
+    "name": "seat"
   },
   {
-    name: "💣 Bomb",
-    type: "Objects",
-    emoji: "💣",
-    description: "Bomb"
+    "id": 907,
+    "emoji": "🚁",
+    "unicode": "U+1F681",
+    "name": "helicopter"
   },
   {
-    name: "🕳 Hole",
-    type: "Objects",
-    emoji: "🕳",
-    description: "Hole"
+    "id": 908,
+    "emoji": "🚟",
+    "unicode": "U+1F69F",
+    "name": "suspension railway"
   },
   {
-    name: "🛍 Shopping Bags",
-    type: "Objects",
-    emoji: "🛍",
-    description: "Shopping Bags"
+    "id": 909,
+    "emoji": "🚠",
+    "unicode": "U+1F6A0",
+    "name": "mountain cableway"
   },
   {
-    name: "📿 Prayer Beads",
-    type: "Objects",
-    emoji: "📿",
-    description: "Prayer Beads"
+    "id": 910,
+    "emoji": "🚡",
+    "unicode": "U+1F6A1",
+    "name": "aerial tramway"
   },
   {
-    name: "💎 Gem Stone",
-    type: "Objects",
-    emoji: "💎",
-    description: "Gem Stone"
+    "id": 911,
+    "emoji": "🛰",
+    "unicode": "U+1F6F0",
+    "name": "satellite"
   },
   {
-    name: "🔪 Kitchen Knife",
-    type: "Objects",
-    emoji: "🔪",
-    description: "Kitchen Knife"
+    "id": 912,
+    "emoji": "🚀",
+    "unicode": "U+1F680",
+    "name": "rocket"
   },
   {
-    name: "🏺 Amphora",
-    type: "Objects",
-    emoji: "🏺",
-    description: "Amphora"
+    "id": 913,
+    "emoji": "🛸",
+    "unicode": "U+1F6F8",
+    "name": "flying saucer"
   },
   {
-    name: "🗺 World Map",
-    type: "Objects",
-    emoji: "🗺",
-    description: "World Map"
+    "id": 914,
+    "emoji": "🛎",
+    "unicode": "U+1F6CE",
+    "name": "bellhop bell"
   },
   {
-    name: "🧭 Compass",
-    type: "Objects",
-    emoji: "🧭",
-    description: "Compass"
+    "id": 915,
+    "emoji": "🧳",
+    "unicode": "U+1F9F3",
+    "name": "luggage"
   },
   {
-    name: "🧱 Brick",
-    type: "Objects",
-    emoji: "🧱",
-    description: "Brick"
+    "id": 916,
+    "emoji": "⌛",
+    "unicode": "U+231B",
+    "name": "hourglass done"
   },
   {
-    name: "💈 Barber Pole",
-    type: "Objects",
-    emoji: "💈",
-    description: "Barber Pole"
+    "id": 917,
+    "emoji": "⏳",
+    "unicode": "U+23F3",
+    "name": "hourglass not done"
   },
   {
-    name: "🛢 Oil Drum",
-    type: "Objects",
-    emoji: "🛢",
-    description: "Oil Drum"
+    "id": 918,
+    "emoji": "⌚",
+    "unicode": "U+231A",
+    "name": "watch"
   },
   {
-    name: "🛎 Bellhop Bell",
-    type: "Objects",
-    emoji: "🛎",
-    description: "Bellhop Bell"
+    "id": 919,
+    "emoji": "⏰",
+    "unicode": "U+23F0",
+    "name": "alarm clock"
   },
   {
-    name: "🧳 Luggage",
-    type: "Objects",
-    emoji: "🧳",
-    description: "Luggage"
+    "id": 920,
+    "emoji": "⏱",
+    "unicode": "U+23F1",
+    "name": "stopwatch"
   },
   {
-    name: "⌛ Hourglass Done",
-    type: "Objects",
-    emoji: "⌛",
-    description: "Hourglass Done"
+    "id": 921,
+    "emoji": "⏲",
+    "unicode": "U+23F2",
+    "name": "timer clock"
   },
   {
-    name: "⏳ Hourglass Not Done",
-    type: "Objects",
-    emoji: "⏳",
-    description: "Hourglass Not Done"
+    "id": 922,
+    "emoji": "🕰",
+    "unicode": "U+1F570",
+    "name": "mantelpiece clock"
   },
   {
-    name: "⌚ Watch",
-    type: "Objects",
-    emoji: "⌚",
-    description: "Watch"
+    "id": 923,
+    "emoji": "🕛",
+    "unicode": "U+1F55B",
+    "name": "twelve o’clock"
   },
   {
-    name: "⏰ Alarm Clock",
-    type: "Objects",
-    emoji: "⏰",
-    description: "Alarm Clock"
+    "id": 924,
+    "emoji": "🕧",
+    "unicode": "U+1F567",
+    "name": "twelve-thirty"
   },
   {
-    name: "⏱ Stopwatch",
-    type: "Objects",
-    emoji: "⏱",
-    description: "Stopwatch"
+    "id": 925,
+    "emoji": "🕐",
+    "unicode": "U+1F550",
+    "name": "one o’clock"
   },
   {
-    name: "⏲ Timer Clock",
-    type: "Objects",
-    emoji: "⏲",
-    description: "Timer Clock"
+    "id": 926,
+    "emoji": "🕜",
+    "unicode": "U+1F55C",
+    "name": "one-thirty"
   },
   {
-    name: "🕰 Mantelpiece Clock",
-    type: "Objects",
-    emoji: "🕰",
-    description: "Mantelpiece Clock"
+    "id": 927,
+    "emoji": "🕑",
+    "unicode": "U+1F551",
+    "name": "two o’clock"
   },
   {
-    name: "🌡 Thermometer",
-    type: "Objects",
-    emoji: "🌡",
-    description: "Thermometer"
+    "id": 928,
+    "emoji": "🕝",
+    "unicode": "U+1F55D",
+    "name": "two-thirty"
   },
   {
-    name: "⛱ Umbrella on Ground",
-    type: "Objects",
-    emoji: "⛱",
-    description: "Umbrella on Ground"
+    "id": 929,
+    "emoji": "🕒",
+    "unicode": "U+1F552",
+    "name": "three o’clock"
   },
   {
-    name: "🧨 Firecracker",
-    type: "Objects",
-    emoji: "🧨",
-    description: "Firecracker"
+    "id": 930,
+    "emoji": "🕞",
+    "unicode": "U+1F55E",
+    "name": "three-thirty"
   },
   {
-    name: "🎈 Balloon",
-    type: "Objects",
-    emoji: "🎈",
-    description: "Balloon"
+    "id": 931,
+    "emoji": "🕓",
+    "unicode": "U+1F553",
+    "name": "four o’clock"
   },
   {
-    name: "🎉 Party Popper",
-    type: "Objects",
-    emoji: "🎉",
-    description: "Party Popper"
+    "id": 932,
+    "emoji": "🕟",
+    "unicode": "U+1F55F",
+    "name": "four-thirty"
   },
   {
-    name: "🎊 Confetti Ball",
-    type: "Objects",
-    emoji: "🎊",
-    description: "Confetti Ball"
+    "id": 933,
+    "emoji": "🕔",
+    "unicode": "U+1F554",
+    "name": "five o’clock"
   },
   {
-    name: "🎎 Japanese Dolls",
-    type: "Objects",
-    emoji: "🎎",
-    description: "Japanese Dolls"
+    "id": 934,
+    "emoji": "🕠",
+    "unicode": "U+1F560",
+    "name": "five-thirty"
   },
   {
-    name: "🎏 Carp Streamer",
-    type: "Objects",
-    emoji: "🎏",
-    description: "Carp Streamer"
+    "id": 935,
+    "emoji": "🕕",
+    "unicode": "U+1F555",
+    "name": "six o’clock"
   },
   {
-    name: "🎐 Wind Chime",
-    type: "Objects",
-    emoji: "🎐",
-    description: "Wind Chime"
+    "id": 936,
+    "emoji": "🕡",
+    "unicode": "U+1F561",
+    "name": "six-thirty"
   },
   {
-    name: "🧧 Red Envelope",
-    type: "Objects",
-    emoji: "🧧",
-    description: "Red Envelope"
+    "id": 937,
+    "emoji": "🕖",
+    "unicode": "U+1F556",
+    "name": "seven o’clock"
   },
   {
-    name: "🎀 Ribbon",
-    type: "Objects",
-    emoji: "🎀",
-    description: "Ribbon"
+    "id": 938,
+    "emoji": "🕢",
+    "unicode": "U+1F562",
+    "name": "seven-thirty"
   },
   {
-    name: "🎁 Wrapped Gift",
-    type: "Objects",
-    emoji: "🎁",
-    description: "Wrapped Gift"
+    "id": 939,
+    "emoji": "🕗",
+    "unicode": "U+1F557",
+    "name": "eight o’clock"
   },
   {
-    name: "🔮 Crystal Ball",
-    type: "Objects",
-    emoji: "🔮",
-    description: "Crystal Ball"
+    "id": 940,
+    "emoji": "🕣",
+    "unicode": "U+1F563",
+    "name": "eight-thirty"
   },
   {
-    name: "🧿 Nazar Amulet",
-    type: "Objects",
-    emoji: "🧿",
-    description: "Nazar Amulet"
+    "id": 941,
+    "emoji": "🕘",
+    "unicode": "U+1F558",
+    "name": "nine o’clock"
   },
   {
-    name: "🕹 Joystick",
-    type: "Objects",
-    emoji: "🕹",
-    description: "Joystick"
+    "id": 942,
+    "emoji": "🕤",
+    "unicode": "U+1F564",
+    "name": "nine-thirty"
   },
   {
-    name: "🧸 Teddy Bear",
-    type: "Objects",
-    emoji: "🧸",
-    description: "Teddy Bear"
+    "id": 943,
+    "emoji": "🕙",
+    "unicode": "U+1F559",
+    "name": "ten o’clock"
   },
   {
-    name: "🖼 Framed Picture",
-    type: "Objects",
-    emoji: "🖼",
-    description: "Framed Picture"
+    "id": 944,
+    "emoji": "🕥",
+    "unicode": "U+1F565",
+    "name": "ten-thirty"
   },
   {
-    name: "📯 Postal Horn",
-    type: "Objects",
-    emoji: "📯",
-    description: "Postal Horn"
+    "id": 945,
+    "emoji": "🕚",
+    "unicode": "U+1F55A",
+    "name": "eleven o’clock"
   },
   {
-    name: "🎙 Studio Microphone",
-    type: "Objects",
-    emoji: "🎙",
-    description: "Studio Microphone"
+    "id": 946,
+    "emoji": "🕦",
+    "unicode": "U+1F566",
+    "name": "eleven-thirty"
   },
   {
-    name: "🎚 Level Slider",
-    type: "Objects",
-    emoji: "🎚",
-    description: "Level Slider"
+    "id": 947,
+    "emoji": "🌑",
+    "unicode": "U+1F311",
+    "name": "new moon"
   },
   {
-    name: "🎛 Control Knobs",
-    type: "Objects",
-    emoji: "🎛",
-    description: "Control Knobs"
+    "id": 948,
+    "emoji": "🌒",
+    "unicode": "U+1F312",
+    "name": "waxing crescent moon"
   },
   {
-    name: "📻 Radio",
-    type: "Objects",
-    emoji: "📻",
-    description: "Radio"
+    "id": 949,
+    "emoji": "🌓",
+    "unicode": "U+1F313",
+    "name": "first quarter moon"
   },
   {
-    name: "📱 Mobile Phone",
-    type: "Objects",
-    emoji: "📱",
-    description: "Mobile Phone"
+    "id": 950,
+    "emoji": "🌔",
+    "unicode": "U+1F314",
+    "name": "waxing gibbous moon"
   },
   {
-    name: "📲 Mobile Phone With Arrow",
-    type: "Objects",
-    emoji: "📲",
-    description: "Mobile Phone With Arrow"
+    "id": 951,
+    "emoji": "🌕",
+    "unicode": "U+1F315",
+    "name": "full moon"
   },
   {
-    name: "☎ Telephone",
-    type: "Objects",
-    emoji: "☎",
-    description: "Telephone"
+    "id": 952,
+    "emoji": "🌖",
+    "unicode": "U+1F316",
+    "name": "waning gibbous moon"
   },
   {
-    name: "📞 Telephone Receiver",
-    type: "Objects",
-    emoji: "📞",
-    description: "Telephone Receiver"
+    "id": 953,
+    "emoji": "🌗",
+    "unicode": "U+1F317",
+    "name": "last quarter moon"
   },
   {
-    name: "📟 Pager",
-    type: "Objects",
-    emoji: "📟",
-    description: "Pager"
+    "id": 954,
+    "emoji": "🌘",
+    "unicode": "U+1F318",
+    "name": "waning crescent moon"
   },
   {
-    name: "📠 Fax Machine",
-    type: "Objects",
-    emoji: "📠",
-    description: "Fax Machine"
+    "id": 955,
+    "emoji": "🌙",
+    "unicode": "U+1F319",
+    "name": "crescent moon"
   },
   {
-    name: "🔋 Battery",
-    type: "Objects",
-    emoji: "🔋",
-    description: "Battery"
+    "id": 956,
+    "emoji": "🌚",
+    "unicode": "U+1F31A",
+    "name": "new moon face"
   },
   {
-    name: "🔌 Electric Plug",
-    type: "Objects",
-    emoji: "🔌",
-    description: "Electric Plug"
+    "id": 957,
+    "emoji": "🌛",
+    "unicode": "U+1F31B",
+    "name": "first quarter moon face"
   },
   {
-    name: "💻 Laptop Computer",
-    type: "Objects",
-    emoji: "💻",
-    description: "Laptop Computer"
+    "id": 958,
+    "emoji": "🌜",
+    "unicode": "U+1F31C",
+    "name": "last quarter moon face"
   },
   {
-    name: "🖥 Desktop Computer",
-    type: "Objects",
-    emoji: "🖥",
-    description: "Desktop Computer"
+    "id": 959,
+    "emoji": "🌡",
+    "unicode": "U+1F321",
+    "name": "thermometer"
   },
   {
-    name: "🖨 Printer",
-    type: "Objects",
-    emoji: "🖨",
-    description: "Printer"
+    "id": 960,
+    "emoji": "☀",
+    "unicode": "U+2600",
+    "name": "sun"
   },
   {
-    name: "⌨ Keyboard",
-    type: "Objects",
-    emoji: "⌨",
-    description: "Keyboard"
+    "id": 961,
+    "emoji": "🌝",
+    "unicode": "U+1F31D",
+    "name": "full moon face"
   },
   {
-    name: "🖱 Computer Mouse",
-    type: "Objects",
-    emoji: "🖱",
-    description: "Computer Mouse"
+    "id": 962,
+    "emoji": "🌞",
+    "unicode": "U+1F31E",
+    "name": "sun with face"
   },
   {
-    name: "🖲 Trackball",
-    type: "Objects",
-    emoji: "🖲",
-    description: "Trackball"
+    "id": 963,
+    "emoji": "🪐",
+    "unicode": "U+1FA90",
+    "name": "ringed planet"
   },
   {
-    name: "💽 Computer Disk",
-    type: "Objects",
-    emoji: "💽",
-    description: "Computer Disk"
+    "id": 964,
+    "emoji": "⭐",
+    "unicode": "U+2B50",
+    "name": "star"
   },
   {
-    name: "💾 Floppy Disk",
-    type: "Objects",
-    emoji: "💾",
-    description: "Floppy Disk"
+    "id": 965,
+    "emoji": "🌟",
+    "unicode": "U+1F31F",
+    "name": "glowing star"
   },
   {
-    name: "💿 Optical Disk",
-    type: "Objects",
-    emoji: "💿",
-    description: "Optical Disk"
+    "id": 966,
+    "emoji": "🌠",
+    "unicode": "U+1F320",
+    "name": "shooting star"
   },
   {
-    name: "📀 DVD",
-    type: "Objects",
-    emoji: "📀",
-    description: "DVD"
+    "id": 967,
+    "emoji": "🌌",
+    "unicode": "U+1F30C",
+    "name": "milky way"
   },
   {
-    name: "🧮 Abacus",
-    type: "Objects",
-    emoji: "🧮",
-    description: "Abacus"
+    "id": 968,
+    "emoji": "☁",
+    "unicode": "U+2601",
+    "name": "cloud"
   },
   {
-    name: "🎥 Movie Camera",
-    type: "Objects",
-    emoji: "🎥",
-    description: "Movie Camera"
+    "id": 969,
+    "emoji": "⛅",
+    "unicode": "U+26C5",
+    "name": "sun behind cloud"
   },
   {
-    name: "🎞 Film Frames",
-    type: "Objects",
-    emoji: "🎞",
-    description: "Film Frames"
+    "id": 970,
+    "emoji": "⛈",
+    "unicode": "U+26C8",
+    "name": "cloud with lightning and rain"
   },
   {
-    name: "📽 Film Projector",
-    type: "Objects",
-    emoji: "📽",
-    description: "Film Projector"
+    "id": 971,
+    "emoji": "🌤",
+    "unicode": "U+1F324",
+    "name": "sun behind small cloud"
   },
   {
-    name: "📺 Television",
-    type: "Objects",
-    emoji: "📺",
-    description: "Television"
+    "id": 972,
+    "emoji": "🌥",
+    "unicode": "U+1F325",
+    "name": "sun behind large cloud"
   },
   {
-    name: "📷 Camera",
-    type: "Objects",
-    emoji: "📷",
-    description: "Camera"
+    "id": 973,
+    "emoji": "🌦",
+    "unicode": "U+1F326",
+    "name": "sun behind rain cloud"
   },
   {
-    name: "📸 Camera With Flash",
-    type: "Objects",
-    emoji: "📸",
-    description: "Camera With Flash"
+    "id": 974,
+    "emoji": "🌧",
+    "unicode": "U+1F327",
+    "name": "cloud with rain"
   },
   {
-    name: "📹 Video Camera",
-    type: "Objects",
-    emoji: "📹",
-    description: "Video Camera"
+    "id": 975,
+    "emoji": "🌨",
+    "unicode": "U+1F328",
+    "name": "cloud with snow"
   },
   {
-    name: "📼 Videocassette",
-    type: "Objects",
-    emoji: "📼",
-    description: "Videocassette"
+    "id": 976,
+    "emoji": "🌩",
+    "unicode": "U+1F329",
+    "name": "cloud with lightning"
   },
   {
-    name: "🔍 Magnifying Glass Tilted Left",
-    type: "Objects",
-    emoji: "🔍",
-    description: "Magnifying Glass Tilted Left"
+    "id": 977,
+    "emoji": "🌪",
+    "unicode": "U+1F32A",
+    "name": "tornado"
   },
   {
-    name: "🔎 Magnifying Glass Tilted Right",
-    type: "Objects",
-    emoji: "🔎",
-    description: "Magnifying Glass Tilted Right"
+    "id": 978,
+    "emoji": "🌫",
+    "unicode": "U+1F32B",
+    "name": "fog"
   },
   {
-    name: "🕯 Candle",
-    type: "Objects",
-    emoji: "🕯",
-    description: "Candle"
+    "id": 979,
+    "emoji": "🌬",
+    "unicode": "U+1F32C",
+    "name": "wind face"
   },
   {
-    name: "💡 Light Bulb",
-    type: "Objects",
-    emoji: "💡",
-    description: "Light Bulb"
+    "id": 980,
+    "emoji": "🌀",
+    "unicode": "U+1F300",
+    "name": "cyclone"
   },
   {
-    name: "🔦 Flashlight",
-    type: "Objects",
-    emoji: "🔦",
-    description: "Flashlight"
+    "id": 981,
+    "emoji": "🌈",
+    "unicode": "U+1F308",
+    "name": "rainbow"
   },
   {
-    name: "🏮 Red Paper Lantern",
-    type: "Objects",
-    emoji: "🏮",
-    description: "Red Paper Lantern"
+    "id": 982,
+    "emoji": "🌂",
+    "unicode": "U+1F302",
+    "name": "closed umbrella"
   },
   {
-    name: "📔 Notebook With Decorative Cover",
-    type: "Objects",
-    emoji: "📔",
-    description: "Notebook With Decorative Cover"
+    "id": 983,
+    "emoji": "☂",
+    "unicode": "U+2602",
+    "name": "umbrella"
   },
   {
-    name: "📕 Closed Book",
-    type: "Objects",
-    emoji: "📕",
-    description: "Closed Book"
+    "id": 984,
+    "emoji": "☔",
+    "unicode": "U+2614",
+    "name": "umbrella with rain drops"
   },
   {
-    name: "📖 Open Book",
-    type: "Objects",
-    emoji: "📖",
-    description: "Open Book"
+    "id": 985,
+    "emoji": "⛱",
+    "unicode": "U+26F1",
+    "name": "umbrella on ground"
   },
   {
-    name: "📗 Green Book",
-    type: "Objects",
-    emoji: "📗",
-    description: "Green Book"
+    "id": 986,
+    "emoji": "⚡",
+    "unicode": "U+26A1",
+    "name": "high voltage"
   },
   {
-    name: "📘 Blue Book",
-    type: "Objects",
-    emoji: "📘",
-    description: "Blue Book"
+    "id": 987,
+    "emoji": "❄",
+    "unicode": "U+2744",
+    "name": "snowflake"
   },
   {
-    name: "📙 Orange Book",
-    type: "Objects",
-    emoji: "📙",
-    description: "Orange Book"
+    "id": 988,
+    "emoji": "☃",
+    "unicode": "U+2603",
+    "name": "snowman"
   },
   {
-    name: "📚 Books",
-    type: "Objects",
-    emoji: "📚",
-    description: "Books"
+    "id": 989,
+    "emoji": "⛄",
+    "unicode": "U+26C4",
+    "name": "snowman without snow"
   },
   {
-    name: "📓 Notebook",
-    type: "Objects",
-    emoji: "📓",
-    description: "Notebook"
+    "id": 990,
+    "emoji": "☄",
+    "unicode": "U+2604",
+    "name": "comet"
   },
   {
-    name: "📃 Page With Curl",
-    type: "Objects",
-    emoji: "📃",
-    description: "Page With Curl"
+    "id": 991,
+    "emoji": "🔥",
+    "unicode": "U+1F525",
+    "name": "fire"
   },
   {
-    name: "📜 Scroll",
-    type: "Objects",
-    emoji: "📜",
-    description: "Scroll"
+    "id": 992,
+    "emoji": "💧",
+    "unicode": "U+1F4A7",
+    "name": "droplet"
   },
   {
-    name: "📄 Page Facing Up",
-    type: "Objects",
-    emoji: "📄",
-    description: "Page Facing Up"
+    "id": 993,
+    "emoji": "🌊",
+    "unicode": "U+1F30A",
+    "name": "water wave"
   },
   {
-    name: "📰 Newspaper",
-    type: "Objects",
-    emoji: "📰",
-    description: "Newspaper"
+    "id": 994,
+    "emoji": "🎃",
+    "unicode": "U+1F383",
+    "name": "jack-o-lantern"
   },
   {
-    name: "🗞 Rolled-Up Newspaper",
-    type: "Objects",
-    emoji: "🗞",
-    description: "Rolled-Up Newspaper"
+    "id": 995,
+    "emoji": "🎄",
+    "unicode": "U+1F384",
+    "name": "Christmas tree"
   },
   {
-    name: "📑 Bookmark Tabs",
-    type: "Objects",
-    emoji: "📑",
-    description: "Bookmark Tabs"
+    "id": 996,
+    "emoji": "🎆",
+    "unicode": "U+1F386",
+    "name": "fireworks"
   },
   {
-    name: "🔖 Bookmark",
-    type: "Objects",
-    emoji: "🔖",
-    description: "Bookmark"
+    "id": 997,
+    "emoji": "🎇",
+    "unicode": "U+1F387",
+    "name": "sparkler"
   },
   {
-    name: "🏷 Label",
-    type: "Objects",
-    emoji: "🏷",
-    description: "Label"
+    "id": 998,
+    "emoji": "🧨",
+    "unicode": "U+1F9E8",
+    "name": "firecracker"
   },
   {
-    name: "💰 Money Bag",
-    type: "Objects",
-    emoji: "💰",
-    description: "Money Bag"
+    "id": 999,
+    "emoji": "✨",
+    "unicode": "U+2728",
+    "name": "sparkles"
   },
   {
-    name: "💴 Yen Banknote",
-    type: "Objects",
-    emoji: "💴",
-    description: "Yen Banknote"
+    "id": 1000,
+    "emoji": "🎈",
+    "unicode": "U+1F388",
+    "name": "balloon"
   },
   {
-    name: "💵 Dollar Banknote",
-    type: "Objects",
-    emoji: "💵",
-    description: "Dollar Banknote"
+    "id": 1001,
+    "emoji": "🎉",
+    "unicode": "U+1F389",
+    "name": "party popper"
   },
   {
-    name: "💶 Euro Banknote",
-    type: "Objects",
-    emoji: "💶",
-    description: "Euro Banknote"
+    "id": 1002,
+    "emoji": "🎊",
+    "unicode": "U+1F38A",
+    "name": "confetti ball"
   },
   {
-    name: "💷 Pound Banknote",
-    type: "Objects",
-    emoji: "💷",
-    description: "Pound Banknote"
+    "id": 1003,
+    "emoji": "🎋",
+    "unicode": "U+1F38B",
+    "name": "tanabata tree"
   },
   {
-    name: "💸 Money With Wings",
-    type: "Objects",
-    emoji: "💸",
-    description: "Money With Wings"
+    "id": 1004,
+    "emoji": "🎍",
+    "unicode": "U+1F38D",
+    "name": "pine decoration"
   },
   {
-    name: "💳 Credit Card",
-    type: "Objects",
-    emoji: "💳",
-    description: "Credit Card"
+    "id": 1005,
+    "emoji": "🎎",
+    "unicode": "U+1F38E",
+    "name": "Japanese dolls"
   },
   {
-    name: "🧾 Receipt",
-    type: "Objects",
-    emoji: "🧾",
-    description: "Receipt"
+    "id": 1006,
+    "emoji": "🎏",
+    "unicode": "U+1F38F",
+    "name": "carp streamer"
   },
   {
-    name: "✉ Envelope",
-    type: "Objects",
-    emoji: "✉",
-    description: "Envelope"
+    "id": 1007,
+    "emoji": "🎐",
+    "unicode": "U+1F390",
+    "name": "wind chime"
   },
   {
-    name: "📧 E-Mail",
-    type: "Objects",
-    emoji: "📧",
-    description: "E-Mail"
+    "id": 1008,
+    "emoji": "🎑",
+    "unicode": "U+1F391",
+    "name": "moon viewing ceremony"
   },
   {
-    name: "📨 Incoming Envelope",
-    type: "Objects",
-    emoji: "📨",
-    description: "Incoming Envelope"
+    "id": 1009,
+    "emoji": "🧧",
+    "unicode": "U+1F9E7",
+    "name": "red envelope"
   },
   {
-    name: "📩 Envelope With Arrow",
-    type: "Objects",
-    emoji: "📩",
-    description: "Envelope With Arrow"
+    "id": 1010,
+    "emoji": "🎀",
+    "unicode": "U+1F380",
+    "name": "ribbon"
   },
   {
-    name: "📤 Outbox Tray",
-    type: "Objects",
-    emoji: "📤",
-    description: "Outbox Tray"
+    "id": 1011,
+    "emoji": "🎁",
+    "unicode": "U+1F381",
+    "name": "wrapped gift"
   },
   {
-    name: "📥 Inbox Tray",
-    type: "Objects",
-    emoji: "📥",
-    description: "Inbox Tray"
+    "id": 1012,
+    "emoji": "🎗",
+    "unicode": "U+1F397",
+    "name": "reminder ribbon"
   },
   {
-    name: "📦 Package",
-    type: "Objects",
-    emoji: "📦",
-    description: "Package"
+    "id": 1013,
+    "emoji": "🎟",
+    "unicode": "U+1F39F",
+    "name": "admission tickets"
   },
   {
-    name: "📫 Closed Mailbox With Raised Flag",
-    type: "Objects",
-    emoji: "📫",
-    description: "Closed Mailbox With Raised Flag"
+    "id": 1014,
+    "emoji": "🎫",
+    "unicode": "U+1F3AB",
+    "name": "ticket"
   },
   {
-    name: "📪 Closed Mailbox With Lowered Flag",
-    type: "Objects",
-    emoji: "📪",
-    description: "Closed Mailbox With Lowered Flag"
+    "id": 1015,
+    "emoji": "🎖",
+    "unicode": "U+1F396",
+    "name": "military medal"
   },
   {
-    name: "📬 Open Mailbox With Raised Flag",
-    type: "Objects",
-    emoji: "📬",
-    description: "Open Mailbox With Raised Flag"
+    "id": 1016,
+    "emoji": "🏆",
+    "unicode": "U+1F3C6",
+    "name": "trophy"
   },
   {
-    name: "📭 Open Mailbox With Lowered Flag",
-    type: "Objects",
-    emoji: "📭",
-    description: "Open Mailbox With Lowered Flag"
+    "id": 1017,
+    "emoji": "🏅",
+    "unicode": "U+1F3C5",
+    "name": "sports medal"
   },
   {
-    name: "📮 Postbox",
-    type: "Objects",
-    emoji: "📮",
-    description: "Postbox"
+    "id": 1018,
+    "emoji": "🥇",
+    "unicode": "U+1F947",
+    "name": "1st place medal"
   },
   {
-    name: "🗳 Ballot Box With Ballot",
-    type: "Objects",
-    emoji: "🗳",
-    description: "Ballot Box With Ballot"
+    "id": 1019,
+    "emoji": "🥈",
+    "unicode": "U+1F948",
+    "name": "2nd place medal"
   },
   {
-    name: "✏ Pencil",
-    type: "Objects",
-    emoji: "✏",
-    description: "Pencil"
+    "id": 1020,
+    "emoji": "🥉",
+    "unicode": "U+1F949",
+    "name": "3rd place medal"
   },
   {
-    name: "✒ Black Nib",
-    type: "Objects",
-    emoji: "✒",
-    description: "Black Nib"
+    "id": 1021,
+    "emoji": "⚽",
+    "unicode": "U+26BD",
+    "name": "soccer ball"
   },
   {
-    name: "🖋 Fountain Pen",
-    type: "Objects",
-    emoji: "🖋",
-    description: "Fountain Pen"
+    "id": 1022,
+    "emoji": "⚾",
+    "unicode": "U+26BE",
+    "name": "baseball"
   },
   {
-    name: "🖊 Pen",
-    type: "Objects",
-    emoji: "🖊",
-    description: "Pen"
+    "id": 1023,
+    "emoji": "🥎",
+    "unicode": "U+1F94E",
+    "name": "softball"
   },
   {
-    name: "🖌 Paintbrush",
-    type: "Objects",
-    emoji: "🖌",
-    description: "Paintbrush"
+    "id": 1024,
+    "emoji": "🏀",
+    "unicode": "U+1F3C0",
+    "name": "basketball"
   },
   {
-    name: "🖍 Crayon",
-    type: "Objects",
-    emoji: "🖍",
-    description: "Crayon"
+    "id": 1025,
+    "emoji": "🏐",
+    "unicode": "U+1F3D0",
+    "name": "volleyball"
   },
   {
-    name: "📝 Memo",
-    type: "Objects",
-    emoji: "📝",
-    description: "Memo"
+    "id": 1026,
+    "emoji": "🏈",
+    "unicode": "U+1F3C8",
+    "name": "american football"
   },
   {
-    name: "📁 File Folder",
-    type: "Objects",
-    emoji: "📁",
-    description: "File Folder"
+    "id": 1027,
+    "emoji": "🏉",
+    "unicode": "U+1F3C9",
+    "name": "rugby football"
   },
   {
-    name: "📂 Open File Folder",
-    type: "Objects",
-    emoji: "📂",
-    description: "Open File Folder"
+    "id": 1028,
+    "emoji": "🎾",
+    "unicode": "U+1F3BE",
+    "name": "tennis"
   },
   {
-    name: "🗂 Card Index Dividers",
-    type: "Objects",
-    emoji: "🗂",
-    description: "Card Index Dividers"
+    "id": 1029,
+    "emoji": "🥏",
+    "unicode": "U+1F94F",
+    "name": "flying disc"
   },
   {
-    name: "📅 Calendar",
-    type: "Objects",
-    emoji: "📅",
-    description: "Calendar"
+    "id": 1030,
+    "emoji": "🎳",
+    "unicode": "U+1F3B3",
+    "name": "bowling"
   },
   {
-    name: "📆 Tear-Off Calendar",
-    type: "Objects",
-    emoji: "📆",
-    description: "Tear-Off Calendar"
+    "id": 1031,
+    "emoji": "🏏",
+    "unicode": "U+1F3CF",
+    "name": "cricket game"
   },
   {
-    name: "🗒 Spiral Notepad",
-    type: "Objects",
-    emoji: "🗒",
-    description: "Spiral Notepad"
+    "id": 1032,
+    "emoji": "🏑",
+    "unicode": "U+1F3D1",
+    "name": "field hockey"
   },
   {
-    name: "🗓 Spiral Calendar",
-    type: "Objects",
-    emoji: "🗓",
-    description: "Spiral Calendar"
+    "id": 1033,
+    "emoji": "🏒",
+    "unicode": "U+1F3D2",
+    "name": "ice hockey"
   },
   {
-    name: "📇 Card Index",
-    type: "Objects",
-    emoji: "📇",
-    description: "Card Index"
+    "id": 1034,
+    "emoji": "🥍",
+    "unicode": "U+1F94D",
+    "name": "lacrosse"
   },
   {
-    name: "📈 Chart Increasing",
-    type: "Objects",
-    emoji: "📈",
-    description: "Chart Increasing"
+    "id": 1035,
+    "emoji": "🏓",
+    "unicode": "U+1F3D3",
+    "name": "ping pong"
   },
   {
-    name: "📉 Chart Decreasing",
-    type: "Objects",
-    emoji: "📉",
-    description: "Chart Decreasing"
+    "id": 1036,
+    "emoji": "🏸",
+    "unicode": "U+1F3F8",
+    "name": "badminton"
   },
   {
-    name: "📊 Bar Chart",
-    type: "Objects",
-    emoji: "📊",
-    description: "Bar Chart"
+    "id": 1037,
+    "emoji": "🥊",
+    "unicode": "U+1F94A",
+    "name": "boxing glove"
   },
   {
-    name: "📋 Clipboard",
-    type: "Objects",
-    emoji: "📋",
-    description: "Clipboard"
+    "id": 1038,
+    "emoji": "🥋",
+    "unicode": "U+1F94B",
+    "name": "martial arts uniform"
   },
   {
-    name: "📌 Pushpin",
-    type: "Objects",
-    emoji: "📌",
-    description: "Pushpin"
+    "id": 1039,
+    "emoji": "🥅",
+    "unicode": "U+1F945",
+    "name": "goal net"
   },
   {
-    name: "📍 Round Pushpin",
-    type: "Objects",
-    emoji: "📍",
-    description: "Round Pushpin"
+    "id": 1040,
+    "emoji": "⛳",
+    "unicode": "U+26F3",
+    "name": "flag in hole"
   },
   {
-    name: "📎 Paperclip",
-    type: "Objects",
-    emoji: "📎",
-    description: "Paperclip"
+    "id": 1041,
+    "emoji": "⛸",
+    "unicode": "U+26F8",
+    "name": "ice skate"
   },
   {
-    name: "🖇 Linked Paperclips",
-    type: "Objects",
-    emoji: "🖇",
-    description: "Linked Paperclips"
+    "id": 1042,
+    "emoji": "🎣",
+    "unicode": "U+1F3A3",
+    "name": "fishing pole"
   },
   {
-    name: "📏 Straight Ruler",
-    type: "Objects",
-    emoji: "📏",
-    description: "Straight Ruler"
+    "id": 1043,
+    "emoji": "🤿",
+    "unicode": "U+1F93F",
+    "name": "diving mask"
   },
   {
-    name: "📐 Triangular Ruler",
-    type: "Objects",
-    emoji: "📐",
-    description: "Triangular Ruler"
+    "id": 1044,
+    "emoji": "🎽",
+    "unicode": "U+1F3BD",
+    "name": "running shirt"
   },
   {
-    name: "✂ Scissors",
-    type: "Objects",
-    emoji: "✂",
-    description: "Scissors"
+    "id": 1045,
+    "emoji": "🎿",
+    "unicode": "U+1F3BF",
+    "name": "skis"
   },
   {
-    name: "🗃 Card File Box",
-    type: "Objects",
-    emoji: "🗃",
-    description: "Card File Box"
+    "id": 1046,
+    "emoji": "🛷",
+    "unicode": "U+1F6F7",
+    "name": "sled"
   },
   {
-    name: "🗄 File Cabinet",
-    type: "Objects",
-    emoji: "🗄",
-    description: "File Cabinet"
+    "id": 1047,
+    "emoji": "🥌",
+    "unicode": "U+1F94C",
+    "name": "curling stone"
   },
   {
-    name: "🗑 Wastebasket",
-    type: "Objects",
-    emoji: "🗑",
-    description: "Wastebasket"
+    "id": 1048,
+    "emoji": "🎯",
+    "unicode": "U+1F3AF",
+    "name": "bullseye"
   },
   {
-    name: "🔒 Locked",
-    type: "Objects",
-    emoji: "🔒",
-    description: "Locked"
+    "id": 1049,
+    "emoji": "🪀",
+    "unicode": "U+1FA80",
+    "name": "yo-yo"
   },
   {
-    name: "🔓 Unlocked",
-    type: "Objects",
-    emoji: "🔓",
-    description: "Unlocked"
+    "id": 1050,
+    "emoji": "🪁",
+    "unicode": "U+1FA81",
+    "name": "kite"
   },
   {
-    name: "🔏 Locked With Pen",
-    type: "Objects",
-    emoji: "🔏",
-    description: "Locked With Pen"
+    "id": 1051,
+    "emoji": "🎱",
+    "unicode": "U+1F3B1",
+    "name": "pool 8 ball"
   },
   {
-    name: "🔐 Locked With Key",
-    type: "Objects",
-    emoji: "🔐",
-    description: "Locked With Key"
+    "id": 1052,
+    "emoji": "🔮",
+    "unicode": "U+1F52E",
+    "name": "crystal ball"
   },
   {
-    name: "🔑 Key",
-    type: "Objects",
-    emoji: "🔑",
-    description: "Key"
+    "id": 1053,
+    "emoji": "🪄",
+    "unicode": "U+1FA84",
+    "name": "magic wand"
   },
   {
-    name: "🗝 Old Key",
-    type: "Objects",
-    emoji: "🗝",
-    description: "Old Key"
+    "id": 1054,
+    "emoji": "🧿",
+    "unicode": "U+1F9FF",
+    "name": "nazar amulet"
   },
   {
-    name: "🔨 Hammer",
-    type: "Objects",
-    emoji: "🔨",
-    description: "Hammer"
+    "id": 1055,
+    "emoji": "🎮",
+    "unicode": "U+1F3AE",
+    "name": "video game"
   },
   {
-    name: "⛏ Pick",
-    type: "Objects",
-    emoji: "⛏",
-    description: "Pick"
+    "id": 1056,
+    "emoji": "🕹",
+    "unicode": "U+1F579",
+    "name": "joystick"
   },
   {
-    name: "⚒ Hammer and Pick",
-    type: "Objects",
-    emoji: "⚒",
-    description: "Hammer and Pick"
+    "id": 1057,
+    "emoji": "🎰",
+    "unicode": "U+1F3B0",
+    "name": "slot machine"
   },
   {
-    name: "🛠 Hammer and Wrench",
-    type: "Objects",
-    emoji: "🛠",
-    description: "Hammer and Wrench"
+    "id": 1058,
+    "emoji": "🎲",
+    "unicode": "U+1F3B2",
+    "name": "game die"
   },
   {
-    name: "🗡 Dagger",
-    type: "Objects",
-    emoji: "🗡",
-    description: "Dagger"
+    "id": 1059,
+    "emoji": "🧩",
+    "unicode": "U+1F9E9",
+    "name": "puzzle piece"
   },
   {
-    name: "⚔ Crossed Swords",
-    type: "Objects",
-    emoji: "⚔",
-    description: "Crossed Swords"
+    "id": 1060,
+    "emoji": "🧸",
+    "unicode": "U+1F9F8",
+    "name": "teddy bear"
   },
   {
-    name: "🔫 Pistol",
-    type: "Objects",
-    emoji: "🔫",
-    description: "Pistol"
+    "id": 1061,
+    "emoji": "🪅",
+    "unicode": "U+1FA85",
+    "name": "piñata"
   },
   {
-    name: "🛡 Shield",
-    type: "Objects",
-    emoji: "🛡",
-    description: "Shield"
+    "id": 1062,
+    "emoji": "🪆",
+    "unicode": "U+1FA86",
+    "name": "nesting dolls"
   },
   {
-    name: "🔧 Wrench",
-    type: "Objects",
-    emoji: "🔧",
-    description: "Wrench"
+    "id": 1063,
+    "emoji": "♠",
+    "unicode": "U+2660",
+    "name": "spade suit"
   },
   {
-    name: "🔩 Nut and Bolt",
-    type: "Objects",
-    emoji: "🔩",
-    description: "Nut and Bolt"
+    "id": 1064,
+    "emoji": "♥",
+    "unicode": "U+2665",
+    "name": "heart suit"
   },
   {
-    name: "⚙ Gear",
-    type: "Objects",
-    emoji: "⚙",
-    description: "Gear"
+    "id": 1065,
+    "emoji": "♦",
+    "unicode": "U+2666",
+    "name": "diamond suit"
   },
   {
-    name: "🗜 Clamp",
-    type: "Objects",
-    emoji: "🗜",
-    description: "Clamp"
+    "id": 1066,
+    "emoji": "♣",
+    "unicode": "U+2663",
+    "name": "club suit"
   },
   {
-    name: "⚖ Balance Scale",
-    type: "Objects",
-    emoji: "⚖",
-    description: "Balance Scale"
+    "id": 1067,
+    "emoji": "♟",
+    "unicode": "U+265F",
+    "name": "chess pawn"
   },
   {
-    name: "🔗 Link",
-    type: "Objects",
-    emoji: "🔗",
-    description: "Link"
+    "id": 1068,
+    "emoji": "🃏",
+    "unicode": "U+1F0CF",
+    "name": "joker"
   },
   {
-    name: "⛓ Chains",
-    type: "Objects",
-    emoji: "⛓",
-    description: "Chains"
+    "id": 1069,
+    "emoji": "🀄",
+    "unicode": "U+1F004",
+    "name": "mahjong red dragon"
   },
   {
-    name: "🧰 Toolbox",
-    type: "Objects",
-    emoji: "🧰",
-    description: "Toolbox"
+    "id": 1070,
+    "emoji": "🎴",
+    "unicode": "U+1F3B4",
+    "name": "flower playing cards"
   },
   {
-    name: "🧲 Magnet",
-    type: "Objects",
-    emoji: "🧲",
-    description: "Magnet"
+    "id": 1071,
+    "emoji": "🎭",
+    "unicode": "U+1F3AD",
+    "name": "performing arts"
   },
   {
-    name: "⚗ Alembic",
-    type: "Objects",
-    emoji: "⚗",
-    description: "Alembic"
+    "id": 1072,
+    "emoji": "🖼",
+    "unicode": "U+1F5BC",
+    "name": "framed picture"
   },
   {
-    name: "🧪 Test Tube",
-    type: "Objects",
-    emoji: "🧪",
-    description: "Test Tube"
+    "id": 1073,
+    "emoji": "🎨",
+    "unicode": "U+1F3A8",
+    "name": "artist palette"
   },
   {
-    name: "🧫 Petri Dish",
-    type: "Objects",
-    emoji: "🧫",
-    description: "Petri Dish"
+    "id": 1074,
+    "emoji": "🧵",
+    "unicode": "U+1F9F5",
+    "name": "thread"
   },
   {
-    name: "🧬 DNA",
-    type: "Objects",
-    emoji: "🧬",
-    description: "DNA"
+    "id": 1075,
+    "emoji": "🪡",
+    "unicode": "U+1FAA1",
+    "name": "sewing needle"
   },
   {
-    name: "🧯 Fire Extinguisher",
-    type: "Objects",
-    emoji: "🧯",
-    description: "Fire Extinguisher"
+    "id": 1076,
+    "emoji": "🧶",
+    "unicode": "U+1F9F6",
+    "name": "yarn"
   },
   {
-    name: "🔬 Microscope",
-    type: "Objects",
-    emoji: "🔬",
-    description: "Microscope"
+    "id": 1077,
+    "emoji": "🪢",
+    "unicode": "U+1FAA2",
+    "name": "knot"
   },
   {
-    name: "🔭 Telescope",
-    type: "Objects",
-    emoji: "🔭",
-    description: "Telescope"
+    "id": 1078,
+    "emoji": "👓",
+    "unicode": "U+1F453",
+    "name": "glasses"
   },
   {
-    name: "📡 Satellite Antenna",
-    type: "Objects",
-    emoji: "📡",
-    description: "Satellite Antenna"
+    "id": 1079,
+    "emoji": "🕶",
+    "unicode": "U+1F576",
+    "name": "sunglasses"
   },
   {
-    name: "💉 Syringe",
-    type: "Objects",
-    emoji: "💉",
-    description: "Syringe"
+    "id": 1080,
+    "emoji": "🥽",
+    "unicode": "U+1F97D",
+    "name": "goggles"
   },
   {
-    name: "💊 Pill",
-    type: "Objects",
-    emoji: "💊",
-    description: "Pill"
+    "id": 1081,
+    "emoji": "🥼",
+    "unicode": "U+1F97C",
+    "name": "lab coat"
   },
   {
-    name: "🚪 Door",
-    type: "Objects",
-    emoji: "🚪",
-    description: "Door"
+    "id": 1082,
+    "emoji": "🦺",
+    "unicode": "U+1F9BA",
+    "name": "safety vest"
   },
   {
-    name: "🛏 Bed",
-    type: "Objects",
-    emoji: "🛏",
-    description: "Bed"
+    "id": 1083,
+    "emoji": "👔",
+    "unicode": "U+1F454",
+    "name": "necktie"
   },
   {
-    name: "🛋 Couch and Lamp",
-    type: "Objects",
-    emoji: "🛋",
-    description: "Couch and Lamp"
+    "id": 1084,
+    "emoji": "👕",
+    "unicode": "U+1F455",
+    "name": "t-shirt"
   },
   {
-    name: "🚽 Toilet",
-    type: "Objects",
-    emoji: "🚽",
-    description: "Toilet"
+    "id": 1085,
+    "emoji": "👖",
+    "unicode": "U+1F456",
+    "name": "jeans"
   },
   {
-    name: "🚿 Shower",
-    type: "Objects",
-    emoji: "🚿",
-    description: "Shower"
+    "id": 1086,
+    "emoji": "🧣",
+    "unicode": "U+1F9E3",
+    "name": "scarf"
   },
   {
-    name: "🛁 Bathtub",
-    type: "Objects",
-    emoji: "🛁",
-    description: "Bathtub"
+    "id": 1087,
+    "emoji": "🧤",
+    "unicode": "U+1F9E4",
+    "name": "gloves"
   },
   {
-    name: "🧴 Lotion Bottle",
-    type: "Objects",
-    emoji: "🧴",
-    description: "Lotion Bottle"
+    "id": 1088,
+    "emoji": "🧥",
+    "unicode": "U+1F9E5",
+    "name": "coat"
   },
   {
-    name: "🧵 Thread",
-    type: "Objects",
-    emoji: "🧵",
-    description: "Thread"
+    "id": 1089,
+    "emoji": "🧦",
+    "unicode": "U+1F9E6",
+    "name": "socks"
   },
   {
-    name: "🧶 Yarn",
-    type: "Objects",
-    emoji: "🧶",
-    description: "Yarn"
+    "id": 1090,
+    "emoji": "👗",
+    "unicode": "U+1F457",
+    "name": "dress"
   },
   {
-    name: "🧷 Safety Pin",
-    type: "Objects",
-    emoji: "🧷",
-    description: "Safety Pin"
+    "id": 1091,
+    "emoji": "👘",
+    "unicode": "U+1F458",
+    "name": "kimono"
   },
   {
-    name: "🧹 Broom",
-    type: "Objects",
-    emoji: "🧹",
-    description: "Broom"
+    "id": 1092,
+    "emoji": "🥻",
+    "unicode": "U+1F97B",
+    "name": "sari"
   },
   {
-    name: "🧺 Basket",
-    type: "Objects",
-    emoji: "🧺",
-    description: "Basket"
+    "id": 1093,
+    "emoji": "🩱",
+    "unicode": "U+1FA71",
+    "name": "one-piece swimsuit"
   },
   {
-    name: "🧻 Roll of Paper",
-    type: "Objects",
-    emoji: "🧻",
-    description: "Roll of Paper"
+    "id": 1094,
+    "emoji": "🩲",
+    "unicode": "U+1FA72",
+    "name": "briefs"
   },
   {
-    name: "🧼 Soap",
-    type: "Objects",
-    emoji: "🧼",
-    description: "Soap"
+    "id": 1095,
+    "emoji": "🩳",
+    "unicode": "U+1FA73",
+    "name": "shorts"
   },
   {
-    name: "🧽 Sponge",
-    type: "Objects",
-    emoji: "🧽",
-    description: "Sponge"
+    "id": 1096,
+    "emoji": "👙",
+    "unicode": "U+1F459",
+    "name": "bikini"
   },
   {
-    name: "🚬 Cigarette",
-    type: "Objects",
-    emoji: "🚬",
-    description: "Cigarette"
+    "id": 1097,
+    "emoji": "👚",
+    "unicode": "U+1F45A",
+    "name": "woman’s clothes"
   },
   {
-    name: "⚰ Coffin",
-    type: "Objects",
-    emoji: "⚰",
-    description: "Coffin"
+    "id": 1098,
+    "emoji": "👛",
+    "unicode": "U+1F45B",
+    "name": "purse"
   },
   {
-    name: "⚱ Funeral Urn",
-    type: "Objects",
-    emoji: "⚱",
-    description: "Funeral Urn"
+    "id": 1099,
+    "emoji": "👜",
+    "unicode": "U+1F45C",
+    "name": "handbag"
   },
   {
-    name: "🗿 Moai",
-    type: "Objects",
-    emoji: "🗿",
-    description: "Moai"
+    "id": 1100,
+    "emoji": "👝",
+    "unicode": "U+1F45D",
+    "name": "clutch bag"
   },
   {
-    name: "🚰 Potable Water",
-    type: "Objects",
-    emoji: "🚰",
-    description: "Potable Water"
+    "id": 1101,
+    "emoji": "🛍",
+    "unicode": "U+1F6CD",
+    "name": "shopping bags"
   },
   {
-    name: "👁 ‍🗨 Eye in Speech Bubble",
-    type: "Symbols",
-    emoji: "👁",
-    description: "‍🗨 Eye in Speech Bubble"
+    "id": 1102,
+    "emoji": "🎒",
+    "unicode": "U+1F392",
+    "name": "backpack"
   },
   {
-    name: "💘 Heart With Arrow",
-    type: "Symbols",
-    emoji: "💘",
-    description: "Heart With Arrow"
+    "id": 1103,
+    "emoji": "🩴",
+    "unicode": "U+1FA74",
+    "name": "thong sandal"
   },
   {
-    name: "❤ Red Heart",
-    type: "Symbols",
-    emoji: "❤",
-    description: "Red Heart"
+    "id": 1104,
+    "emoji": "👞",
+    "unicode": "U+1F45E",
+    "name": "man’s shoe"
   },
   {
-    name: "💓 Beating Heart",
-    type: "Symbols",
-    emoji: "💓",
-    description: "Beating Heart"
+    "id": 1105,
+    "emoji": "👟",
+    "unicode": "U+1F45F",
+    "name": "running shoe"
   },
   {
-    name: "💔 Broken Heart",
-    type: "Symbols",
-    emoji: "💔",
-    description: "Broken Heart"
+    "id": 1106,
+    "emoji": "🥾",
+    "unicode": "U+1F97E",
+    "name": "hiking boot"
   },
   {
-    name: "💕 Two Hearts",
-    type: "Symbols",
-    emoji: "💕",
-    description: "Two Hearts"
+    "id": 1107,
+    "emoji": "🥿",
+    "unicode": "U+1F97F",
+    "name": "flat shoe"
   },
   {
-    name: "💖 Sparkling Heart",
-    type: "Symbols",
-    emoji: "💖",
-    description: "Sparkling Heart"
+    "id": 1108,
+    "emoji": "👠",
+    "unicode": "U+1F460",
+    "name": "high-heeled shoe"
   },
   {
-    name: "💗 Growing Heart",
-    type: "Symbols",
-    emoji: "💗",
-    description: "Growing Heart"
+    "id": 1109,
+    "emoji": "👡",
+    "unicode": "U+1F461",
+    "name": "woman’s sandal"
   },
   {
-    name: "💙 Blue Heart",
-    type: "Symbols",
-    emoji: "💙",
-    description: "Blue Heart"
+    "id": 1110,
+    "emoji": "🩰",
+    "unicode": "U+1FA70",
+    "name": "ballet shoes"
   },
   {
-    name: "💚 Green Heart",
-    type: "Symbols",
-    emoji: "💚",
-    description: "Green Heart"
+    "id": 1111,
+    "emoji": "👢",
+    "unicode": "U+1F462",
+    "name": "woman’s boot"
   },
   {
-    name: "💛 Yellow Heart",
-    type: "Symbols",
-    emoji: "💛",
-    description: "Yellow Heart"
+    "id": 1112,
+    "emoji": "👑",
+    "unicode": "U+1F451",
+    "name": "crown"
   },
   {
-    name: "🧡 Orange Heart",
-    type: "Symbols",
-    emoji: "🧡",
-    description: "Orange Heart"
+    "id": 1113,
+    "emoji": "👒",
+    "unicode": "U+1F452",
+    "name": "woman’s hat"
   },
   {
-    name: "💜 Purple Heart",
-    type: "Symbols",
-    emoji: "💜",
-    description: "Purple Heart"
+    "id": 1114,
+    "emoji": "🎩",
+    "unicode": "U+1F3A9",
+    "name": "top hat"
   },
   {
-    name: "🖤 Black Heart",
-    type: "Symbols",
-    emoji: "🖤",
-    description: "Black Heart"
+    "id": 1115,
+    "emoji": "🎓",
+    "unicode": "U+1F393",
+    "name": "graduation cap"
   },
   {
-    name: "💝 Heart With Ribbon",
-    type: "Symbols",
-    emoji: "💝",
-    description: "Heart With Ribbon"
+    "id": 1116,
+    "emoji": "🧢",
+    "unicode": "U+1F9E2",
+    "name": "billed cap"
   },
   {
-    name: "💞 Revolving Hearts",
-    type: "Symbols",
-    emoji: "💞",
-    description: "Revolving Hearts"
+    "id": 1117,
+    "emoji": "🪖",
+    "unicode": "U+1FA96",
+    "name": "military helmet"
   },
   {
-    name: "💟 Heart Decoration",
-    type: "Symbols",
-    emoji: "💟",
-    description: "Heart Decoration"
+    "id": 1118,
+    "emoji": "⛑",
+    "unicode": "U+26D1",
+    "name": "rescue worker’s helmet"
   },
   {
-    name: "❣ Heavy Heart Exclamation",
-    type: "Symbols",
-    emoji: "❣",
-    description: "Heavy Heart Exclamation"
+    "id": 1119,
+    "emoji": "📿",
+    "unicode": "U+1F4FF",
+    "name": "prayer beads"
   },
   {
-    name: "💤 Zzz",
-    type: "Symbols",
-    emoji: "💤",
-    description: "Zzz"
+    "id": 1120,
+    "emoji": "💄",
+    "unicode": "U+1F484",
+    "name": "lipstick"
   },
   {
-    name: "💢 Anger Symbol",
-    type: "Symbols",
-    emoji: "💢",
-    description: "Anger Symbol"
+    "id": 1121,
+    "emoji": "💍",
+    "unicode": "U+1F48D",
+    "name": "ring"
   },
   {
-    name: "💬 Speech Balloon",
-    type: "Symbols",
-    emoji: "💬",
-    description: "Speech Balloon"
+    "id": 1122,
+    "emoji": "💎",
+    "unicode": "U+1F48E",
+    "name": "gem stone"
   },
   {
-    name: "🗯 Right Anger Bubble",
-    type: "Symbols",
-    emoji: "🗯",
-    description: "Right Anger Bubble"
+    "id": 1123,
+    "emoji": "🔇",
+    "unicode": "U+1F507",
+    "name": "muted speaker"
   },
   {
-    name: "💭 Thought Balloon",
-    type: "Symbols",
-    emoji: "💭",
-    description: "Thought Balloon"
+    "id": 1124,
+    "emoji": "🔈",
+    "unicode": "U+1F508",
+    "name": "speaker low volume"
   },
   {
-    name: "💮 White Flower",
-    type: "Symbols",
-    emoji: "💮",
-    description: "White Flower"
+    "id": 1125,
+    "emoji": "🔉",
+    "unicode": "U+1F509",
+    "name": "speaker medium volume"
   },
   {
-    name: "♨ Hot Springs",
-    type: "Symbols",
-    emoji: "♨",
-    description: "Hot Springs"
+    "id": 1126,
+    "emoji": "🔊",
+    "unicode": "U+1F50A",
+    "name": "speaker high volume"
   },
   {
-    name: "💈 Barber Pole",
-    type: "Symbols",
-    emoji: "💈",
-    description: "Barber Pole"
+    "id": 1127,
+    "emoji": "📢",
+    "unicode": "U+1F4E2",
+    "name": "loudspeaker"
   },
   {
-    name: "🛑 Stop Sign",
-    type: "Symbols",
-    emoji: "🛑",
-    description: "Stop Sign"
+    "id": 1128,
+    "emoji": "📣",
+    "unicode": "U+1F4E3",
+    "name": "megaphone"
   },
   {
-    name: "🕛 Twelve O’Clock",
-    type: "Symbols",
-    emoji: "🕛",
-    description: "Twelve O’Clock"
+    "id": 1129,
+    "emoji": "📯",
+    "unicode": "U+1F4EF",
+    "name": "postal horn"
   },
   {
-    name: "🕧 Twelve-Thirty",
-    type: "Symbols",
-    emoji: "🕧",
-    description: "Twelve-Thirty"
+    "id": 1130,
+    "emoji": "🔔",
+    "unicode": "U+1F514",
+    "name": "bell"
   },
   {
-    name: "🕐 One O’Clock",
-    type: "Symbols",
-    emoji: "🕐",
-    description: "One O’Clock"
+    "id": 1131,
+    "emoji": "🔕",
+    "unicode": "U+1F515",
+    "name": "bell with slash"
   },
   {
-    name: "🕜 One-Thirty",
-    type: "Symbols",
-    emoji: "🕜",
-    description: "One-Thirty"
+    "id": 1132,
+    "emoji": "🎼",
+    "unicode": "U+1F3BC",
+    "name": "musical score"
   },
   {
-    name: "🕑 Two O’Clock",
-    type: "Symbols",
-    emoji: "🕑",
-    description: "Two O’Clock"
+    "id": 1133,
+    "emoji": "🎵",
+    "unicode": "U+1F3B5",
+    "name": "musical note"
   },
   {
-    name: "🕝 Two-Thirty",
-    type: "Symbols",
-    emoji: "🕝",
-    description: "Two-Thirty"
+    "id": 1134,
+    "emoji": "🎶",
+    "unicode": "U+1F3B6",
+    "name": "musical notes"
   },
   {
-    name: "🕒 Three O’Clock",
-    type: "Symbols",
-    emoji: "🕒",
-    description: "Three O’Clock"
+    "id": 1135,
+    "emoji": "🎙",
+    "unicode": "U+1F399",
+    "name": "studio microphone"
   },
   {
-    name: "🕞 Three-Thirty",
-    type: "Symbols",
-    emoji: "🕞",
-    description: "Three-Thirty"
+    "id": 1136,
+    "emoji": "🎚",
+    "unicode": "U+1F39A",
+    "name": "level slider"
   },
   {
-    name: "🕓 Four O’Clock",
-    type: "Symbols",
-    emoji: "🕓",
-    description: "Four O’Clock"
+    "id": 1137,
+    "emoji": "🎛",
+    "unicode": "U+1F39B",
+    "name": "control knobs"
   },
   {
-    name: "🕟 Four-Thirty",
-    type: "Symbols",
-    emoji: "🕟",
-    description: "Four-Thirty"
+    "id": 1138,
+    "emoji": "🎤",
+    "unicode": "U+1F3A4",
+    "name": "microphone"
   },
   {
-    name: "🕔 Five O’Clock",
-    type: "Symbols",
-    emoji: "🕔",
-    description: "Five O’Clock"
+    "id": 1139,
+    "emoji": "🎧",
+    "unicode": "U+1F3A7",
+    "name": "headphone"
   },
   {
-    name: "🕠 Five-Thirty",
-    type: "Symbols",
-    emoji: "🕠",
-    description: "Five-Thirty"
+    "id": 1140,
+    "emoji": "📻",
+    "unicode": "U+1F4FB",
+    "name": "radio"
   },
   {
-    name: "🕕 Six O’Clock",
-    type: "Symbols",
-    emoji: "🕕",
-    description: "Six O’Clock"
+    "id": 1141,
+    "emoji": "🎷",
+    "unicode": "U+1F3B7",
+    "name": "saxophone"
   },
   {
-    name: "🕡 Six-Thirty",
-    type: "Symbols",
-    emoji: "🕡",
-    description: "Six-Thirty"
+    "id": 1142,
+    "emoji": "🪗",
+    "unicode": "U+1FA97",
+    "name": "accordion"
   },
   {
-    name: "🕖 Seven O’Clock",
-    type: "Symbols",
-    emoji: "🕖",
-    description: "Seven O’Clock"
+    "id": 1143,
+    "emoji": "🎸",
+    "unicode": "U+1F3B8",
+    "name": "guitar"
   },
   {
-    name: "🕢 Seven-Thirty",
-    type: "Symbols",
-    emoji: "🕢",
-    description: "Seven-Thirty"
+    "id": 1144,
+    "emoji": "🎹",
+    "unicode": "U+1F3B9",
+    "name": "musical keyboard"
   },
   {
-    name: "🕗 Eight O’Clock",
-    type: "Symbols",
-    emoji: "🕗",
-    description: "Eight O’Clock"
+    "id": 1145,
+    "emoji": "🎺",
+    "unicode": "U+1F3BA",
+    "name": "trumpet"
   },
   {
-    name: "🕣 Eight-Thirty",
-    type: "Symbols",
-    emoji: "🕣",
-    description: "Eight-Thirty"
+    "id": 1146,
+    "emoji": "🎻",
+    "unicode": "U+1F3BB",
+    "name": "violin"
   },
   {
-    name: "🕘 Nine O’Clock",
-    type: "Symbols",
-    emoji: "🕘",
-    description: "Nine O’Clock"
+    "id": 1147,
+    "emoji": "🪕",
+    "unicode": "U+1FA95",
+    "name": "banjo"
   },
   {
-    name: "🕤 Nine-Thirty",
-    type: "Symbols",
-    emoji: "🕤",
-    description: "Nine-Thirty"
+    "id": 1148,
+    "emoji": "🥁",
+    "unicode": "U+1F941",
+    "name": "drum"
   },
   {
-    name: "🕙 Ten O’Clock",
-    type: "Symbols",
-    emoji: "🕙",
-    description: "Ten O’Clock"
+    "id": 1149,
+    "emoji": "🪘",
+    "unicode": "U+1FA98",
+    "name": "long drum"
   },
   {
-    name: "🕥 Ten-Thirty",
-    type: "Symbols",
-    emoji: "🕥",
-    description: "Ten-Thirty"
+    "id": 1150,
+    "emoji": "📱",
+    "unicode": "U+1F4F1",
+    "name": "mobile phone"
   },
   {
-    name: "🕚 Eleven O’Clock",
-    type: "Symbols",
-    emoji: "🕚",
-    description: "Eleven O’Clock"
+    "id": 1151,
+    "emoji": "📲",
+    "unicode": "U+1F4F2",
+    "name": "mobile phone with arrow"
   },
   {
-    name: "🕦 Eleven-Thirty",
-    type: "Symbols",
-    emoji: "🕦",
-    description: "Eleven-Thirty"
+    "id": 1152,
+    "emoji": "☎",
+    "unicode": "U+260E",
+    "name": "telephone"
   },
   {
-    name: "🌀 Cyclone",
-    type: "Symbols",
-    emoji: "🌀",
-    description: "Cyclone"
+    "id": 1153,
+    "emoji": "📞",
+    "unicode": "U+1F4DE",
+    "name": "telephone receiver"
   },
   {
-    name: "♠ Spade Suit",
-    type: "Symbols",
-    emoji: "♠",
-    description: "Spade Suit"
+    "id": 1154,
+    "emoji": "📟",
+    "unicode": "U+1F4DF",
+    "name": "pager"
   },
   {
-    name: "♥ Heart Suit",
-    type: "Symbols",
-    emoji: "♥",
-    description: "Heart Suit"
+    "id": 1155,
+    "emoji": "📠",
+    "unicode": "U+1F4E0",
+    "name": "fax machine"
   },
   {
-    name: "♦ Diamond Suit",
-    type: "Symbols",
-    emoji: "♦",
-    description: "Diamond Suit"
+    "id": 1156,
+    "emoji": "🔋",
+    "unicode": "U+1F50B",
+    "name": "battery"
   },
   {
-    name: "♣ Club Suit",
-    type: "Symbols",
-    emoji: "♣",
-    description: "Club Suit"
+    "id": 1157,
+    "emoji": "🔌",
+    "unicode": "U+1F50C",
+    "name": "electric plug"
   },
   {
-    name: "🃏 Joker",
-    type: "Symbols",
-    emoji: "🃏",
-    description: "Joker"
+    "id": 1158,
+    "emoji": "💻",
+    "unicode": "U+1F4BB",
+    "name": "laptop"
   },
   {
-    name: "🀄 Mahjong Red Dragon",
-    type: "Symbols",
-    emoji: "🀄",
-    description: "Mahjong Red Dragon"
+    "id": 1159,
+    "emoji": "🖥",
+    "unicode": "U+1F5A5",
+    "name": "desktop computer"
   },
   {
-    name: "🎴 Flower Playing Cards",
-    type: "Symbols",
-    emoji: "🎴",
-    description: "Flower Playing Cards"
+    "id": 1160,
+    "emoji": "🖨",
+    "unicode": "U+1F5A8",
+    "name": "printer"
   },
   {
-    name: "🔇 Muted Speaker",
-    type: "Symbols",
-    emoji: "🔇",
-    description: "Muted Speaker"
+    "id": 1161,
+    "emoji": "⌨",
+    "unicode": "U+2328",
+    "name": "keyboard"
   },
   {
-    name: "🔈 Speaker Low Volume",
-    type: "Symbols",
-    emoji: "🔈",
-    description: "Speaker Low Volume"
+    "id": 1162,
+    "emoji": "🖱",
+    "unicode": "U+1F5B1",
+    "name": "computer mouse"
   },
   {
-    name: "🔉 Speaker Medium Volume",
-    type: "Symbols",
-    emoji: "🔉",
-    description: "Speaker Medium Volume"
+    "id": 1163,
+    "emoji": "🖲",
+    "unicode": "U+1F5B2",
+    "name": "trackball"
   },
   {
-    name: "🔊 Speaker High Volume",
-    type: "Symbols",
-    emoji: "🔊",
-    description: "Speaker High Volume"
+    "id": 1164,
+    "emoji": "💽",
+    "unicode": "U+1F4BD",
+    "name": "computer disk"
   },
   {
-    name: "📢 Loudspeaker",
-    type: "Symbols",
-    emoji: "📢",
-    description: "Loudspeaker"
+    "id": 1165,
+    "emoji": "💾",
+    "unicode": "U+1F4BE",
+    "name": "floppy disk"
   },
   {
-    name: "📣 Megaphone",
-    type: "Symbols",
-    emoji: "📣",
-    description: "Megaphone"
+    "id": 1166,
+    "emoji": "💿",
+    "unicode": "U+1F4BF",
+    "name": "optical disk"
   },
   {
-    name: "📯 Postal Horn",
-    type: "Symbols",
-    emoji: "📯",
-    description: "Postal Horn"
+    "id": 1167,
+    "emoji": "📀",
+    "unicode": "U+1F4C0",
+    "name": "dvd"
   },
   {
-    name: "🔔 Bell",
-    type: "Symbols",
-    emoji: "🔔",
-    description: "Bell"
+    "id": 1168,
+    "emoji": "🧮",
+    "unicode": "U+1F9EE",
+    "name": "abacus"
   },
   {
-    name: "🔕 Bell With Slash",
-    type: "Symbols",
-    emoji: "🔕",
-    description: "Bell With Slash"
+    "id": 1169,
+    "emoji": "🎥",
+    "unicode": "U+1F3A5",
+    "name": "movie camera"
   },
   {
-    name: "🎵 Musical Note",
-    type: "Symbols",
-    emoji: "🎵",
-    description: "Musical Note"
+    "id": 1170,
+    "emoji": "🎞",
+    "unicode": "U+1F39E",
+    "name": "film frames"
   },
   {
-    name: "🎶 Musical Notes",
-    type: "Symbols",
-    emoji: "🎶",
-    description: "Musical Notes"
+    "id": 1171,
+    "emoji": "📽",
+    "unicode": "U+1F4FD",
+    "name": "film projector"
   },
   {
-    name: "🏧 ATM Sign",
-    type: "Symbols",
-    emoji: "🏧",
-    description: "ATM Sign"
+    "id": 1172,
+    "emoji": "🎬",
+    "unicode": "U+1F3AC",
+    "name": "clapper board"
   },
   {
-    name: "🚮 Litter in Bin Sign",
-    type: "Symbols",
-    emoji: "🚮",
-    description: "Litter in Bin Sign"
+    "id": 1173,
+    "emoji": "📺",
+    "unicode": "U+1F4FA",
+    "name": "television"
   },
   {
-    name: "🚰 Potable Water",
-    type: "Symbols",
-    emoji: "🚰",
-    description: "Potable Water"
+    "id": 1174,
+    "emoji": "📷",
+    "unicode": "U+1F4F7",
+    "name": "camera"
   },
   {
-    name: "♿ Wheelchair Symbol",
-    type: "Symbols",
-    emoji: "♿",
-    description: "Wheelchair Symbol"
+    "id": 1175,
+    "emoji": "📸",
+    "unicode": "U+1F4F8",
+    "name": "camera with flash"
   },
   {
-    name: "🚹 Men’S Room",
-    type: "Symbols",
-    emoji: "🚹",
-    description: "Men’S Room"
+    "id": 1176,
+    "emoji": "📹",
+    "unicode": "U+1F4F9",
+    "name": "video camera"
   },
   {
-    name: "🚺 Women’S Room",
-    type: "Symbols",
-    emoji: "🚺",
-    description: "Women’S Room"
+    "id": 1177,
+    "emoji": "📼",
+    "unicode": "U+1F4FC",
+    "name": "videocassette"
   },
   {
-    name: "🚻 Restroom",
-    type: "Symbols",
-    emoji: "🚻",
-    description: "Restroom"
+    "id": 1178,
+    "emoji": "🔍",
+    "unicode": "U+1F50D",
+    "name": "magnifying glass tilted left"
   },
   {
-    name: "🚼 Baby Symbol",
-    type: "Symbols",
-    emoji: "🚼",
-    description: "Baby Symbol"
+    "id": 1179,
+    "emoji": "🔎",
+    "unicode": "U+1F50E",
+    "name": "magnifying glass tilted right"
   },
   {
-    name: "🚾 Water Closet",
-    type: "Symbols",
-    emoji: "🚾",
-    description: "Water Closet"
+    "id": 1180,
+    "emoji": "🕯",
+    "unicode": "U+1F56F",
+    "name": "candle"
   },
   {
-    name: "⚠ Warning",
-    type: "Symbols",
-    emoji: "⚠",
-    description: "Warning"
+    "id": 1181,
+    "emoji": "💡",
+    "unicode": "U+1F4A1",
+    "name": "light bulb"
   },
   {
-    name: "🚸 Children Crossing",
-    type: "Symbols",
-    emoji: "🚸",
-    description: "Children Crossing"
+    "id": 1182,
+    "emoji": "🔦",
+    "unicode": "U+1F526",
+    "name": "flashlight"
   },
   {
-    name: "⛔ No Entry",
-    type: "Symbols",
-    emoji: "⛔",
-    description: "No Entry"
+    "id": 1183,
+    "emoji": "🏮",
+    "unicode": "U+1F3EE",
+    "name": "red paper lantern"
   },
   {
-    name: "🚫 Prohibited",
-    type: "Symbols",
-    emoji: "🚫",
-    description: "Prohibited"
+    "id": 1184,
+    "emoji": "🪔",
+    "unicode": "U+1FA94",
+    "name": "diya lamp"
   },
   {
-    name: "🚳 No Bicycles",
-    type: "Symbols",
-    emoji: "🚳",
-    description: "No Bicycles"
+    "id": 1185,
+    "emoji": "📔",
+    "unicode": "U+1F4D4",
+    "name": "notebook with decorative cover"
   },
   {
-    name: "🚭 No Smoking",
-    type: "Symbols",
-    emoji: "🚭",
-    description: "No Smoking"
+    "id": 1186,
+    "emoji": "📕",
+    "unicode": "U+1F4D5",
+    "name": "closed book"
   },
   {
-    name: "🚯 No Littering",
-    type: "Symbols",
-    emoji: "🚯",
-    description: "No Littering"
+    "id": 1187,
+    "emoji": "📖",
+    "unicode": "U+1F4D6",
+    "name": "open book"
   },
   {
-    name: "🚱 Non-Potable Water",
-    type: "Symbols",
-    emoji: "🚱",
-    description: "Non-Potable Water"
+    "id": 1188,
+    "emoji": "📗",
+    "unicode": "U+1F4D7",
+    "name": "green book"
   },
   {
-    name: "🚷 No Pedestrians",
-    type: "Symbols",
-    emoji: "🚷",
-    description: "No Pedestrians"
+    "id": 1189,
+    "emoji": "📘",
+    "unicode": "U+1F4D8",
+    "name": "blue book"
   },
   {
-    name: "🔞 No One Under Eighteen",
-    type: "Symbols",
-    emoji: "🔞",
-    description: "No One Under Eighteen"
+    "id": 1190,
+    "emoji": "📙",
+    "unicode": "U+1F4D9",
+    "name": "orange book"
   },
   {
-    name: "☢ Radioactive",
-    type: "Symbols",
-    emoji: "☢",
-    description: "Radioactive"
+    "id": 1191,
+    "emoji": "📚",
+    "unicode": "U+1F4DA",
+    "name": "books"
   },
   {
-    name: "☣ Biohazard",
-    type: "Symbols",
-    emoji: "☣",
-    description: "Biohazard"
+    "id": 1192,
+    "emoji": "📓",
+    "unicode": "U+1F4D3",
+    "name": "notebook"
   },
   {
-    name: "⬆ Up Arrow",
-    type: "Symbols",
-    emoji: "⬆",
-    description: "Up Arrow"
+    "id": 1193,
+    "emoji": "📒",
+    "unicode": "U+1F4D2",
+    "name": "ledger"
   },
   {
-    name: "↗ Up-Right Arrow",
-    type: "Symbols",
-    emoji: "↗",
-    description: "Up-Right Arrow"
+    "id": 1194,
+    "emoji": "📃",
+    "unicode": "U+1F4C3",
+    "name": "page with curl"
   },
   {
-    name: "➡ Right Arrow",
-    type: "Symbols",
-    emoji: "➡",
-    description: "Right Arrow"
+    "id": 1195,
+    "emoji": "📜",
+    "unicode": "U+1F4DC",
+    "name": "scroll"
   },
   {
-    name: "↘ Down-Right Arrow",
-    type: "Symbols",
-    emoji: "↘",
-    description: "Down-Right Arrow"
+    "id": 1196,
+    "emoji": "📄",
+    "unicode": "U+1F4C4",
+    "name": "page facing up"
   },
   {
-    name: "⬇ Down Arrow",
-    type: "Symbols",
-    emoji: "⬇",
-    description: "Down Arrow"
+    "id": 1197,
+    "emoji": "📰",
+    "unicode": "U+1F4F0",
+    "name": "newspaper"
   },
   {
-    name: "↙ Down-Left Arrow",
-    type: "Symbols",
-    emoji: "↙",
-    description: "Down-Left Arrow"
+    "id": 1198,
+    "emoji": "🗞",
+    "unicode": "U+1F5DE",
+    "name": "rolled-up newspaper"
   },
   {
-    name: "⬅ Left Arrow",
-    type: "Symbols",
-    emoji: "⬅",
-    description: "Left Arrow"
+    "id": 1199,
+    "emoji": "📑",
+    "unicode": "U+1F4D1",
+    "name": "bookmark tabs"
   },
   {
-    name: "↖ Up-Left Arrow",
-    type: "Symbols",
-    emoji: "↖",
-    description: "Up-Left Arrow"
+    "id": 1200,
+    "emoji": "🔖",
+    "unicode": "U+1F516",
+    "name": "bookmark"
   },
   {
-    name: "↕ Up-Down Arrow",
-    type: "Symbols",
-    emoji: "↕",
-    description: "Up-Down Arrow"
+    "id": 1201,
+    "emoji": "🏷",
+    "unicode": "U+1F3F7",
+    "name": "label"
   },
   {
-    name: "↔ Left-Right Arrow",
-    type: "Symbols",
-    emoji: "↔",
-    description: "Left-Right Arrow"
+    "id": 1202,
+    "emoji": "💰",
+    "unicode": "U+1F4B0",
+    "name": "money bag"
   },
   {
-    name: "↩ Right Arrow Curving Left",
-    type: "Symbols",
-    emoji: "↩",
-    description: "Right Arrow Curving Left"
+    "id": 1203,
+    "emoji": "🪙",
+    "unicode": "U+1FA99",
+    "name": "coin"
   },
   {
-    name: "↪ Left Arrow Curving Right",
-    type: "Symbols",
-    emoji: "↪",
-    description: "Left Arrow Curving Right"
+    "id": 1204,
+    "emoji": "💴",
+    "unicode": "U+1F4B4",
+    "name": "yen banknote"
   },
   {
-    name: "⤴ Right Arrow Curving Up",
-    type: "Symbols",
-    emoji: "⤴",
-    description: "Right Arrow Curving Up"
+    "id": 1205,
+    "emoji": "💵",
+    "unicode": "U+1F4B5",
+    "name": "dollar banknote"
   },
   {
-    name: "⤵ Right Arrow Curving Down",
-    type: "Symbols",
-    emoji: "⤵",
-    description: "Right Arrow Curving Down"
+    "id": 1206,
+    "emoji": "💶",
+    "unicode": "U+1F4B6",
+    "name": "euro banknote"
   },
   {
-    name: "🔃 Clockwise Vertical Arrows",
-    type: "Symbols",
-    emoji: "🔃",
-    description: "Clockwise Vertical Arrows"
+    "id": 1207,
+    "emoji": "💷",
+    "unicode": "U+1F4B7",
+    "name": "pound banknote"
   },
   {
-    name: "🔄 Counterclockwise Arrows Button",
-    type: "Symbols",
-    emoji: "🔄",
-    description: "Counterclockwise Arrows Button"
+    "id": 1208,
+    "emoji": "💸",
+    "unicode": "U+1F4B8",
+    "name": "money with wings"
   },
   {
-    name: "🔙 Back Arrow",
-    type: "Symbols",
-    emoji: "🔙",
-    description: "Back Arrow"
+    "id": 1209,
+    "emoji": "💳",
+    "unicode": "U+1F4B3",
+    "name": "credit card"
   },
   {
-    name: "🔚 End Arrow",
-    type: "Symbols",
-    emoji: "🔚",
-    description: "End Arrow"
+    "id": 1210,
+    "emoji": "🧾",
+    "unicode": "U+1F9FE",
+    "name": "receipt"
   },
   {
-    name: "🔛 On! Arrow",
-    type: "Symbols",
-    emoji: "🔛",
-    description: "On! Arrow"
+    "id": 1211,
+    "emoji": "💹",
+    "unicode": "U+1F4B9",
+    "name": "chart increasing with yen"
   },
   {
-    name: "🔜 Soon Arrow",
-    type: "Symbols",
-    emoji: "🔜",
-    description: "Soon Arrow"
+    "id": 1212,
+    "emoji": "✉",
+    "unicode": "U+2709",
+    "name": "envelope"
   },
   {
-    name: "🔝 Top Arrow",
-    type: "Symbols",
-    emoji: "🔝",
-    description: "Top Arrow"
+    "id": 1213,
+    "emoji": "📧",
+    "unicode": "U+1F4E7",
+    "name": "e-mail"
   },
   {
-    name: "🛐 Place of Worship",
-    type: "Symbols",
-    emoji: "🛐",
-    description: "Place of Worship"
+    "id": 1214,
+    "emoji": "📨",
+    "unicode": "U+1F4E8",
+    "name": "incoming envelope"
   },
   {
-    name: "⚛ Atom Symbol",
-    type: "Symbols",
-    emoji: "⚛",
-    description: "Atom Symbol"
+    "id": 1215,
+    "emoji": "📩",
+    "unicode": "U+1F4E9",
+    "name": "envelope with arrow"
   },
   {
-    name: "♾ Infinity",
-    type: "Symbols",
-    emoji: "♾",
-    description: "Infinity"
+    "id": 1216,
+    "emoji": "📤",
+    "unicode": "U+1F4E4",
+    "name": "outbox tray"
   },
   {
-    name: "🕉 Om",
-    type: "Symbols",
-    emoji: "🕉",
-    description: "Om"
+    "id": 1217,
+    "emoji": "📥",
+    "unicode": "U+1F4E5",
+    "name": "inbox tray"
   },
   {
-    name: "✡ Star of David",
-    type: "Symbols",
-    emoji: "✡",
-    description: "Star of David"
+    "id": 1218,
+    "emoji": "📦",
+    "unicode": "U+1F4E6",
+    "name": "package"
   },
   {
-    name: "☸ Wheel of Dharma",
-    type: "Symbols",
-    emoji: "☸",
-    description: "Wheel of Dharma"
+    "id": 1219,
+    "emoji": "📫",
+    "unicode": "U+1F4EB",
+    "name": "closed mailbox with raised flag"
   },
   {
-    name: "☯ Yin Yang",
-    type: "Symbols",
-    emoji: "☯",
-    description: "Yin Yang"
+    "id": 1220,
+    "emoji": "📪",
+    "unicode": "U+1F4EA",
+    "name": "closed mailbox with lowered flag"
   },
   {
-    name: "✝ Latin Cross",
-    type: "Symbols",
-    emoji: "✝",
-    description: "Latin Cross"
+    "id": 1221,
+    "emoji": "📬",
+    "unicode": "U+1F4EC",
+    "name": "open mailbox with raised flag"
   },
   {
-    name: "☦ Orthodox Cross",
-    type: "Symbols",
-    emoji: "☦",
-    description: "Orthodox Cross"
+    "id": 1222,
+    "emoji": "📭",
+    "unicode": "U+1F4ED",
+    "name": "open mailbox with lowered flag"
   },
   {
-    name: "☪ Star and Crescent",
-    type: "Symbols",
-    emoji: "☪",
-    description: "Star and Crescent"
+    "id": 1223,
+    "emoji": "📮",
+    "unicode": "U+1F4EE",
+    "name": "postbox"
   },
   {
-    name: "☮ Peace Symbol",
-    type: "Symbols",
-    emoji: "☮",
-    description: "Peace Symbol"
+    "id": 1224,
+    "emoji": "🗳",
+    "unicode": "U+1F5F3",
+    "name": "ballot box with ballot"
   },
   {
-    name: "🕎 Menorah",
-    type: "Symbols",
-    emoji: "🕎",
-    description: "Menorah"
+    "id": 1225,
+    "emoji": "✏",
+    "unicode": "U+270F",
+    "name": "pencil"
   },
   {
-    name: "🔯 Dotted Six-Pointed Star",
-    type: "Symbols",
-    emoji: "🔯",
-    description: "Dotted Six-Pointed Star"
+    "id": 1226,
+    "emoji": "✒",
+    "unicode": "U+2712",
+    "name": "black nib"
   },
   {
-    name: "♈ Aries",
-    type: "Symbols",
-    emoji: "♈",
-    description: "Aries"
+    "id": 1227,
+    "emoji": "🖋",
+    "unicode": "U+1F58B",
+    "name": "fountain pen"
   },
   {
-    name: "♉ Taurus",
-    type: "Symbols",
-    emoji: "♉",
-    description: "Taurus"
+    "id": 1228,
+    "emoji": "🖊",
+    "unicode": "U+1F58A",
+    "name": "pen"
   },
   {
-    name: "♊ Gemini",
-    type: "Symbols",
-    emoji: "♊",
-    description: "Gemini"
+    "id": 1229,
+    "emoji": "🖌",
+    "unicode": "U+1F58C",
+    "name": "paintbrush"
   },
   {
-    name: "♋ Cancer",
-    type: "Symbols",
-    emoji: "♋",
-    description: "Cancer"
+    "id": 1230,
+    "emoji": "🖍",
+    "unicode": "U+1F58D",
+    "name": "crayon"
   },
   {
-    name: "♌ Leo",
-    type: "Symbols",
-    emoji: "♌",
-    description: "Leo"
+    "id": 1231,
+    "emoji": "📝",
+    "unicode": "U+1F4DD",
+    "name": "memo"
   },
   {
-    name: "♍ Virgo",
-    type: "Symbols",
-    emoji: "♍",
-    description: "Virgo"
+    "id": 1232,
+    "emoji": "💼",
+    "unicode": "U+1F4BC",
+    "name": "briefcase"
   },
   {
-    name: "♎ Libra",
-    type: "Symbols",
-    emoji: "♎",
-    description: "Libra"
+    "id": 1233,
+    "emoji": "📁",
+    "unicode": "U+1F4C1",
+    "name": "file folder"
   },
   {
-    name: "♏ Scorpio",
-    type: "Symbols",
-    emoji: "♏",
-    description: "Scorpio"
+    "id": 1234,
+    "emoji": "📂",
+    "unicode": "U+1F4C2",
+    "name": "open file folder"
   },
   {
-    name: "♐ Sagittarius",
-    type: "Symbols",
-    emoji: "♐",
-    description: "Sagittarius"
+    "id": 1235,
+    "emoji": "🗂",
+    "unicode": "U+1F5C2",
+    "name": "card index dividers"
   },
   {
-    name: "♑ Capricorn",
-    type: "Symbols",
-    emoji: "♑",
-    description: "Capricorn"
+    "id": 1236,
+    "emoji": "📅",
+    "unicode": "U+1F4C5",
+    "name": "calendar"
   },
   {
-    name: "♒ Aquarius",
-    type: "Symbols",
-    emoji: "♒",
-    description: "Aquarius"
+    "id": 1237,
+    "emoji": "📆",
+    "unicode": "U+1F4C6",
+    "name": "tear-off calendar"
   },
   {
-    name: "♓ Pisces",
-    type: "Symbols",
-    emoji: "♓",
-    description: "Pisces"
+    "id": 1238,
+    "emoji": "🗒",
+    "unicode": "U+1F5D2",
+    "name": "spiral notepad"
   },
   {
-    name: "⛎ Ophiuchus",
-    type: "Symbols",
-    emoji: "⛎",
-    description: "Ophiuchus"
+    "id": 1239,
+    "emoji": "🗓",
+    "unicode": "U+1F5D3",
+    "name": "spiral calendar"
   },
   {
-    name: "🔀 Shuffle Tracks Button",
-    type: "Symbols",
-    emoji: "🔀",
-    description: "Shuffle Tracks Button"
+    "id": 1240,
+    "emoji": "📇",
+    "unicode": "U+1F4C7",
+    "name": "card index"
   },
   {
-    name: "🔁 Repeat Button",
-    type: "Symbols",
-    emoji: "🔁",
-    description: "Repeat Button"
+    "id": 1241,
+    "emoji": "📈",
+    "unicode": "U+1F4C8",
+    "name": "chart increasing"
   },
   {
-    name: "🔂 Repeat Single Button",
-    type: "Symbols",
-    emoji: "🔂",
-    description: "Repeat Single Button"
+    "id": 1242,
+    "emoji": "📉",
+    "unicode": "U+1F4C9",
+    "name": "chart decreasing"
   },
   {
-    name: "▶ Play Button",
-    type: "Symbols",
-    emoji: "▶",
-    description: "Play Button"
+    "id": 1243,
+    "emoji": "📊",
+    "unicode": "U+1F4CA",
+    "name": "bar chart"
   },
   {
-    name: "⏩ Fast-Forward Button",
-    type: "Symbols",
-    emoji: "⏩",
-    description: "Fast-Forward Button"
+    "id": 1244,
+    "emoji": "📋",
+    "unicode": "U+1F4CB",
+    "name": "clipboard"
   },
   {
-    name: "◀ Reverse Button",
-    type: "Symbols",
-    emoji: "◀",
-    description: "Reverse Button"
+    "id": 1245,
+    "emoji": "📌",
+    "unicode": "U+1F4CC",
+    "name": "pushpin"
   },
   {
-    name: "⏪ Fast Reverse Button",
-    type: "Symbols",
-    emoji: "⏪",
-    description: "Fast Reverse Button"
+    "id": 1246,
+    "emoji": "📍",
+    "unicode": "U+1F4CD",
+    "name": "round pushpin"
   },
   {
-    name: "🔼 Upwards Button",
-    type: "Symbols",
-    emoji: "🔼",
-    description: "Upwards Button"
+    "id": 1247,
+    "emoji": "📎",
+    "unicode": "U+1F4CE",
+    "name": "paperclip"
   },
   {
-    name: "⏫ Fast Up Button",
-    type: "Symbols",
-    emoji: "⏫",
-    description: "Fast Up Button"
+    "id": 1248,
+    "emoji": "🖇",
+    "unicode": "U+1F587",
+    "name": "linked paperclips"
   },
   {
-    name: "🔽 Downwards Button",
-    type: "Symbols",
-    emoji: "🔽",
-    description: "Downwards Button"
+    "id": 1249,
+    "emoji": "📏",
+    "unicode": "U+1F4CF",
+    "name": "straight ruler"
   },
   {
-    name: "⏬ Fast Down Button",
-    type: "Symbols",
-    emoji: "⏬",
-    description: "Fast Down Button"
+    "id": 1250,
+    "emoji": "📐",
+    "unicode": "U+1F4D0",
+    "name": "triangular ruler"
   },
   {
-    name: "⏹ Stop Button",
-    type: "Symbols",
-    emoji: "⏹",
-    description: "Stop Button"
+    "id": 1251,
+    "emoji": "✂",
+    "unicode": "U+2702",
+    "name": "scissors"
   },
   {
-    name: "⏏ Eject Button",
-    type: "Symbols",
-    emoji: "⏏",
-    description: "Eject Button"
+    "id": 1252,
+    "emoji": "🗃",
+    "unicode": "U+1F5C3",
+    "name": "card file box"
   },
   {
-    name: "🎦 Cinema",
-    type: "Symbols",
-    emoji: "🎦",
-    description: "Cinema"
+    "id": 1253,
+    "emoji": "🗄",
+    "unicode": "U+1F5C4",
+    "name": "file cabinet"
   },
   {
-    name: "🔅 Dim Button",
-    type: "Symbols",
-    emoji: "🔅",
-    description: "Dim Button"
+    "id": 1254,
+    "emoji": "🗑",
+    "unicode": "U+1F5D1",
+    "name": "wastebasket"
   },
   {
-    name: "🔆 Bright Button",
-    type: "Symbols",
-    emoji: "🔆",
-    description: "Bright Button"
+    "id": 1255,
+    "emoji": "🔒",
+    "unicode": "U+1F512",
+    "name": "locked"
   },
   {
-    name: "📶 Antenna Bars",
-    type: "Symbols",
-    emoji: "📶",
-    description: "Antenna Bars"
+    "id": 1256,
+    "emoji": "🔓",
+    "unicode": "U+1F513",
+    "name": "unlocked"
   },
   {
-    name: "📳 Vibration Mode",
-    type: "Symbols",
-    emoji: "📳",
-    description: "Vibration Mode"
+    "id": 1257,
+    "emoji": "🔏",
+    "unicode": "U+1F50F",
+    "name": "locked with pen"
   },
   {
-    name: "📴 Mobile Phone Off",
-    type: "Symbols",
-    emoji: "📴",
-    description: "Mobile Phone Off"
+    "id": 1258,
+    "emoji": "🔐",
+    "unicode": "U+1F510",
+    "name": "locked with key"
   },
   {
-    name: "♻ Recycling Symbol",
-    type: "Symbols",
-    emoji: "♻",
-    description: "Recycling Symbol"
+    "id": 1259,
+    "emoji": "🔑",
+    "unicode": "U+1F511",
+    "name": "key"
   },
   {
-    name: "🔱 Trident Emblem",
-    type: "Symbols",
-    emoji: "🔱",
-    description: "Trident Emblem"
+    "id": 1260,
+    "emoji": "🗝",
+    "unicode": "U+1F5DD",
+    "name": "old key"
   },
   {
-    name: "📛 Name Badge",
-    type: "Symbols",
-    emoji: "📛",
-    description: "Name Badge"
+    "id": 1261,
+    "emoji": "🔨",
+    "unicode": "U+1F528",
+    "name": "hammer"
   },
   {
-    name: "🔰 Japanese Symbol for Beginner",
-    type: "Symbols",
-    emoji: "🔰",
-    description: "Japanese Symbol for Beginner"
+    "id": 1262,
+    "emoji": "🪓",
+    "unicode": "U+1FA93",
+    "name": "axe"
   },
   {
-    name: "⭕ Heavy Large Circle",
-    type: "Symbols",
-    emoji: "⭕",
-    description: "Heavy Large Circle"
+    "id": 1263,
+    "emoji": "⛏",
+    "unicode": "U+26CF",
+    "name": "pick"
   },
   {
-    name: "✅ White Heavy Check Mark",
-    type: "Symbols",
-    emoji: "✅",
-    description: "White Heavy Check Mark"
+    "id": 1264,
+    "emoji": "⚒",
+    "unicode": "U+2692",
+    "name": "hammer and pick"
   },
   {
-    name: "☑ Ballot Box With Check",
-    type: "Symbols",
-    emoji: "☑",
-    description: "Ballot Box With Check"
+    "id": 1265,
+    "emoji": "🛠",
+    "unicode": "U+1F6E0",
+    "name": "hammer and wrench"
   },
   {
-    name: "✔ Heavy Check Mark",
-    type: "Symbols",
-    emoji: "✔",
-    description: "Heavy Check Mark"
+    "id": 1266,
+    "emoji": "🗡",
+    "unicode": "U+1F5E1",
+    "name": "dagger"
   },
   {
-    name: "✖ Heavy Multiplication X",
-    type: "Symbols",
-    emoji: "✖",
-    description: "Heavy Multiplication X"
+    "id": 1267,
+    "emoji": "⚔",
+    "unicode": "U+2694",
+    "name": "crossed swords"
   },
   {
-    name: "❌ Cross Mark",
-    type: "Symbols",
-    emoji: "❌",
-    description: "Cross Mark"
+    "id": 1268,
+    "emoji": "🔫",
+    "unicode": "U+1F52B",
+    "name": "water pistol"
   },
   {
-    name: "❎ Cross Mark Button",
-    type: "Symbols",
-    emoji: "❎",
-    description: "Cross Mark Button"
+    "id": 1269,
+    "emoji": "🪃",
+    "unicode": "U+1FA83",
+    "name": "boomerang"
   },
   {
-    name: "➕ Heavy Plus Sign",
-    type: "Symbols",
-    emoji: "➕",
-    description: "Heavy Plus Sign"
+    "id": 1270,
+    "emoji": "🏹",
+    "unicode": "U+1F3F9",
+    "name": "bow and arrow"
   },
   {
-    name: "➖ Heavy Minus Sign",
-    type: "Symbols",
-    emoji: "➖",
-    description: "Heavy Minus Sign"
+    "id": 1271,
+    "emoji": "🛡",
+    "unicode": "U+1F6E1",
+    "name": "shield"
   },
   {
-    name: "➗ Heavy Division Sign",
-    type: "Symbols",
-    emoji: "➗",
-    description: "Heavy Division Sign"
+    "id": 1272,
+    "emoji": "🪚",
+    "unicode": "U+1FA9A",
+    "name": "carpentry saw"
   },
   {
-    name: "➰ Curly Loop",
-    type: "Symbols",
-    emoji: "➰",
-    description: "Curly Loop"
+    "id": 1273,
+    "emoji": "🔧",
+    "unicode": "U+1F527",
+    "name": "wrench"
   },
   {
-    name: "➿ Double Curly Loop",
-    type: "Symbols",
-    emoji: "➿",
-    description: "Double Curly Loop"
+    "id": 1274,
+    "emoji": "🪛",
+    "unicode": "U+1FA9B",
+    "name": "screwdriver"
   },
   {
-    name: "〽 Part Alternation Mark",
-    type: "Symbols",
-    emoji: "〽",
-    description: "Part Alternation Mark"
+    "id": 1275,
+    "emoji": "🔩",
+    "unicode": "U+1F529",
+    "name": "nut and bolt"
   },
   {
-    name: "✳ Eight-Spoked Asterisk",
-    type: "Symbols",
-    emoji: "✳",
-    description: "Eight-Spoked Asterisk"
+    "id": 1276,
+    "emoji": "⚙",
+    "unicode": "U+2699",
+    "name": "gear"
   },
   {
-    name: "✴ Eight-Pointed Star",
-    type: "Symbols",
-    emoji: "✴",
-    description: "Eight-Pointed Star"
+    "id": 1277,
+    "emoji": "🗜",
+    "unicode": "U+1F5DC",
+    "name": "clamp"
   },
   {
-    name: "❇ Sparkle",
-    type: "Symbols",
-    emoji: "❇",
-    description: "Sparkle"
+    "id": 1278,
+    "emoji": "⚖",
+    "unicode": "U+2696",
+    "name": "balance scale"
   },
   {
-    name: "‼ Double Exclamation Mark",
-    type: "Symbols",
-    emoji: "‼",
-    description: "Double Exclamation Mark"
+    "id": 1279,
+    "emoji": "🦯",
+    "unicode": "U+1F9AF",
+    "name": "white cane"
   },
   {
-    name: "⁉ Exclamation Question Mark",
-    type: "Symbols",
-    emoji: "⁉",
-    description: "Exclamation Question Mark"
+    "id": 1280,
+    "emoji": "🔗",
+    "unicode": "U+1F517",
+    "name": "link"
   },
   {
-    name: "❓ Question Mark",
-    type: "Symbols",
-    emoji: "❓",
-    description: "Question Mark"
+    "id": 1281,
+    "emoji": "⛓",
+    "unicode": "U+26D3",
+    "name": "chains"
   },
   {
-    name: "❔ White Question Mark",
-    type: "Symbols",
-    emoji: "❔",
-    description: "White Question Mark"
+    "id": 1282,
+    "emoji": "🪝",
+    "unicode": "U+1FA9D",
+    "name": "hook"
   },
   {
-    name: "❕ White Exclamation Mark",
-    type: "Symbols",
-    emoji: "❕",
-    description: "White Exclamation Mark"
+    "id": 1283,
+    "emoji": "🧰",
+    "unicode": "U+1F9F0",
+    "name": "toolbox"
   },
   {
-    name: "❗ Exclamation Mark",
-    type: "Symbols",
-    emoji: "❗",
-    description: "Exclamation Mark"
+    "id": 1284,
+    "emoji": "🧲",
+    "unicode": "U+1F9F2",
+    "name": "magnet"
   },
   {
-    name: "© Copyright",
-    type: "Symbols",
-    emoji: "©",
-    description: "Copyright"
+    "id": 1285,
+    "emoji": "🪜",
+    "unicode": "U+1FA9C",
+    "name": "ladder"
   },
   {
-    name: "® Registered",
-    type: "Symbols",
-    emoji: "®",
-    description: "Registered"
+    "id": 1286,
+    "emoji": "⚗",
+    "unicode": "U+2697",
+    "name": "alembic"
   },
   {
-    name: "™ Trade Mark",
-    type: "Symbols",
-    emoji: "™",
-    description: "Trade Mark"
+    "id": 1287,
+    "emoji": "🧪",
+    "unicode": "U+1F9EA",
+    "name": "test tube"
   },
   {
-    name: "#️⃣ Keycap Number Sign",
-    type: "Symbols",
-    emoji: "#️⃣",
-    description: "Keycap Number Sign"
+    "id": 1288,
+    "emoji": "🧫",
+    "unicode": "U+1F9EB",
+    "name": "petri dish"
   },
   {
-    name: "0️⃣ Keycap Digit Zero",
-    type: "Symbols",
-    emoji: "0️⃣",
-    description: "Keycap Digit Zero"
+    "id": 1289,
+    "emoji": "🧬",
+    "unicode": "U+1F9EC",
+    "name": "dna"
   },
   {
-    name: "1️⃣ Keycap Digit One",
-    type: "Symbols",
-    emoji: "1️⃣",
-    description: "Keycap Digit One"
+    "id": 1290,
+    "emoji": "🔬",
+    "unicode": "U+1F52C",
+    "name": "microscope"
   },
   {
-    name: "2️⃣ Keycap Digit Two",
-    type: "Symbols",
-    emoji: "2️⃣",
-    description: "Keycap Digit Two"
+    "id": 1291,
+    "emoji": "🔭",
+    "unicode": "U+1F52D",
+    "name": "telescope"
   },
   {
-    name: "3️⃣ Keycap Digit Three",
-    type: "Symbols",
-    emoji: "3️⃣",
-    description: "Keycap Digit Three"
+    "id": 1292,
+    "emoji": "📡",
+    "unicode": "U+1F4E1",
+    "name": "satellite antenna"
   },
   {
-    name: "4️⃣ Keycap Digit Four",
-    type: "Symbols",
-    emoji: "4️⃣",
-    description: "Keycap Digit Four"
+    "id": 1293,
+    "emoji": "💉",
+    "unicode": "U+1F489",
+    "name": "syringe"
   },
   {
-    name: "5️⃣ Keycap Digit Five",
-    type: "Symbols",
-    emoji: "5️⃣",
-    description: "Keycap Digit Five"
+    "id": 1294,
+    "emoji": "🩸",
+    "unicode": "U+1FA78",
+    "name": "drop of blood"
   },
   {
-    name: "6️⃣ Keycap Digit Six",
-    type: "Symbols",
-    emoji: "6️⃣",
-    description: "Keycap Digit Six"
+    "id": 1295,
+    "emoji": "💊",
+    "unicode": "U+1F48A",
+    "name": "pill"
   },
   {
-    name: "7️⃣ Keycap Digit Seven",
-    type: "Symbols",
-    emoji: "7️⃣",
-    description: "Keycap Digit Seven"
+    "id": 1296,
+    "emoji": "🩹",
+    "unicode": "U+1FA79",
+    "name": "adhesive bandage"
   },
   {
-    name: "8️⃣ Keycap Digit Eight",
-    type: "Symbols",
-    emoji: "8️⃣",
-    description: "Keycap Digit Eight"
+    "id": 1297,
+    "emoji": "🩺",
+    "unicode": "U+1FA7A",
+    "name": "stethoscope"
   },
   {
-    name: "9️⃣ Keycap Digit Nine",
-    type: "Symbols",
-    emoji: "9️⃣",
-    description: "Keycap Digit Nine"
+    "id": 1298,
+    "emoji": "🚪",
+    "unicode": "U+1F6AA",
+    "name": "door"
   },
   {
-    name: "🔟 Keycap: 10",
-    type: "Symbols",
-    emoji: "🔟",
-    description: "Keycap: 10"
+    "id": 1299,
+    "emoji": "🛗",
+    "unicode": "U+1F6D7",
+    "name": "elevator"
   },
   {
-    name: "💯 Hundred Points",
-    type: "Symbols",
-    emoji: "💯",
-    description: "Hundred Points"
+    "id": 1300,
+    "emoji": "🪞",
+    "unicode": "U+1FA9E",
+    "name": "mirror"
   },
   {
-    name: "🔠 Input Latin Uppercase",
-    type: "Symbols",
-    emoji: "🔠",
-    description: "Input Latin Uppercase"
+    "id": 1301,
+    "emoji": "🪟",
+    "unicode": "U+1FA9F",
+    "name": "window"
   },
   {
-    name: "🔡 Input Latin Lowercase",
-    type: "Symbols",
-    emoji: "🔡",
-    description: "Input Latin Lowercase"
+    "id": 1302,
+    "emoji": "🛏",
+    "unicode": "U+1F6CF",
+    "name": "bed"
   },
   {
-    name: "🔢 Input Numbers",
-    type: "Symbols",
-    emoji: "🔢",
-    description: "Input Numbers"
+    "id": 1303,
+    "emoji": "🛋",
+    "unicode": "U+1F6CB",
+    "name": "couch and lamp"
   },
   {
-    name: "🔣 Input Symbols",
-    type: "Symbols",
-    emoji: "🔣",
-    description: "Input Symbols"
+    "id": 1304,
+    "emoji": "🪑",
+    "unicode": "U+1FA91",
+    "name": "chair"
   },
   {
-    name: "🔤 Input Latin Letters",
-    type: "Symbols",
-    emoji: "🔤",
-    description: "Input Latin Letters"
+    "id": 1305,
+    "emoji": "🚽",
+    "unicode": "U+1F6BD",
+    "name": "toilet"
   },
   {
-    name: "🅰 A Button (Blood Type)",
-    type: "Symbols",
-    emoji: "🅰",
-    description: "A Button (Blood Type)"
+    "id": 1306,
+    "emoji": "🪠",
+    "unicode": "U+1FAA0",
+    "name": "plunger"
   },
   {
-    name: "🆎 Ab Button (Blood Type)",
-    type: "Symbols",
-    emoji: "🆎",
-    description: "Ab Button (Blood Type)"
+    "id": 1307,
+    "emoji": "🚿",
+    "unicode": "U+1F6BF",
+    "name": "shower"
   },
   {
-    name: "🅱 B Button (Blood Type)",
-    type: "Symbols",
-    emoji: "🅱",
-    description: "B Button (Blood Type)"
+    "id": 1308,
+    "emoji": "🛁",
+    "unicode": "U+1F6C1",
+    "name": "bathtub"
   },
   {
-    name: "🆑 CL Button",
-    type: "Symbols",
-    emoji: "🆑",
-    description: "CL Button"
+    "id": 1309,
+    "emoji": "🪤",
+    "unicode": "U+1FAA4",
+    "name": "mouse trap"
   },
   {
-    name: "🆒 Cool Button",
-    type: "Symbols",
-    emoji: "🆒",
-    description: "Cool Button"
+    "id": 1310,
+    "emoji": "🪒",
+    "unicode": "U+1FA92",
+    "name": "razor"
   },
   {
-    name: "🆓 Free Button",
-    type: "Symbols",
-    emoji: "🆓",
-    description: "Free Button"
+    "id": 1311,
+    "emoji": "🧴",
+    "unicode": "U+1F9F4",
+    "name": "lotion bottle"
   },
   {
-    name: "ℹ Information",
-    type: "Symbols",
-    emoji: "ℹ",
-    description: "Information"
+    "id": 1312,
+    "emoji": "🧷",
+    "unicode": "U+1F9F7",
+    "name": "safety pin"
   },
   {
-    name: "🆔 ID Button",
-    type: "Symbols",
-    emoji: "🆔",
-    description: "ID Button"
+    "id": 1313,
+    "emoji": "🧹",
+    "unicode": "U+1F9F9",
+    "name": "broom"
   },
   {
-    name: "Ⓜ Circled M",
-    type: "Symbols",
-    emoji: "Ⓜ",
-    description: "Circled M"
+    "id": 1314,
+    "emoji": "🧺",
+    "unicode": "U+1F9FA",
+    "name": "basket"
   },
   {
-    name: "🆕 New Button",
-    type: "Symbols",
-    emoji: "🆕",
-    description: "New Button"
+    "id": 1315,
+    "emoji": "🧻",
+    "unicode": "U+1F9FB",
+    "name": "roll of paper"
   },
   {
-    name: "🆖 NG Button",
-    type: "Symbols",
-    emoji: "🆖",
-    description: "NG Button"
+    "id": 1316,
+    "emoji": "🪣",
+    "unicode": "U+1FAA3",
+    "name": "bucket"
   },
   {
-    name: "🅾 O Button (Blood Type)",
-    type: "Symbols",
-    emoji: "🅾",
-    description: "O Button (Blood Type)"
+    "id": 1317,
+    "emoji": "🧼",
+    "unicode": "U+1F9FC",
+    "name": "soap"
   },
   {
-    name: "🆗 OK Button",
-    type: "Symbols",
-    emoji: "🆗",
-    description: "OK Button"
+    "id": 1318,
+    "emoji": "🪥",
+    "unicode": "U+1FAA5",
+    "name": "toothbrush"
   },
   {
-    name: "🅿 P Button",
-    type: "Symbols",
-    emoji: "🅿",
-    description: "P Button"
+    "id": 1319,
+    "emoji": "🧽",
+    "unicode": "U+1F9FD",
+    "name": "sponge"
   },
   {
-    name: "🆘 SOS Button",
-    type: "Symbols",
-    emoji: "🆘",
-    description: "SOS Button"
+    "id": 1320,
+    "emoji": "🧯",
+    "unicode": "U+1F9EF",
+    "name": "fire extinguisher"
   },
   {
-    name: "🆙 Up! Button",
-    type: "Symbols",
-    emoji: "🆙",
-    description: "Up! Button"
+    "id": 1321,
+    "emoji": "🛒",
+    "unicode": "U+1F6D2",
+    "name": "shopping cart"
   },
   {
-    name: "🆚 Vs Button",
-    type: "Symbols",
-    emoji: "🆚",
-    description: "Vs Button"
+    "id": 1322,
+    "emoji": "🚬",
+    "unicode": "U+1F6AC",
+    "name": "cigarette"
   },
   {
-    name: "🈁 Japanese “Here” Button",
-    type: "Symbols",
-    emoji: "🈁",
-    description: "Japanese “Here” Button"
+    "id": 1323,
+    "emoji": "⚰",
+    "unicode": "U+26B0",
+    "name": "coffin"
   },
   {
-    name: "🈂 Japanese “Service Charge” Button",
-    type: "Symbols",
-    emoji: "🈂",
-    description: "Japanese “Service Charge” Button"
+    "id": 1324,
+    "emoji": "🪦",
+    "unicode": "U+1FAA6",
+    "name": "headstone"
   },
   {
-    name: "🈷 Japanese “Monthly Amount” Button",
-    type: "Symbols",
-    emoji: "🈷",
-    description: "Japanese “Monthly Amount” Button"
+    "id": 1325,
+    "emoji": "⚱",
+    "unicode": "U+26B1",
+    "name": "funeral urn"
   },
   {
-    name: "🈶 Japanese “Not Free of Charge” Button",
-    type: "Symbols",
-    emoji: "🈶",
-    description: "Japanese “Not Free of Charge” Button"
+    "id": 1326,
+    "emoji": "🗿",
+    "unicode": "U+1F5FF",
+    "name": "moai"
   },
   {
-    name: "🈯 Japanese “Reserved” Button",
-    type: "Symbols",
-    emoji: "🈯",
-    description: "Japanese “Reserved” Button"
+    "id": 1327,
+    "emoji": "🪧",
+    "unicode": "U+1FAA7",
+    "name": "placard"
   },
   {
-    name: "🉐 Japanese “Bargain” Button",
-    type: "Symbols",
-    emoji: "🉐",
-    description: "Japanese “Bargain” Button"
+    "id": 1328,
+    "emoji": "🏧",
+    "unicode": "U+1F3E7",
+    "name": "ATM sign"
   },
   {
-    name: "🈹 Japanese “Discount” Button",
-    type: "Symbols",
-    emoji: "🈹",
-    description: "Japanese “Discount” Button"
+    "id": 1329,
+    "emoji": "🚮",
+    "unicode": "U+1F6AE",
+    "name": "litter in bin sign"
   },
   {
-    name: "🈚 Japanese “Free of Charge” Button",
-    type: "Symbols",
-    emoji: "🈚",
-    description: "Japanese “Free of Charge” Button"
+    "id": 1330,
+    "emoji": "🚰",
+    "unicode": "U+1F6B0",
+    "name": "potable water"
   },
   {
-    name: "🈲 Japanese “Prohibited” Button",
-    type: "Symbols",
-    emoji: "🈲",
-    description: "Japanese “Prohibited” Button"
+    "id": 1331,
+    "emoji": "♿",
+    "unicode": "U+267F",
+    "name": "wheelchair symbol"
   },
   {
-    name: "🉑 Japanese “Acceptable” Button",
-    type: "Symbols",
-    emoji: "🉑",
-    description: "Japanese “Acceptable” Button"
+    "id": 1332,
+    "emoji": "🚹",
+    "unicode": "U+1F6B9",
+    "name": "men’s room"
   },
   {
-    name: "🈸 Japanese “Application” Button",
-    type: "Symbols",
-    emoji: "🈸",
-    description: "Japanese “Application” Button"
+    "id": 1333,
+    "emoji": "🚺",
+    "unicode": "U+1F6BA",
+    "name": "women’s room"
   },
   {
-    name: "🈴 Japanese “Passing Grade” Button",
-    type: "Symbols",
-    emoji: "🈴",
-    description: "Japanese “Passing Grade” Button"
+    "id": 1334,
+    "emoji": "🚻",
+    "unicode": "U+1F6BB",
+    "name": "restroom"
   },
   {
-    name: "🈳 Japanese “Vacancy” Button",
-    type: "Symbols",
-    emoji: "🈳",
-    description: "Japanese “Vacancy” Button"
+    "id": 1335,
+    "emoji": "🚼",
+    "unicode": "U+1F6BC",
+    "name": "baby symbol"
   },
   {
-    name: "㊗ Japanese “Congratulations” Button",
-    type: "Symbols",
-    emoji: "㊗",
-    description: "Japanese “Congratulations” Button"
+    "id": 1336,
+    "emoji": "🚾",
+    "unicode": "U+1F6BE",
+    "name": "water closet"
   },
   {
-    name: "㊙ Japanese “Secret” Button",
-    type: "Symbols",
-    emoji: "㊙",
-    description: "Japanese “Secret” Button"
+    "id": 1337,
+    "emoji": "🛂",
+    "unicode": "U+1F6C2",
+    "name": "passport control"
   },
   {
-    name: "🈺 Japanese “Open for Business” Button",
-    type: "Symbols",
-    emoji: "🈺",
-    description: "Japanese “Open for Business” Button"
+    "id": 1338,
+    "emoji": "🛃",
+    "unicode": "U+1F6C3",
+    "name": "customs"
   },
   {
-    name: "🈵 Japanese “No Vacancy” Button",
-    type: "Symbols",
-    emoji: "🈵",
-    description: "Japanese “No Vacancy” Button"
+    "id": 1339,
+    "emoji": "🛄",
+    "unicode": "U+1F6C4",
+    "name": "baggage claim"
   },
   {
-    name: "▪ Black Small Square",
-    type: "Symbols",
-    emoji: "▪",
-    description: "Black Small Square"
+    "id": 1340,
+    "emoji": "🛅",
+    "unicode": "U+1F6C5",
+    "name": "left luggage"
   },
   {
-    name: "▫ White Small Square",
-    type: "Symbols",
-    emoji: "▫",
-    description: "White Small Square"
+    "id": 1341,
+    "emoji": "⚠",
+    "unicode": "U+26A0",
+    "name": "warning"
   },
   {
-    name: "◻ White Medium Square",
-    type: "Symbols",
-    emoji: "◻",
-    description: "White Medium Square"
+    "id": 1342,
+    "emoji": "🚸",
+    "unicode": "U+1F6B8",
+    "name": "children crossing"
   },
   {
-    name: "◼ Black Medium Square",
-    type: "Symbols",
-    emoji: "◼",
-    description: "Black Medium Square"
+    "id": 1343,
+    "emoji": "⛔",
+    "unicode": "U+26D4",
+    "name": "no entry"
   },
   {
-    name: "◽ White Medium-Small Square",
-    type: "Symbols",
-    emoji: "◽",
-    description: "White Medium-Small Square"
+    "id": 1344,
+    "emoji": "🚫",
+    "unicode": "U+1F6AB",
+    "name": "prohibited"
   },
   {
-    name: "◾ Black Medium-Small Square",
-    type: "Symbols",
-    emoji: "◾",
-    description: "Black Medium-Small Square"
+    "id": 1345,
+    "emoji": "🚳",
+    "unicode": "U+1F6B3",
+    "name": "no bicycles"
   },
   {
-    name: "⬛ Black Large Square",
-    type: "Symbols",
-    emoji: "⬛",
-    description: "Black Large Square"
+    "id": 1346,
+    "emoji": "🚭",
+    "unicode": "U+1F6AD",
+    "name": "no smoking"
   },
   {
-    name: "⬜ White Large Square",
-    type: "Symbols",
-    emoji: "⬜",
-    description: "White Large Square"
+    "id": 1347,
+    "emoji": "🚯",
+    "unicode": "U+1F6AF",
+    "name": "no littering"
   },
   {
-    name: "🔶 Large Orange Diamond",
-    type: "Symbols",
-    emoji: "🔶",
-    description: "Large Orange Diamond"
+    "id": 1348,
+    "emoji": "🚱",
+    "unicode": "U+1F6B1",
+    "name": "non-potable water"
   },
   {
-    name: "🔷 Large Blue Diamond",
-    type: "Symbols",
-    emoji: "🔷",
-    description: "Large Blue Diamond"
+    "id": 1349,
+    "emoji": "🚷",
+    "unicode": "U+1F6B7",
+    "name": "no pedestrians"
   },
   {
-    name: "🔸 Small Orange Diamond",
-    type: "Symbols",
-    emoji: "🔸",
-    description: "Small Orange Diamond"
+    "id": 1350,
+    "emoji": "📵",
+    "unicode": "U+1F4F5",
+    "name": "no mobile phones"
   },
   {
-    name: "🔹 Small Blue Diamond",
-    type: "Symbols",
-    emoji: "🔹",
-    description: "Small Blue Diamond"
+    "id": 1351,
+    "emoji": "🔞",
+    "unicode": "U+1F51E",
+    "name": "no one under eighteen"
   },
   {
-    name: "🔺 Red Triangle Pointed Up",
-    type: "Symbols",
-    emoji: "🔺",
-    description: "Red Triangle Pointed Up"
+    "id": 1352,
+    "emoji": "☢",
+    "unicode": "U+2622",
+    "name": "radioactive"
   },
   {
-    name: "🔻 Red Triangle Pointed Down",
-    type: "Symbols",
-    emoji: "🔻",
-    description: "Red Triangle Pointed Down"
+    "id": 1353,
+    "emoji": "☣",
+    "unicode": "U+2623",
+    "name": "biohazard"
   },
   {
-    name: "💠 Diamond With a Dot",
-    type: "Symbols",
-    emoji: "💠",
-    description: "Diamond With a Dot"
+    "id": 1354,
+    "emoji": "⬆",
+    "unicode": "U+2B06",
+    "name": "up arrow"
   },
   {
-    name: "🔲 Black Square Button",
-    type: "Symbols",
-    emoji: "🔲",
-    description: "Black Square Button"
+    "id": 1355,
+    "emoji": "↗",
+    "unicode": "U+2197",
+    "name": "up-right arrow"
   },
   {
-    name: "🔳 White Square Button",
-    type: "Symbols",
-    emoji: "🔳",
-    description: "White Square Button"
+    "id": 1356,
+    "emoji": "➡",
+    "unicode": "U+27A1",
+    "name": "right arrow"
   },
   {
-    name: "⚪ White Circle",
-    type: "Symbols",
-    emoji: "⚪",
-    description: "White Circle"
+    "id": 1357,
+    "emoji": "↘",
+    "unicode": "U+2198",
+    "name": "down-right arrow"
   },
   {
-    name: "⚫ Black Circle",
-    type: "Symbols",
-    emoji: "⚫",
-    description: "Black Circle"
+    "id": 1358,
+    "emoji": "⬇",
+    "unicode": "U+2B07",
+    "name": "down arrow"
   },
   {
-    name: "🔴 Red Circle",
-    type: "Symbols",
-    emoji: "🔴",
-    description: "Red Circle"
+    "id": 1359,
+    "emoji": "↙",
+    "unicode": "U+2199",
+    "name": "down-left arrow"
   },
   {
-    name: "🔵 Blue Circle",
-    type: "Symbols",
-    emoji: "🔵",
-    description: "Blue Circle"
+    "id": 1360,
+    "emoji": "⬅",
+    "unicode": "U+2B05",
+    "name": "left arrow"
   },
   {
-    name: "🏁 Chequered Flag",
-    type: "Flags",
-    emoji: "🏁",
-    description: "Chequered Flag"
+    "id": 1361,
+    "emoji": "↖",
+    "unicode": "U+2196",
+    "name": "up-left arrow"
   },
   {
-    name: "🚩 Triangular Flag",
-    type: "Flags",
-    emoji: "🚩",
-    description: "Triangular Flag"
+    "id": 1362,
+    "emoji": "↕",
+    "unicode": "U+2195",
+    "name": "up-down arrow"
   },
   {
-    name: "🎌 Crossed Flags",
-    type: "Flags",
-    emoji: "🎌",
-    description: "Crossed Flags"
+    "id": 1363,
+    "emoji": "↔",
+    "unicode": "U+2194",
+    "name": "left-right arrow"
   },
   {
-    name: "🏴 Black Flag",
-    type: "Flags",
-    emoji: "🏴",
-    description: "Black Flag"
+    "id": 1364,
+    "emoji": "↩",
+    "unicode": "U+21A9",
+    "name": "right arrow curving left"
   },
   {
-    name: "🏳 White Flag",
-    type: "Flags",
-    emoji: "🏳",
-    description: "White Flag"
+    "id": 1365,
+    "emoji": "↪",
+    "unicode": "U+21AA",
+    "name": "left arrow curving right"
   },
   {
-    name: "🏳️‍🌈  Rainbow Flag",
-    type: "Flags",
-    emoji: "🏳️‍🌈",
-    description: "Rainbow Flag"
+    "id": 1366,
+    "emoji": "⤴",
+    "unicode": "U+2934",
+    "name": "right arrow curving up"
   },
   {
-    name: "🏴‍☠️ Pirate Flag",
-    type: "Flags",
-    emoji: "🏴‍☠️",
-    description: "Pirate Flag"
+    "id": 1367,
+    "emoji": "⤵",
+    "unicode": "U+2935",
+    "name": "right arrow curving down"
   },
   {
-    name: "🇦🇨 Flag: Ascension Island",
-    type: "Flags",
-    emoji: "🇦🇨",
-    description: "Flag: Ascension Island"
+    "id": 1368,
+    "emoji": "🔃",
+    "unicode": "U+1F503",
+    "name": "clockwise vertical arrows"
   },
   {
-    name: "🇦🇩 Flag: Andorra",
-    type: "Flags",
-    emoji: "🇦🇩",
-    description: "Flag: Andorra"
+    "id": 1369,
+    "emoji": "🔄",
+    "unicode": "U+1F504",
+    "name": "counterclockwise arrows button"
   },
   {
-    name: "🇦🇪 Flag: United Arab Emirates",
-    type: "Flags",
-    emoji: "🇦🇪",
-    description: "Flag: United Arab Emirates"
+    "id": 1370,
+    "emoji": "🔙",
+    "unicode": "U+1F519",
+    "name": "BACK arrow"
   },
   {
-    name: "🇦🇫 Flag: Afghanistan",
-    type: "Flags",
-    emoji: "🇦🇫",
-    description: "Flag: Afghanistan"
+    "id": 1371,
+    "emoji": "🔚",
+    "unicode": "U+1F51A",
+    "name": "END arrow"
   },
   {
-    name: "🇦🇬 Flag: Antigua & Barbuda",
-    type: "Flags",
-    emoji: "🇦🇬",
-    description: "Flag: Antigua & Barbuda"
+    "id": 1372,
+    "emoji": "🔛",
+    "unicode": "U+1F51B",
+    "name": "ON! arrow"
   },
   {
-    name: "🇦🇮 Flag: Anguilla",
-    type: "Flags",
-    emoji: "🇦🇮",
-    description: "Flag: Anguilla"
+    "id": 1373,
+    "emoji": "🔜",
+    "unicode": "U+1F51C",
+    "name": "SOON arrow"
   },
   {
-    name: "🇦🇱 Flag: Albania",
-    type: "Flags",
-    emoji: "🇦🇱",
-    description: "Flag: Albania"
+    "id": 1374,
+    "emoji": "🔝",
+    "unicode": "U+1F51D",
+    "name": "TOP arrow"
   },
   {
-    name: "🇦🇲 Flag: Armenia",
-    type: "Flags",
-    emoji: "🇦🇲",
-    description: "Flag: Armenia"
+    "id": 1375,
+    "emoji": "🛐",
+    "unicode": "U+1F6D0",
+    "name": "place of worship"
   },
   {
-    name: "🇦🇴 Flag: Angola",
-    type: "Flags",
-    emoji: "🇦🇴",
-    description: "Flag: Angola"
+    "id": 1376,
+    "emoji": "⚛",
+    "unicode": "U+269B",
+    "name": "atom symbol"
   },
   {
-    name: "🇦🇶 Flag: Antarctica",
-    type: "Flags",
-    emoji: "🇦🇶",
-    description: "Flag: Antarctica"
+    "id": 1377,
+    "emoji": "🕉",
+    "unicode": "U+1F549",
+    "name": "om"
   },
   {
-    name: "🇦🇷 Flag: Argentina",
-    type: "Flags",
-    emoji: "🇦🇷",
-    description: "Flag: Argentina"
+    "id": 1378,
+    "emoji": "✡",
+    "unicode": "U+2721",
+    "name": "star of David"
   },
   {
-    name: "🇦🇸 Flag: American Samoa",
-    type: "Flags",
-    emoji: "🇦🇸",
-    description: "Flag: American Samoa"
+    "id": 1379,
+    "emoji": "☸",
+    "unicode": "U+2638",
+    "name": "wheel of dharma"
   },
   {
-    name: "🇦🇹 Flag: Austria",
-    type: "Flags",
-    emoji: "🇦🇹",
-    description: "Flag: Austria"
+    "id": 1380,
+    "emoji": "☯",
+    "unicode": "U+262F",
+    "name": "yin yang"
   },
   {
-    name: "🇦🇺 Flag: Australia",
-    type: "Flags",
-    emoji: "🇦🇺",
-    description: "Flag: Australia"
+    "id": 1381,
+    "emoji": "✝",
+    "unicode": "U+271D",
+    "name": "latin cross"
   },
   {
-    name: "🇦🇼 Flag: Aruba",
-    type: "Flags",
-    emoji: "🇦🇼",
-    description: "Flag: Aruba"
+    "id": 1382,
+    "emoji": "☦",
+    "unicode": "U+2626",
+    "name": "orthodox cross"
   },
   {
-    name: "🇦🇽 Flag: ÅLand Islands",
-    type: "Flags",
-    emoji: "🇦🇽",
-    description: "Flag: ÅLand Islands"
+    "id": 1383,
+    "emoji": "☪",
+    "unicode": "U+262A",
+    "name": "star and crescent"
   },
   {
-    name: "🇦🇿 Flag: Azerbaijan",
-    type: "Flags",
-    emoji: "🇦🇿",
-    description: "Flag: Azerbaijan"
+    "id": 1384,
+    "emoji": "☮",
+    "unicode": "U+262E",
+    "name": "peace symbol"
   },
   {
-    name: "🇧🇦 Flag: Bosnia & Herzegovina",
-    type: "Flags",
-    emoji: "🇧🇦",
-    description: "Flag: Bosnia & Herzegovina"
+    "id": 1385,
+    "emoji": "🕎",
+    "unicode": "U+1F54E",
+    "name": "menorah"
   },
   {
-    name: "🇧🇧 Flag: Barbados",
-    type: "Flags",
-    emoji: "🇧🇧",
-    description: "Flag: Barbados"
+    "id": 1386,
+    "emoji": "🔯",
+    "unicode": "U+1F52F",
+    "name": "dotted six-pointed star"
   },
   {
-    name: "🇧🇩 Flag: Bangladesh",
-    type: "Flags",
-    emoji: "🇧🇩",
-    description: "Flag: Bangladesh"
+    "id": 1387,
+    "emoji": "♈",
+    "unicode": "U+2648",
+    "name": "Aries"
   },
   {
-    name: "🇧🇪 Flag: Belgium",
-    type: "Flags",
-    emoji: "🇧🇪",
-    description: "Flag: Belgium"
+    "id": 1388,
+    "emoji": "♉",
+    "unicode": "U+2649",
+    "name": "Taurus"
   },
   {
-    name: "🇧🇫 Flag: Burkina Faso",
-    type: "Flags",
-    emoji: "🇧🇫",
-    description: "Flag: Burkina Faso"
+    "id": 1389,
+    "emoji": "♊",
+    "unicode": "U+264A",
+    "name": "Gemini"
   },
   {
-    name: "🇧🇬 Flag: Bulgaria",
-    type: "Flags",
-    emoji: "🇧🇬",
-    description: "Flag: Bulgaria"
+    "id": 1390,
+    "emoji": "♋",
+    "unicode": "U+264B",
+    "name": "Cancer"
   },
   {
-    name: "🇧🇭 Flag: Bahrain",
-    type: "Flags",
-    emoji: "🇧🇭",
-    description: "Flag: Bahrain"
+    "id": 1391,
+    "emoji": "♌",
+    "unicode": "U+264C",
+    "name": "Leo"
   },
   {
-    name: "🇧🇮 Flag: Burundi",
-    type: "Flags",
-    emoji: "🇧🇮",
-    description: "Flag: Burundi"
+    "id": 1392,
+    "emoji": "♍",
+    "unicode": "U+264D",
+    "name": "Virgo"
   },
   {
-    name: "🇧🇯 Flag: Benin",
-    type: "Flags",
-    emoji: "🇧🇯",
-    description: "Flag: Benin"
+    "id": 1393,
+    "emoji": "♎",
+    "unicode": "U+264E",
+    "name": "Libra"
   },
   {
-    name: "🇧🇱 Flag: St. BarthéLemy",
-    type: "Flags",
-    emoji: "🇧🇱",
-    description: "Flag: St. BarthéLemy"
+    "id": 1394,
+    "emoji": "♏",
+    "unicode": "U+264F",
+    "name": "Scorpio"
   },
   {
-    name: "🇧🇲 Flag: Bermuda",
-    type: "Flags",
-    emoji: "🇧🇲",
-    description: "Flag: Bermuda"
+    "id": 1395,
+    "emoji": "♐",
+    "unicode": "U+2650",
+    "name": "Sagittarius"
   },
   {
-    name: "🇧🇳 Flag: Brunei",
-    type: "Flags",
-    emoji: "🇧🇳",
-    description: "Flag: Brunei"
+    "id": 1396,
+    "emoji": "♑",
+    "unicode": "U+2651",
+    "name": "Capricorn"
   },
   {
-    name: "🇧🇴 Flag: Bolivia",
-    type: "Flags",
-    emoji: "🇧🇴",
-    description: "Flag: Bolivia"
+    "id": 1397,
+    "emoji": "♒",
+    "unicode": "U+2652",
+    "name": "Aquarius"
   },
   {
-    name: "🇧🇶 Flag: Caribbean Netherlands",
-    type: "Flags",
-    emoji: "🇧🇶",
-    description: "Flag: Caribbean Netherlands"
+    "id": 1398,
+    "emoji": "♓",
+    "unicode": "U+2653",
+    "name": "Pisces"
   },
   {
-    name: "🇧🇷 Flag: Brazil",
-    type: "Flags",
-    emoji: "🇧🇷",
-    description: "Flag: Brazil"
+    "id": 1399,
+    "emoji": "⛎",
+    "unicode": "U+26CE",
+    "name": "Ophiuchus"
   },
   {
-    name: "🇧🇸 Flag: Bahamas",
-    type: "Flags",
-    emoji: "🇧🇸",
-    description: "Flag: Bahamas"
+    "id": 1400,
+    "emoji": "🔀",
+    "unicode": "U+1F500",
+    "name": "shuffle tracks button"
   },
   {
-    name: "🇧🇹 Flag: Bhutan",
-    type: "Flags",
-    emoji: "🇧🇹",
-    description: "Flag: Bhutan"
+    "id": 1401,
+    "emoji": "🔁",
+    "unicode": "U+1F501",
+    "name": "repeat button"
   },
   {
-    name: "🇧🇻 Flag: Bouvet Island",
-    type: "Flags",
-    emoji: "🇧🇻",
-    description: "Flag: Bouvet Island"
+    "id": 1402,
+    "emoji": "🔂",
+    "unicode": "U+1F502",
+    "name": "repeat single button"
   },
   {
-    name: "🇧🇼 Flag: Botswana",
-    type: "Flags",
-    emoji: "🇧🇼",
-    description: "Flag: Botswana"
+    "id": 1403,
+    "emoji": "▶",
+    "unicode": "U+25B6",
+    "name": "play button"
   },
   {
-    name: "🇧🇾 Flag: Belarus",
-    type: "Flags",
-    emoji: "🇧🇾",
-    description: "Flag: Belarus"
+    "id": 1404,
+    "emoji": "⏩",
+    "unicode": "U+23E9",
+    "name": "fast-forward button"
   },
   {
-    name: "🇧🇿 Flag: Belize",
-    type: "Flags",
-    emoji: "🇧🇿",
-    description: "Flag: Belize"
+    "id": 1405,
+    "emoji": "⏭",
+    "unicode": "U+23ED",
+    "name": "next track button"
   },
   {
-    name: "🇨🇦 Flag: Canada",
-    type: "Flags",
-    emoji: "🇨🇦",
-    description: "Flag: Canada"
+    "id": 1406,
+    "emoji": "⏯",
+    "unicode": "U+23EF",
+    "name": "play or pause button"
   },
   {
-    name: "🇨🇨 Flag: Cocos (Keeling) Islands",
-    type: "Flags",
-    emoji: "🇨🇨",
-    description: "Flag: Cocos (Keeling) Islands"
+    "id": 1407,
+    "emoji": "◀",
+    "unicode": "U+25C0",
+    "name": "reverse button"
   },
   {
-    name: "🇨🇩 Flag: Congo - Kinshasa",
-    type: "Flags",
-    emoji: "🇨🇩",
-    description: "Flag: Congo - Kinshasa"
+    "id": 1408,
+    "emoji": "⏪",
+    "unicode": "U+23EA",
+    "name": "fast reverse button"
   },
   {
-    name: "🇨🇫 Flag: Central African Republic",
-    type: "Flags",
-    emoji: "🇨🇫",
-    description: "Flag: Central African Republic"
+    "id": 1409,
+    "emoji": "⏮",
+    "unicode": "U+23EE",
+    "name": "last track button"
   },
   {
-    name: "🇨🇬 Flag: Congo - Brazzaville",
-    type: "Flags",
-    emoji: "🇨🇬",
-    description: "Flag: Congo - Brazzaville"
+    "id": 1410,
+    "emoji": "🔼",
+    "unicode": "U+1F53C",
+    "name": "upwards button"
   },
   {
-    name: "🇨🇭 Flag: Switzerland",
-    type: "Flags",
-    emoji: "🇨🇭",
-    description: "Flag: Switzerland"
+    "id": 1411,
+    "emoji": "⏫",
+    "unicode": "U+23EB",
+    "name": "fast up button"
   },
   {
-    name: "🇨🇮 Flag: CôTe D’Ivoire",
-    type: "Flags",
-    emoji: "🇨🇮",
-    description: "Flag: CôTe D’Ivoire"
+    "id": 1412,
+    "emoji": "🔽",
+    "unicode": "U+1F53D",
+    "name": "downwards button"
   },
   {
-    name: "🇨🇰 Flag: Cook Islands",
-    type: "Flags",
-    emoji: "🇨🇰",
-    description: "Flag: Cook Islands"
+    "id": 1413,
+    "emoji": "⏬",
+    "unicode": "U+23EC",
+    "name": "fast down button"
   },
   {
-    name: "🇨🇱 Flag: Chile",
-    type: "Flags",
-    emoji: "🇨🇱",
-    description: "Flag: Chile"
+    "id": 1414,
+    "emoji": "⏸",
+    "unicode": "U+23F8",
+    "name": "pause button"
   },
   {
-    name: "🇨🇲 Flag: Cameroon",
-    type: "Flags",
-    emoji: "🇨🇲",
-    description: "Flag: Cameroon"
+    "id": 1415,
+    "emoji": "⏹",
+    "unicode": "U+23F9",
+    "name": "stop button"
   },
   {
-    name: "🇨🇳 Flag: China",
-    type: "Flags",
-    emoji: "🇨🇳",
-    description: "Flag: China"
+    "id": 1416,
+    "emoji": "⏺",
+    "unicode": "U+23FA",
+    "name": "record button"
   },
   {
-    name: "🇨🇴 Flag: Colombia",
-    type: "Flags",
-    emoji: "🇨🇴",
-    description: "Flag: Colombia"
+    "id": 1417,
+    "emoji": "⏏",
+    "unicode": "U+23CF",
+    "name": "eject button"
   },
   {
-    name: "🇨🇵 Flag: Clipperton Island",
-    type: "Flags",
-    emoji: "🇨🇵",
-    description: "Flag: Clipperton Island"
+    "id": 1418,
+    "emoji": "🎦",
+    "unicode": "U+1F3A6",
+    "name": "cinema"
   },
   {
-    name: "🇨🇷 Flag: Costa Rica",
-    type: "Flags",
-    emoji: "🇨🇷",
-    description: "Flag: Costa Rica"
+    "id": 1419,
+    "emoji": "🔅",
+    "unicode": "U+1F505",
+    "name": "dim button"
   },
   {
-    name: "🇨🇺 Flag: Cuba",
-    type: "Flags",
-    emoji: "🇨🇺",
-    description: "Flag: Cuba"
+    "id": 1420,
+    "emoji": "🔆",
+    "unicode": "U+1F506",
+    "name": "bright button"
   },
   {
-    name: "🇨🇻 Flag: Cape Verde",
-    type: "Flags",
-    emoji: "🇨🇻",
-    description: "Flag: Cape Verde"
+    "id": 1421,
+    "emoji": "📶",
+    "unicode": "U+1F4F6",
+    "name": "antenna bars"
   },
   {
-    name: "🇨🇼 Flag: CuraçAo",
-    type: "Flags",
-    emoji: "🇨🇼",
-    description: "Flag: CuraçAo"
+    "id": 1422,
+    "emoji": "📳",
+    "unicode": "U+1F4F3",
+    "name": "vibration mode"
   },
   {
-    name: "🇨🇽 Flag: Christmas Island",
-    type: "Flags",
-    emoji: "🇨🇽",
-    description: "Flag: Christmas Island"
+    "id": 1423,
+    "emoji": "📴",
+    "unicode": "U+1F4F4",
+    "name": "mobile phone off"
   },
   {
-    name: "🇨🇾 Flag: Cyprus",
-    type: "Flags",
-    emoji: "🇨🇾",
-    description: "Flag: Cyprus"
+    "id": 1424,
+    "emoji": "♀",
+    "unicode": "U+2640",
+    "name": "female sign"
   },
   {
-    name: "🇨🇿 Flag: Czechia",
-    type: "Flags",
-    emoji: "🇨🇿",
-    description: "Flag: Czechia"
+    "id": 1425,
+    "emoji": "♂",
+    "unicode": "U+2642",
+    "name": "male sign"
   },
   {
-    name: "🇩🇪 Flag: Germany",
-    type: "Flags",
-    emoji: "🇩🇪",
-    description: "Flag: Germany"
+    "id": 1426,
+    "emoji": "⚧",
+    "unicode": "U+26A7",
+    "name": "transgender symbol"
   },
   {
-    name: "🇩🇬 Flag: Diego Garcia",
-    type: "Flags",
-    emoji: "🇩🇬",
-    description: "Flag: Diego Garcia"
+    "id": 1427,
+    "emoji": "✖",
+    "unicode": "U+2716",
+    "name": "multiply"
   },
   {
-    name: "🇩🇯 Flag: Djibouti",
-    type: "Flags",
-    emoji: "🇩🇯",
-    description: "Flag: Djibouti"
+    "id": 1428,
+    "emoji": "➕",
+    "unicode": "U+2795",
+    "name": "plus"
   },
   {
-    name: "🇩🇰 Flag: Denmark",
-    type: "Flags",
-    emoji: "🇩🇰",
-    description: "Flag: Denmark"
+    "id": 1429,
+    "emoji": "➖",
+    "unicode": "U+2796",
+    "name": "minus"
   },
   {
-    name: "🇩🇲 Flag: Dominica",
-    type: "Flags",
-    emoji: "🇩🇲",
-    description: "Flag: Dominica"
+    "id": 1430,
+    "emoji": "➗",
+    "unicode": "U+2797",
+    "name": "divide"
   },
   {
-    name: "🇩🇴 Flag: Dominican Republic",
-    type: "Flags",
-    emoji: "🇩🇴",
-    description: "Flag: Dominican Republic"
+    "id": 1431,
+    "emoji": "♾",
+    "unicode": "U+267E",
+    "name": "infinity"
   },
   {
-    name: "🇩🇿 Flag: Algeria",
-    type: "Flags",
-    emoji: "🇩🇿",
-    description: "Flag: Algeria"
+    "id": 1432,
+    "emoji": "‼",
+    "unicode": "U+203C",
+    "name": "double exclamation mark"
   },
   {
-    name: "🇪🇦 Flag: Ceuta & Melilla",
-    type: "Flags",
-    emoji: "🇪🇦",
-    description: "Flag: Ceuta & Melilla"
+    "id": 1433,
+    "emoji": "⁉",
+    "unicode": "U+2049",
+    "name": "exclamation question mark"
   },
   {
-    name: "🇪🇨 Flag: Ecuador",
-    type: "Flags",
-    emoji: "🇪🇨",
-    description: "Flag: Ecuador"
+    "id": 1434,
+    "emoji": "❓",
+    "unicode": "U+2753",
+    "name": "red question mark"
   },
   {
-    name: "🇪🇪 Flag: Estonia",
-    type: "Flags",
-    emoji: "🇪🇪",
-    description: "Flag: Estonia"
+    "id": 1435,
+    "emoji": "❔",
+    "unicode": "U+2754",
+    "name": "white question mark"
   },
   {
-    name: "🇪🇬 Flag: Egypt",
-    type: "Flags",
-    emoji: "🇪🇬",
-    description: "Flag: Egypt"
+    "id": 1436,
+    "emoji": "❕",
+    "unicode": "U+2755",
+    "name": "white exclamation mark"
   },
   {
-    name: "🇪🇭 Flag: Western Sahara",
-    type: "Flags",
-    emoji: "🇪🇭",
-    description: "Flag: Western Sahara"
+    "id": 1437,
+    "emoji": "❗",
+    "unicode": "U+2757",
+    "name": "red exclamation mark"
   },
   {
-    name: "🇪🇷 Flag: Eritrea",
-    type: "Flags",
-    emoji: "🇪🇷",
-    description: "Flag: Eritrea"
+    "id": 1438,
+    "emoji": "〰",
+    "unicode": "U+3030",
+    "name": "wavy dash"
   },
   {
-    name: "🇪🇸 Flag: Spain",
-    type: "Flags",
-    emoji: "🇪🇸",
-    description: "Flag: Spain"
+    "id": 1439,
+    "emoji": "💱",
+    "unicode": "U+1F4B1",
+    "name": "currency exchange"
   },
   {
-    name: "🇪🇹 Flag: Ethiopia",
-    type: "Flags",
-    emoji: "🇪🇹",
-    description: "Flag: Ethiopia"
+    "id": 1440,
+    "emoji": "💲",
+    "unicode": "U+1F4B2",
+    "name": "heavy dollar sign"
   },
   {
-    name: "🇪🇺 Flag: European Union",
-    type: "Flags",
-    emoji: "🇪🇺",
-    description: "Flag: European Union"
+    "id": 1441,
+    "emoji": "⚕",
+    "unicode": "U+2695",
+    "name": "medical symbol"
   },
   {
-    name: "🇫🇮 Flag: Finland",
-    type: "Flags",
-    emoji: "🇫🇮",
-    description: "Flag: Finland"
+    "id": 1442,
+    "emoji": "♻",
+    "unicode": "U+267B",
+    "name": "recycling symbol"
   },
   {
-    name: "🇫🇯 Flag: Fiji",
-    type: "Flags",
-    emoji: "🇫🇯",
-    description: "Flag: Fiji"
+    "id": 1443,
+    "emoji": "⚜",
+    "unicode": "U+269C",
+    "name": "fleur-de-lis"
   },
   {
-    name: "🇫🇰 Flag: Falkland Islands",
-    type: "Flags",
-    emoji: "🇫🇰",
-    description: "Flag: Falkland Islands"
+    "id": 1444,
+    "emoji": "🔱",
+    "unicode": "U+1F531",
+    "name": "trident emblem"
   },
   {
-    name: "🇫🇲 Flag: Micronesia",
-    type: "Flags",
-    emoji: "🇫🇲",
-    description: "Flag: Micronesia"
+    "id": 1445,
+    "emoji": "📛",
+    "unicode": "U+1F4DB",
+    "name": "name badge"
   },
   {
-    name: "🇫🇴 Flag: Faroe Islands",
-    type: "Flags",
-    emoji: "🇫🇴",
-    description: "Flag: Faroe Islands"
+    "id": 1446,
+    "emoji": "🔰",
+    "unicode": "U+1F530",
+    "name": "Japanese symbol for beginner"
   },
   {
-    name: "🇫🇷 Flag: France",
-    type: "Flags",
-    emoji: "🇫🇷",
-    description: "Flag: France"
+    "id": 1447,
+    "emoji": "⭕",
+    "unicode": "U+2B55",
+    "name": "hollow red circle"
   },
   {
-    name: "🇬🇦 Flag: Gabon",
-    type: "Flags",
-    emoji: "🇬🇦",
-    description: "Flag: Gabon"
+    "id": 1448,
+    "emoji": "✅",
+    "unicode": "U+2705",
+    "name": "check mark button"
   },
   {
-    name: "🇬🇧 Flag: United Kingdom",
-    type: "Flags",
-    emoji: "🇬🇧",
-    description: "Flag: United Kingdom"
+    "id": 1449,
+    "emoji": "☑",
+    "unicode": "U+2611",
+    "name": "check box with check"
   },
   {
-    name: "🇬🇩 Flag: Grenada",
-    type: "Flags",
-    emoji: "🇬🇩",
-    description: "Flag: Grenada"
+    "id": 1450,
+    "emoji": "✔",
+    "unicode": "U+2714",
+    "name": "check mark"
   },
   {
-    name: "🇬🇪 Flag: Georgia",
-    type: "Flags",
-    emoji: "🇬🇪",
-    description: "Flag: Georgia"
+    "id": 1451,
+    "emoji": "❌",
+    "unicode": "U+274C",
+    "name": "cross mark"
   },
   {
-    name: "🇬🇫 Flag: French Guiana",
-    type: "Flags",
-    emoji: "🇬🇫",
-    description: "Flag: French Guiana"
+    "id": 1452,
+    "emoji": "❎",
+    "unicode": "U+274E",
+    "name": "cross mark button"
   },
   {
-    name: "🇬🇬 Flag: Guernsey",
-    type: "Flags",
-    emoji: "🇬🇬",
-    description: "Flag: Guernsey"
+    "id": 1453,
+    "emoji": "➰",
+    "unicode": "U+27B0",
+    "name": "curly loop"
   },
   {
-    name: "🇬🇭 Flag: Ghana",
-    type: "Flags",
-    emoji: "🇬🇭",
-    description: "Flag: Ghana"
+    "id": 1454,
+    "emoji": "➿",
+    "unicode": "U+27BF",
+    "name": "double curly loop"
   },
   {
-    name: "🇬🇮 Flag: Gibraltar",
-    type: "Flags",
-    emoji: "🇬🇮",
-    description: "Flag: Gibraltar"
+    "id": 1455,
+    "emoji": "〽",
+    "unicode": "U+303D",
+    "name": "part alternation mark"
   },
   {
-    name: "🇬🇱 Flag: Greenland",
-    type: "Flags",
-    emoji: "🇬🇱",
-    description: "Flag: Greenland"
+    "id": 1456,
+    "emoji": "✳",
+    "unicode": "U+2733",
+    "name": "eight-spoked asterisk"
   },
   {
-    name: "🇬🇲 Flag: Gambia",
-    type: "Flags",
-    emoji: "🇬🇲",
-    description: "Flag: Gambia"
+    "id": 1457,
+    "emoji": "✴",
+    "unicode": "U+2734",
+    "name": "eight-pointed star"
   },
   {
-    name: "🇬🇳 Flag: Guinea",
-    type: "Flags",
-    emoji: "🇬🇳",
-    description: "Flag: Guinea"
+    "id": 1458,
+    "emoji": "❇",
+    "unicode": "U+2747",
+    "name": "sparkle"
   },
   {
-    name: "🇬🇵 Flag: Guadeloupe",
-    type: "Flags",
-    emoji: "🇬🇵",
-    description: "Flag: Guadeloupe"
+    "id": 1459,
+    "emoji": "©",
+    "unicode": "U+00A9",
+    "name": "copyright"
   },
   {
-    name: "🇬🇶 Flag: Equatorial Guinea",
-    type: "Flags",
-    emoji: "🇬🇶",
-    description: "Flag: Equatorial Guinea"
+    "id": 1460,
+    "emoji": "®",
+    "unicode": "U+00AE",
+    "name": "registered"
   },
   {
-    name: "🇬🇷 Flag: Greece",
-    type: "Flags",
-    emoji: "🇬🇷",
-    description: "Flag: Greece"
+    "id": 1461,
+    "emoji": "™",
+    "unicode": "U+2122",
+    "name": "trade mark"
   },
   {
-    name: "🇬🇸 Flag: South Georgia & South Sandwich Islands",
-    type: "Flags",
-    emoji: "🇬🇸",
-    description: "Flag: South Georgia & South Sandwich Islands"
+    "id": 1462,
+    "emoji": "#️⃣",
+    "unicode": "U+0023 U+FE0F U+20E3",
+    "name": "keycap: #"
   },
   {
-    name: "🇬🇹 Flag: Guatemala",
-    type: "Flags",
-    emoji: "🇬🇹",
-    description: "Flag: Guatemala"
+    "id": 1463,
+    "emoji": "*️⃣",
+    "unicode": "U+002A U+FE0F U+20E3",
+    "name": "keycap: *"
   },
   {
-    name: "🇬🇺 Flag: Guam",
-    type: "Flags",
-    emoji: "🇬🇺",
-    description: "Flag: Guam"
+    "id": 1464,
+    "emoji": "0️⃣",
+    "unicode": "U+0030 U+FE0F U+20E3",
+    "name": "keycap: 0"
   },
   {
-    name: "🇬🇼 Flag: Guinea-Bissau",
-    type: "Flags",
-    emoji: "🇬🇼",
-    description: "Flag: Guinea-Bissau"
+    "id": 1465,
+    "emoji": "1️⃣",
+    "unicode": "U+0031 U+FE0F U+20E3",
+    "name": "keycap: 1"
   },
   {
-    name: "🇬🇾 Flag: Guyana",
-    type: "Flags",
-    emoji: "🇬🇾",
-    description: "Flag: Guyana"
+    "id": 1466,
+    "emoji": "2️⃣",
+    "unicode": "U+0032 U+FE0F U+20E3",
+    "name": "keycap: 2"
   },
   {
-    name: "🇭🇰 Flag: Hong Kong SAR China",
-    type: "Flags",
-    emoji: "🇭🇰",
-    description: "Flag: Hong Kong SAR China"
+    "id": 1467,
+    "emoji": "3️⃣",
+    "unicode": "U+0033 U+FE0F U+20E3",
+    "name": "keycap: 3"
   },
   {
-    name: "🇭🇲 Flag: Heard & McDonald Islands",
-    type: "Flags",
-    emoji: "🇭🇲",
-    description: "Flag: Heard & McDonald Islands"
+    "id": 1468,
+    "emoji": "4️⃣",
+    "unicode": "U+0034 U+FE0F U+20E3",
+    "name": "keycap: 4"
   },
   {
-    name: "🇭🇳 Flag: Honduras",
-    type: "Flags",
-    emoji: "🇭🇳",
-    description: "Flag: Honduras"
+    "id": 1469,
+    "emoji": "5️⃣",
+    "unicode": "U+0035 U+FE0F U+20E3",
+    "name": "keycap: 5"
   },
   {
-    name: "🇭🇷 Flag: Croatia",
-    type: "Flags",
-    emoji: "🇭🇷",
-    description: "Flag: Croatia"
+    "id": 1470,
+    "emoji": "6️⃣",
+    "unicode": "U+0036 U+FE0F U+20E3",
+    "name": "keycap: 6"
   },
   {
-    name: "🇭🇹 Flag: Haiti",
-    type: "Flags",
-    emoji: "🇭🇹",
-    description: "Flag: Haiti"
+    "id": 1471,
+    "emoji": "7️⃣",
+    "unicode": "U+0037 U+FE0F U+20E3",
+    "name": "keycap: 7"
   },
   {
-    name: "🇭🇺 Flag: Hungary",
-    type: "Flags",
-    emoji: "🇭🇺",
-    description: "Flag: Hungary"
+    "id": 1472,
+    "emoji": "8️⃣",
+    "unicode": "U+0038 U+FE0F U+20E3",
+    "name": "keycap: 8"
   },
   {
-    name: "🇮🇨 Flag: Canary Islands",
-    type: "Flags",
-    emoji: "🇮🇨",
-    description: "Flag: Canary Islands"
+    "id": 1473,
+    "emoji": "9️⃣",
+    "unicode": "U+0039 U+FE0F U+20E3",
+    "name": "keycap: 9"
   },
   {
-    name: "🇮🇩 Flag: Indonesia",
-    type: "Flags",
-    emoji: "🇮🇩",
-    description: "Flag: Indonesia"
+    "id": 1474,
+    "emoji": "🔟",
+    "unicode": "U+1F51F",
+    "name": "keycap: 10"
   },
   {
-    name: "🇮🇪 Flag: Ireland",
-    type: "Flags",
-    emoji: "🇮🇪",
-    description: "Flag: Ireland"
+    "id": 1475,
+    "emoji": "🔠",
+    "unicode": "U+1F520",
+    "name": "input latin uppercase"
   },
   {
-    name: "🇮🇱 Flag: Israel",
-    type: "Flags",
-    emoji: "🇮🇱",
-    description: "Flag: Israel"
+    "id": 1476,
+    "emoji": "🔡",
+    "unicode": "U+1F521",
+    "name": "input latin lowercase"
   },
   {
-    name: "🇮🇲 Flag: Isle of Man",
-    type: "Flags",
-    emoji: "🇮🇲",
-    description: "Flag: Isle of Man"
+    "id": 1477,
+    "emoji": "🔢",
+    "unicode": "U+1F522",
+    "name": "input numbers"
   },
   {
-    name: "🇮🇳 Flag: India",
-    type: "Flags",
-    emoji: "🇮🇳",
-    description: "Flag: India"
+    "id": 1478,
+    "emoji": "🔣",
+    "unicode": "U+1F523",
+    "name": "input symbols"
   },
   {
-    name: "🇮🇴 Flag: British Indian Ocean Territory",
-    type: "Flags",
-    emoji: "🇮🇴",
-    description: "Flag: British Indian Ocean Territory"
+    "id": 1479,
+    "emoji": "🔤",
+    "unicode": "U+1F524",
+    "name": "input latin letters"
   },
   {
-    name: "🇮🇶 Flag: Iraq",
-    type: "Flags",
-    emoji: "🇮🇶",
-    description: "Flag: Iraq"
+    "id": 1480,
+    "emoji": "🅰",
+    "unicode": "U+1F170",
+    "name": "A button (blood type)"
   },
   {
-    name: "🇮🇷 Flag: Iran",
-    type: "Flags",
-    emoji: "🇮🇷",
-    description: "Flag: Iran"
+    "id": 1481,
+    "emoji": "🆎",
+    "unicode": "U+1F18E",
+    "name": "AB button (blood type)"
   },
   {
-    name: "🇮🇸 Flag: Iceland",
-    type: "Flags",
-    emoji: "🇮🇸",
-    description: "Flag: Iceland"
+    "id": 1482,
+    "emoji": "🅱",
+    "unicode": "U+1F171",
+    "name": "B button (blood type)"
   },
   {
-    name: "🇮🇹 Flag: Italy",
-    type: "Flags",
-    emoji: "🇮🇹",
-    description: "Flag: Italy"
+    "id": 1483,
+    "emoji": "🆑",
+    "unicode": "U+1F191",
+    "name": "CL button"
   },
   {
-    name: "🇯🇪 Flag: Jersey",
-    type: "Flags",
-    emoji: "🇯🇪",
-    description: "Flag: Jersey"
+    "id": 1484,
+    "emoji": "🆒",
+    "unicode": "U+1F192",
+    "name": "COOL button"
   },
   {
-    name: "🇯🇲 Flag: Jamaica",
-    type: "Flags",
-    emoji: "🇯🇲",
-    description: "Flag: Jamaica"
+    "id": 1485,
+    "emoji": "🆓",
+    "unicode": "U+1F193",
+    "name": "FREE button"
   },
   {
-    name: "🇯🇴 Flag: Jordan",
-    type: "Flags",
-    emoji: "🇯🇴",
-    description: "Flag: Jordan"
+    "id": 1486,
+    "emoji": "ℹ",
+    "unicode": "U+2139",
+    "name": "information"
   },
   {
-    name: "🇯🇵 Flag: Japan",
-    type: "Flags",
-    emoji: "🇯🇵",
-    description: "Flag: Japan"
+    "id": 1487,
+    "emoji": "🆔",
+    "unicode": "U+1F194",
+    "name": "ID button"
   },
   {
-    name: "🇰🇪 Flag: Kenya",
-    type: "Flags",
-    emoji: "🇰🇪",
-    description: "Flag: Kenya"
+    "id": 1488,
+    "emoji": "Ⓜ",
+    "unicode": "U+24C2",
+    "name": "circled M"
   },
   {
-    name: "🇰🇬 Flag: Kyrgyzstan",
-    type: "Flags",
-    emoji: "🇰🇬",
-    description: "Flag: Kyrgyzstan"
+    "id": 1489,
+    "emoji": "🆕",
+    "unicode": "U+1F195",
+    "name": "NEW button"
   },
   {
-    name: "🇰🇭 Flag: Cambodia",
-    type: "Flags",
-    emoji: "🇰🇭",
-    description: "Flag: Cambodia"
+    "id": 1490,
+    "emoji": "🆖",
+    "unicode": "U+1F196",
+    "name": "NG button"
   },
   {
-    name: "🇰🇮 Flag: Kiribati",
-    type: "Flags",
-    emoji: "🇰🇮",
-    description: "Flag: Kiribati"
+    "id": 1491,
+    "emoji": "🅾",
+    "unicode": "U+1F17E",
+    "name": "O button (blood type)"
   },
   {
-    name: "🇰🇲 Flag: Comoros",
-    type: "Flags",
-    emoji: "🇰🇲",
-    description: "Flag: Comoros"
+    "id": 1492,
+    "emoji": "🆗",
+    "unicode": "U+1F197",
+    "name": "OK button"
   },
   {
-    name: "🇰🇳 Flag: St. Kitts & Nevis",
-    type: "Flags",
-    emoji: "🇰🇳",
-    description: "Flag: St. Kitts & Nevis"
+    "id": 1493,
+    "emoji": "🅿",
+    "unicode": "U+1F17F",
+    "name": "P button"
   },
   {
-    name: "🇰🇵 Flag: North Korea",
-    type: "Flags",
-    emoji: "🇰🇵",
-    description: "Flag: North Korea"
+    "id": 1494,
+    "emoji": "🆘",
+    "unicode": "U+1F198",
+    "name": "SOS button"
   },
   {
-    name: "🇰🇷 Flag: South Korea",
-    type: "Flags",
-    emoji: "🇰🇷",
-    description: "Flag: South Korea"
+    "id": 1495,
+    "emoji": "🆙",
+    "unicode": "U+1F199",
+    "name": "UP! button"
   },
   {
-    name: "🇰🇼 Flag: Kuwait",
-    type: "Flags",
-    emoji: "🇰🇼",
-    description: "Flag: Kuwait"
+    "id": 1496,
+    "emoji": "🆚",
+    "unicode": "U+1F19A",
+    "name": "VS button"
   },
   {
-    name: "🇰🇾 Flag: Cayman Islands",
-    type: "Flags",
-    emoji: "🇰🇾",
-    description: "Flag: Cayman Islands"
+    "id": 1497,
+    "emoji": "🈁",
+    "unicode": "U+1F201",
+    "name": "Japanese “here” button"
   },
   {
-    name: "🇰🇿 Flag: Kazakhstan",
-    type: "Flags",
-    emoji: "🇰🇿",
-    description: "Flag: Kazakhstan"
+    "id": 1498,
+    "emoji": "🈂",
+    "unicode": "U+1F202",
+    "name": "Japanese “service charge” button"
   },
   {
-    name: "🇱🇦 Flag: Laos",
-    type: "Flags",
-    emoji: "🇱🇦",
-    description: "Flag: Laos"
+    "id": 1499,
+    "emoji": "🈷",
+    "unicode": "U+1F237",
+    "name": "Japanese “monthly amount” button"
   },
   {
-    name: "🇱🇧 Flag: Lebanon",
-    type: "Flags",
-    emoji: "🇱🇧",
-    description: "Flag: Lebanon"
+    "id": 1500,
+    "emoji": "🈶",
+    "unicode": "U+1F236",
+    "name": "Japanese “not free of charge” button"
   },
   {
-    name: "🇱🇨 Flag: St. Lucia",
-    type: "Flags",
-    emoji: "🇱🇨",
-    description: "Flag: St. Lucia"
+    "id": 1501,
+    "emoji": "🈯",
+    "unicode": "U+1F22F",
+    "name": "Japanese “reserved” button"
   },
   {
-    name: "🇱🇮 Flag: Liechtenstein",
-    type: "Flags",
-    emoji: "🇱🇮",
-    description: "Flag: Liechtenstein"
+    "id": 1502,
+    "emoji": "🉐",
+    "unicode": "U+1F250",
+    "name": "Japanese “bargain” button"
   },
   {
-    name: "🇱🇰 Flag: Sri Lanka",
-    type: "Flags",
-    emoji: "🇱🇰",
-    description: "Flag: Sri Lanka"
+    "id": 1503,
+    "emoji": "🈹",
+    "unicode": "U+1F239",
+    "name": "Japanese “discount” button"
   },
   {
-    name: "🇱🇷 Flag: Liberia",
-    type: "Flags",
-    emoji: "🇱🇷",
-    description: "Flag: Liberia"
+    "id": 1504,
+    "emoji": "🈚",
+    "unicode": "U+1F21A",
+    "name": "Japanese “free of charge” button"
   },
   {
-    name: "🇱🇸 Flag: Lesotho",
-    type: "Flags",
-    emoji: "🇱🇸",
-    description: "Flag: Lesotho"
+    "id": 1505,
+    "emoji": "🈲",
+    "unicode": "U+1F232",
+    "name": "Japanese “prohibited” button"
   },
   {
-    name: "🇱🇹 Flag: Lithuania",
-    type: "Flags",
-    emoji: "🇱🇹",
-    description: "Flag: Lithuania"
+    "id": 1506,
+    "emoji": "🉑",
+    "unicode": "U+1F251",
+    "name": "Japanese “acceptable” button"
   },
   {
-    name: "🇱🇺 Flag: Luxembourg",
-    type: "Flags",
-    emoji: "🇱🇺",
-    description: "Flag: Luxembourg"
+    "id": 1507,
+    "emoji": "🈸",
+    "unicode": "U+1F238",
+    "name": "Japanese “application” button"
   },
   {
-    name: "🇱🇻 Flag: Latvia",
-    type: "Flags",
-    emoji: "🇱🇻",
-    description: "Flag: Latvia"
+    "id": 1508,
+    "emoji": "🈴",
+    "unicode": "U+1F234",
+    "name": "Japanese “passing grade” button"
   },
   {
-    name: "🇱🇾 Flag: Libya",
-    type: "Flags",
-    emoji: "🇱🇾",
-    description: "Flag: Libya"
+    "id": 1509,
+    "emoji": "🈳",
+    "unicode": "U+1F233",
+    "name": "Japanese “vacancy” button"
   },
   {
-    name: "🇲🇦 Flag: Morocco",
-    type: "Flags",
-    emoji: "🇲🇦",
-    description: "Flag: Morocco"
+    "id": 1510,
+    "emoji": "㊗",
+    "unicode": "U+3297",
+    "name": "Japanese “congratulations” button"
   },
   {
-    name: "🇲🇨 Flag: Monaco",
-    type: "Flags",
-    emoji: "🇲🇨",
-    description: "Flag: Monaco"
+    "id": 1511,
+    "emoji": "㊙",
+    "unicode": "U+3299",
+    "name": "Japanese “secret” button"
   },
   {
-    name: "🇲🇩 Flag: Moldova",
-    type: "Flags",
-    emoji: "🇲🇩",
-    description: "Flag: Moldova"
+    "id": 1512,
+    "emoji": "🈺",
+    "unicode": "U+1F23A",
+    "name": "Japanese “open for business” button"
   },
   {
-    name: "🇲🇪 Flag: Montenegro",
-    type: "Flags",
-    emoji: "🇲🇪",
-    description: "Flag: Montenegro"
+    "id": 1513,
+    "emoji": "🈵",
+    "unicode": "U+1F235",
+    "name": "Japanese “no vacancy” button"
   },
   {
-    name: "🇲🇫 Flag: St. Martin",
-    type: "Flags",
-    emoji: "🇲🇫",
-    description: "Flag: St. Martin"
+    "id": 1514,
+    "emoji": "🔴",
+    "unicode": "U+1F534",
+    "name": "red circle"
   },
   {
-    name: "🇲🇬 Flag: Madagascar",
-    type: "Flags",
-    emoji: "🇲🇬",
-    description: "Flag: Madagascar"
+    "id": 1515,
+    "emoji": "🟠",
+    "unicode": "U+1F7E0",
+    "name": "orange circle"
   },
   {
-    name: "🇲🇭 Flag: Marshall Islands",
-    type: "Flags",
-    emoji: "🇲🇭",
-    description: "Flag: Marshall Islands"
+    "id": 1516,
+    "emoji": "🟡",
+    "unicode": "U+1F7E1",
+    "name": "yellow circle"
   },
   {
-    name: "🇲🇰 Flag: Macedonia",
-    type: "Flags",
-    emoji: "🇲🇰",
-    description: "Flag: Macedonia"
+    "id": 1517,
+    "emoji": "🟢",
+    "unicode": "U+1F7E2",
+    "name": "green circle"
   },
   {
-    name: "🇲🇱 Flag: Mali",
-    type: "Flags",
-    emoji: "🇲🇱",
-    description: "Flag: Mali"
+    "id": 1518,
+    "emoji": "🔵",
+    "unicode": "U+1F535",
+    "name": "blue circle"
   },
   {
-    name: "🇲🇲 Flag: Myanmar (Burma)",
-    type: "Flags",
-    emoji: "🇲🇲",
-    description: "Flag: Myanmar (Burma)"
+    "id": 1519,
+    "emoji": "🟣",
+    "unicode": "U+1F7E3",
+    "name": "purple circle"
   },
   {
-    name: "🇲🇳 Flag: Mongolia",
-    type: "Flags",
-    emoji: "🇲🇳",
-    description: "Flag: Mongolia"
+    "id": 1520,
+    "emoji": "🟤",
+    "unicode": "U+1F7E4",
+    "name": "brown circle"
   },
   {
-    name: "🇲🇴 Flag: Macau Sar China",
-    type: "Flags",
-    emoji: "🇲🇴",
-    description: "Flag: Macau Sar China"
+    "id": 1521,
+    "emoji": "⚫",
+    "unicode": "U+26AB",
+    "name": "black circle"
   },
   {
-    name: "🇲🇵 Flag: Northern Mariana Islands",
-    type: "Flags",
-    emoji: "🇲🇵",
-    description: "Flag: Northern Mariana Islands"
+    "id": 1522,
+    "emoji": "⚪",
+    "unicode": "U+26AA",
+    "name": "white circle"
   },
   {
-    name: "🇲🇶 Flag: Martinique",
-    type: "Flags",
-    emoji: "🇲🇶",
-    description: "Flag: Martinique"
+    "id": 1523,
+    "emoji": "🟥",
+    "unicode": "U+1F7E5",
+    "name": "red square"
   },
   {
-    name: "🇲🇷 Flag: Mauritania",
-    type: "Flags",
-    emoji: "🇲🇷",
-    description: "Flag: Mauritania"
+    "id": 1524,
+    "emoji": "🟧",
+    "unicode": "U+1F7E7",
+    "name": "orange square"
   },
   {
-    name: "🇲🇸 Flag: Montserrat",
-    type: "Flags",
-    emoji: "🇲🇸",
-    description: "Flag: Montserrat"
+    "id": 1525,
+    "emoji": "🟨",
+    "unicode": "U+1F7E8",
+    "name": "yellow square"
   },
   {
-    name: "🇲🇹 Flag: Malta",
-    type: "Flags",
-    emoji: "🇲🇹",
-    description: "Flag: Malta"
+    "id": 1526,
+    "emoji": "🟩",
+    "unicode": "U+1F7E9",
+    "name": "green square"
   },
   {
-    name: "🇲🇺 Flag: Mauritius",
-    type: "Flags",
-    emoji: "🇲🇺",
-    description: "Flag: Mauritius"
+    "id": 1527,
+    "emoji": "🟦",
+    "unicode": "U+1F7E6",
+    "name": "blue square"
   },
   {
-    name: "🇲🇻 Flag: Maldives",
-    type: "Flags",
-    emoji: "🇲🇻",
-    description: "Flag: Maldives"
+    "id": 1528,
+    "emoji": "🟪",
+    "unicode": "U+1F7EA",
+    "name": "purple square"
   },
   {
-    name: "🇲🇼 Flag: Malawi",
-    type: "Flags",
-    emoji: "🇲🇼",
-    description: "Flag: Malawi"
+    "id": 1529,
+    "emoji": "🟫",
+    "unicode": "U+1F7EB",
+    "name": "brown square"
   },
   {
-    name: "🇲🇽 Flag: Mexico",
-    type: "Flags",
-    emoji: "🇲🇽",
-    description: "Flag: Mexico"
+    "id": 1530,
+    "emoji": "⬛",
+    "unicode": "U+2B1B",
+    "name": "black large square"
   },
   {
-    name: "🇲🇾 Flag: Malaysia",
-    type: "Flags",
-    emoji: "🇲🇾",
-    description: "Flag: Malaysia"
+    "id": 1531,
+    "emoji": "⬜",
+    "unicode": "U+2B1C",
+    "name": "white large square"
   },
   {
-    name: "🇲🇿 Flag: Mozambique",
-    type: "Flags",
-    emoji: "🇲🇿",
-    description: "Flag: Mozambique"
+    "id": 1532,
+    "emoji": "◼",
+    "unicode": "U+25FC",
+    "name": "black medium square"
   },
   {
-    name: "🇳🇦 Flag: Namibia",
-    type: "Flags",
-    emoji: "🇳🇦",
-    description: "Flag: Namibia"
+    "id": 1533,
+    "emoji": "◻",
+    "unicode": "U+25FB",
+    "name": "white medium square"
   },
   {
-    name: "🇳🇨 Flag: New Caledonia",
-    type: "Flags",
-    emoji: "🇳🇨",
-    description: "Flag: New Caledonia"
+    "id": 1534,
+    "emoji": "◾",
+    "unicode": "U+25FE",
+    "name": "black medium-small square"
   },
   {
-    name: "🇳🇪 Flag: Niger",
-    type: "Flags",
-    emoji: "🇳🇪",
-    description: "Flag: Niger"
+    "id": 1535,
+    "emoji": "◽",
+    "unicode": "U+25FD",
+    "name": "white medium-small square"
   },
   {
-    name: "🇳🇫 Flag: Norfolk Island",
-    type: "Flags",
-    emoji: "🇳🇫",
-    description: "Flag: Norfolk Island"
+    "id": 1536,
+    "emoji": "▪",
+    "unicode": "U+25AA",
+    "name": "black small square"
   },
   {
-    name: "🇳🇬 Flag: Nigeria",
-    type: "Flags",
-    emoji: "🇳🇬",
-    description: "Flag: Nigeria"
+    "id": 1537,
+    "emoji": "▫",
+    "unicode": "U+25AB",
+    "name": "white small square"
   },
   {
-    name: "🇳🇮 Flag: Nicaragua",
-    type: "Flags",
-    emoji: "🇳🇮",
-    description: "Flag: Nicaragua"
+    "id": 1538,
+    "emoji": "🔶",
+    "unicode": "U+1F536",
+    "name": "large orange diamond"
   },
   {
-    name: "🇳🇱 Flag: Netherlands",
-    type: "Flags",
-    emoji: "🇳🇱",
-    description: "Flag: Netherlands"
+    "id": 1539,
+    "emoji": "🔷",
+    "unicode": "U+1F537",
+    "name": "large blue diamond"
   },
   {
-    name: "🇳🇴 Flag: Norway",
-    type: "Flags",
-    emoji: "🇳🇴",
-    description: "Flag: Norway"
+    "id": 1540,
+    "emoji": "🔸",
+    "unicode": "U+1F538",
+    "name": "small orange diamond"
   },
   {
-    name: "🇳🇵 Flag: Nepal",
-    type: "Flags",
-    emoji: "🇳🇵",
-    description: "Flag: Nepal"
+    "id": 1541,
+    "emoji": "🔹",
+    "unicode": "U+1F539",
+    "name": "small blue diamond"
   },
   {
-    name: "🇳🇷 Flag: Nauru",
-    type: "Flags",
-    emoji: "🇳🇷",
-    description: "Flag: Nauru"
+    "id": 1542,
+    "emoji": "🔺",
+    "unicode": "U+1F53A",
+    "name": "red triangle pointed up"
   },
   {
-    name: "🇳🇺 Flag: Niue",
-    type: "Flags",
-    emoji: "🇳🇺",
-    description: "Flag: Niue"
+    "id": 1543,
+    "emoji": "🔻",
+    "unicode": "U+1F53B",
+    "name": "red triangle pointed down"
   },
   {
-    name: "🇳🇿 Flag: New Zealand",
-    type: "Flags",
-    emoji: "🇳🇿",
-    description: "Flag: New Zealand"
+    "id": 1544,
+    "emoji": "💠",
+    "unicode": "U+1F4A0",
+    "name": "diamond with a dot"
   },
   {
-    name: "🇴🇲 Flag: Oman",
-    type: "Flags",
-    emoji: "🇴🇲",
-    description: "Flag: Oman"
+    "id": 1545,
+    "emoji": "🔘",
+    "unicode": "U+1F518",
+    "name": "radio button"
   },
   {
-    name: "🇵🇦 Flag: Panama",
-    type: "Flags",
-    emoji: "🇵🇦",
-    description: "Flag: Panama"
+    "id": 1546,
+    "emoji": "🔳",
+    "unicode": "U+1F533",
+    "name": "white square button"
   },
   {
-    name: "🇵🇪 Flag: Peru",
-    type: "Flags",
-    emoji: "🇵🇪",
-    description: "Flag: Peru"
+    "id": 1547,
+    "emoji": "🔲",
+    "unicode": "U+1F532",
+    "name": "black square button"
   },
   {
-    name: "🇵🇫 Flag: French Polynesia",
-    type: "Flags",
-    emoji: "🇵🇫",
-    description: "Flag: French Polynesia"
+    "id": 1548,
+    "emoji": "🏁",
+    "unicode": "U+1F3C1",
+    "name": "chequered flag"
   },
   {
-    name: "🇵🇬 Flag: Papua New Guinea",
-    type: "Flags",
-    emoji: "🇵🇬",
-    description: "Flag: Papua New Guinea"
+    "id": 1549,
+    "emoji": "🚩",
+    "unicode": "U+1F6A9",
+    "name": "triangular flag"
   },
   {
-    name: "🇵🇭 Flag: Philippines",
-    type: "Flags",
-    emoji: "🇵🇭",
-    description: "Flag: Philippines"
+    "id": 1550,
+    "emoji": "🎌",
+    "unicode": "U+1F38C",
+    "name": "crossed flags"
   },
   {
-    name: "🇵🇰 Flag: Pakistan",
-    type: "Flags",
-    emoji: "🇵🇰",
-    description: "Flag: Pakistan"
+    "id": 1551,
+    "emoji": "🏴",
+    "unicode": "U+1F3F4",
+    "name": "black flag"
   },
   {
-    name: "🇵🇱 Flag: Poland",
-    type: "Flags",
-    emoji: "🇵🇱",
-    description: "Flag: Poland"
+    "id": 1552,
+    "emoji": "🏳",
+    "unicode": "U+1F3F3",
+    "name": "white flag"
   },
   {
-    name: "🇵🇲 Flag: St. Pierre & Miquelon",
-    type: "Flags",
-    emoji: "🇵🇲",
-    description: "Flag: St. Pierre & Miquelon"
+    "id": 1553,
+    "emoji": "🏳️‍🌈",
+    "unicode": "U+1F3F3 U+FE0F U+200D U+1F308",
+    "name": "rainbow flag"
   },
   {
-    name: "🇵🇳 Flag: Pitcairn Islands",
-    type: "Flags",
-    emoji: "🇵🇳",
-    description: "Flag: Pitcairn Islands"
+    "id": 1554,
+    "emoji": "🏳️‍⚧️",
+    "unicode": "U+1F3F3 U+FE0F U+200D U+26A7 U+FE0F",
+    "name": "transgender flag"
   },
   {
-    name: "🇵🇷 Flag: Puerto Rico",
-    type: "Flags",
-    emoji: "🇵🇷",
-    description: "Flag: Puerto Rico"
+    "id": 1555,
+    "emoji": "🏴‍☠️",
+    "unicode": "U+1F3F4 U+200D U+2620 U+FE0F",
+    "name": "pirate flag"
   },
   {
-    name: "🇵🇸 Flag: Palestinian Territories",
-    type: "Flags",
-    emoji: "🇵🇸",
-    description: "Flag: Palestinian Territories"
+    "id": 1556,
+    "emoji": "🇦🇨",
+    "unicode": "U+1F1E6 U+1F1E8",
+    "name": "flag: Ascension Island"
   },
   {
-    name: "🇵🇹 Flag: Portugal",
-    type: "Flags",
-    emoji: "🇵🇹",
-    description: "Flag: Portugal"
+    "id": 1557,
+    "emoji": "🇦🇩",
+    "unicode": "U+1F1E6 U+1F1E9",
+    "name": "flag: Andorra"
   },
   {
-    name: "🇵🇼 Flag: Palau",
-    type: "Flags",
-    emoji: "🇵🇼",
-    description: "Flag: Palau"
+    "id": 1558,
+    "emoji": "🇦🇪",
+    "unicode": "U+1F1E6 U+1F1EA",
+    "name": "flag: United Arab Emirates"
   },
   {
-    name: "🇵🇾 Flag: Paraguay",
-    type: "Flags",
-    emoji: "🇵🇾",
-    description: "Flag: Paraguay"
+    "id": 1559,
+    "emoji": "🇦🇫",
+    "unicode": "U+1F1E6 U+1F1EB",
+    "name": "flag: Afghanistan"
   },
   {
-    name: "🇶🇦 Flag: Qatar",
-    type: "Flags",
-    emoji: "🇶🇦",
-    description: "Flag: Qatar"
+    "id": 1560,
+    "emoji": "🇦🇬",
+    "unicode": "U+1F1E6 U+1F1EC",
+    "name": "flag: Antigua & Barbuda"
   },
   {
-    name: "🇷🇪 Flag: RéUnion",
-    type: "Flags",
-    emoji: "🇷🇪",
-    description: "Flag: RéUnion"
+    "id": 1561,
+    "emoji": "🇦🇮",
+    "unicode": "U+1F1E6 U+1F1EE",
+    "name": "flag: Anguilla"
   },
   {
-    name: "🇷🇴 Flag: Romania",
-    type: "Flags",
-    emoji: "🇷🇴",
-    description: "Flag: Romania"
+    "id": 1562,
+    "emoji": "🇦🇱",
+    "unicode": "U+1F1E6 U+1F1F1",
+    "name": "flag: Albania"
   },
   {
-    name: "🇷🇸 Flag: Serbia",
-    type: "Flags",
-    emoji: "🇷🇸",
-    description: "Flag: Serbia"
+    "id": 1563,
+    "emoji": "🇦🇲",
+    "unicode": "U+1F1E6 U+1F1F2",
+    "name": "flag: Armenia"
   },
   {
-    name: "🇷🇺 Flag: Russia",
-    type: "Flags",
-    emoji: "🇷🇺",
-    description: "Flag: Russia"
+    "id": 1564,
+    "emoji": "🇦🇴",
+    "unicode": "U+1F1E6 U+1F1F4",
+    "name": "flag: Angola"
   },
   {
-    name: "🇷🇼 Flag: Rwanda",
-    type: "Flags",
-    emoji: "🇷🇼",
-    description: "Flag: Rwanda"
+    "id": 1565,
+    "emoji": "🇦🇶",
+    "unicode": "U+1F1E6 U+1F1F6",
+    "name": "flag: Antarctica"
   },
   {
-    name: "🇸🇦 Flag: Saudi Arabia",
-    type: "Flags",
-    emoji: "🇸🇦",
-    description: "Flag: Saudi Arabia"
+    "id": 1566,
+    "emoji": "🇦🇷",
+    "unicode": "U+1F1E6 U+1F1F7",
+    "name": "flag: Argentina"
   },
   {
-    name: "🇸🇧 Flag: Solomon Islands",
-    type: "Flags",
-    emoji: "🇸🇧",
-    description: "Flag: Solomon Islands"
+    "id": 1567,
+    "emoji": "🇦🇸",
+    "unicode": "U+1F1E6 U+1F1F8",
+    "name": "flag: American Samoa"
   },
   {
-    name: "🇸🇨 Flag: Seychelles",
-    type: "Flags",
-    emoji: "🇸🇨",
-    description: "Flag: Seychelles"
+    "id": 1568,
+    "emoji": "🇦🇹",
+    "unicode": "U+1F1E6 U+1F1F9",
+    "name": "flag: Austria"
   },
   {
-    name: "🇸🇩 Flag: Sudan",
-    type: "Flags",
-    emoji: "🇸🇩",
-    description: "Flag: Sudan"
+    "id": 1569,
+    "emoji": "🇦🇺",
+    "unicode": "U+1F1E6 U+1F1FA",
+    "name": "flag: Australia"
   },
   {
-    name: "🇸🇪 Flag: Sweden",
-    type: "Flags",
-    emoji: "🇸🇪",
-    description: "Flag: Sweden"
+    "id": 1570,
+    "emoji": "🇦🇼",
+    "unicode": "U+1F1E6 U+1F1FC",
+    "name": "flag: Aruba"
   },
   {
-    name: "🇸🇬 Flag: Singapore",
-    type: "Flags",
-    emoji: "🇸🇬",
-    description: "Flag: Singapore"
+    "id": 1571,
+    "emoji": "🇦🇽",
+    "unicode": "U+1F1E6 U+1F1FD",
+    "name": "flag: Åland Islands"
   },
   {
-    name: "🇸🇭 Flag: St. Helena",
-    type: "Flags",
-    emoji: "🇸🇭",
-    description: "Flag: St. Helena"
+    "id": 1572,
+    "emoji": "🇦🇿",
+    "unicode": "U+1F1E6 U+1F1FF",
+    "name": "flag: Azerbaijan"
   },
   {
-    name: "🇸🇮 Flag: Slovenia",
-    type: "Flags",
-    emoji: "🇸🇮",
-    description: "Flag: Slovenia"
+    "id": 1573,
+    "emoji": "🇧🇦",
+    "unicode": "U+1F1E7 U+1F1E6",
+    "name": "flag: Bosnia & Herzegovina"
   },
   {
-    name: "🇸🇯 Flag: Svalbard & Jan Mayen",
-    type: "Flags",
-    emoji: "🇸🇯",
-    description: "Flag: Svalbard & Jan Mayen"
+    "id": 1574,
+    "emoji": "🇧🇧",
+    "unicode": "U+1F1E7 U+1F1E7",
+    "name": "flag: Barbados"
   },
   {
-    name: "🇸🇰 Flag: Slovakia",
-    type: "Flags",
-    emoji: "🇸🇰",
-    description: "Flag: Slovakia"
+    "id": 1575,
+    "emoji": "🇧🇩",
+    "unicode": "U+1F1E7 U+1F1E9",
+    "name": "flag: Bangladesh"
   },
   {
-    name: "🇸🇱 Flag: Sierra Leone",
-    type: "Flags",
-    emoji: "🇸🇱",
-    description: "Flag: Sierra Leone"
+    "id": 1576,
+    "emoji": "🇧🇪",
+    "unicode": "U+1F1E7 U+1F1EA",
+    "name": "flag: Belgium"
   },
   {
-    name: "🇸🇲 Flag: San Marino",
-    type: "Flags",
-    emoji: "🇸🇲",
-    description: "Flag: San Marino"
+    "id": 1577,
+    "emoji": "🇧🇫",
+    "unicode": "U+1F1E7 U+1F1EB",
+    "name": "flag: Burkina Faso"
   },
   {
-    name: "🇸🇳 Flag: Senegal",
-    type: "Flags",
-    emoji: "🇸🇳",
-    description: "Flag: Senegal"
+    "id": 1578,
+    "emoji": "🇧🇬",
+    "unicode": "U+1F1E7 U+1F1EC",
+    "name": "flag: Bulgaria"
   },
   {
-    name: "🇸🇴 Flag: Somalia",
-    type: "Flags",
-    emoji: "🇸🇴",
-    description: "Flag: Somalia"
+    "id": 1579,
+    "emoji": "🇧🇭",
+    "unicode": "U+1F1E7 U+1F1ED",
+    "name": "flag: Bahrain"
   },
   {
-    name: "🇸🇷 Flag: Suriname",
-    type: "Flags",
-    emoji: "🇸🇷",
-    description: "Flag: Suriname"
+    "id": 1580,
+    "emoji": "🇧🇮",
+    "unicode": "U+1F1E7 U+1F1EE",
+    "name": "flag: Burundi"
   },
   {
-    name: "🇸🇸 Flag: South Sudan",
-    type: "Flags",
-    emoji: "🇸🇸",
-    description: "Flag: South Sudan"
+    "id": 1581,
+    "emoji": "🇧🇯",
+    "unicode": "U+1F1E7 U+1F1EF",
+    "name": "flag: Benin"
   },
   {
-    name: "🇸🇹 Flag: SãO Tomé & PríNcipe",
-    type: "Flags",
-    emoji: "🇸🇹",
-    description: "Flag: SãO Tomé & PríNcipe"
+    "id": 1582,
+    "emoji": "🇧🇱",
+    "unicode": "U+1F1E7 U+1F1F1",
+    "name": "flag: St. Barthélemy"
   },
   {
-    name: "🇸🇻 Flag: El Salvador",
-    type: "Flags",
-    emoji: "🇸🇻",
-    description: "Flag: El Salvador"
+    "id": 1583,
+    "emoji": "🇧🇲",
+    "unicode": "U+1F1E7 U+1F1F2",
+    "name": "flag: Bermuda"
   },
   {
-    name: "🇸🇽 Flag: Sint Maarten",
-    type: "Flags",
-    emoji: "🇸🇽",
-    description: "Flag: Sint Maarten"
+    "id": 1584,
+    "emoji": "🇧🇳",
+    "unicode": "U+1F1E7 U+1F1F3",
+    "name": "flag: Brunei"
   },
   {
-    name: "🇸🇾 Flag: Syria",
-    type: "Flags",
-    emoji: "🇸🇾",
-    description: "Flag: Syria"
+    "id": 1585,
+    "emoji": "🇧🇴",
+    "unicode": "U+1F1E7 U+1F1F4",
+    "name": "flag: Bolivia"
   },
   {
-    name: "🇸🇿 Flag: Swaziland",
-    type: "Flags",
-    emoji: "🇸🇿",
-    description: "Flag: Swaziland"
+    "id": 1586,
+    "emoji": "🇧🇶",
+    "unicode": "U+1F1E7 U+1F1F6",
+    "name": "flag: Caribbean Netherlands"
   },
   {
-    name: "🇹🇦 Flag: Tristan Da Cunha",
-    type: "Flags",
-    emoji: "🇹🇦",
-    description: "Flag: Tristan Da Cunha"
+    "id": 1587,
+    "emoji": "🇧🇷",
+    "unicode": "U+1F1E7 U+1F1F7",
+    "name": "flag: Brazil"
   },
   {
-    name: "🇹🇨 Flag: Turks & Caicos Islands",
-    type: "Flags",
-    emoji: "🇹🇨",
-    description: "Flag: Turks & Caicos Islands"
+    "id": 1588,
+    "emoji": "🇧🇸",
+    "unicode": "U+1F1E7 U+1F1F8",
+    "name": "flag: Bahamas"
   },
   {
-    name: "🇹🇩 Flag: Chad",
-    type: "Flags",
-    emoji: "🇹🇩",
-    description: "Flag: Chad"
+    "id": 1589,
+    "emoji": "🇧🇹",
+    "unicode": "U+1F1E7 U+1F1F9",
+    "name": "flag: Bhutan"
   },
   {
-    name: "🇹🇫 Flag: French Southern Territories",
-    type: "Flags",
-    emoji: "🇹🇫",
-    description: "Flag: French Southern Territories"
+    "id": 1590,
+    "emoji": "🇧🇻",
+    "unicode": "U+1F1E7 U+1F1FB",
+    "name": "flag: Bouvet Island"
   },
   {
-    name: "🇹🇬 Flag: Togo",
-    type: "Flags",
-    emoji: "🇹🇬",
-    description: "Flag: Togo"
+    "id": 1591,
+    "emoji": "🇧🇼",
+    "unicode": "U+1F1E7 U+1F1FC",
+    "name": "flag: Botswana"
   },
   {
-    name: "🇹🇭 Flag: Thailand",
-    type: "Flags",
-    emoji: "🇹🇭",
-    description: "Flag: Thailand"
+    "id": 1592,
+    "emoji": "🇧🇾",
+    "unicode": "U+1F1E7 U+1F1FE",
+    "name": "flag: Belarus"
   },
   {
-    name: "🇹🇯 Flag: Tajikistan",
-    type: "Flags",
-    emoji: "🇹🇯",
-    description: "Flag: Tajikistan"
+    "id": 1593,
+    "emoji": "🇧🇿",
+    "unicode": "U+1F1E7 U+1F1FF",
+    "name": "flag: Belize"
   },
   {
-    name: "🇹🇰 Flag: Tokelau",
-    type: "Flags",
-    emoji: "🇹🇰",
-    description: "Flag: Tokelau"
+    "id": 1594,
+    "emoji": "🇨🇦",
+    "unicode": "U+1F1E8 U+1F1E6",
+    "name": "flag: Canada"
   },
   {
-    name: "🇹🇱 Flag: Timor-Leste",
-    type: "Flags",
-    emoji: "🇹🇱",
-    description: "Flag: Timor-Leste"
+    "id": 1595,
+    "emoji": "🇨🇨",
+    "unicode": "U+1F1E8 U+1F1E8",
+    "name": "flag: Cocos (Keeling) Islands"
   },
   {
-    name: "🇹🇲 Flag: Turkmenistan",
-    type: "Flags",
-    emoji: "🇹🇲",
-    description: "Flag: Turkmenistan"
+    "id": 1596,
+    "emoji": "🇨🇩",
+    "unicode": "U+1F1E8 U+1F1E9",
+    "name": "flag: Congo - Kinshasa"
   },
   {
-    name: "🇹🇳 Flag: Tunisia",
-    type: "Flags",
-    emoji: "🇹🇳",
-    description: "Flag: Tunisia"
+    "id": 1597,
+    "emoji": "🇨🇫",
+    "unicode": "U+1F1E8 U+1F1EB",
+    "name": "flag: Central African Republic"
   },
   {
-    name: "🇹🇴 Flag: Tonga",
-    type: "Flags",
-    emoji: "🇹🇴",
-    description: "Flag: Tonga"
+    "id": 1598,
+    "emoji": "🇨🇬",
+    "unicode": "U+1F1E8 U+1F1EC",
+    "name": "flag: Congo - Brazzaville"
   },
   {
-    name: "🇹🇷 Flag: Turkey",
-    type: "Flags",
-    emoji: "🇹🇷",
-    description: "Flag: Turkey"
+    "id": 1599,
+    "emoji": "🇨🇭",
+    "unicode": "U+1F1E8 U+1F1ED",
+    "name": "flag: Switzerland"
   },
   {
-    name: "🇹🇹 Flag: Trinidad & Tobago",
-    type: "Flags",
-    emoji: "🇹🇹",
-    description: "Flag: Trinidad & Tobago"
+    "id": 1600,
+    "emoji": "🇨🇮",
+    "unicode": "U+1F1E8 U+1F1EE",
+    "name": "flag: Côte d’Ivoire"
   },
   {
-    name: "🇹🇻 Flag: Tuvalu",
-    type: "Flags",
-    emoji: "🇹🇻",
-    description: "Flag: Tuvalu"
+    "id": 1601,
+    "emoji": "🇨🇰",
+    "unicode": "U+1F1E8 U+1F1F0",
+    "name": "flag: Cook Islands"
   },
   {
-    name: "🇹🇼 Flag: Taiwan",
-    type: "Flags",
-    emoji: "🇹🇼",
-    description: "Flag: Taiwan"
+    "id": 1602,
+    "emoji": "🇨🇱",
+    "unicode": "U+1F1E8 U+1F1F1",
+    "name": "flag: Chile"
   },
   {
-    name: "🇹🇿 Flag: Tanzania",
-    type: "Flags",
-    emoji: "🇹🇿",
-    description: "Flag: Tanzania"
+    "id": 1603,
+    "emoji": "🇨🇲",
+    "unicode": "U+1F1E8 U+1F1F2",
+    "name": "flag: Cameroon"
   },
   {
-    name: "🇺🇦 Flag: Ukraine",
-    type: "Flags",
-    emoji: "🇺🇦",
-    description: "Flag: Ukraine"
+    "id": 1604,
+    "emoji": "🇨🇳",
+    "unicode": "U+1F1E8 U+1F1F3",
+    "name": "flag: China"
   },
   {
-    name: "🇺🇬 Flag: Uganda",
-    type: "Flags",
-    emoji: "🇺🇬",
-    description: "Flag: Uganda"
+    "id": 1605,
+    "emoji": "🇨🇴",
+    "unicode": "U+1F1E8 U+1F1F4",
+    "name": "flag: Colombia"
   },
   {
-    name: "🇺🇲 Flag: U.S. Outlying Islands",
-    type: "Flags",
-    emoji: "🇺🇲",
-    description: "Flag: U.S. Outlying Islands"
+    "id": 1606,
+    "emoji": "🇨🇵",
+    "unicode": "U+1F1E8 U+1F1F5",
+    "name": "flag: Clipperton Island"
   },
   {
-    name: "🇺🇳 Flag: United Nations",
-    type: "Flags",
-    emoji: "🇺🇳",
-    description: "Flag: United Nations"
+    "id": 1607,
+    "emoji": "🇨🇷",
+    "unicode": "U+1F1E8 U+1F1F7",
+    "name": "flag: Costa Rica"
   },
   {
-    name: "🇺🇸 Flag: United States",
-    type: "Flags",
-    emoji: "🇺🇸",
-    description: "Flag: United States"
+    "id": 1608,
+    "emoji": "🇨🇺",
+    "unicode": "U+1F1E8 U+1F1FA",
+    "name": "flag: Cuba"
   },
   {
-    name: "🇺🇾 Flag: Uruguay",
-    type: "Flags",
-    emoji: "🇺🇾",
-    description: "Flag: Uruguay"
+    "id": 1609,
+    "emoji": "🇨🇻",
+    "unicode": "U+1F1E8 U+1F1FB",
+    "name": "flag: Cape Verde"
   },
   {
-    name: "🇺🇿 Flag: Uzbekistan",
-    type: "Flags",
-    emoji: "🇺🇿",
-    description: "Flag: Uzbekistan"
+    "id": 1610,
+    "emoji": "🇨🇼",
+    "unicode": "U+1F1E8 U+1F1FC",
+    "name": "flag: Curaçao"
   },
   {
-    name: "🇻🇦 Flag: Vatican City",
-    type: "Flags",
-    emoji: "🇻🇦",
-    description: "Flag: Vatican City"
+    "id": 1611,
+    "emoji": "🇨🇽",
+    "unicode": "U+1F1E8 U+1F1FD",
+    "name": "flag: Christmas Island"
   },
   {
-    name: "🇻🇨 Flag: St. Vincent & Grenadines",
-    type: "Flags",
-    emoji: "🇻🇨",
-    description: "Flag: St. Vincent & Grenadines"
+    "id": 1612,
+    "emoji": "🇨🇾",
+    "unicode": "U+1F1E8 U+1F1FE",
+    "name": "flag: Cyprus"
   },
   {
-    name: "🇻🇪 Flag: Venezuela",
-    type: "Flags",
-    emoji: "🇻🇪",
-    description: "Flag: Venezuela"
+    "id": 1613,
+    "emoji": "🇨🇿",
+    "unicode": "U+1F1E8 U+1F1FF",
+    "name": "flag: Czechia"
   },
   {
-    name: "🇻🇬 Flag: British Virgin Islands",
-    type: "Flags",
-    emoji: "🇻🇬",
-    description: "Flag: British Virgin Islands"
+    "id": 1614,
+    "emoji": "🇩🇪",
+    "unicode": "U+1F1E9 U+1F1EA",
+    "name": "flag: Germany"
   },
   {
-    name: "🇻🇮 Flag: U.S. Virgin Islands",
-    type: "Flags",
-    emoji: "🇻🇮",
-    description: "Flag: U.S. Virgin Islands"
+    "id": 1615,
+    "emoji": "🇩🇬",
+    "unicode": "U+1F1E9 U+1F1EC",
+    "name": "flag: Diego Garcia"
   },
   {
-    name: "🇻🇳 Flag: Vietnam",
-    type: "Flags",
-    emoji: "🇻🇳",
-    description: "Flag: Vietnam"
+    "id": 1616,
+    "emoji": "🇩🇯",
+    "unicode": "U+1F1E9 U+1F1EF",
+    "name": "flag: Djibouti"
   },
   {
-    name: "🇻🇺 Flag: Vanuatu",
-    type: "Flags",
-    emoji: "🇻🇺",
-    description: "Flag: Vanuatu"
+    "id": 1617,
+    "emoji": "🇩🇰",
+    "unicode": "U+1F1E9 U+1F1F0",
+    "name": "flag: Denmark"
   },
   {
-    name: "🇼🇫 Flag: Wallis & Futuna",
-    type: "Flags",
-    emoji: "🇼🇫",
-    description: "Flag: Wallis & Futuna"
+    "id": 1618,
+    "emoji": "🇩🇲",
+    "unicode": "U+1F1E9 U+1F1F2",
+    "name": "flag: Dominica"
   },
   {
-    name: "🇼🇸 Flag: Samoa",
-    type: "Flags",
-    emoji: "🇼🇸",
-    description: "Flag: Samoa"
+    "id": 1619,
+    "emoji": "🇩🇴",
+    "unicode": "U+1F1E9 U+1F1F4",
+    "name": "flag: Dominican Republic"
   },
   {
-    name: "🇽🇰 Flag: Kosovo",
-    type: "Flags",
-    emoji: "🇽🇰",
-    description: "Flag: Kosovo"
+    "id": 1620,
+    "emoji": "🇩🇿",
+    "unicode": "U+1F1E9 U+1F1FF",
+    "name": "flag: Algeria"
   },
   {
-    name: "🇾🇪 Flag: Yemen",
-    type: "Flags",
-    emoji: "🇾🇪",
-    description: "Flag: Yemen"
+    "id": 1621,
+    "emoji": "🇪🇦",
+    "unicode": "U+1F1EA U+1F1E6",
+    "name": "flag: Ceuta & Melilla"
   },
   {
-    name: "🇾🇹 Flag: Mayotte",
-    type: "Flags",
-    emoji: "🇾🇹",
-    description: "Flag: Mayotte"
+    "id": 1622,
+    "emoji": "🇪🇨",
+    "unicode": "U+1F1EA U+1F1E8",
+    "name": "flag: Ecuador"
   },
   {
-    name: "🇿🇦 Flag: South Africa",
-    type: "Flags",
-    emoji: "🇿🇦",
-    description: "Flag: South Africa"
+    "id": 1623,
+    "emoji": "🇪🇪",
+    "unicode": "U+1F1EA U+1F1EA",
+    "name": "flag: Estonia"
   },
   {
-    name: "🇿🇲 Flag: Zambia",
-    type: "Flags",
-    emoji: "🇿🇲",
-    description: "Flag: Zambia"
+    "id": 1624,
+    "emoji": "🇪🇬",
+    "unicode": "U+1F1EA U+1F1EC",
+    "name": "flag: Egypt"
   },
   {
-    name: "🇿🇼 Flag: Zimbabwe",
-    type: "Flags",
-    emoji: "🇿🇼",
-    description: "Flag: Zimbabwe"
+    "id": 1625,
+    "emoji": "🇪🇭",
+    "unicode": "U+1F1EA U+1F1ED",
+    "name": "flag: Western Sahara"
   },
   {
-    name: "🏴󠁧 󠁢󠁥󠁮󠁧󠁿 Flag: England",
-    type: "Flags",
-    emoji: "🏴󠁧",
-    description: "󠁢󠁥󠁮󠁧󠁿 Flag: England"
+    "id": 1626,
+    "emoji": "🇪🇷",
+    "unicode": "U+1F1EA U+1F1F7",
+    "name": "flag: Eritrea"
   },
   {
-    name: "🏴󠁧 󠁢󠁳󠁣󠁴󠁿 Flag: Scotland",
-    type: "Flags",
-    emoji: "🏴󠁧",
-    description: "󠁢󠁳󠁣󠁴󠁿 Flag: Scotland"
+    "id": 1627,
+    "emoji": "🇪🇸",
+    "unicode": "U+1F1EA U+1F1F8",
+    "name": "flag: Spain"
   },
   {
-    name: "🏴󠁧 󠁢󠁷󠁬󠁳󠁿 Flag: Wales",
-    type: "Flags",
-    emoji: "🏴󠁧",
-    description: "󠁢󠁷󠁬󠁳󠁿 Flag: Wales"
+    "id": 1628,
+    "emoji": "🇪🇹",
+    "unicode": "U+1F1EA U+1F1F9",
+    "name": "flag: Ethiopia"
+  },
+  {
+    "id": 1629,
+    "emoji": "🇪🇺",
+    "unicode": "U+1F1EA U+1F1FA",
+    "name": "flag: European Union"
+  },
+  {
+    "id": 1630,
+    "emoji": "🇫🇮",
+    "unicode": "U+1F1EB U+1F1EE",
+    "name": "flag: Finland"
+  },
+  {
+    "id": 1631,
+    "emoji": "🇫🇯",
+    "unicode": "U+1F1EB U+1F1EF",
+    "name": "flag: Fiji"
+  },
+  {
+    "id": 1632,
+    "emoji": "🇫🇰",
+    "unicode": "U+1F1EB U+1F1F0",
+    "name": "flag: Falkland Islands"
+  },
+  {
+    "id": 1633,
+    "emoji": "🇫🇲",
+    "unicode": "U+1F1EB U+1F1F2",
+    "name": "flag: Micronesia"
+  },
+  {
+    "id": 1634,
+    "emoji": "🇫🇴",
+    "unicode": "U+1F1EB U+1F1F4",
+    "name": "flag: Faroe Islands"
+  },
+  {
+    "id": 1635,
+    "emoji": "🇫🇷",
+    "unicode": "U+1F1EB U+1F1F7",
+    "name": "flag: France"
+  },
+  {
+    "id": 1636,
+    "emoji": "🇬🇦",
+    "unicode": "U+1F1EC U+1F1E6",
+    "name": "flag: Gabon"
+  },
+  {
+    "id": 1637,
+    "emoji": "🇬🇧",
+    "unicode": "U+1F1EC U+1F1E7",
+    "name": "flag: United Kingdom"
+  },
+  {
+    "id": 1638,
+    "emoji": "🇬🇩",
+    "unicode": "U+1F1EC U+1F1E9",
+    "name": "flag: Grenada"
+  },
+  {
+    "id": 1639,
+    "emoji": "🇬🇪",
+    "unicode": "U+1F1EC U+1F1EA",
+    "name": "flag: Georgia"
+  },
+  {
+    "id": 1640,
+    "emoji": "🇬🇫",
+    "unicode": "U+1F1EC U+1F1EB",
+    "name": "flag: French Guiana"
+  },
+  {
+    "id": 1641,
+    "emoji": "🇬🇬",
+    "unicode": "U+1F1EC U+1F1EC",
+    "name": "flag: Guernsey"
+  },
+  {
+    "id": 1642,
+    "emoji": "🇬🇭",
+    "unicode": "U+1F1EC U+1F1ED",
+    "name": "flag: Ghana"
+  },
+  {
+    "id": 1643,
+    "emoji": "🇬🇮",
+    "unicode": "U+1F1EC U+1F1EE",
+    "name": "flag: Gibraltar"
+  },
+  {
+    "id": 1644,
+    "emoji": "🇬🇱",
+    "unicode": "U+1F1EC U+1F1F1",
+    "name": "flag: Greenland"
+  },
+  {
+    "id": 1645,
+    "emoji": "🇬🇲",
+    "unicode": "U+1F1EC U+1F1F2",
+    "name": "flag: Gambia"
+  },
+  {
+    "id": 1646,
+    "emoji": "🇬🇳",
+    "unicode": "U+1F1EC U+1F1F3",
+    "name": "flag: Guinea"
+  },
+  {
+    "id": 1647,
+    "emoji": "🇬🇵",
+    "unicode": "U+1F1EC U+1F1F5",
+    "name": "flag: Guadeloupe"
+  },
+  {
+    "id": 1648,
+    "emoji": "🇬🇶",
+    "unicode": "U+1F1EC U+1F1F6",
+    "name": "flag: Equatorial Guinea"
+  },
+  {
+    "id": 1649,
+    "emoji": "🇬🇷",
+    "unicode": "U+1F1EC U+1F1F7",
+    "name": "flag: Greece"
+  },
+  {
+    "id": 1650,
+    "emoji": "🇬🇸",
+    "unicode": "U+1F1EC U+1F1F8",
+    "name": "flag: South Georgia & South Sandwich Islands"
+  },
+  {
+    "id": 1651,
+    "emoji": "🇬🇹",
+    "unicode": "U+1F1EC U+1F1F9",
+    "name": "flag: Guatemala"
+  },
+  {
+    "id": 1652,
+    "emoji": "🇬🇺",
+    "unicode": "U+1F1EC U+1F1FA",
+    "name": "flag: Guam"
+  },
+  {
+    "id": 1653,
+    "emoji": "🇬🇼",
+    "unicode": "U+1F1EC U+1F1FC",
+    "name": "flag: Guinea-Bissau"
+  },
+  {
+    "id": 1654,
+    "emoji": "🇬🇾",
+    "unicode": "U+1F1EC U+1F1FE",
+    "name": "flag: Guyana"
+  },
+  {
+    "id": 1655,
+    "emoji": "🇭🇰",
+    "unicode": "U+1F1ED U+1F1F0",
+    "name": "flag: Hong Kong SAR China"
+  },
+  {
+    "id": 1656,
+    "emoji": "🇭🇲",
+    "unicode": "U+1F1ED U+1F1F2",
+    "name": "flag: Heard & McDonald Islands"
+  },
+  {
+    "id": 1657,
+    "emoji": "🇭🇳",
+    "unicode": "U+1F1ED U+1F1F3",
+    "name": "flag: Honduras"
+  },
+  {
+    "id": 1658,
+    "emoji": "🇭🇷",
+    "unicode": "U+1F1ED U+1F1F7",
+    "name": "flag: Croatia"
+  },
+  {
+    "id": 1659,
+    "emoji": "🇭🇹",
+    "unicode": "U+1F1ED U+1F1F9",
+    "name": "flag: Haiti"
+  },
+  {
+    "id": 1660,
+    "emoji": "🇭🇺",
+    "unicode": "U+1F1ED U+1F1FA",
+    "name": "flag: Hungary"
+  },
+  {
+    "id": 1661,
+    "emoji": "🇮🇨",
+    "unicode": "U+1F1EE U+1F1E8",
+    "name": "flag: Canary Islands"
+  },
+  {
+    "id": 1662,
+    "emoji": "🇮🇩",
+    "unicode": "U+1F1EE U+1F1E9",
+    "name": "flag: Indonesia"
+  },
+  {
+    "id": 1663,
+    "emoji": "🇮🇪",
+    "unicode": "U+1F1EE U+1F1EA",
+    "name": "flag: Ireland"
+  },
+  {
+    "id": 1664,
+    "emoji": "🇮🇱",
+    "unicode": "U+1F1EE U+1F1F1",
+    "name": "flag: Israel"
+  },
+  {
+    "id": 1665,
+    "emoji": "🇮🇲",
+    "unicode": "U+1F1EE U+1F1F2",
+    "name": "flag: Isle of Man"
+  },
+  {
+    "id": 1666,
+    "emoji": "🇮🇳",
+    "unicode": "U+1F1EE U+1F1F3",
+    "name": "flag: India"
+  },
+  {
+    "id": 1667,
+    "emoji": "🇮🇴",
+    "unicode": "U+1F1EE U+1F1F4",
+    "name": "flag: British Indian Ocean Territory"
+  },
+  {
+    "id": 1668,
+    "emoji": "🇮🇶",
+    "unicode": "U+1F1EE U+1F1F6",
+    "name": "flag: Iraq"
+  },
+  {
+    "id": 1669,
+    "emoji": "🇮🇷",
+    "unicode": "U+1F1EE U+1F1F7",
+    "name": "flag: Iran"
+  },
+  {
+    "id": 1670,
+    "emoji": "🇮🇸",
+    "unicode": "U+1F1EE U+1F1F8",
+    "name": "flag: Iceland"
+  },
+  {
+    "id": 1671,
+    "emoji": "🇮🇹",
+    "unicode": "U+1F1EE U+1F1F9",
+    "name": "flag: Italy"
+  },
+  {
+    "id": 1672,
+    "emoji": "🇯🇪",
+    "unicode": "U+1F1EF U+1F1EA",
+    "name": "flag: Jersey"
+  },
+  {
+    "id": 1673,
+    "emoji": "🇯🇲",
+    "unicode": "U+1F1EF U+1F1F2",
+    "name": "flag: Jamaica"
+  },
+  {
+    "id": 1674,
+    "emoji": "🇯🇴",
+    "unicode": "U+1F1EF U+1F1F4",
+    "name": "flag: Jordan"
+  },
+  {
+    "id": 1675,
+    "emoji": "🇯🇵",
+    "unicode": "U+1F1EF U+1F1F5",
+    "name": "flag: Japan"
+  },
+  {
+    "id": 1676,
+    "emoji": "🇰🇪",
+    "unicode": "U+1F1F0 U+1F1EA",
+    "name": "flag: Kenya"
+  },
+  {
+    "id": 1677,
+    "emoji": "🇰🇬",
+    "unicode": "U+1F1F0 U+1F1EC",
+    "name": "flag: Kyrgyzstan"
+  },
+  {
+    "id": 1678,
+    "emoji": "🇰🇭",
+    "unicode": "U+1F1F0 U+1F1ED",
+    "name": "flag: Cambodia"
+  },
+  {
+    "id": 1679,
+    "emoji": "🇰🇮",
+    "unicode": "U+1F1F0 U+1F1EE",
+    "name": "flag: Kiribati"
+  },
+  {
+    "id": 1680,
+    "emoji": "🇰🇲",
+    "unicode": "U+1F1F0 U+1F1F2",
+    "name": "flag: Comoros"
+  },
+  {
+    "id": 1681,
+    "emoji": "🇰🇳",
+    "unicode": "U+1F1F0 U+1F1F3",
+    "name": "flag: St. Kitts & Nevis"
+  },
+  {
+    "id": 1682,
+    "emoji": "🇰🇵",
+    "unicode": "U+1F1F0 U+1F1F5",
+    "name": "flag: North Korea"
+  },
+  {
+    "id": 1683,
+    "emoji": "🇰🇷",
+    "unicode": "U+1F1F0 U+1F1F7",
+    "name": "flag: South Korea"
+  },
+  {
+    "id": 1684,
+    "emoji": "🇰🇼",
+    "unicode": "U+1F1F0 U+1F1FC",
+    "name": "flag: Kuwait"
+  },
+  {
+    "id": 1685,
+    "emoji": "🇰🇾",
+    "unicode": "U+1F1F0 U+1F1FE",
+    "name": "flag: Cayman Islands"
+  },
+  {
+    "id": 1686,
+    "emoji": "🇰🇿",
+    "unicode": "U+1F1F0 U+1F1FF",
+    "name": "flag: Kazakhstan"
+  },
+  {
+    "id": 1687,
+    "emoji": "🇱🇦",
+    "unicode": "U+1F1F1 U+1F1E6",
+    "name": "flag: Laos"
+  },
+  {
+    "id": 1688,
+    "emoji": "🇱🇧",
+    "unicode": "U+1F1F1 U+1F1E7",
+    "name": "flag: Lebanon"
+  },
+  {
+    "id": 1689,
+    "emoji": "🇱🇨",
+    "unicode": "U+1F1F1 U+1F1E8",
+    "name": "flag: St. Lucia"
+  },
+  {
+    "id": 1690,
+    "emoji": "🇱🇮",
+    "unicode": "U+1F1F1 U+1F1EE",
+    "name": "flag: Liechtenstein"
+  },
+  {
+    "id": 1691,
+    "emoji": "🇱🇰",
+    "unicode": "U+1F1F1 U+1F1F0",
+    "name": "flag: Sri Lanka"
+  },
+  {
+    "id": 1692,
+    "emoji": "🇱🇷",
+    "unicode": "U+1F1F1 U+1F1F7",
+    "name": "flag: Liberia"
+  },
+  {
+    "id": 1693,
+    "emoji": "🇱🇸",
+    "unicode": "U+1F1F1 U+1F1F8",
+    "name": "flag: Lesotho"
+  },
+  {
+    "id": 1694,
+    "emoji": "🇱🇹",
+    "unicode": "U+1F1F1 U+1F1F9",
+    "name": "flag: Lithuania"
+  },
+  {
+    "id": 1695,
+    "emoji": "🇱🇺",
+    "unicode": "U+1F1F1 U+1F1FA",
+    "name": "flag: Luxembourg"
+  },
+  {
+    "id": 1696,
+    "emoji": "🇱🇻",
+    "unicode": "U+1F1F1 U+1F1FB",
+    "name": "flag: Latvia"
+  },
+  {
+    "id": 1697,
+    "emoji": "🇱🇾",
+    "unicode": "U+1F1F1 U+1F1FE",
+    "name": "flag: Libya"
+  },
+  {
+    "id": 1698,
+    "emoji": "🇲🇦",
+    "unicode": "U+1F1F2 U+1F1E6",
+    "name": "flag: Morocco"
+  },
+  {
+    "id": 1699,
+    "emoji": "🇲🇨",
+    "unicode": "U+1F1F2 U+1F1E8",
+    "name": "flag: Monaco"
+  },
+  {
+    "id": 1700,
+    "emoji": "🇲🇩",
+    "unicode": "U+1F1F2 U+1F1E9",
+    "name": "flag: Moldova"
+  },
+  {
+    "id": 1701,
+    "emoji": "🇲🇪",
+    "unicode": "U+1F1F2 U+1F1EA",
+    "name": "flag: Montenegro"
+  },
+  {
+    "id": 1702,
+    "emoji": "🇲🇫",
+    "unicode": "U+1F1F2 U+1F1EB",
+    "name": "flag: St. Martin"
+  },
+  {
+    "id": 1703,
+    "emoji": "🇲🇬",
+    "unicode": "U+1F1F2 U+1F1EC",
+    "name": "flag: Madagascar"
+  },
+  {
+    "id": 1704,
+    "emoji": "🇲🇭",
+    "unicode": "U+1F1F2 U+1F1ED",
+    "name": "flag: Marshall Islands"
+  },
+  {
+    "id": 1705,
+    "emoji": "🇲🇰",
+    "unicode": "U+1F1F2 U+1F1F0",
+    "name": "flag: North Macedonia"
+  },
+  {
+    "id": 1706,
+    "emoji": "🇲🇱",
+    "unicode": "U+1F1F2 U+1F1F1",
+    "name": "flag: Mali"
+  },
+  {
+    "id": 1707,
+    "emoji": "🇲🇲",
+    "unicode": "U+1F1F2 U+1F1F2",
+    "name": "flag: Myanmar (Burma)"
+  },
+  {
+    "id": 1708,
+    "emoji": "🇲🇳",
+    "unicode": "U+1F1F2 U+1F1F3",
+    "name": "flag: Mongolia"
+  },
+  {
+    "id": 1709,
+    "emoji": "🇲🇴",
+    "unicode": "U+1F1F2 U+1F1F4",
+    "name": "flag: Macao SAR China"
+  },
+  {
+    "id": 1710,
+    "emoji": "🇲🇵",
+    "unicode": "U+1F1F2 U+1F1F5",
+    "name": "flag: Northern Mariana Islands"
+  },
+  {
+    "id": 1711,
+    "emoji": "🇲🇶",
+    "unicode": "U+1F1F2 U+1F1F6",
+    "name": "flag: Martinique"
+  },
+  {
+    "id": 1712,
+    "emoji": "🇲🇷",
+    "unicode": "U+1F1F2 U+1F1F7",
+    "name": "flag: Mauritania"
+  },
+  {
+    "id": 1713,
+    "emoji": "🇲🇸",
+    "unicode": "U+1F1F2 U+1F1F8",
+    "name": "flag: Montserrat"
+  },
+  {
+    "id": 1714,
+    "emoji": "🇲🇹",
+    "unicode": "U+1F1F2 U+1F1F9",
+    "name": "flag: Malta"
+  },
+  {
+    "id": 1715,
+    "emoji": "🇲🇺",
+    "unicode": "U+1F1F2 U+1F1FA",
+    "name": "flag: Mauritius"
+  },
+  {
+    "id": 1716,
+    "emoji": "🇲🇻",
+    "unicode": "U+1F1F2 U+1F1FB",
+    "name": "flag: Maldives"
+  },
+  {
+    "id": 1717,
+    "emoji": "🇲🇼",
+    "unicode": "U+1F1F2 U+1F1FC",
+    "name": "flag: Malawi"
+  },
+  {
+    "id": 1718,
+    "emoji": "🇲🇽",
+    "unicode": "U+1F1F2 U+1F1FD",
+    "name": "flag: Mexico"
+  },
+  {
+    "id": 1719,
+    "emoji": "🇲🇾",
+    "unicode": "U+1F1F2 U+1F1FE",
+    "name": "flag: Malaysia"
+  },
+  {
+    "id": 1720,
+    "emoji": "🇲🇿",
+    "unicode": "U+1F1F2 U+1F1FF",
+    "name": "flag: Mozambique"
+  },
+  {
+    "id": 1721,
+    "emoji": "🇳🇦",
+    "unicode": "U+1F1F3 U+1F1E6",
+    "name": "flag: Namibia"
+  },
+  {
+    "id": 1722,
+    "emoji": "🇳🇨",
+    "unicode": "U+1F1F3 U+1F1E8",
+    "name": "flag: New Caledonia"
+  },
+  {
+    "id": 1723,
+    "emoji": "🇳🇪",
+    "unicode": "U+1F1F3 U+1F1EA",
+    "name": "flag: Niger"
+  },
+  {
+    "id": 1724,
+    "emoji": "🇳🇫",
+    "unicode": "U+1F1F3 U+1F1EB",
+    "name": "flag: Norfolk Island"
+  },
+  {
+    "id": 1725,
+    "emoji": "🇳🇬",
+    "unicode": "U+1F1F3 U+1F1EC",
+    "name": "flag: Nigeria"
+  },
+  {
+    "id": 1726,
+    "emoji": "🇳🇮",
+    "unicode": "U+1F1F3 U+1F1EE",
+    "name": "flag: Nicaragua"
+  },
+  {
+    "id": 1727,
+    "emoji": "🇳🇱",
+    "unicode": "U+1F1F3 U+1F1F1",
+    "name": "flag: Netherlands"
+  },
+  {
+    "id": 1728,
+    "emoji": "🇳🇴",
+    "unicode": "U+1F1F3 U+1F1F4",
+    "name": "flag: Norway"
+  },
+  {
+    "id": 1729,
+    "emoji": "🇳🇵",
+    "unicode": "U+1F1F3 U+1F1F5",
+    "name": "flag: Nepal"
+  },
+  {
+    "id": 1730,
+    "emoji": "🇳🇷",
+    "unicode": "U+1F1F3 U+1F1F7",
+    "name": "flag: Nauru"
+  },
+  {
+    "id": 1731,
+    "emoji": "🇳🇺",
+    "unicode": "U+1F1F3 U+1F1FA",
+    "name": "flag: Niue"
+  },
+  {
+    "id": 1732,
+    "emoji": "🇳🇿",
+    "unicode": "U+1F1F3 U+1F1FF",
+    "name": "flag: New Zealand"
+  },
+  {
+    "id": 1733,
+    "emoji": "🇴🇲",
+    "unicode": "U+1F1F4 U+1F1F2",
+    "name": "flag: Oman"
+  },
+  {
+    "id": 1734,
+    "emoji": "🇵🇦",
+    "unicode": "U+1F1F5 U+1F1E6",
+    "name": "flag: Panama"
+  },
+  {
+    "id": 1735,
+    "emoji": "🇵🇪",
+    "unicode": "U+1F1F5 U+1F1EA",
+    "name": "flag: Peru"
+  },
+  {
+    "id": 1736,
+    "emoji": "🇵🇫",
+    "unicode": "U+1F1F5 U+1F1EB",
+    "name": "flag: French Polynesia"
+  },
+  {
+    "id": 1737,
+    "emoji": "🇵🇬",
+    "unicode": "U+1F1F5 U+1F1EC",
+    "name": "flag: Papua New Guinea"
+  },
+  {
+    "id": 1738,
+    "emoji": "🇵🇭",
+    "unicode": "U+1F1F5 U+1F1ED",
+    "name": "flag: Philippines"
+  },
+  {
+    "id": 1739,
+    "emoji": "🇵🇰",
+    "unicode": "U+1F1F5 U+1F1F0",
+    "name": "flag: Pakistan"
+  },
+  {
+    "id": 1740,
+    "emoji": "🇵🇱",
+    "unicode": "U+1F1F5 U+1F1F1",
+    "name": "flag: Poland"
+  },
+  {
+    "id": 1741,
+    "emoji": "🇵🇲",
+    "unicode": "U+1F1F5 U+1F1F2",
+    "name": "flag: St. Pierre & Miquelon"
+  },
+  {
+    "id": 1742,
+    "emoji": "🇵🇳",
+    "unicode": "U+1F1F5 U+1F1F3",
+    "name": "flag: Pitcairn Islands"
+  },
+  {
+    "id": 1743,
+    "emoji": "🇵🇷",
+    "unicode": "U+1F1F5 U+1F1F7",
+    "name": "flag: Puerto Rico"
+  },
+  {
+    "id": 1744,
+    "emoji": "🇵🇸",
+    "unicode": "U+1F1F5 U+1F1F8",
+    "name": "flag: Palestinian Territories"
+  },
+  {
+    "id": 1745,
+    "emoji": "🇵🇹",
+    "unicode": "U+1F1F5 U+1F1F9",
+    "name": "flag: Portugal"
+  },
+  {
+    "id": 1746,
+    "emoji": "🇵🇼",
+    "unicode": "U+1F1F5 U+1F1FC",
+    "name": "flag: Palau"
+  },
+  {
+    "id": 1747,
+    "emoji": "🇵🇾",
+    "unicode": "U+1F1F5 U+1F1FE",
+    "name": "flag: Paraguay"
+  },
+  {
+    "id": 1748,
+    "emoji": "🇶🇦",
+    "unicode": "U+1F1F6 U+1F1E6",
+    "name": "flag: Qatar"
+  },
+  {
+    "id": 1749,
+    "emoji": "🇷🇪",
+    "unicode": "U+1F1F7 U+1F1EA",
+    "name": "flag: Réunion"
+  },
+  {
+    "id": 1750,
+    "emoji": "🇷🇴",
+    "unicode": "U+1F1F7 U+1F1F4",
+    "name": "flag: Romania"
+  },
+  {
+    "id": 1751,
+    "emoji": "🇷🇸",
+    "unicode": "U+1F1F7 U+1F1F8",
+    "name": "flag: Serbia"
+  },
+  {
+    "id": 1752,
+    "emoji": "🇷🇺",
+    "unicode": "U+1F1F7 U+1F1FA",
+    "name": "flag: Russia"
+  },
+  {
+    "id": 1753,
+    "emoji": "🇷🇼",
+    "unicode": "U+1F1F7 U+1F1FC",
+    "name": "flag: Rwanda"
+  },
+  {
+    "id": 1754,
+    "emoji": "🇸🇦",
+    "unicode": "U+1F1F8 U+1F1E6",
+    "name": "flag: Saudi Arabia"
+  },
+  {
+    "id": 1755,
+    "emoji": "🇸🇧",
+    "unicode": "U+1F1F8 U+1F1E7",
+    "name": "flag: Solomon Islands"
+  },
+  {
+    "id": 1756,
+    "emoji": "🇸🇨",
+    "unicode": "U+1F1F8 U+1F1E8",
+    "name": "flag: Seychelles"
+  },
+  {
+    "id": 1757,
+    "emoji": "🇸🇩",
+    "unicode": "U+1F1F8 U+1F1E9",
+    "name": "flag: Sudan"
+  },
+  {
+    "id": 1758,
+    "emoji": "🇸🇪",
+    "unicode": "U+1F1F8 U+1F1EA",
+    "name": "flag: Sweden"
+  },
+  {
+    "id": 1759,
+    "emoji": "🇸🇬",
+    "unicode": "U+1F1F8 U+1F1EC",
+    "name": "flag: Singapore"
+  },
+  {
+    "id": 1760,
+    "emoji": "🇸🇭",
+    "unicode": "U+1F1F8 U+1F1ED",
+    "name": "flag: St. Helena"
+  },
+  {
+    "id": 1761,
+    "emoji": "🇸🇮",
+    "unicode": "U+1F1F8 U+1F1EE",
+    "name": "flag: Slovenia"
+  },
+  {
+    "id": 1762,
+    "emoji": "🇸🇯",
+    "unicode": "U+1F1F8 U+1F1EF",
+    "name": "flag: Svalbard & Jan Mayen"
+  },
+  {
+    "id": 1763,
+    "emoji": "🇸🇰",
+    "unicode": "U+1F1F8 U+1F1F0",
+    "name": "flag: Slovakia"
+  },
+  {
+    "id": 1764,
+    "emoji": "🇸🇱",
+    "unicode": "U+1F1F8 U+1F1F1",
+    "name": "flag: Sierra Leone"
+  },
+  {
+    "id": 1765,
+    "emoji": "🇸🇲",
+    "unicode": "U+1F1F8 U+1F1F2",
+    "name": "flag: San Marino"
+  },
+  {
+    "id": 1766,
+    "emoji": "🇸🇳",
+    "unicode": "U+1F1F8 U+1F1F3",
+    "name": "flag: Senegal"
+  },
+  {
+    "id": 1767,
+    "emoji": "🇸🇴",
+    "unicode": "U+1F1F8 U+1F1F4",
+    "name": "flag: Somalia"
+  },
+  {
+    "id": 1768,
+    "emoji": "🇸🇷",
+    "unicode": "U+1F1F8 U+1F1F7",
+    "name": "flag: Suriname"
+  },
+  {
+    "id": 1769,
+    "emoji": "🇸🇸",
+    "unicode": "U+1F1F8 U+1F1F8",
+    "name": "flag: South Sudan"
+  },
+  {
+    "id": 1770,
+    "emoji": "🇸🇹",
+    "unicode": "U+1F1F8 U+1F1F9",
+    "name": "flag: São Tomé & Príncipe"
+  },
+  {
+    "id": 1771,
+    "emoji": "🇸🇻",
+    "unicode": "U+1F1F8 U+1F1FB",
+    "name": "flag: El Salvador"
+  },
+  {
+    "id": 1772,
+    "emoji": "🇸🇽",
+    "unicode": "U+1F1F8 U+1F1FD",
+    "name": "flag: Sint Maarten"
+  },
+  {
+    "id": 1773,
+    "emoji": "🇸🇾",
+    "unicode": "U+1F1F8 U+1F1FE",
+    "name": "flag: Syria"
+  },
+  {
+    "id": 1774,
+    "emoji": "🇸🇿",
+    "unicode": "U+1F1F8 U+1F1FF",
+    "name": "flag: Eswatini"
+  },
+  {
+    "id": 1775,
+    "emoji": "🇹🇦",
+    "unicode": "U+1F1F9 U+1F1E6",
+    "name": "flag: Tristan da Cunha"
+  },
+  {
+    "id": 1776,
+    "emoji": "🇹🇨",
+    "unicode": "U+1F1F9 U+1F1E8",
+    "name": "flag: Turks & Caicos Islands"
+  },
+  {
+    "id": 1777,
+    "emoji": "🇹🇩",
+    "unicode": "U+1F1F9 U+1F1E9",
+    "name": "flag: Chad"
+  },
+  {
+    "id": 1778,
+    "emoji": "🇹🇫",
+    "unicode": "U+1F1F9 U+1F1EB",
+    "name": "flag: French Southern Territories"
+  },
+  {
+    "id": 1779,
+    "emoji": "🇹🇬",
+    "unicode": "U+1F1F9 U+1F1EC",
+    "name": "flag: Togo"
+  },
+  {
+    "id": 1780,
+    "emoji": "🇹🇭",
+    "unicode": "U+1F1F9 U+1F1ED",
+    "name": "flag: Thailand"
+  },
+  {
+    "id": 1781,
+    "emoji": "🇹🇯",
+    "unicode": "U+1F1F9 U+1F1EF",
+    "name": "flag: Tajikistan"
+  },
+  {
+    "id": 1782,
+    "emoji": "🇹🇰",
+    "unicode": "U+1F1F9 U+1F1F0",
+    "name": "flag: Tokelau"
+  },
+  {
+    "id": 1783,
+    "emoji": "🇹🇱",
+    "unicode": "U+1F1F9 U+1F1F1",
+    "name": "flag: Timor-Leste"
+  },
+  {
+    "id": 1784,
+    "emoji": "🇹🇲",
+    "unicode": "U+1F1F9 U+1F1F2",
+    "name": "flag: Turkmenistan"
+  },
+  {
+    "id": 1785,
+    "emoji": "🇹🇳",
+    "unicode": "U+1F1F9 U+1F1F3",
+    "name": "flag: Tunisia"
+  },
+  {
+    "id": 1786,
+    "emoji": "🇹🇴",
+    "unicode": "U+1F1F9 U+1F1F4",
+    "name": "flag: Tonga"
+  },
+  {
+    "id": 1787,
+    "emoji": "🇹🇷",
+    "unicode": "U+1F1F9 U+1F1F7",
+    "name": "flag: Turkey"
+  },
+  {
+    "id": 1788,
+    "emoji": "🇹🇹",
+    "unicode": "U+1F1F9 U+1F1F9",
+    "name": "flag: Trinidad & Tobago"
+  },
+  {
+    "id": 1789,
+    "emoji": "🇹🇻",
+    "unicode": "U+1F1F9 U+1F1FB",
+    "name": "flag: Tuvalu"
+  },
+  {
+    "id": 1790,
+    "emoji": "🇹🇼",
+    "unicode": "U+1F1F9 U+1F1FC",
+    "name": "flag: Taiwan"
+  },
+  {
+    "id": 1791,
+    "emoji": "🇹🇿",
+    "unicode": "U+1F1F9 U+1F1FF",
+    "name": "flag: Tanzania"
+  },
+  {
+    "id": 1792,
+    "emoji": "🇺🇦",
+    "unicode": "U+1F1FA U+1F1E6",
+    "name": "flag: Ukraine"
+  },
+  {
+    "id": 1793,
+    "emoji": "🇺🇬",
+    "unicode": "U+1F1FA U+1F1EC",
+    "name": "flag: Uganda"
+  },
+  {
+    "id": 1794,
+    "emoji": "🇺🇲",
+    "unicode": "U+1F1FA U+1F1F2",
+    "name": "flag: U.S. Outlying Islands"
+  },
+  {
+    "id": 1795,
+    "emoji": "🇺🇳",
+    "unicode": "U+1F1FA U+1F1F3",
+    "name": "flag: United Nations"
+  },
+  {
+    "id": 1796,
+    "emoji": "🇺🇸",
+    "unicode": "U+1F1FA U+1F1F8",
+    "name": "flag: United States"
+  },
+  {
+    "id": 1797,
+    "emoji": "🇺🇾",
+    "unicode": "U+1F1FA U+1F1FE",
+    "name": "flag: Uruguay"
+  },
+  {
+    "id": 1798,
+    "emoji": "🇺🇿",
+    "unicode": "U+1F1FA U+1F1FF",
+    "name": "flag: Uzbekistan"
+  },
+  {
+    "id": 1799,
+    "emoji": "🇻🇦",
+    "unicode": "U+1F1FB U+1F1E6",
+    "name": "flag: Vatican City"
+  },
+  {
+    "id": 1800,
+    "emoji": "🇻🇨",
+    "unicode": "U+1F1FB U+1F1E8",
+    "name": "flag: St. Vincent & Grenadines"
+  },
+  {
+    "id": 1801,
+    "emoji": "🇻🇪",
+    "unicode": "U+1F1FB U+1F1EA",
+    "name": "flag: Venezuela"
+  },
+  {
+    "id": 1802,
+    "emoji": "🇻🇬",
+    "unicode": "U+1F1FB U+1F1EC",
+    "name": "flag: British Virgin Islands"
+  },
+  {
+    "id": 1803,
+    "emoji": "🇻🇮",
+    "unicode": "U+1F1FB U+1F1EE",
+    "name": "flag: U.S. Virgin Islands"
+  },
+  {
+    "id": 1804,
+    "emoji": "🇻🇳",
+    "unicode": "U+1F1FB U+1F1F3",
+    "name": "flag: Vietnam"
+  },
+  {
+    "id": 1805,
+    "emoji": "🇻🇺",
+    "unicode": "U+1F1FB U+1F1FA",
+    "name": "flag: Vanuatu"
+  },
+  {
+    "id": 1806,
+    "emoji": "🇼🇫",
+    "unicode": "U+1F1FC U+1F1EB",
+    "name": "flag: Wallis & Futuna"
+  },
+  {
+    "id": 1807,
+    "emoji": "🇼🇸",
+    "unicode": "U+1F1FC U+1F1F8",
+    "name": "flag: Samoa"
+  },
+  {
+    "id": 1808,
+    "emoji": "🇽🇰",
+    "unicode": "U+1F1FD U+1F1F0",
+    "name": "flag: Kosovo"
+  },
+  {
+    "id": 1809,
+    "emoji": "🇾🇪",
+    "unicode": "U+1F1FE U+1F1EA",
+    "name": "flag: Yemen"
+  },
+  {
+    "id": 1810,
+    "emoji": "🇾🇹",
+    "unicode": "U+1F1FE U+1F1F9",
+    "name": "flag: Mayotte"
+  },
+  {
+    "id": 1811,
+    "emoji": "🇿🇦",
+    "unicode": "U+1F1FF U+1F1E6",
+    "name": "flag: South Africa"
+  },
+  {
+    "id": 1812,
+    "emoji": "🇿🇲",
+    "unicode": "U+1F1FF U+1F1F2",
+    "name": "flag: Zambia"
+  },
+  {
+    "id": 1813,
+    "emoji": "🇿🇼",
+    "unicode": "U+1F1FF U+1F1FC",
+    "name": "flag: Zimbabwe"
+  },
+  {
+    "id": 1814,
+    "emoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "unicode": "U+1F3F4 U+E0067 U+E0062 U+E0065 U+E006E U+E0067 U+E007F",
+    "name": "flag: England"
+  },
+  {
+    "id": 1815,
+    "emoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "unicode": "U+1F3F4 U+E0067 U+E0062 U+E0073 U+E0063 U+E0074 U+E007F",
+    "name": "flag: Scotland"
+  },
+  {
+    "id": 1816,
+    "emoji": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "unicode": "U+1F3F4 U+E0067 U+E0062 U+E0077 U+E006C U+E0073 U+E007F",
+    "name": "flag: Wales"
   }
 ]
