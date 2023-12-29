@@ -144,7 +144,7 @@ const SubmitArticle = () => {
           <input value={data.title} onChange={e => handleTitleChange(e.target.value)} type="text" placeholder="Title" className="input input-bordered w-full" />
           <input value={data.slug} onChange={e => setData({ ...data, slug: e.target.value })} type="text" placeholder="Slug" className="input input-bordered w-full" />
           <input value={data.subtitle} onChange={e => setData({ ...data, subtitle: e.target.value })} type="text" placeholder="Subtitle" className="input input-bordered w-full" />
-          <textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} placeholder="Summary" className="textarea textarea-bordered placeholder:text-base text-base" />
+          <textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} placeholder="Summary" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
         </div>
       </div>
 

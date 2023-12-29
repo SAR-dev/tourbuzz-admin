@@ -2,6 +2,7 @@ import { PhotoIcon, PencilSquareIcon, BookOpenIcon, ChevronRightIcon } from "@he
 import { ReactNode } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useLocation, useNavigate } from "react-router-dom";
+import EmojiPicker from "./EmojiPicker";
 
 export function SideNav({ children }: { children: ReactNode }) {
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ export function SideNav({ children }: { children: ReactNode }) {
                     <NavMenu name="Gallery" url="/images" icon={<PhotoIcon className="h-5 w-5" />} />
                     <NavMenu name="Writers" url="/writers" icon={<PencilSquareIcon className="h-5 w-5" />} />
                     <NavMenu name="Articles" url="/articles" icon={<BookOpenIcon className="h-5 w-5" />} />
+                    <EmojiPicker />
                     <ThemeSwitcher />
                 </div>
             </div>

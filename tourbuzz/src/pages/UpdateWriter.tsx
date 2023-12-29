@@ -116,7 +116,7 @@ const UpdateWriter = () => {
                     <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
                     <div className="grid grid-cols-1 gap-5">
                         <input value={data.website} onChange={e => setData({ ...data, website: e.target.value })} type="text" placeholder="Website" className="input input-bordered w-full" />
-                        <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={10} placeholder="About" className="textarea textarea-bordered placeholder:text-base text-base" />
+                        <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={10} placeholder="About" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
                     </div>
                     <div>
                         <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center mb-5">

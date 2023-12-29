@@ -2,13 +2,14 @@ import classNames from "classnames";
 import { ReactNode } from "react";
 
 interface ModalType {
-    maxWidth?: string;
-    width?: string;
+    title: string;
+    footer: ReactNode;
     open: boolean;
     handleClose: () => void;
-    title: string;
+    maxWidth?: string;
+    width?: string;
+    height?: string;
     children: ReactNode;
-    footer: ReactNode;
 }
 
 const Modal = ({...props}: ModalType) => {
@@ -19,10 +20,11 @@ const Modal = ({...props}: ModalType) => {
         })}>
             <div className="modal-box w-fit card" style={{
                 maxWidth: props.maxWidth ?? "50rem",
-                width: props.width ?? "auto"
+                width: props.width ?? "auto",
+                height: props.height ?? "auto",
             }}>
                 <h3 className="font-bold text-lg">{props.title}</h3>
-                <div className="py-4">
+                <div className="py-4 h-fill">
                     {props.children}
                 </div>
                 <div className="flex">
