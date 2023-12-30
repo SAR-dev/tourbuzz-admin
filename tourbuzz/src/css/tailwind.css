@@ -16,7 +16,7 @@
   height: -webkit-fill-available
 }
 
-.prose article :first-child {
+.markdown :first-child {
   margin-top: 0px;
 }
 

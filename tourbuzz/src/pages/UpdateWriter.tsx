@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ImageType, WriterType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
-import { deleteWriterById, getWriterById, postWriter, putWriter } from "@src/functions/api";
+import { deleteWriterById, getWriterById, putWriter } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate, useParams } from "react-router-dom";
@@ -21,6 +21,7 @@ interface UpdateWriterState {
 }
 
 const UpdateWriter = () => {
+    let { writerId } = useParams()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [deleting, setDeleting] = useState(false)
@@ -35,8 +36,6 @@ const UpdateWriter = () => {
         website: ""
     })
     const [error, setError] = useState("")
-
-    let { writerId } = useParams()
 
     useEffect(() => {
         getWriterById({ id: Number(writerId) }).then(res => {

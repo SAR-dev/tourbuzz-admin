@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const WriterCard = ({ writer }: { writer: WriterType }) => {
     return (
-        <div className="card card-side w-full h-full cursor-pointer bg-base-200 p-3 group relative">
+        <div className="card card-side w-full h-full bg-base-200 p-3 group relative">
             <Link to={`/writers/update/${writer.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute top-0 right-0 m-3">Edit</Link>
             <div className="grid grid-cols-1 gap-3">
                 <div className="flex">

@@ -7,6 +7,7 @@ import SubmitArticle from "./pages/SubmitArticle";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import RegisterWriter from "./pages/RegisterWriter";
 import UpdateWriter from "./pages/UpdateWriter";
+import UpdateArticle from "./pages/UpdateArticle";
 
 const App = () => {
   return (
@@ -59,6 +60,14 @@ const App = () => {
             element={
               <SideNav>
                 <SubmitArticle />
+              </SideNav>
+            }
+          />
+          <Route
+            path="/articles/update/:articleId"
+            element={
+              <SideNav>
+                <UpdateArticle />
               </SideNav>
             }
           />

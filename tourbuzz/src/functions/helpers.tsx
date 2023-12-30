@@ -6,3 +6,11 @@ export function timestampToYYYYMMDD(timestamp: string) {
 
     return `${year}-${month}-${day}`;
 }
+
+export function generateSlug(title: string) {
+    return title.trim()                     // Remove leading and trailing spaces
+      .toLowerCase()                       // Convert to lowercase
+      .replace(/\s+/g, '-')                // Replace spaces with hyphens
+      .replace(/[^\w-]+/g, '')             // Remove non-word characters except hyphens
+      .replace(/^-+|-+$/g, '');            // Remove leading and trailing hyphens
+  }

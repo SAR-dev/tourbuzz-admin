@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateWriterType, UpdateWriterType } from "../constants/types";
+import { CreateArticleType, CreateWriterType, UpdateArticleType, UpdateWriterType } from "../constants/types";
 
 const api = axios.create();
 
@@ -161,10 +161,46 @@ export const getArticles = ({
         });
 }
 
+export const getArticleById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/articles/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
 export const postArticle = ({ ...props }: CreateArticleType): Promise<any> => {
     const data = { ...props}
     return api
         .post("/admin/articles", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
+
+export const updateArticle = ({ ...props }: UpdateArticleType): Promise<any> => {
+    const data = { ...props}
+    return api
+        .put("/admin/articles", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
+
+export const deleteArticleById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/articles/${id}`)
         .then((res) => {
             return { data: res.data };
         })

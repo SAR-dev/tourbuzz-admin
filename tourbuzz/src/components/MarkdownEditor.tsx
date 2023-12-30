@@ -1,6 +1,4 @@
 import Markdown from 'react-markdown'
-import { useRef } from 'react';
-import rehypeSanitize from "rehype-sanitize";
 
 interface MarkdownEditorType {
     value: string;
@@ -14,7 +12,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
             <div className="grid grid-cols-2 gap-1 divide-x divide-base-300">
                 <div className='flex'>
                     <textarea
-                        className="h-[30rem] custom-scrollbar overflow-y-auto textarea placeholder:text-base text-base w-full resize-none"
+                        className="h-[30rem] custom-scrollbar overflow-y-auto textarea placeholder:text-base text-base w-full resize-none rounded-none"
                         value={props.value}
                         onChange={e => props.setValue(e.target.value)}
                         placeholder={props.placeholder}

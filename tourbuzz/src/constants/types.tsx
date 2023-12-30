@@ -68,6 +68,17 @@ export interface UpdateWriterType {
     website: string
 }
 
+export interface UpdateArticleType {
+    articles_id: number,
+    title: string,
+    slug: string,
+    subtitle: string,
+    summary: string,
+    md_desc: string,
+    image_ids: number[],
+    writers_id: number
+}
+
 export interface ParsedErrorMessageProps {
     status?: number;
     message: string;
