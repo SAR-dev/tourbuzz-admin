@@ -5,7 +5,7 @@ import { ArticleType, ImageType, WriterType, parseErrorMessage } from "@src/cons
 import { useEffect, useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
 import WriterSelect from "@src/components/WriterSelect"
-import { deleteArticleById, getArticleById, getWriterById, postArticle, updateArticle } from "@src/functions/api"
+import { deleteArticleById, getArticleById, updateArticle } from "@src/functions/api";
 import { toast } from "react-toastify"
 import { useQueryClient } from "react-query"
 import PageHeader from "@src/components/PageHeader"
@@ -47,6 +47,7 @@ const UpdateArticle = () => {
     getArticleById({ id: Number(articleId) }).then(res => {
       const article: ArticleType = res.data;
       setData({ ...article })
+      setWriter(article.writer)
     })
   }, [articleId])
 

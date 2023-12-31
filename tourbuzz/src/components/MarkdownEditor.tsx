@@ -2,10 +2,11 @@ import { CodeBracketIcon, EyeIcon, FaceSmileIcon, QuestionMarkCircleIcon, Square
 import { PencilIcon } from '@heroicons/react/24/solid';
 import { useEmojiStore } from '@src/store';
 import classNames from 'classnames';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Markdown from 'react-markdown'
 import useUndoable from 'use-undoable';
-import { Tooltip } from 'react-tooltip'
+import TextareaMarkdown, { TextareaMarkdownRef } from 'textarea-markdown-editor';
+import { ArrowWaveLeftUp, ArrowWaveRightDown, Blockquote, Bold, Code, CodeDots, H1, H3, H5, Italic, Link, List, ListNumbers, Photo, SourceCode, Strikethrough } from 'tabler-icons-react';
 
 interface MarkdownEditorType {
     value: string;
@@ -23,64 +24,150 @@ enum Mode {
 const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
     const { open, toogleOpen } = useEmojiStore();
     const [mode, setMode] = useState<Mode>(Mode.CODE_AND_PREVIEW);
-    const ref = useRef<HTMLTextAreaElement>(null);
-    const [text, setText, { undo, redo }] = useUndoable(props.value)
+    const ref = useRef<TextareaMarkdownRef>(null);
+    const [text, setText, { undo, redo }] = useUndoable("")
 
-    const handleTextClick = ({
-        startWith,
-        endWith
-    }: {
-        startWith: string,
-        endWith?: string
-    }) => {
-        const textarea = ref.current;
-        if (!textarea) return;
-
-        const startPos = textarea.selectionStart || 0;
-        const endPos = textarea.selectionEnd || 0;
-        const selectedText = textarea.value.substring(startPos, endPos);
-
-        const checkStartPos = textarea.selectionStart - startWith.length
-        const checkEndPos = textarea.selectionEnd + (endWith ? endWith.length : 0)
-        const checkSelectedText = textarea.value.substring(checkStartPos, checkEndPos);
-        const formatted = checkSelectedText.startsWith(startWith) && (endWith ? checkSelectedText.endsWith(endWith) : true);
-
-        if (!formatted) {
-            const newText = `${startWith}${selectedText}${endWith ?? ""}`;
-            const updatedText =
-                textarea.value.substring(0, startPos) +
-                newText +
-                textarea.value.substring(endPos);
-
-            handleTextChange(updatedText);
-
-            setTimeout(function () {
-                const newCursorPos = startPos + newText.length;
-                textarea.focus();
-                textarea.setSelectionRange(newCursorPos, newCursorPos);
-            }, 0);
-        } else {
-            const newText = `${selectedText}`;
-            const updatedText =
-                textarea.value.substring(0, checkStartPos) +
-                newText +
-                textarea.value.substring(checkEndPos);
-
-            handleTextChange(updatedText);
-
-            setTimeout(function () {
-                const newCursorPos = checkStartPos;
-                textarea.focus();
-                textarea.setSelectionRange(newCursorPos, newCursorPos);
-            }, 0);
-        }
-
-    };
+    useEffect(() => {
+      setText(props.value)
+    }, [props.value])
 
     const handleTextChange = (val: string) => {
         props.setValue(val)
         setText(val)
     }
+
+    const LeftSideToolbar = () => (
+        <>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("h1")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Big Header"
+            >
+                <H1 className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("h3")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Medium Header"
+            >
+                <H3 className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("h5")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Small Header"
+            >
+                <H5 className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("bold")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Bold"
+            >
+                <Bold className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("italic")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Italic"
+            >
+                <Italic className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("strike-through")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Strike-through"
+            >
+                <Strikethrough className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("link")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Link"
+            >
+                <Link className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("image")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Image"
+            >
+                <Photo className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("unordered-list")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Unordered List"
+            >
+                <List className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("ordered-list")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Ordered List"
+            >
+                <ListNumbers className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("block-quotes")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Block Quote"
+            >
+                <Blockquote className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("code-block")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Code Block"
+            >
+                <Code className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("code-inline")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Inline Code"
+            >
+                <CodeDots className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={() => ref.current?.trigger("code")}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Code"
+            >
+                <SourceCode className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={undo}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Undo"
+            >
+                <ArrowWaveLeftUp className='h-5 w-5' />
+            </button>
+            <button
+                className="icon-btn-xs"
+                onClick={redo}
+                data-tooltip-id="tooltip"
+                data-tooltip-content="Redo"
+            >
+                <ArrowWaveRightDown className='h-5 w-5' />
+            </button>
+        </>
+    )
 
     const RightSideToolbar = () => (
         <>
@@ -90,7 +177,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     "btn-active": mode === Mode.CODE_ONLY
                 })}
                 onClick={() => setMode(Mode.CODE_ONLY)}
-                data-tooltip-id="tooltip" 
+                data-tooltip-id="tooltip"
                 data-tooltip-content="Markdown Editor"
             >
                 <CodeBracketIcon className='h-5 w-5' />
@@ -101,7 +188,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     "btn-active": mode === Mode.PREVIEW_ONLY
                 })}
                 onClick={() => setMode(Mode.PREVIEW_ONLY)}
-                data-tooltip-id="tooltip" 
+                data-tooltip-id="tooltip"
                 data-tooltip-content="Markdown Preview"
             >
                 <EyeIcon className='h-5 w-5' />
@@ -112,7 +199,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     "btn-active": mode === Mode.CODE_AND_PREVIEW
                 })}
                 onClick={() => setMode(Mode.CODE_AND_PREVIEW)}
-                data-tooltip-id="tooltip" 
+                data-tooltip-id="tooltip"
                 data-tooltip-content="Markdown Editor & Preview"
             >
                 <Square2StackIcon className='h-5 w-5' />
@@ -123,24 +210,24 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     "btn-active": open
                 })}
                 onClick={toogleOpen}
-                data-tooltip-id="tooltip" 
+                data-tooltip-id="tooltip"
                 data-tooltip-content="Emoji Picker"
             >
                 <FaceSmileIcon className='h-5 w-5' />
             </button>
-            <a 
-                href="https://dillinger.io/" 
-                target='_blank' 
-                className="icon-btn-xs" 
-                data-tooltip-id="tooltip" 
+            <a
+                href="https://dillinger.io/"
+                target='_blank'
+                className="icon-btn-xs"
+                data-tooltip-id="tooltip"
                 data-tooltip-content="Markdown Help">
                 <PencilIcon className='h-5 w-5' />
             </a>
-            <a 
-                href="https://www.markdownguide.org/basic-syntax/" 
-                target='_blank' 
-                className="icon-btn-xs" 
-                data-tooltip-id="tooltip" 
+            <a
+                href="https://www.markdownguide.org/basic-syntax/"
+                target='_blank'
+                className="icon-btn-xs"
+                data-tooltip-id="tooltip"
                 data-tooltip-content="Markdown Rules">
                 <QuestionMarkCircleIcon className='h-5 w-5' />
             </a>
@@ -149,29 +236,17 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
 
     return (
         <div className="border border-base-300 w-full">
-            <div className="border-b border-base-300 flex items-center w-full px-2">
-                <p className='font-semibold text-sm'>
-                    {props.title}
-                    <button className="btn btn-xs" onClick={() => handleTextClick({
-                        startWith: "**",
-                        endWith: "**"
-                    })}>Bold</button>
-
-                    <button className="btn btn-xs" onClick={() => handleTextClick({
-                        startWith: "## "
-                    })}>S Bold</button>
-
-                    <button className="btn btn-xs" onClick={undo}>Undo</button>
-
-                    <button className="btn btn-xs" onClick={redo}>Redo</button>
-                </p>
-                <div className="ml-auto flex space-x-3 py-2">
+            <div className="border-b border-base-300 flex items-center w-full p-2">
+                <div className='flex space-x-3'>
+                    <LeftSideToolbar />
+                </div>
+                <div className="ml-auto flex space-x-3">
                     <RightSideToolbar />
                 </div>
             </div>
             <div className="grid grid-cols-2 gap-1 divide-x divide-base-300">
                 <div className='flex'>
-                    <textarea
+                    <TextareaMarkdown
                         className="h-[30rem] custom-scrollbar overflow-y-auto textarea placeholder:text-base text-base w-full resize-none rounded-none"
                         value={text}
                         onChange={e => handleTextChange(e.target.value)}

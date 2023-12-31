@@ -23,6 +23,8 @@
     "react-router-dom": "^6.21.1",
     "react-toastify": "^9.1.3",
     "react-tooltip": "^5.25.1",
+    "tabler-icons-react": "^1.56.0",
+    "textarea-markdown-editor": "^1.0.4",
     "use-undoable": "^4.0.0",
     "zustand": "^4.4.7"
   },
