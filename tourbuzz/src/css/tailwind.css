@@ -4,7 +4,7 @@
 
 @layer components {
   .markdown {
-    @apply prose prose-h1:text-2xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-lg prose-h1:font-bold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-semibold prose-h5:font-medium prose-h6:font-medium
+    @apply prose prose-h1:text-2xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-lg prose-h1:font-bold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-semibold prose-h5:font-medium prose-h6:font-medium;
   }
 
   .icon-btn-xs {
@@ -12,15 +12,19 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar {
-    @apply w-2.5
+    @apply w-2.5;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    @apply rounded-lg bg-base-300
+    @apply rounded-lg bg-base-300;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-base-content
+    @apply rounded-lg bg-base-content;
+  }
+
+  #tooltip, #emoji-tooltip {
+    @apply bg-base-content text-base-300;
   }
 }
 

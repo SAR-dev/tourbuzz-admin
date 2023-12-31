@@ -1,11 +1,10 @@
-import { getArticles, getWriters } from '@src/functions/api'
+import { getArticles } from '@src/functions/api';
 import { Pagination } from '@src/components/Pagination'
-import { ArticleType, WriterType } from '@src/constants/types'
+import { ArticleType } from '@src/constants/types';
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 import PageHeader from '@src/components/PageHeader';
 import { Link } from 'react-router-dom';
-import { PencilSquareIcon } from '@heroicons/react/16/solid';
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import ArticleCard from '@src/components/ArticleCard';
 
@@ -43,7 +42,7 @@ function Articles() {
           </Link>}
       />
 
-      <div className='grid grid-cols-2 gap-5 my-5'>
+      <div className='grid grid-cols-1 gap-5 my-5'>
         {data.data.data.map((e, i) => (
           <ArticleCard article={e} key={i} />
         ))}

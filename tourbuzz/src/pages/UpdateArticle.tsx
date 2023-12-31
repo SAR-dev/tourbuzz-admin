@@ -166,6 +166,7 @@ const UpdateArticle = () => {
       </div>
 
       <div className="p-5 card bg-base-200">
+        <label className="text-sm font-semibold mb-2">Start writing article here</label>
         <MarkdownEditor
           value={data.md_desc}
           setValue={setMdDesc}

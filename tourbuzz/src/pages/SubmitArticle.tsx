@@ -41,7 +41,7 @@ const SubmitArticle = () => {
   const [writer, setWriter] = useState<WriterType | null>(null)
 
   const setImages = (image: ImageType) => {
-    if(data.images.length >= MAX_ARTICLE_IMAGE_COUNT){
+    if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
       toast.info("Maximum image uploaded")
     }
     setData({ ...data, images: [...data.images, image] })
@@ -138,6 +138,7 @@ const SubmitArticle = () => {
       </div>
 
       <div className="p-5 card bg-base-200">
+        <label className="text-sm font-semibold mb-2">Start writing article here</label>
         <MarkdownEditor
           value={data.md_desc}
           setValue={setMdDesc}

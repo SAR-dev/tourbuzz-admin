@@ -11,15 +11,18 @@ const ArticleCard = ({ article }: { article: ArticleType }) => {
                 <div className="col-span-1">
                     <div className="carousel w-full">
                         {article.images.map((e, i) => (
-                            <div className="carousel-item w-full h-64" key={i}>
-                                <img src={e.optimized_url} className="card w-full h-64 object-cover" />
+                            <div className="carousel-item w-full h-[22rem]" key={i}>
+                                <img src={e.optimized_url} className="card w-full h-[22rem] object-cover" />
                             </div>
                         ))}
                     </div>
                 </div>
                 <div className="col-span-1">
-                    <div className="text-lg font-semibold">{article.title}</div>
-                    <div className="my-3">{article.subtitle}</div>
+                    <div className="text-2xl font-semibold">{article.title}</div>
+                    <div className="mt-2">{article.subtitle}</div>
+                    <div className="line-clamp-5 my-4">
+                        {article.summary}
+                    </div>
                     <div className="flex flex-col space-y-1.5">
                         <div className="flex gap-2 items-center">
                             <UserCircleIcon className="h-4 w-4" />

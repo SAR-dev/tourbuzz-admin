@@ -22,14 +22,18 @@ enum Mode {
 }
 
 const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
+    const [initialized, setInitialized] = useState(false)
     const { open, toogleOpen } = useEmojiStore();
     const [mode, setMode] = useState<Mode>(Mode.CODE_AND_PREVIEW);
     const ref = useRef<TextareaMarkdownRef>(null);
     const [text, setText, { undo, redo }] = useUndoable("")
 
     useEffect(() => {
-      setText(props.value)
-    }, [props.value])
+        if (initialized) return;
+        if (props.value.length > 1) {
+            setText(props.value)
+        }
+    }, [props.value, initialized])
 
     const handleTextChange = (val: string) => {
         props.setValue(val)
@@ -255,7 +259,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     />
                 </div>
                 <div className="h-[30rem] w-full custom-scrollbar overflow-y-auto bg-base-100 px-3 py-2">
-                    <div className='markdown'>
+                    <div className='markdown max-w-[85ch]'>
                         <Markdown>
                             {text}
                         </Markdown>
