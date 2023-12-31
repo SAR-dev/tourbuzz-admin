@@ -32,6 +32,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
         if (initialized) return;
         if (props.value.length > 1) {
             setText(props.value)
+            setInitialized(true)
         }
     }, [props.value, initialized])
 
