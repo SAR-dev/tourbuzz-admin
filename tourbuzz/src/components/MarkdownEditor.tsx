@@ -7,6 +7,8 @@ import Markdown from 'react-markdown'
 import useUndoable from 'use-undoable';
 import TextareaMarkdown, { TextareaMarkdownRef } from 'textarea-markdown-editor';
 import { ArrowWaveLeftUp, ArrowWaveRightDown, Blockquote, Bold, Code, CodeDots, H1, H3, H5, Italic, Link, List, ListNumbers, Photo, SourceCode, Strikethrough } from 'tabler-icons-react';
+import remarkGfm from 'remark-gfm'
+import emoji from 'remark-emoji';
 
 interface MarkdownEditorType {
     value: string;
@@ -261,7 +263,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                 </div>
                 <div className="h-[30rem] w-full custom-scrollbar overflow-y-auto bg-base-100 px-3 py-2">
                     <div className='markdown max-w-[85ch]'>
-                        <Markdown>
+                        <Markdown remarkPlugins={[remarkGfm, emoji]}>
                             {text}
                         </Markdown>
                     </div>
