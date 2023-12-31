@@ -8,9 +8,8 @@ import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
-import DeleteButton from "@src/components/DeleteButton";
 
-interface RegisterWriterState {
+interface CreateWriterState {
     email: string
     name: string
     username: string
@@ -20,11 +19,11 @@ interface RegisterWriterState {
     website: string
 }
 
-const RegisterWriter = () => {
+const CreateWriter = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const queryClient = useQueryClient()
-    const [data, setData] = useState<RegisterWriterState>({
+    const [data, setData] = useState<CreateWriterState>({
         email: "",
         name: "",
         username: "",
@@ -127,4 +126,4 @@ const RegisterWriter = () => {
     )
 }
 
-export default RegisterWriter
+export default CreateWriter

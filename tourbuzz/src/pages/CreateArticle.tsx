@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom"
 import { generateSlug } from "@src/functions/helpers"
 import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values"
 
-interface ArticleCreateState {
+interface CreateArticleState {
   title: string
   slug: string
   subtitle: string
@@ -24,11 +24,11 @@ interface ArticleCreateState {
   writers_id: number | null
 }
 
-const SubmitArticle = () => {
+const CreateArticle = () => {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-  const [data, setData] = useState<ArticleCreateState>({
+  const [data, setData] = useState<CreateArticleState>({
     title: "",
     slug: "",
     subtitle: "",
@@ -182,4 +182,4 @@ const SubmitArticle = () => {
   )
 }
 
-export default SubmitArticle
+export default CreateArticle

@@ -3,9 +3,9 @@ import { SideNav } from "./components/SideNav";
 import { ToastContainer } from "react-toastify";
 import Writers from "./pages/Writers";
 import Articles from "./pages/Articles";
-import SubmitArticle from "./pages/SubmitArticle";
+import CreateArticle from "./pages/CreateArticle";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import RegisterWriter from "./pages/RegisterWriter";
+import CreateWriter from "./pages/CreateWriter";
 import UpdateWriter from "./pages/UpdateWriter";
 import UpdateArticle from "./pages/UpdateArticle";
 
@@ -32,10 +32,10 @@ const App = () => {
             }
           />
           <Route
-            path="/writers/register"
+            path="/writers/create"
             element={
               <SideNav>
-                <RegisterWriter />
+                <CreateWriter />
               </SideNav>
             }
           />
@@ -56,10 +56,10 @@ const App = () => {
             }
           />
           <Route
-            path="/articles/submit"
+            path="/articles/create"
             element={
               <SideNav>
-                <SubmitArticle />
+                <CreateArticle />
               </SideNav>
             }
           />

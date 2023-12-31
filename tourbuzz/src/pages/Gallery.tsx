@@ -1,7 +1,6 @@
 import { useQuery, useQueryClient } from "react-query";
 import { useState } from "react";
 import ImageUploader from "@src/components/ImageUploader";
-import { Button, Dialog } from "@material-tailwind/react";
 import CopyCode from "@src/components/CopyCode";
 import { Pagination } from "@src/components/Pagination";
 import { ImageType } from "@src/constants/types";
@@ -9,6 +8,7 @@ import { toast } from "react-toastify";
 import { deleteImageById, getImages } from "@src/functions/api";
 import Modal from "@src/components/Modal";
 import PageHeader from "@src/components/PageHeader";
+import DeleteButton from "@src/components/DeleteButton";
 
 interface ImageData {
     data: {
@@ -83,7 +83,7 @@ const Gallery = () => {
             {activeImage && (
                 <Modal title="Image Actions" open={activeImage != null} handleClose={handleOpen} footer={
                     <div className="w-full flex space-x-3">
-                        <button className="btn btn-error" onClick={() => deleteImage(activeImage.id)}>Delete</button>
+                        <DeleteButton loading={loading} handleDelete={() => deleteImage(activeImage.id)} />
                         <CopyCode text={activeImage?.source_url} />
                         <button className="btn" onClick={handleOpen}>Close</button>
                     </div>

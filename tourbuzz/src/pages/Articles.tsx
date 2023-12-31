@@ -36,7 +36,7 @@ function Articles() {
         title="Articles Collection"
         subtitle="Let's upload some images and store them for later! 🎉"
         right={
-          <Link className="btn btn-primary" to="/articles/submit">
+          <Link className="btn btn-primary" to="/articles/create">
             <PaperAirplaneIcon className="h-5 w-5" />
             Submit New Article
           </Link>}
