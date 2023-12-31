@@ -160,7 +160,7 @@ const UpdateArticle = () => {
           </div>
           <div className="flex flex-col">
             <label className="text-sm font-semibold">Reader-friendly Summary</label>
-            <textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} placeholder="Summary" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+            <textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={7} placeholder="Summary" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
           </div>
         </div>
       </div>

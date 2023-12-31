@@ -63,8 +63,8 @@ const EmojiPicker = () => {
                     <input type="text" placeholder="Type at least 3 characters here" className="input input-bordered w-full max-w-xs" value={search} onChange={e => setSearch(e.target.value)} />
                     <div className="flex flex-wrap mt-2 p-2 bg-base-200 custom-scrollbar overflow-y-auto h-[25rem]">
                         {emojisList.map((e, i) => (
-                            <div className='mr-2 mb-2 border border-base-300 w-20 h-fit' key={i}>
-                                <div className="h-16 w-20 items-center justify-center card cursor-pointer hover:bg-base-100" 
+                            <div className='mr-2 mb-2 card overflow-hidden border border-base-300 w-20 h-fit' key={i}>
+                                <div className="h-16 w-20 items-center justify-center flex cursor-pointer hover:bg-base-100" 
                                     data-tooltip-id="emoji-tooltip" 
                                     data-tooltip-content={e.name}
                                     onClick={() => copyToClipboard(e.emoji)}
