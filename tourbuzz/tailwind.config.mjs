@@ -5,6 +5,9 @@ export default {
   theme: {
     extend: {},
     fontFamily: {},
+    screens: {
+      'laptop': '1800px'
+    }
   },
   plugins: [
     require("@tailwindcss/typography"),
