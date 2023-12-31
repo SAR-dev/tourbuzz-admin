@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { EmojiType, emojis } from '@src/constants/emojis'
 import { toast } from 'react-toastify'
 import Fuse from 'fuse.js'
+import { useEmojiStore } from '@src/store'
 
 const fuseOptions = {
     keys: [
@@ -19,8 +20,7 @@ const fuseIndex = Fuse.createIndex(fuseOptions.keys, emojis)
 const fuse = new Fuse(emojis, fuseOptions, fuseIndex);
 
 const EmojiPicker = () => {
-    const [open, setOpen] = useState(false)
-    const handleOpen = () => setOpen(!open);
+    const {open, toogleOpen} = useEmojiStore()
     const [emojisList, setEmojiList] = useState<EmojiType[]>([...emojis])
     const [search, setSearch] = useState("")
 
@@ -46,14 +46,14 @@ const EmojiPicker = () => {
 
     return (
         <div>
-            <button className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start" onClick={handleOpen}>
+            <button className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start" onClick={toogleOpen}>
                 <FaceSmileIcon className='h-5 w-5' />
                 Emoji
             </button>
-            <Modal title="Emoji Picker" open={open} handleClose={handleOpen} width='60rem' height='40rem' maxWidth='60rem' footer={
+            <Modal title="Emoji Picker" open={open} handleClose={toogleOpen} width='60rem' height='40rem' maxWidth='60rem' footer={
                 <div className='flex items-center w-full'>
                     <p>👆 Click emoji to copy</p>
-                    <button className="btn ml-auto" onClick={handleOpen}>
+                    <button className="btn ml-auto" onClick={toogleOpen}>
                         Close
                     </button>
                 </div>

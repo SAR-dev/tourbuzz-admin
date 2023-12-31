@@ -1,0 +1,1 @@
+export const MAX_ARTICLE_IMAGE_COUNT = 6;

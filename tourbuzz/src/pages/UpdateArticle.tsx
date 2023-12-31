@@ -13,6 +13,7 @@ import MarkdownEditor from "@src/components/MarkdownEditor"
 import { useNavigate, useParams } from "react-router-dom"
 import { generateSlug } from "@src/functions/helpers"
 import DeleteButton from "@src/components/DeleteButton"
+import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values"
 
 interface ArticleUpdateState {
   title: string
@@ -50,6 +51,9 @@ const UpdateArticle = () => {
   }, [articleId])
 
   const setImages = (image: ImageType) => {
+    if(data.images.length >= MAX_ARTICLE_IMAGE_COUNT){
+      toast.info("Maximum image uploaded")
+    }
     setData({ ...data, images: [...data.images, image] })
   }
 
@@ -130,7 +134,7 @@ const UpdateArticle = () => {
                 </div>
               </div>
             ))}
-            {[...Array(6 - data.images.length)].map((_e, i) => (
+            {[...Array(MAX_ARTICLE_IMAGE_COUNT - data.images.length)].map((_e, i) => (
               <div className="h-48 w-full border border-base-300 card bg-base-100 justify-center items-center" key={i}>
                 <PhotoIcon className="h-10 w-10" />
               </div>
@@ -161,11 +165,11 @@ const UpdateArticle = () => {
       </div>
 
       <div className="p-5 card bg-base-200">
-        <label className="text-sm font-semibold mb-1">Details in Markdown</label>
         <MarkdownEditor
           value={data.md_desc}
           setValue={setMdDesc}
           placeholder="Start writing details in Markdown"
+          title="Details in Markdown"
         />
       </div>
 

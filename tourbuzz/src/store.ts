@@ -34,12 +34,12 @@ export enum ThemeName {
 
 const themeKey = "theme"
 
-type Store = {
+type ThemeStore = {
     theme: ThemeName
     setTheme: (props: ThemeName) => void
 }
 
-export const useThemeStore = create<Store>()(
+export const useThemeStore = create<ThemeStore>()(
     persist(
         (set) => ({
             theme: ThemeName.Black,
@@ -50,5 +50,19 @@ export const useThemeStore = create<Store>()(
         }), {
         name: themeKey,
         storage: createJSONStorage(() => localStorage),
+    })
+)
+
+type EmojiStore = {
+    open: boolean
+    toogleOpen: () => void
+}
+
+export const useEmojiStore = create<EmojiStore>()(
+    (set) => ({
+        open: false,
+        toogleOpen: () => {
+            set((state) => ({ open: !state.open }))
+        },
     })
 )
