@@ -22,6 +22,8 @@
     "react-query": "^3.39.3",
     "react-router-dom": "^6.21.1",
     "react-toastify": "^9.1.3",
+    "react-tooltip": "^5.25.1",
+    "use-undoable": "^4.0.0",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

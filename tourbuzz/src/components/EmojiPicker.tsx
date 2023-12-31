@@ -5,6 +5,7 @@ import { EmojiType, emojis } from '@src/constants/emojis'
 import { toast } from 'react-toastify'
 import Fuse from 'fuse.js'
 import { useEmojiStore } from '@src/store'
+import { Tooltip } from 'react-tooltip'
 
 const fuseOptions = {
     keys: [
@@ -63,7 +64,11 @@ const EmojiPicker = () => {
                     <div className="flex flex-wrap mt-2 p-2 bg-base-200 custom-scrollbar overflow-y-auto h-[25rem]">
                         {emojisList.map((e, i) => (
                             <div className='mr-2 mb-2 border border-base-300 w-20 h-fit' key={i}>
-                                <div className="h-16 w-20 items-center justify-center card cursor-pointer hover:bg-base-100" onClick={() => copyToClipboard(e.emoji)}>
+                                <div className="h-16 w-20 items-center justify-center card cursor-pointer hover:bg-base-100" 
+                                    data-tooltip-id="emoji-tooltip" 
+                                    data-tooltip-content={e.name}
+                                    onClick={() => copyToClipboard(e.emoji)}
+                                >
                                     <p className="text-4xl">{e.emoji}</p>
                                 </div>
                                 <div className="text-xs flex justify-center items-center cursor-pointer w-20 h-6 border-t border-base-300 hover:bg-base-100" onClick={() => findSimilar(e.name)}>
@@ -73,6 +78,7 @@ const EmojiPicker = () => {
                         ))}
                     </div>
                 </div>
+                <Tooltip id="emoji-tooltip" />
             </Modal>
         </div>
     )
