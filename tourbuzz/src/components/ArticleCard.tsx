@@ -1,6 +1,5 @@
 import { ArticleType } from "@src/constants/types";
-import { CalendarIcon, UserCircleIcon } from "@heroicons/react/24/outline";
-import { timestampToYYYYMMDD } from "@src/functions/helpers";
+import { UserCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const ArticleCard = ({ article }: { article: ArticleType }) => {
@@ -11,8 +10,8 @@ const ArticleCard = ({ article }: { article: ArticleType }) => {
                 <div className="col-span-1">
                     <div className="carousel w-full">
                         {article.images.map((e, i) => (
-                            <div className="carousel-item w-full h-[20rem]" key={i}>
-                                <img src={e.optimized_url} className="card w-full h-[20rem] object-cover" />
+                            <div className="carousel-item w-full h-72" key={i}>
+                                <img src={e.optimized_url} className="card w-full h-72 object-cover" />
                             </div>
                         ))}
                     </div>
@@ -23,10 +22,6 @@ const ArticleCard = ({ article }: { article: ArticleType }) => {
                         <div className="flex gap-2 items-center">
                             <UserCircleIcon className="h-4 w-4" />
                             {article.writer.name}
-                        </div>
-                        <div className="flex gap-2 items-center">
-                            <CalendarIcon className="h-4 w-4" />
-                            Published on {timestampToYYYYMMDD(article.created_at)}
                         </div>
                     </div>
                 </div>
