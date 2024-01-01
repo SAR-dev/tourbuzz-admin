@@ -209,3 +209,27 @@ export const deleteArticleById = ({ id }: { id: number }): Promise<any> => {
             return { error: err || true };
         });
 }
+
+// Enqueries
+
+export const getEnquiries = ({
+    pageNo,
+    pageSize
+}: {
+    pageNo: number,
+    pageSize: number
+}): Promise<any> => {
+    return api
+        .get("/admin/enquiries", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}

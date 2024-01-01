@@ -37,6 +37,30 @@ export interface ArticleType {
     images: ImageType[]
 }
 
+export interface UserType {
+    id: number
+    email: number
+    username: string
+    name: string
+    images_id: number
+    last_logged_in: string
+    created_at: string
+    updated_at: string
+    avatar: ImageType
+}
+
+export interface EnquiryType {
+    id: number
+    users_id: number
+    contact_number: string
+    question: string
+    answer: string
+    answered_at: string
+    created_at: string
+    updated_at: string
+    user: UserType
+}
+
 export interface CreateWriterType {
     images_id: number,
     email: string,

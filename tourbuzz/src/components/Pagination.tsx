@@ -25,7 +25,7 @@ export function Pagination({ ...props }: PaginationType) {
             <div className="flex gap-2 items-center">
                 <span>Page Size</span>
                 <div className="join border border-base-300">
-                    {[10, 20, 50, 100].map((e, i) => (
+                    {[20, 50, 100].map((e, i) => (
                         <button className={classNames({
                             "join-item btn px-3": true,
                             "btn-neutral": e == props.page_size

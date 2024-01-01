@@ -24,9 +24,10 @@ function Articles() {
   const [pageSize, setPageSize] = useState(20)
   const [pageNo, setPageNo] = useState(1)
 
-  const { isLoading, error, data } = useQuery<ArticleData, Error>(['articles', pageNo, pageSize], () =>
-    getArticles({ pageNo, pageSize })
-  )
+  const { isLoading, error, data } = useQuery<ArticleData, Error>({
+    queryKey: ['articles', pageNo, pageSize],
+    queryFn: () => getArticles({ pageNo, pageSize })
+  })
 
   if (isLoading || error || !data) return;
 

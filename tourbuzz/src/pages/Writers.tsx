@@ -24,24 +24,25 @@ function Writers() {
   const [pageSize, setPageSize] = useState(20)
   const [pageNo, setPageNo] = useState(1)
 
-  const { isLoading, error, data } = useQuery<WriterData, Error>(['writers', pageNo, pageSize], () =>
-    getWriters({ pageNo, pageSize })
-  )
+  const { isLoading, error, data } = useQuery<WriterData, Error>({
+    queryKey: ['writers', pageNo, pageSize],
+    queryFn: () => getWriters({ pageNo, pageSize })
+  })
 
   if (isLoading || error || !data) return;
 
   return (
     <div>
-      <PageHeader 
-        title="Writers Profiles" 
-        subtitle="Let's upload some images and store them for later! 🎉" 
+      <PageHeader
+        title="Writers Profiles"
+        subtitle="Let's upload some images and store them for later! 🎉"
         right={
           <Link className="btn btn-primary" to="/writers/create">
             <PencilSquareIcon className="h-5 w-5" />
             Create Writer Profile
-          </Link>} 
+          </Link>}
       />
-      
+
       <div className='grid grid-cols-3 gap-5 my-5'>
         {data.data.data.map((e, i) => (
           <WriterCard writer={e} key={i} />
