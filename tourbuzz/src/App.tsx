@@ -1,10 +1,10 @@
-import Images from "./pages/Gallery";
-import { SideNav } from "./components/SideNav";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { SideNav } from "./components/SideNav";
+import Images from "./pages/Gallery";
 import Writers from "./pages/Writers";
 import Articles from "./pages/Articles";
 import CreateArticle from "./pages/CreateArticle";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import CreateWriter from "./pages/CreateWriter";
 import UpdateWriter from "./pages/UpdateWriter";
 import UpdateArticle from "./pages/UpdateArticle";
@@ -15,62 +15,13 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/images" />} />
-          <Route
-            path="/images"
-            element={
-              <SideNav>
-                <Images />
-              </SideNav>
-            }
-          />
-          <Route
-            path="/writers"
-            element={
-              <SideNav>
-                <Writers />
-              </SideNav>
-            }
-          />
-          <Route
-            path="/writers/create"
-            element={
-              <SideNav>
-                <CreateWriter />
-              </SideNav>
-            }
-          />
-          <Route
-            path="/writers/update/:writerId"
-            element={
-              <SideNav>
-                <UpdateWriter />
-              </SideNav>
-            }
-          />
-          <Route
-            path="/articles"
-            element={
-              <SideNav>
-                <Articles />
-              </SideNav>
-            }
-          />
-          <Route
-            path="/articles/create"
-            element={
-              <SideNav>
-                <CreateArticle />
-              </SideNav>
-            }
-          />
-          <Route
-            path="/articles/update/:articleId"
-            element={
-              <SideNav>
-                <UpdateArticle />
-              </SideNav>
-            }
-          />
+          <Route path="/images" element={<SideNav children={<Images />} />} />
+          <Route path="/writers" element={<SideNav children={<Writers />} />} />
+          <Route path="/writers/create" element={<SideNav children={<CreateWriter />} />} />
+          <Route path="/writers/:writerId" element={<SideNav children={<UpdateWriter />} />} />
+          <Route path="/articles" element={<SideNav children={<Articles />} />} />
+          <Route path="/articles/create" element={<SideNav children={<CreateArticle />} />} />
+          <Route path="/articles/:articleId" element={<SideNav children={<UpdateArticle />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

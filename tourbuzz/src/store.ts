@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
+// ThemeStore
 export enum ThemeName {
     Cupcake = "cupcake",
     Corporate = "corporate",
@@ -40,6 +41,7 @@ export const useThemeStore = create<ThemeStore>()(
     })
 )
 
+// EmojiStore
 type EmojiStore = {
     open: boolean
     toogleOpen: () => void
@@ -51,5 +53,27 @@ export const useEmojiStore = create<EmojiStore>()(
         toogleOpen: () => {
             set((state) => ({ open: !state.open }))
         },
+    })
+)
+
+// NavStore
+
+const navKey = "sidenav"
+
+type NavStore = {
+    open: boolean
+    toogleOpen: () => void
+}
+
+export const useNavStore = create<NavStore>()(
+    persist(
+    (set) => ({
+        open: false,
+        toogleOpen: () => {
+            set((state) => ({ open: !state.open }))
+        },
+    }), {
+        name: navKey,
+        storage: createJSONStorage(() => localStorage),
     })
 )

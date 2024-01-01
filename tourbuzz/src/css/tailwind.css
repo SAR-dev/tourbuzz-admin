@@ -57,3 +57,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.sidebar {
+  transition: 0.4s ease-in;
+}

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ArticleCard = ({ article }: { article: ArticleType }) => {
     return (
         <div className="card card-side w-full h-full bg-base-200 p-3 group relative">
-            <Link to={`/articles/update/${article.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute bottom-0 right-0 m-3">Edit</Link>
+            <Link to={`/articles/${article.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute bottom-0 right-0 m-3">Edit</Link>
             <div className="grid grid-cols-2 gap-5">
                 <div className="col-span-1">
                     <div className="carousel w-full">
