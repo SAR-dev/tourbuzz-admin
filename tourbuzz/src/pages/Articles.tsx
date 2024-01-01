@@ -42,7 +42,7 @@ function Articles() {
           </Link>}
       />
 
-      <div className='grid grid-cols-1 gap-5 my-5'>
+      <div className='grid grid-cols-3 gap-5 my-5'>
         {data.data.data.map((e, i) => (
           <ArticleCard article={e} key={i} />
         ))}
