@@ -1,13 +1,14 @@
 import { ArrowUpIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { EnquiryListType, EnquiryType } from '@src/constants/types';
-import { timestampToYYYYMMDD, timestampToYYYYMMDDHHMMSS } from '@src/functions/helpers';
-import { forwardRef, useState } from 'react';
+import { findMaxContinuous, timestampToYYYYMMDD, timestampToYYYYMMDDHHMMSS } from '@src/functions/helpers';
+import { forwardRef, useMemo, useState } from 'react';
 import { PhoneCall } from 'tabler-icons-react';
 import Image from './Image';
 import { toast } from 'react-toastify';
 import { answerEnquery } from '@src/functions/api';
 import { useQueryClient } from 'react-query';
 import ReactTextareaAutosize from 'react-textarea-autosize';
+import classNames from 'classnames';
 
 interface EnquiryCardProps {
     enquiry: EnquiryListType,
@@ -89,6 +90,15 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
         { enquiry },
         ref
     ) => {
+        const [show, setShow] = useState(false)
+        const maxIndex = useMemo(() => {
+            return findMaxContinuous(
+                enquiry.enquiries
+                    .filter(e => e.answer != null && e.answer.length > 0)
+                    .map((_e, i) => i)
+            );
+        }, [enquiry.enquiries]);
+
         return (
             <div className="grid grid-cols-4 divide-x divide-base-300" ref={ref}>
                 <div className="p-5 flex flex-col space-y-3">
@@ -109,9 +119,18 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
                     </div>
                 </div>
                 <div className="col-span-3">
+                    {!show && maxIndex > 0 && (
+                        <div className="text-info p-3 text-sm cursor-pointer hover:underline" onClick={() => setShow(true)}>
+                            Show {maxIndex} previous questions
+                        </div>
+                    )}
                     <div className="grid grid-cols-1 divide-y divide-base-300 w-full">
                         {enquiry.enquiries.map((e, i) => (
-                            <div className="grid grid-cols-2 divide-x divide-base-300 w-full" key={i}>
+                            <div className={classNames({
+                                "grid-cols-2 divide-x divide-base-300 w-full": true,
+                                "hidden": i < maxIndex && !show,
+                                "grid": i >= maxIndex || show
+                            })} key={i}>
                                 <div className="p-3">
                                     <div>
                                         <div>
