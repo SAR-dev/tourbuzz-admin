@@ -1,4 +1,4 @@
-import { DevicePhoneMobileIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import { ArrowUpIcon, AtSymbolIcon, DevicePhoneMobileIcon, PaperAirplaneIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import { EnquiryType } from '@src/constants/types';
 import { timestampToYYYYMMDD } from '@src/functions/helpers';
 import { forwardRef, useState } from 'react';
@@ -51,22 +51,23 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
             <div className="grid grid-cols-2 divide-x divide-base-300" ref={ref}>
                 <div className="p-5 flex flex-col space-y-3">
                     <div>
-                        <div className='text-xs mb-1 flex w-full'>
-                            <div className="flex items-center space-x-2">
-                                <Image src={enquiry.user.avatar?.thumbnail_url} className='h-5 w-5 card' />
-                                <div>{enquiry.user.email}</div>
+                        <div className='text-xs mb-3 flex w-full'>
+                            <div className="flex items-center space-x-3">
+                                <Image src={enquiry.user.avatar?.thumbnail_url} className='h-14 w-14 card' />
+                                <div className='flex flex-col space-y-1'>
+                                    <div className='flex gap-1'><AtSymbolIcon className='h-4 w-4' /> {enquiry.user.email}</div>
+                                    <div className='flex gap-1'><PhoneIcon className='h-4 w-4' /> {enquiry.contact_number}</div>
+                                    <div className='flex gap-1'><ArrowUpIcon className='h-4 w-4' /> {timestampToYYYYMMDD(enquiry.created_at)}</div>
+                                </div>
                             </div>
                         </div>
-                        <div>{enquiry.question}</div>
-                        <div className="text-xs mt-1">
-                            Submitted On: {timestampToYYYYMMDD(enquiry.created_at)}
-                        </div>
+                        <div>❓ {enquiry.question}</div>
                     </div>
                 </div>
                 <div className="p-5">
                     {(enquiry.answer && enquiry.answer.length > 0) ? (
                         <div>
-                            <div>{enquiry.answer}</div>
+                            <div>✉️ {enquiry.answer}</div>
                             <div className="text-xs mt-1">
                                 Replied On: {timestampToYYYYMMDD(enquiry.answered_at)}
                             </div>
