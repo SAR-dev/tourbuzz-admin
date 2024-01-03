@@ -56,12 +56,10 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
                                 <Image src={enquiry.user.avatar?.thumbnail_url} className='h-5 w-5 card' />
                                 <div>{enquiry.user.email}</div>
                             </div>
-                            <div className='ml-auto'>{timestampToYYYYMMDD(enquiry.created_at)}</div>
                         </div>
                         <div>{enquiry.question}</div>
-                        <div className="text-xs mt-1 flex">
-                            <DevicePhoneMobileIcon className='h-4 w-4 mr-1' />
-                            {enquiry.contact_number ?? "No contact number"}
+                        <div className="text-xs mt-1">
+                            Submitted On: {timestampToYYYYMMDD(enquiry.created_at)}
                         </div>
                     </div>
                 </div>
