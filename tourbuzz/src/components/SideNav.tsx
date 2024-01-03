@@ -13,8 +13,14 @@ export function SideNav({ children }: { children: ReactNode }) {
     const location = useLocation();
     const { pathname } = location;
 
-    const NavMenu = ({ name, url, icon }: { name: string, url: string, icon: ReactNode }) => (
-        <Link className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start" to={url}>
+    const NavMenu = ({ name, url, icon, disabled }: { name: string, url: string, icon: ReactNode, disabled?: boolean }) => (
+        <Link
+            className={classNames({
+                "btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start": true,
+                "cursor-not-allowed": disabled
+            })}
+            to={disabled ? "#" : url}
+        >
             {icon} {name}
             {url == pathname && (
                 <ChevronRightIcon className='h-5 w-5 ml-auto' />
@@ -47,9 +53,9 @@ export function SideNav({ children }: { children: ReactNode }) {
                         <NavMenu name="Writers" url="/writers" icon={<PencilSquareIcon className="h-5 w-5" />} />
                         <NavMenu name="Articles" url="/articles" icon={<BookOpenIcon className="h-5 w-5" />} />
                         <NavMenu name="Enqueries" url="/enqueries" icon={<ChatBubbleBottomCenterIcon className="h-5 w-5" />} />
-                        <NavMenu name="Hotels" url="/hotels" icon={<HomeModernIcon className="h-5 w-5" />} />
                         <NavMenu name="Organizers" url="/organizers" icon={<RectangleGroupIcon className="h-5 w-5" />} />
-                        <NavMenu name="Places" url="/places" icon={<Trees className="h-5 w-5" />} />
+                        <NavMenu name="Hotels" disabled={true} url="/hotels" icon={<HomeModernIcon className="h-5 w-5" />} />
+                        <NavMenu name="Places" disabled={true} url="/places" icon={<Trees className="h-5 w-5" />} />
                         <NavMenu name="Tours" url="/tours" icon={<Map className="h-5 w-5" />} />
                         <EmojiPicker />
                         <ThemeSwitcher />

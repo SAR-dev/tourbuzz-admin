@@ -1,6 +1,6 @@
 import { ArrowUpIcon, AtSymbolIcon, PaperAirplaneIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import { EnquiryType } from '@src/constants/types';
-import { timestampToYYYYMMDD } from '@src/functions/helpers';
+import { timestampToYYYYMMDD, timestampToYYYYMMDDHHMMSS } from '@src/functions/helpers';
 import { forwardRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { History, PhoneCall } from 'tabler-icons-react';
@@ -8,6 +8,7 @@ import Image from './Image';
 import { toast } from 'react-toastify';
 import { answerEnquery } from '@src/functions/api';
 import { useQueryClient } from 'react-query';
+import ReactTextareaAutosize from 'react-textarea-autosize';
 
 interface EnquiryCardProps {
     enquiry: EnquiryType,
@@ -57,7 +58,7 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
                                 <div className='flex flex-col space-y-1'>
                                     <div className='flex gap-1'><AtSymbolIcon className='h-4 w-4' /> {enquiry.user.email}</div>
                                     <div className='flex gap-1'><PhoneIcon className='h-4 w-4' /> {enquiry.contact_number}</div>
-                                    <div className='flex gap-1'><ArrowUpIcon className='h-4 w-4' /> {timestampToYYYYMMDD(enquiry.created_at)}</div>
+                                    <div className='flex gap-1'><ArrowUpIcon className='h-4 w-4' /> {timestampToYYYYMMDDHHMMSS(enquiry.created_at)}</div>
                                 </div>
                             </div>
                         </div>
@@ -68,16 +69,16 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
                     {(enquiry.answer && enquiry.answer.length > 0) ? (
                         <div>
                             <div>✉️ {enquiry.answer}</div>
-                            <div className="text-xs mt-1">
-                                Replied On: {timestampToYYYYMMDD(enquiry.answered_at)}
+                            <div className='flex text-xs gap-1 mt-1'>
+                                <ArrowUpIcon className='h-4 w-4' /> {timestampToYYYYMMDDHHMMSS(enquiry.answered_at)}
                             </div>
                         </div>
                     ) : (
                         <div className="flex h-full flex-col w-full space-y-3">
-                            <textarea
+                            <ReactTextareaAutosize
                                 value={answer}
                                 onChange={e => setAnswer(e.target.value)}
-                                className="textarea textarea-bordered custom-scrollbar placeholder:text-base text-base w-full h-fill"
+                                className="textarea textarea-bordered custom-scrollbar placeholder:text-base text-base w-full"
                             />
                             <div className="flex">
                                 {!disableHistory && (
