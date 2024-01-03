@@ -1,5 +1,5 @@
 import { ArrowUpIcon, AtSymbolIcon, PaperAirplaneIcon, PhoneIcon } from '@heroicons/react/24/outline';
-import { EnquiryType } from '@src/constants/types';
+import { EnquiryListType, EnquiryType } from '@src/constants/types';
 import { timestampToYYYYMMDD, timestampToYYYYMMDDHHMMSS } from '@src/functions/helpers';
 import { forwardRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import { useQueryClient } from 'react-query';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 
 interface EnquiryCardProps {
-    enquiry: EnquiryType,
+    enquiry: EnquiryListType,
     disableHistory?: boolean
 }
 
@@ -27,27 +27,27 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
         const [loading, setLoading] = useState(false)
         const queryClient = useQueryClient()
 
-        const submitAnswer = async () => {
-            if (answer.length < 5) {
-                toast.error("Answer is too short")
-            };
-            setLoading(true)
-            answerEnquery({
-                answer,
-                enquiries_id: enquiry.id
-            }).then(res => {
-                if (res.error) {
-                    toast.error("Reply failed 🤦‍♂️")
-                    setLoading(false)
-                } else {
-                    toast.success("Reply sent 💪")
-                    queryClient.invalidateQueries("enquiries")
-                    setLoading(false)
-                    setAnswer("")
-                }
+        // const submitAnswer = async () => {
+        //     if (answer.length < 5) {
+        //         toast.error("Answer is too short")
+        //     };
+        //     setLoading(true)
+        //     answerEnquery({
+        //         answer,
+        //         enquiries_id: enquiry.id
+        //     }).then(res => {
+        //         if (res.error) {
+        //             toast.error("Reply failed 🤦‍♂️")
+        //             setLoading(false)
+        //         } else {
+        //             toast.success("Reply sent 💪")
+        //             queryClient.invalidateQueries("enquiries")
+        //             setLoading(false)
+        //             setAnswer("")
+        //         }
 
-            })
-        }
+        //     })
+        // }
         return (
             <div className="grid grid-cols-2 divide-x divide-base-300" ref={ref}>
                 <div className="p-5 flex flex-col space-y-3">
@@ -57,16 +57,16 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
                                 <Image src={enquiry.user.avatar?.thumbnail_url} className='h-14 w-14 card' />
                                 <div className='flex flex-col space-y-1'>
                                     <div className='flex gap-1'><AtSymbolIcon className='h-4 w-4' /> {enquiry.user.email}</div>
-                                    <div className='flex gap-1'><PhoneIcon className='h-4 w-4' /> {enquiry.contact_number}</div>
-                                    <div className='flex gap-1'><ArrowUpIcon className='h-4 w-4' /> {timestampToYYYYMMDDHHMMSS(enquiry.created_at)}</div>
+                                    {/* <div className='flex gap-1'><PhoneIcon className='h-4 w-4' /> {enquiry.contact_number}</div> */}
+                                    {/* <div className='flex gap-1'><ArrowUpIcon className='h-4 w-4' /> {timestampToYYYYMMDDHHMMSS(enquiry.created_at)}</div> */}
                                 </div>
                             </div>
                         </div>
-                        <div>❓ {enquiry.question}</div>
+                        {/* <div>❓ {enquiry.question}</div> */}
                     </div>
                 </div>
                 <div className="p-5">
-                    {(enquiry.answer && enquiry.answer.length > 0) ? (
+                    {/* {(enquiry.answer && enquiry.answer.length > 0) ? (
                         <div>
                             <div>✉️ {enquiry.answer}</div>
                             <div className='flex text-xs gap-1 mt-1'>
@@ -106,7 +106,7 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
                                 </button>
                             </div>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         );

@@ -49,6 +49,11 @@ export interface UserType {
     avatar?: ImageType
 }
 
+export interface EnquiryListType {
+    user: UserType
+    enquiries: EnquiryType[]
+}
+
 export interface EnquiryType {
     id: number
     users_id: number
@@ -58,7 +63,6 @@ export interface EnquiryType {
     answered_at: string
     created_at: string
     updated_at: string
-    user: UserType
 }
 
 export interface CreateWriterType {
