@@ -234,17 +234,6 @@ export const getEnquiries = ({
         });
 }
 
-export const getEnquiriesByUser = ({ id }: { id: number }): Promise<any> => {
-    return api
-        .get(`/admin/enquiries/users/${id}`)
-        .then((res) => {
-            return { data: res.data };
-        })
-        .catch((err) => {
-            return { error: err || true };
-        });
-}
-
 export const answerEnquery = ({ answer, enquiries_id }: { answer: string, enquiries_id: number }): Promise<any> => {
     const data = { answer, enquiries_id }
     return api
