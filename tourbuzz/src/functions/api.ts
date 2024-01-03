@@ -99,7 +99,7 @@ export const getWriterById = ({ id }: { id: number }): Promise<any> => {
 }
 
 export const postWriter = ({ ...props }: CreateWriterType): Promise<any> => {
-    const data = { ...props}
+    const data = { ...props }
     return api
         .post("/admin/writers", data)
         .then((res) => {
@@ -112,7 +112,7 @@ export const postWriter = ({ ...props }: CreateWriterType): Promise<any> => {
 }
 
 export const putWriter = ({ ...props }: UpdateWriterType): Promise<any> => {
-    const data = { ...props}
+    const data = { ...props }
 
     return api
         .put("/admin/writers", data)
@@ -173,7 +173,7 @@ export const getArticleById = ({ id }: { id: number }): Promise<any> => {
 }
 
 export const postArticle = ({ ...props }: CreateArticleType): Promise<any> => {
-    const data = { ...props}
+    const data = { ...props }
     return api
         .post("/admin/articles", data)
         .then((res) => {
@@ -186,7 +186,7 @@ export const postArticle = ({ ...props }: CreateArticleType): Promise<any> => {
 }
 
 export const updateArticle = ({ ...props }: UpdateArticleType): Promise<any> => {
-    const data = { ...props}
+    const data = { ...props }
     return api
         .put("/admin/articles", data)
         .then((res) => {
@@ -230,6 +230,30 @@ export const getEnquiries = ({
             return { data: res.data };
         })
         .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getEnquiriesByUser = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/enquiries/users/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const answerEnquery = ({ answer, enquiries_id }: { answer: string, enquiries_id: number }): Promise<any> => {
+    const data = { answer, enquiries_id }
+    return api
+        .put("/admin/enquiries", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
             return { error: err || true };
         });
 }

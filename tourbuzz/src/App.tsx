@@ -9,6 +9,7 @@ import CreateWriter from "./pages/CreateWriter";
 import UpdateWriter from "./pages/UpdateWriter";
 import UpdateArticle from "./pages/UpdateArticle";
 import Enqueries from "./pages/Enqueries";
+import EnqueriesByUser from "./pages/EnqueriesByUser";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/articles/create" element={<SideNav children={<CreateArticle />} />} />
           <Route path="/articles/:articleId" element={<SideNav children={<UpdateArticle />} />} />
           <Route path="/enqueries" element={<SideNav children={<Enqueries />} />} />
+          <Route path="/enqueries/:userId" element={<SideNav children={<EnqueriesByUser />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

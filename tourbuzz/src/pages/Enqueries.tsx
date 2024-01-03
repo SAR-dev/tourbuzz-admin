@@ -4,6 +4,7 @@ import { Pagination } from "@src/components/Pagination"
 import { EnquiryType } from "@src/constants/types"
 import { getEnquiries } from "@src/functions/api"
 import { useState } from "react"
+import FlipMove from "react-flip-move"
 import { useQuery } from "react-query"
 
 interface EnquiryData {
@@ -37,9 +38,11 @@ const Enqueries = () => {
       />
 
       <div className='grid grid-cols-1 border border-base-300 divide-y divide-base-300 my-5'>
+        <FlipMove typeName={null}>
         {data.data.data.map((e, i) => (
-          <EnquiryCard enquiry={e} key={i} />
+          <EnquiryCard enquiry={e} key={e.id} />
         ))}
+        </FlipMove>
       </div>
 
       <div>
