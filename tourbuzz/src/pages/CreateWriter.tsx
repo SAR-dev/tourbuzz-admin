@@ -15,7 +15,7 @@ interface CreateWriterState {
     username: string
     about: string
     avatar: ImageType | null
-    phone_no: string
+    contact_no: string
     website: string
 }
 
@@ -29,7 +29,7 @@ const CreateWriter = () => {
         username: "",
         about: "",
         avatar: null,
-        phone_no: "",
+        contact_no: "",
         website: ""
     })
     const [error, setError] = useState("")
@@ -47,7 +47,7 @@ const CreateWriter = () => {
             name: data.name,
             username: data.username,
             about: data.about,
-            phone_no: data.phone_no,
+            contact_no: data.contact_no,
             website: data.website
         }).then(res => {
             if (res.error) {
@@ -78,7 +78,7 @@ const CreateWriter = () => {
             <div className="w-[70rem] bg-base-200 card p-5">
                 <div className="grid grid-cols-2 gap-5">
                     <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
-                    <input value={data.phone_no} onChange={e => setData({ ...data, phone_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
+                    <input value={data.contact_no} onChange={e => setData({ ...data, contact_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
                     <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                     <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
                     <div className="grid grid-cols-1 gap-5">

@@ -20,7 +20,7 @@ interface WriterData {
   }
 }
 
-function Writers() {
+const Writers = () => {
   const [pageSize, setPageSize] = useState(20)
   const [pageNo, setPageNo] = useState(1)
 

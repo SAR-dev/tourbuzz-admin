@@ -15,7 +15,7 @@ export interface WriterType {
     name: string;
     username: string;
     about: string;
-    phone_no: string;
+    contact_no: string;
     website: string;
     created_at: string;
     updated_at: string;
@@ -71,7 +71,7 @@ export interface CreateWriterType {
     name: string,
     username: string,
     about: string
-    phone_no: string
+    contact_no: string
     website: string
 }
 
@@ -92,7 +92,7 @@ export interface UpdateWriterType {
     name: string,
     username: string,
     about: string,
-    phone_no: string
+    contact_no: string
     website: string
 }
 

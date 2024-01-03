@@ -20,7 +20,7 @@ const WriterCard = ({ writer }: { writer: WriterType }) => {
                             </div>
                             <div className="flex gap-2 items-center">
                                 <PhoneIcon className="h-4 w-4" />
-                                {writer.phone_no}
+                                {writer.contact_no}
                             </div>
                             <Link to={writer.website} target="_blank" className="flex gap-2 items-center">
                                 <LinkIcon className="h-4 w-4" />
