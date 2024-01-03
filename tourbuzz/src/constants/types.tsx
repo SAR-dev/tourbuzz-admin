@@ -46,7 +46,7 @@ export interface UserType {
     last_logged_in: string
     created_at: string
     updated_at: string
-    avatar: ImageType
+    avatar?: ImageType
 }
 
 export interface EnquiryType {
@@ -54,7 +54,7 @@ export interface EnquiryType {
     users_id: number
     contact_number: string
     question: string
-    answer: string
+    answer?: string
     answered_at: string
     created_at: string
     updated_at: string

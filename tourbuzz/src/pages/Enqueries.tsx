@@ -1,3 +1,4 @@
+import EnquiryCard from "@src/components/EnquiryCard"
 import PageHeader from "@src/components/PageHeader"
 import { Pagination } from "@src/components/Pagination"
 import { EnquiryType } from "@src/constants/types"
@@ -37,14 +38,7 @@ const Enqueries = () => {
 
       <div className='grid grid-cols-1 border border-base-300 divide-y divide-base-300 my-5'>
         {data.data.data.map((e, i) => (
-          <div className="grid grid-cols-2 divide-x divide-base-300" key={i}>
-            <div className="p-5">
-
-            </div>
-            <div className="p-5">
-              
-            </div>
-          </div>
+          <EnquiryCard enquiry={e} key={i} />
         ))}
       </div>
 
