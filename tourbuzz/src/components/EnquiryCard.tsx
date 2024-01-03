@@ -1,4 +1,4 @@
-import { ArrowUpIcon, AtSymbolIcon, DevicePhoneMobileIcon, PaperAirplaneIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import { ArrowUpIcon, AtSymbolIcon, PaperAirplaneIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import { EnquiryType } from '@src/constants/types';
 import { timestampToYYYYMMDD } from '@src/functions/helpers';
 import { forwardRef, useState } from 'react';
