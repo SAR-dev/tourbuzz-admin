@@ -88,7 +88,7 @@ const CreateOrganizer = () => {
                     <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                     <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
                     <input value={data.slogan} onChange={e => setData({ ...data, slogan: e.target.value })} type="text" placeholder="Slogan" className="input input-bordered w-full" />
-                    <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })}  className="select w-full">
+                    <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })}  className="select w-full select-bordered">
                         <option disabled selected>Verification Level</option>
                         <option value="LEVEL1">Level 01</option>
                         <option value="LEVEL2">Level 02</option>

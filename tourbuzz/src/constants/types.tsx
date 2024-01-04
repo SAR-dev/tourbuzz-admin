@@ -49,6 +49,22 @@ export interface UserType {
     avatar?: ImageType
 }
 
+export interface OrganizerType {
+    id: number
+    name: string
+    username: string
+    description: string
+    slogan: string
+    email: string
+    images_id: number
+    verification: string
+    social_link: string
+    contact_no: string
+    created_at: string
+    updated_at: string
+    avatar?: ImageType
+}
+
 export interface EnquiryListType {
     user: UserType
     enquiries: EnquiryType[]

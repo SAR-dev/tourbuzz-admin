@@ -6,7 +6,7 @@ export default function ErrorAlert({ error, setError }: { error: string, setErro
         <div role="alert" className="alert alert-warning">
             <ShieldExclamationIcon className="h-6 w-6" />
             <span>Error: {error}</span>
-            <button className="btn btn-sm btn-accent btn-outline" onClick={() => setError("")}>
+            <button className="btn btn-sm btn-outline" onClick={() => setError("")}>
                 Close
             </button>
         </div>

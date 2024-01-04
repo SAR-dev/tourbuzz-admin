@@ -106,7 +106,6 @@ export const postWriter = ({ ...props }: CreateWriterType): Promise<any> => {
             return { data: res.data };
         })
         .catch((err) => {
-            console.log(err)
             return { error: err || true };
         });
 }
@@ -120,7 +119,6 @@ export const putWriter = ({ ...props }: UpdateWriterType): Promise<any> => {
             return { data: res.data };
         })
         .catch((err) => {
-            console.log(err)
             return { error: err || true };
         });
 }
@@ -180,7 +178,6 @@ export const postArticle = ({ ...props }: CreateArticleType): Promise<any> => {
             return { data: res.data };
         })
         .catch((err) => {
-            console.log(err)
             return { error: err || true };
         });
 }
@@ -205,7 +202,6 @@ export const deleteArticleById = ({ id }: { id: number }): Promise<any> => {
             return { data: res.data };
         })
         .catch((err) => {
-            console.log(err)
             return { error: err || true };
         });
 }
@@ -242,7 +238,6 @@ export const answerEnquery = ({ answer, enquiries_id }: { answer: string, enquir
             return { data: res.data };
         })
         .catch((err) => {
-            console.log(err)
             return { error: err || true };
         });
 }
@@ -257,7 +252,28 @@ export const postOrganizer = ({ ...props }: CreateOrganizerType): Promise<any> =
             return { data: res.data };
         })
         .catch((err) => {
-            console.log(err)
+            return { error: err || true };
+        });
+}
+
+export const getOrganizers = ({
+    pageNo,
+    pageSize
+}: {
+    pageNo: number,
+    pageSize: number
+}): Promise<any> => {
+    return api
+        .get("/admin/organizers", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
             return { error: err || true };
         });
 }

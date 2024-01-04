@@ -1,16 +1,17 @@
 import { PencilSquareIcon } from '@heroicons/react/16/solid'
-import { getWriters } from '@src/functions/api'
+import { getOrganizers, getWriters } from '@src/functions/api'
 import PageHeader from '@src/components/PageHeader'
 import { Pagination } from '@src/components/Pagination'
 import WriterCard from '@src/components/WriterCard'
-import { WriterType } from '@src/constants/types'
+import { OrganizerType, WriterType } from '@src/constants/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'
+import OrganizerCard from '@src/components/OrganizerCard'
 
 interface OrganizersData {
   data: {
-    data: WriterType[]
+    data: OrganizerType[]
     page_no: number
     page_size: number
     has_prev: boolean
@@ -25,8 +26,8 @@ function Organizers() {
   const [pageNo, setPageNo] = useState(1)
 
   const { isLoading, error, data } = useQuery<OrganizersData, Error>({
-    queryKey: ['writers', pageNo, pageSize],
-    queryFn: () => getWriters({ pageNo, pageSize })
+    queryKey: ['organizers', pageNo, pageSize],
+    queryFn: () => getOrganizers({ pageNo, pageSize })
   })
 
   if (isLoading || error || !data) return;
@@ -39,13 +40,13 @@ function Organizers() {
         right={
           <Link className="btn btn-primary" to="/organizers/create">
             <PencilSquareIcon className="h-5 w-5" />
-            Create Organizer
+            Register Organizer
           </Link>}
       />
 
       <div className='grid grid-cols-3 gap-5 my-5'>
         {data.data.data.map((e, i) => (
-          <WriterCard writer={e} key={i} />
+          <OrganizerCard organizer={e} key={i} />
         ))}
       </div>
 
