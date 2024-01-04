@@ -5,7 +5,6 @@ import { useQuery } from 'react-query'
 import Modal from './Modal'
 import classNames from 'classnames'
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
-import { Pagination } from './Pagination'
 import Image from './Image'
 import { useDebounce } from 'use-debounce';
 
@@ -21,7 +20,25 @@ interface WriterData {
     }
 }
 
-function WriterSelect({ writer, setWriter }: { writer: WriterType | null, setWriter: (props: WriterType) => void }) {
+const WriterSearchCard = ({ writer, className, handleClick }: { writer: WriterType, className: string, handleClick: (props: WriterType) => void }) => (
+    <div className={className} onClick={() => handleClick(writer)}>
+        <div className='w-12 flex-shrink-0'>
+            <Image className='h-12 w-16 object-cover card' src={writer.avatar.thumbnail_url} />
+        </div>
+        <div className="flex flex-col">
+            <div className="font-semibold">{writer.name}</div>
+            <div className="text-sm">{writer.email}</div>
+        </div>
+    </div>
+)
+
+const WriterSelect = ({
+    writer,
+    setWriter
+}: {
+    writer: WriterType | null,
+    setWriter: (props: WriterType) => void
+}) => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [open, setOpen] = useState(false);
@@ -51,8 +68,6 @@ function WriterSelect({ writer, setWriter }: { writer: WriterType | null, setWri
         queryFn: () => getWriters({ pageNo: 1, pageSize: 50, name: dName, email: dEmail })
     })
 
-    if (isLoading || error || !data) return;
-
     return (
         <div>
             <button className="btn btn-primary" onClick={handleOpen}>
@@ -80,23 +95,28 @@ function WriterSelect({ writer, setWriter }: { writer: WriterType | null, setWri
                             </div>
                         </div>
                         <div className='grid grid-cols-3 gap-5 max-h-[28rem] overflow-y-auto'>
-                            {data.data.data.map((e, i) => (
-                                <div className={classNames({
-                                    "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer": true,
-                                    "bg-primary text-primary-content": selectedWriter?.id == e.id,
-                                    "bg-base-200 hover:bg-base-300": selectedWriter?.id != e.id
-                                })}
-                                    onClick={() => setSelectedWriter(e)}
+                            {writer && (
+                                <WriterSearchCard 
+                                    writer={writer} 
+                                    className={classNames({
+                                        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer" : true,
+                                        "bg-primary text-primary-content": selectedWriter?.id == writer.id,
+                                        "bg-base-200 hover:bg-base-300": selectedWriter?.id != writer.id
+                                    })}
+                                    handleClick={setSelectedWriter} 
+                                />
+                            )}
+                            {!(isLoading || error || !data) && data.data.data.filter(x => x.id != writer?.id).map((e, i) => (
+                                <WriterSearchCard
+                                    writer={e}
+                                    className={classNames({
+                                        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer": true,
+                                        "bg-primary text-primary-content": selectedWriter?.id == e.id,
+                                        "bg-base-200 hover:bg-base-300": selectedWriter?.id != e.id,
+                                    })}
+                                    handleClick={setSelectedWriter}
                                     key={i}
-                                >
-                                    <div className='w-12 flex-shrink-0'>
-                                        <Image className='h-12 w-16 object-cover card' src={e.avatar.thumbnail_url} />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <div className="font-semibold">{e.name}</div>
-                                        <div className="text-sm">{e.email}</div>
-                                    </div>
-                                </div>
+                                />
                             ))}
                         </div>
                     </div>
