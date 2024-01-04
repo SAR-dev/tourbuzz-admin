@@ -1,7 +1,6 @@
 import { WriterType } from "@src/constants/types";
 import TruncateText from "./TruncateText";
-import { AtSymbolIcon, CalendarIcon, LinkIcon, PhoneIcon } from "@heroicons/react/24/outline";
-import { timestampToYYYYMMDD } from "@src/functions/helpers";
+import { AtSymbolIcon, LinkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const WriterCard = ({ writer }: { writer: WriterType }) => {

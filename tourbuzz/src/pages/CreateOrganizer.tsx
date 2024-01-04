@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ImageType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
-import { postWriter } from "@src/functions/api";
+import { postOrganizer } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate } from "react-router-dom";
@@ -13,10 +13,12 @@ interface CreateOrganizerState {
     email: string
     name: string
     username: string
-    about: string
-    avatar: ImageType | null
+    description: string
+    slogan: string
     contact_no: string
-    website: string
+    verification: string
+    social_link: string
+    avatar: ImageType | null
 }
 
 const CreateOrganizer = () => {
@@ -25,12 +27,14 @@ const CreateOrganizer = () => {
     const queryClient = useQueryClient()
     const [data, setData] = useState<CreateOrganizerState>({
         email: "",
+        contact_no: "",
         name: "",
         username: "",
-        about: "",
+        description: "",
+        slogan: "",
+        verification: "LEVEL1",
         avatar: null,
-        contact_no: "",
-        website: ""
+        social_link: ""
     })
     const [error, setError] = useState("")
 
@@ -41,24 +45,26 @@ const CreateOrganizer = () => {
         };
         setError("")
         setLoading(true)
-        postWriter({
+        postOrganizer({
             images_id: data.avatar.id,
             email: data.email,
+            contact_no: data.contact_no,
             name: data.name,
             username: data.username,
-            about: data.about,
-            contact_no: data.contact_no,
-            website: data.website
+            description: data.description,
+            slogan: data.slogan,
+            verification: data.verification,
+            social_link: data.social_link
         }).then(res => {
             if (res.error) {
                 toast.error("Registration failed 🤦‍♂️")
                 setError(parseErrorMessage(res.error).message)
                 setLoading(false)
             } else {
-                toast.success("Writer Registered 💪")
-                queryClient.invalidateQueries("writers")
+                toast.success("Organizer Registered 💪")
+                queryClient.invalidateQueries("organizers")
                 setLoading(false)
-                navigate("/writers")
+                navigate("/organizers")
             }
 
         })
@@ -81,9 +87,18 @@ const CreateOrganizer = () => {
                     <input value={data.contact_no} onChange={e => setData({ ...data, contact_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
                     <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                     <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
+                    <input value={data.slogan} onChange={e => setData({ ...data, slogan: e.target.value })} type="text" placeholder="Slogan" className="input input-bordered w-full" />
+                    <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })}  className="select w-full">
+                        <option disabled selected>Verification Level</option>
+                        <option value="LEVEL1">Level 01</option>
+                        <option value="LEVEL2">Level 02</option>
+                        <option value="LEVEL3">Level 03</option>
+                        <option value="LEVEL4">Level 04</option>
+                        <option value="LEVEL5">Level 05</option>
+                    </select>
                     <div className="grid grid-cols-1 gap-5">
-                        <input value={data.website} onChange={e => setData({ ...data, website: e.target.value })} type="text" placeholder="Website" className="input input-bordered w-full" />
-                        <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={10} placeholder="About" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                        <input value={data.social_link} onChange={e => setData({ ...data, social_link: e.target.value })} type="text" placeholder="Social Link" className="input input-bordered w-full" />
+                        <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={10} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
                     </div>
                     <div>
                         <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-5">
@@ -117,7 +132,7 @@ const CreateOrganizer = () => {
                                 Registering
                             </>
                         ) : (
-                            "Register Writer"
+                            "Register Organizer"
                         )}
                     </button>
                 </div>

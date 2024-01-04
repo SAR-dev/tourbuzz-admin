@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateWriterType, UpdateArticleType, UpdateWriterType } from "../constants/types";
+import { CreateArticleType, CreateOrganizerType, CreateWriterType, UpdateArticleType, UpdateWriterType } from "../constants/types";
 
 const api = axios.create();
 
@@ -238,6 +238,21 @@ export const answerEnquery = ({ answer, enquiries_id }: { answer: string, enquir
     const data = { answer, enquiries_id }
     return api
         .put("/admin/enquiries", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
+
+// Organizers
+
+export const postOrganizer = ({ ...props }: CreateOrganizerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/organizers", data)
         .then((res) => {
             return { data: res.data };
         })

@@ -59,8 +59,8 @@ const AnswerRenderer = ({ enquiry }: { enquiry: EnquiryType }) => {
                         className="textarea textarea-bordered custom-scrollbar placeholder:text-base text-base w-full"
                     />
                     <div className="flex">
-                        {enquiry.contact_number && enquiry.contact_number.length > 7 && (
-                            <a href={`tel:${enquiry.contact_number}`} className="btn btn-sm">
+                        {enquiry.contact_no && enquiry.contact_no.length > 7 && (
+                            <a href={`tel:${enquiry.contact_no}`} className="btn btn-sm">
                                 <PhoneCall className='h-4 w-4' />
                                 Make a Call
                             </a>

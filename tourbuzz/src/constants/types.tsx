@@ -57,7 +57,7 @@ export interface EnquiryListType {
 export interface EnquiryType {
     id: number
     users_id: number
-    contact_number?: string
+    contact_no?: string
     question: string
     answer?: string
     answered_at: string
@@ -66,13 +66,25 @@ export interface EnquiryType {
 }
 
 export interface CreateWriterType {
+    images_id: number
+    email: string
+    name: string
+    username: string
+    about: string
+    contact_no: string
+    website: string
+}
+
+export interface CreateOrganizerType {
     images_id: number,
     email: string,
     name: string,
     username: string,
-    about: string
+    description: string,
+    slogan: string,
     contact_no: string
-    website: string
+    verification: string
+    social_link: string
 }
 
 export interface CreateArticleType {
@@ -86,10 +98,10 @@ export interface CreateArticleType {
 }
 
 export interface UpdateWriterType {
-    writers_id: number,
-    images_id: number,
-    email: string,
-    name: string,
+    writers_id: number
+    images_id: number
+    email: string
+    name: string
     username: string,
     about: string,
     contact_no: string
