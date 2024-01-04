@@ -67,16 +67,22 @@ export const postImage = (file: Blob): Promise<any> => {
 
 export const getWriters = ({
     pageNo,
-    pageSize
+    pageSize,
+    name,
+    email
 }: {
     pageNo: number,
-    pageSize: number
+    pageSize: number,
+    name?: string,
+    email?: string
 }): Promise<any> => {
     return api
         .get("/admin/writers", {
             params: {
                 page_no: pageNo,
                 page_size: pageSize,
+                name: name ?? "",
+                email: email ?? "",
             }
         })
         .then((res) => {
