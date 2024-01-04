@@ -1,6 +1,7 @@
 import { ArticleType } from "@src/constants/types";
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import Image from "./Image";
 
 const ArticleCard = ({ article }: { article: ArticleType }) => {
     return (
@@ -10,8 +11,8 @@ const ArticleCard = ({ article }: { article: ArticleType }) => {
                 <div className="col-span-1">
                     <div className="carousel w-full">
                         {article.images.map((e, i) => (
-                            <div className="carousel-item w-full h-72" key={i}>
-                                <img src={e.optimized_url} className="card w-full h-72 object-cover" />
+                            <div className="carousel-item w-full aspect-video" key={i}>
+                                <Image src={e.optimized_url} className="card w-full aspect-video object-cover" />
                             </div>
                         ))}
                     </div>
@@ -20,7 +21,7 @@ const ArticleCard = ({ article }: { article: ArticleType }) => {
                     <div className="text-lg font-semibold my-2">{article.title}</div>
                     <div className="flex flex-col space-y-1.5">
                         <div className="flex gap-2 items-center">
-                            <UserCircleIcon className="h-4 w-4" />
+                            <UserCircleIcon className="h-5 w-5" />
                             {article.writer.name}
                         </div>
                     </div>

@@ -61,3 +61,11 @@
 .sidebar {
   transition: 0.4s ease-in;
 }
+
+
+.__react_modal_image__header {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

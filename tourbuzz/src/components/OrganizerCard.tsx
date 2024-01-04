@@ -10,8 +10,8 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
             <Link to={`/organizers/${organizer.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute top-0 right-0 m-3">Edit</Link>
             <div className="grid grid-cols-1 gap-3">
                 <div className="flex">
-                    <div className="h-[10rem] w-[7rem] relative flex-shrink-0">
-                        <Image className="card h-[10rem] w-[7rem] object-cover" src={organizer.avatar?.thumbnail_url} />
+                    <div className="h-[10rem] w-[10rem] relative flex-shrink-0">
+                        <Image className="card h-[10rem] w-[10rem] object-cover" src={organizer.avatar?.thumbnail_url} />
                         <div className="absolute bottom-0 right-0 m-2 badge badge-neutral">
                             {organizer.verification}
                         </div>
@@ -34,7 +34,7 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
                                 <TruncateText text={organizer.social_link} maxLength={20} />
                             </Link>
                             <div>
-                                <TruncateText text={organizer.slogan} maxLength={80} />
+                                <TruncateText text={organizer.slogan} maxLength={100} />
                             </div>
                         </div>
                     </div>
