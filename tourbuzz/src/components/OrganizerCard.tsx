@@ -11,7 +11,7 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
             <div className="grid grid-cols-1 gap-3">
                 <div className="flex">
                     <div className="h-[10rem] w-[10rem] relative flex-shrink-0">
-                        <Image className="card h-[10rem] w-[10rem] object-cover" src={organizer.avatar?.thumbnail_url} />
+                        <Image image={organizer.avatar} className="card h-[10rem] w-[10rem] object-cover" />
                         <div className="absolute bottom-0 right-0 m-2 badge badge-neutral">
                             {organizer.verification}
                         </div>

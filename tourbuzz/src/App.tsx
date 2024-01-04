@@ -11,6 +11,7 @@ import UpdateArticle from "./pages/UpdateArticle";
 import Enqueries from "./pages/Enqueries";
 import Organizers from "./pages/Organizers";
 import CreateOrganizer from "./pages/CreateOrganizer";
+import UpdateOrganizer from "./pages/UpdateOrganizer";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/enqueries" element={<SideNav children={<Enqueries />} />} />
           <Route path="/organizers" element={<SideNav children={<Organizers />} />} />
           <Route path="/organizers/create" element={<SideNav children={<CreateOrganizer />} />} />
+          <Route path="/organizers/:organizerId" element={<SideNav children={<UpdateOrganizer />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

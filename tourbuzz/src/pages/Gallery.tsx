@@ -9,6 +9,7 @@ import { deleteImageById, getImages } from "@src/functions/api";
 import Modal from "@src/components/Modal";
 import PageHeader from "@src/components/PageHeader";
 import DeleteButton from "@src/components/DeleteButton";
+import Image from "@src/components/Image";
 
 interface ImageData {
     data: {
@@ -90,7 +91,7 @@ const Gallery = () => {
                 }>
                     <div className="flex flex-col space-y-3">
                         <div className="min-h-32 w-full flex justify-center">
-                            <img className="card h-96" src={activeImage?.source_url} alt="" />
+                            <Image image={activeImage} disableModal={true} disableThumbnail={true} className="card h-96" />
                         </div>
                     </div>
                 </Modal>

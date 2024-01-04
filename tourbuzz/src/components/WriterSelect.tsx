@@ -23,7 +23,7 @@ interface WriterData {
 const WriterSearchCard = ({ writer, className, handleClick }: { writer: WriterType, className: string, handleClick: (props: WriterType) => void }) => (
     <div className={className} onClick={() => handleClick(writer)}>
         <div className='w-12 flex-shrink-0'>
-            <Image className='h-12 w-16 object-cover card' src={writer.avatar.thumbnail_url} />
+            <Image image={writer.avatar} className='h-12 w-16 object-cover card' />
         </div>
         <div className="flex flex-col">
             <div className="font-semibold">{writer.name}</div>

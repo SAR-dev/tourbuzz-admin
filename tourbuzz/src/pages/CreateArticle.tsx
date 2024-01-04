@@ -13,6 +13,7 @@ import MarkdownEditor from "@src/components/MarkdownEditor"
 import { useNavigate } from "react-router-dom"
 import { generateSlug } from "@src/functions/helpers"
 import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values"
+import Image from "@src/components/Image"
 
 interface CreateArticleState {
   title: string
@@ -101,7 +102,7 @@ const CreateArticle = () => {
           <div className="grid grid-cols-3 gap-3">
             {data.images.map((e, i) => (
               <div className="h-48 w-full relative group" key={i}>
-                <img src={e.thumbnail_url} alt="" className="h-48 w-full object-cover card" />
+                <Image image={e} alt="" className="h-48 w-full object-cover card" />
                 <div className="absolute top-0 left-0 h-full w-full bg-red-500/50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition ease-in-out">
                   <TrashIcon className="h-10 w-10 cursor-pointer text-white" onClick={() => removeImage(e.id)} />
                 </div>

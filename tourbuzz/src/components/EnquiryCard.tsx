@@ -105,7 +105,7 @@ export const EnquiryCard = forwardRef<HTMLDivElement, EnquiryCardProps>(
                     <div className='text-sm flex flex-col space-y-3'>
                         <div className='flex w-full'>
                             <div className="flex items-center space-x-3">
-                                <Image src={enquiry.user.avatar?.thumbnail_url} className='h-16 w-16 card' />
+                                <Image image={enquiry.user.avatar} className='h-16 w-16 card' />
                                 <div className='flex flex-col space-y-1'>
                                     <div>
                                         {enquiry.user.name ?? "No name set yet"}

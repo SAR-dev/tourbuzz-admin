@@ -9,6 +9,7 @@ import PageHeader from "@src/components/PageHeader";
 import { useNavigate, useParams } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
 import DeleteButton from "@src/components/DeleteButton";
+import Image from "@src/components/Image";
 
 interface UpdateWriterState {
     email: string
@@ -116,7 +117,7 @@ const UpdateWriter = () => {
                     <div>
                         <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-5">
                             {data.avatar ? (
-                                <img className="h-64 w-full object-cover object-center" src={data.avatar.source_url} alt="" />
+                                <Image image={data.avatar} className="h-64 w-full object-cover object-center" />
                             ) : (
                                 <UserCircleIcon className="h-20 w-20" />
                             )}

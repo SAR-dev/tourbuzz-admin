@@ -1,20 +1,31 @@
+import { ImageType } from '@src/constants/types';
 import { useState } from 'react';
 import { Img } from 'react-image'
 import { Lightbox } from "react-modal-image";
 
 const placeholder = "https://i.postimg.cc/CKj5TBc2/image.png";
 
-const Image = ({ src, className }: { src?: string, className: string }) => {
+const Image = ({ 
+    image, 
+    className, 
+    disableModal, 
+    disableThumbnail 
+}: { 
+    image?: ImageType, 
+    className: string, 
+    disableModal?: boolean, 
+    disableThumbnail?: boolean
+ }) => {
     const [open, setOpen] = useState(false)
     const toogleOpen = () => setOpen(!open)
 
     return (
         <>
-            <Img src={[src ?? "", placeholder]} alt="" className={className} onClick={toogleOpen} />
-            {src && open && (
+            <Img src={[image ? (disableThumbnail ? image.optimized_url : image.thumbnail_url) : placeholder, placeholder]} alt="" className={className} onClick={toogleOpen} />
+            {image && open && !disableModal && (
                 <Lightbox
-                    medium={src}
-                    large={src}
+                    medium={image.optimized_url}
+                    large={image.source_url}
                     // @ts-ignore
                     onClose={toogleOpen}
                 />
