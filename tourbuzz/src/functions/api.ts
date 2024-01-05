@@ -283,3 +283,14 @@ export const getOrganizers = ({
             return { error: err || true };
         });
 }
+
+export const getOrganizerById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/organizers/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}

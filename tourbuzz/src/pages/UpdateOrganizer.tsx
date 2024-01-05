@@ -1,12 +1,12 @@
 import { ArrowLeftIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
-import { ImageType, parseErrorMessage } from "@src/constants/types";
+import { useEffect, useState } from "react";
+import { ImageType, OrganizerType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
-import { postOrganizer } from "@src/functions/api";
+import { getOrganizerById, postOrganizer } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
 
 interface UpdateOrganizerState {
@@ -22,6 +22,7 @@ interface UpdateOrganizerState {
 }
 
 const UpdateOrganizer = () => {
+    let { organizerId } = useParams()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const queryClient = useQueryClient()
@@ -37,6 +38,13 @@ const UpdateOrganizer = () => {
         social_link: ""
     })
     const [error, setError] = useState("")
+
+    useEffect(() => {
+        getOrganizerById({ id: Number(organizerId) }).then(res => {
+            const organizer: OrganizerType = res.data;
+            setData({ ...organizer })
+        })
+    }, [organizerId])
 
     const uploadWriter = async () => {
         if (!data.avatar) {
@@ -88,7 +96,7 @@ const UpdateOrganizer = () => {
                     <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                     <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
                     <input value={data.slogan} onChange={e => setData({ ...data, slogan: e.target.value })} type="text" placeholder="Slogan" className="input input-bordered w-full" />
-                    <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })}  className="select w-full select-bordered">
+                    <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })} className="select w-full select-bordered">
                         <option disabled selected>Verification Level</option>
                         <option value="LEVEL1">Level 01</option>
                         <option value="LEVEL2">Level 02</option>

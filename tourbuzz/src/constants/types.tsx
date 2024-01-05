@@ -19,7 +19,7 @@ export interface WriterType {
     website: string;
     created_at: string;
     updated_at: string;
-    avatar: ImageType;
+    avatar: ImageType | null
 }
 
 export interface ArticleType {
@@ -46,7 +46,7 @@ export interface UserType {
     last_logged_in: string
     created_at: string
     updated_at: string
-    avatar?: ImageType
+    avatar: ImageType | null
 }
 
 export interface OrganizerType {
@@ -62,7 +62,7 @@ export interface OrganizerType {
     contact_no: string
     created_at: string
     updated_at: string
-    avatar?: ImageType
+    avatar: ImageType | null
 }
 
 export interface EnquiryListType {
