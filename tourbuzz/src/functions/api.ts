@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateOrganizerType, CreateWriterType, UpdateArticleType, UpdateWriterType } from "../constants/types";
+import { CreateArticleType, CreateOrganizerType, CreateWriterType, UpdateArticleType, UpdateOrganizerType, UpdateWriterType } from "../constants/types";
 
 const api = axios.create();
 
@@ -287,6 +287,30 @@ export const getOrganizers = ({
 export const getOrganizerById = ({ id }: { id: number }): Promise<any> => {
     return api
         .get(`/admin/organizers/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const updateOrganizer = ({ ...props }: UpdateOrganizerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/organizers", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
+
+export const deleteOrganizerById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/organizers/${id}`)
         .then((res) => {
             return { data: res.data };
         })

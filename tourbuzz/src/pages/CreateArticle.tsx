@@ -60,7 +60,7 @@ const CreateArticle = () => {
     setData({ ...data, md_desc: value })
   }
 
-  const uploadArticle = async () => {
+  const handleSubmit = async () => {
     if (!writer?.id) {
       setError("Select writer.")
       return;
@@ -77,7 +77,7 @@ const CreateArticle = () => {
       writers_id: writer.id
     }).then(res => {
       if (res.error) {
-        toast.error("Article submit failed 🤦‍♂️")
+        toast.error("Article handleSubmit failed 🤦‍♂️")
         setError(parseErrorMessage(res.error).message)
         setLoading(false)
       } else {
@@ -102,7 +102,7 @@ const CreateArticle = () => {
           <div className="grid grid-cols-3 gap-3">
             {data.images.map((e, i) => (
               <div className="h-48 w-full relative group" key={i}>
-                <Image image={e} alt="" className="h-48 w-full object-cover card" />
+                <Image image={e} className="h-48 w-full object-cover card" />
                 <div className="absolute top-0 left-0 h-full w-full bg-red-500/50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition ease-in-out">
                   <TrashIcon className="h-10 w-10 cursor-pointer text-white" onClick={() => removeImage(e.id)} />
                 </div>
@@ -165,7 +165,7 @@ const CreateArticle = () => {
           </div>
 
           <div>
-            <button className="btn btn-info w-48" onClick={uploadArticle} disabled={loading}>
+            <button className="btn btn-info w-48" onClick={handleSubmit} disabled={loading}>
               {loading ? (
                 <>
                   <span className="loading loading-spinner"></span>

@@ -38,7 +38,7 @@ const CreateOrganizer = () => {
     })
     const [error, setError] = useState("")
 
-    const uploadWriter = async () => {
+    const handleSubmit = async () => {
         if (!data.avatar) {
             setError("Upload avatar.")
             return;
@@ -125,7 +125,7 @@ const CreateOrganizer = () => {
                         <ArrowLeftIcon className='h-5 w-5' />
                         Go Back
                     </button>
-                    <button className="btn btn-info w-48" onClick={uploadWriter} disabled={loading}>
+                    <button className="btn btn-info w-48" onClick={handleSubmit} disabled={loading}>
                         {loading ? (
                             <>
                                 <span className="loading loading-spinner"></span>

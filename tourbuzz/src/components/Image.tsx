@@ -11,7 +11,7 @@ const Image = ({
     disableModal, 
     disableThumbnail 
 }: { 
-    image?: ImageType, 
+    image: ImageType | null, 
     className: string, 
     disableModal?: boolean, 
     disableThumbnail?: boolean

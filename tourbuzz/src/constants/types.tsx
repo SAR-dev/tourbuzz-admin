@@ -92,24 +92,37 @@ export interface CreateWriterType {
 }
 
 export interface CreateOrganizerType {
-    images_id: number,
-    email: string,
-    name: string,
-    username: string,
-    description: string,
-    slogan: string,
+    images_id: number
+    email: string
+    name: string
+    username: string
+    description: string
+    slogan: string
+    contact_no: string
+    verification: string
+    social_link: string
+}
+
+export interface UpdateOrganizerType {
+    organizers_id: number
+    images_id: number
+    email: string
+    name: string
+    username: string
+    description: string
+    slogan: string
     contact_no: string
     verification: string
     social_link: string
 }
 
 export interface CreateArticleType {
-    title: string,
-    slug: string,
-    subtitle: string,
-    summary: string,
-    md_desc: string,
-    image_ids: number[],
+    title: string
+    slug: string
+    subtitle: string
+    summary: string
+    md_desc: string
+    image_ids: number[]
     writers_id: number
 }
 
@@ -118,20 +131,20 @@ export interface UpdateWriterType {
     images_id: number
     email: string
     name: string
-    username: string,
-    about: string,
+    username: string
+    about: string
     contact_no: string
     website: string
 }
 
 export interface UpdateArticleType {
-    articles_id: number,
-    title: string,
-    slug: string,
-    subtitle: string,
-    summary: string,
-    md_desc: string,
-    image_ids: number[],
+    articles_id: number
+    title: string
+    slug: string
+    subtitle: string
+    summary: string
+    md_desc: string
+    image_ids: number[]
     writers_id: number
 }
 
@@ -175,7 +188,7 @@ interface Data {
 
 
 export function parseErrorMessage(err: RawErrorMessageProps): ParsedErrorMessageProps {
-    const res: ParsedErrorMessageProps = { status: 400, message: "" };
+    const res: ParsedErrorMessageProps = { status: 400 , message: "" };
     if (err.response) {
         res.status = err.response.data.status
         res.message = err.response.data.message

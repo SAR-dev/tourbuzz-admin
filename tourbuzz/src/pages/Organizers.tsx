@@ -1,9 +1,8 @@
 import { PencilSquareIcon } from '@heroicons/react/16/solid'
-import { getOrganizers, getWriters } from '@src/functions/api'
+import { getOrganizers } from '@src/functions/api';
 import PageHeader from '@src/components/PageHeader'
 import { Pagination } from '@src/components/Pagination'
-import WriterCard from '@src/components/WriterCard'
-import { OrganizerType, WriterType } from '@src/constants/types'
+import { OrganizerType } from '@src/constants/types';
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'

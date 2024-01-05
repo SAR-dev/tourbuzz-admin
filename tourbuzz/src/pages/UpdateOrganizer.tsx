@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { ImageType, OrganizerType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
-import { getOrganizerById, postOrganizer } from "@src/functions/api";
+import { deleteOrganizerById, getOrganizerById, updateOrganizer } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate, useParams } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
+import DeleteButton from "@src/components/DeleteButton";
 
 interface UpdateOrganizerState {
     email: string
@@ -24,6 +25,7 @@ interface UpdateOrganizerState {
 const UpdateOrganizer = () => {
     let { organizerId } = useParams()
     const navigate = useNavigate()
+    const [deleting, setDeleting] = useState(false)
     const [loading, setLoading] = useState(false)
     const queryClient = useQueryClient()
     const [data, setData] = useState<UpdateOrganizerState>({
@@ -46,14 +48,15 @@ const UpdateOrganizer = () => {
         })
     }, [organizerId])
 
-    const uploadWriter = async () => {
+    const handleSubmit = async () => {
         if (!data.avatar) {
             setError("Upload avatar.")
             return;
         };
         setError("")
         setLoading(true)
-        postOrganizer({
+        updateOrganizer({
+            organizers_id: Number(organizerId),
             images_id: data.avatar.id,
             email: data.email,
             contact_no: data.contact_no,
@@ -65,11 +68,11 @@ const UpdateOrganizer = () => {
             social_link: data.social_link
         }).then(res => {
             if (res.error) {
-                toast.error("Registration failed 🤦‍♂️")
+                toast.error("Update failed 🤦‍♂️")
                 setError(parseErrorMessage(res.error).message)
                 setLoading(false)
             } else {
-                toast.success("Organizer Registered 💪")
+                toast.success("Organizer Updated 💪")
                 queryClient.invalidateQueries("organizers")
                 setLoading(false)
                 navigate("/organizers")
@@ -80,6 +83,23 @@ const UpdateOrganizer = () => {
 
     const setAvatar = (image: ImageType) => {
         setData({ ...data, avatar: image })
+    }
+
+    const handleDelete = () => {
+        setDeleting(true)
+        deleteOrganizerById({ id: Number(organizerId) }).then(res => {
+            if (res.error) {
+                toast.error("Delete failed 🤦‍♂️")
+                setError(parseErrorMessage(res.error).message)
+                setDeleting(false)
+            } else {
+                toast.success("Organizer Deleted 💪")
+                queryClient.invalidateQueries("organizers")
+                setDeleting(false)
+                navigate("/organizers")
+            }
+
+        })
     }
 
     return (
@@ -133,16 +153,19 @@ const UpdateOrganizer = () => {
                         <ArrowLeftIcon className='h-5 w-5' />
                         Go Back
                     </button>
-                    <button className="btn btn-info w-48" onClick={uploadWriter} disabled={loading}>
-                        {loading ? (
-                            <>
-                                <span className="loading loading-spinner"></span>
-                                Registering
-                            </>
-                        ) : (
-                            "Register Organizer"
-                        )}
-                    </button>
+                    <div className="flex space-x-5">
+                        <DeleteButton handleDelete={handleDelete} loading={deleting} />
+                        <button className="btn btn-info w-48" onClick={handleSubmit} disabled={loading}>
+                            {loading ? (
+                                <>
+                                    <span className="loading loading-spinner"></span>
+                                    Updating
+                                </>
+                            ) : (
+                                "Update Organizer"
+                            )}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

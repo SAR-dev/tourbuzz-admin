@@ -45,7 +45,7 @@ const UpdateWriter = () => {
         })
     }, [writerId])
 
-    const updateWriter = async () => {
+    const handleSubmit = async () => {
         if (!data.avatar) {
             setError("Upload avatar.")
             return;
@@ -76,7 +76,7 @@ const UpdateWriter = () => {
         })
     }
 
-    const deleteWriter = () => {
+    const handleDelete = () => {
         setDeleting(true)
         deleteWriterById({ id: Number(writerId) }).then(res => {
             if (res.error) {
@@ -140,8 +140,8 @@ const UpdateWriter = () => {
                         Go Back
                     </button>
                     <div className="flex space-x-5">
-                        <DeleteButton handleDelete={deleteWriter} loading={deleting} />
-                        <button className="btn btn-info w-48" onClick={updateWriter} disabled={loading}>
+                        <DeleteButton handleDelete={handleDelete} loading={deleting} />
+                        <button className="btn btn-info w-48" onClick={handleSubmit} disabled={loading}>
                             {loading ? (
                                 <>
                                     <span className="loading loading-spinner"></span>

@@ -71,7 +71,7 @@ const UpdateArticle = () => {
     setData({ ...data, md_desc: value })
   }
 
-  const uploadArticle = async () => {
+  const handleSubmit = async () => {
     if (!writer?.id) {
       setError("Select writer.")
       return;
@@ -101,7 +101,7 @@ const UpdateArticle = () => {
     })
   }
 
-  const deleteWriter = () => {
+  const handleDelete = () => {
     setDeleting(true)
     deleteArticleById({ id: Number(articleId) }).then(res => {
       if (res.error) {
@@ -193,8 +193,8 @@ const UpdateArticle = () => {
           </div>
 
           <div className="flex space-x-5">
-            <DeleteButton handleDelete={deleteWriter} loading={deleting} />
-            <button className="btn btn-info w-48" onClick={uploadArticle} disabled={loading}>
+            <DeleteButton handleDelete={handleDelete} loading={deleting} />
+            <button className="btn btn-info w-48" onClick={handleSubmit} disabled={loading}>
               {loading ? (
                 <>
                   <span className="loading loading-spinner"></span>
