@@ -4,6 +4,7 @@ import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
 import { ImageType } from "@src/constants/types";
 import { postImage } from "@src/functions/api";
+import Compressor from 'compressorjs';
 
 const ImageUploader = ({
     queryKey = "images",
@@ -30,21 +31,37 @@ const ImageUploader = ({
         const files = event.target.files;
         if (files && files.length > 0) {
             setLoading(true)
-            const file = files[0]
-            postImage(file).then(res => {
-                if (res.error) {
+            new Compressor(files[0], {
+                strict: true,
+                checkOrientation: true,
+                maxWidth: 1980,
+                maxHeight: 1980,
+                resize: "contain",
+                quality: 0.6,
+                drew(context, canvas) {
+                    context.fillStyle = '#fff';
+                    context.font = '2rem sans-serif';
+                    context.fillText(`©${import.meta.env.VITE_APP_NAME}`, 20, canvas.height - 20);
+                },
+                success(result) {
+                    postImage(result).then(res => {
+                        if (res.error) {
+                            toast.error("Upload failed 🤦‍♂️");
+                            setLoading(false);
+                        } else {
+                            if (setImage) setImage(res.data);
+                            queryClient.invalidateQueries([queryKey]);
+                            setLoading(false);
+                            toast.success("Image uploaded 💪")
+                        }
+                    })
+                },
+                error(err) {
+                    console.log(err.message);
                     toast.error("Upload failed 🤦‍♂️")
                     setLoading(false)
-                } else {
-                    if (setImage) {
-                        setImage(res.data)
-                    }
-                    queryClient.invalidateQueries([queryKey])
-                    setLoading(false)
-                    toast.success("Image uploaded 💪")
-                }
-
-            })
+                },
+            });
         }
 
     }
