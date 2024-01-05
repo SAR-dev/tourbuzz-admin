@@ -8,6 +8,7 @@ import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
+import Image from "@src/components/Image";
 
 interface CreateOrganizerState {
     email: string
@@ -82,33 +83,60 @@ const CreateOrganizer = () => {
             />
 
             <div className="w-[70rem] bg-base-200 card p-5">
-                <div className="grid grid-cols-2 gap-5">
-                    <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
-                    <input value={data.contact_no} onChange={e => setData({ ...data, contact_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
-                    <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
-                    <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
-                    <input value={data.slogan} onChange={e => setData({ ...data, slogan: e.target.value })} type="text" placeholder="Slogan" className="input input-bordered w-full" />
-                    <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })}  className="select w-full select-bordered">
-                        <option disabled selected>Verification Level</option>
-                        <option value="LEVEL1">Level 01</option>
-                        <option value="LEVEL2">Level 02</option>
-                        <option value="LEVEL3">Level 03</option>
-                        <option value="LEVEL4">Level 04</option>
-                        <option value="LEVEL5">Level 05</option>
-                    </select>
-                    <div className="grid grid-cols-1 gap-5">
-                        <input value={data.social_link} onChange={e => setData({ ...data, social_link: e.target.value })} type="text" placeholder="Social Link" className="input input-bordered w-full" />
-                        <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={10} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                <div className="grid grid-cols-2 gap-2">
+                    <div>
+                        <label className="text-sm font-semibold">Email</label>
+                        <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-5">
-                            {data.avatar ? (
-                                <img className="h-64 w-full object-cover object-center" src={data.avatar.source_url} alt="" />
-                            ) : (
-                                <UserCircleIcon className="h-20 w-20" />
-                            )}
+                        <label className="text-sm font-semibold">Phone No</label>
+                        <input value={data.contact_no} onChange={e => setData({ ...data, contact_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Name</label>
+                        <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Username</label>
+                        <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Slogan</label>
+                        <input value={data.slogan} onChange={e => setData({ ...data, slogan: e.target.value })} type="text" placeholder="Slogan" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Verification Level</label>
+                        <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })} className="select w-full select-bordered">
+                            <option disabled selected>Verification Level</option>
+                            <option value="LEVEL1">Level 01</option>
+                            <option value="LEVEL2">Level 02</option>
+                            <option value="LEVEL3">Level 03</option>
+                            <option value="LEVEL4">Level 04</option>
+                            <option value="LEVEL5">Level 05</option>
+                        </select>
+                    </div>
+                    <div className="grid grid-cols-1 gap-2">
+                        <div>
+                            <label className="text-sm font-semibold">Social Link</label>
+                            <input value={data.social_link} onChange={e => setData({ ...data, social_link: e.target.value })} type="text" placeholder="Social Link" className="input input-bordered w-full" />
                         </div>
-                        <ImageUploader title="Upload Avatar" setImage={setAvatar} />
+                        <div className="flex flex-col w-full">
+                            <label className="text-sm font-semibold">About</label>
+                            <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={9} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Avatar</label>
+                        <div className="p-3 bg-base-100 card border border-base-300">
+                            <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                                {data.avatar ? (
+                                    <Image image={data.avatar} className="h-60 w-full object-cover object-center" />
+                                ) : (
+                                    <UserCircleIcon className="h-20 w-20" />
+                                )}
+                            </div>
+                            <ImageUploader title="Upload Avatar" setImage={setAvatar} />
+                        </div>
                     </div>
                 </div>
             </div>
