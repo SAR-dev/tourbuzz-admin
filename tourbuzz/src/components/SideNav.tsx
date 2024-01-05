@@ -6,6 +6,24 @@ import EmojiPicker from "./EmojiPicker";
 import { Map, Trees } from "tabler-icons-react";
 import classNames from "classnames";
 import { useNavStore } from "@src/store";
+import { ErrorBoundary, FallbackProps } from "react-error-boundary";
+
+function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+    return (
+        <div className="min-h-screen justify-center items-center flex p-10">
+            <div className="card max-w-[30rem] w-full bg-neutral text-neutral-content">
+                <div className="card-body items-center text-center">
+                    <h2 className="card-title">Error!</h2>
+                    <p className="my-3">{error.message}</p>
+                    <div className="card-actions justify-end">
+                        <button className="btn" onClick={resetErrorBoundary}>Reset Error</button>
+                        <button className="btn btn-primary" onClick={() => window.location.reload()}>Reload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 export function SideNav({ children }: { children: ReactNode }) {
     const { open, toogleOpen } = useNavStore()
@@ -72,7 +90,9 @@ export function SideNav({ children }: { children: ReactNode }) {
                         <ChevronDoubleRightIcon className="h-5 w-5" />
                     </button>
                 )}
-                {children}
+                <ErrorBoundary FallbackComponent={ErrorFallback}>
+                    {children}
+                </ErrorBoundary>
             </div>
         </div>
     );
