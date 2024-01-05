@@ -105,17 +105,36 @@ const UpdateWriter = () => {
             />
 
             <div className="w-[70rem] bg-base-200 card p-5">
-                <div className="grid grid-cols-2 gap-5">
-                    <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
-                    <input value={data.contact_no} onChange={e => setData({ ...data, contact_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
-                    <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
-                    <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
-                    <div className="grid grid-cols-1 gap-5">
-                        <input value={data.website} onChange={e => setData({ ...data, website: e.target.value })} type="text" placeholder="Website" className="input input-bordered w-full" />
-                        <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={10} placeholder="About" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                <div className="grid grid-cols-2 gap-2">
+                    <div>
+                        <label className="text-sm font-semibold">Email</label>
+                        <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-5">
+                        <label className="text-sm font-semibold">Phone no</label>
+                        <input value={data.contact_no} onChange={e => setData({ ...data, contact_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Name</label>
+                        <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Username</label>
+                        <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
+                    </div>
+                    <div className="grid grid-cols-1 gap-2">
+                        <div>
+                            <label className="text-sm font-semibold">Website</label>
+                            <input value={data.website} onChange={e => setData({ ...data, website: e.target.value })} type="text" placeholder="Website" className="input input-bordered w-full" />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label className="text-sm font-semibold">About</label>
+                            <textarea value={data.about} onChange={e => setData({ ...data, about: e.target.value })} rows={9} placeholder="About" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-semibold">Avatar</label>
+                        <div className="min-h-64 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                             {data.avatar ? (
                                 <Image image={data.avatar} className="h-64 w-full object-cover object-center" />
                             ) : (
