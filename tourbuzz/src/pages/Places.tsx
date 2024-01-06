@@ -1,5 +1,5 @@
 import { PencilSquareIcon } from '@heroicons/react/16/solid'
-import { getWriters } from '@src/functions/api'
+import { getPlaces, getWriters } from '@src/functions/api'
 import PageHeader from '@src/components/PageHeader'
 import { Pagination } from '@src/components/Pagination'
 import { PlaceType } from '@src/constants/types';
@@ -26,7 +26,7 @@ const Places = () => {
 
   const { isLoading, error, data } = useQuery<PlacesData, Error>({
     queryKey: ['places', pageNo, pageSize],
-    queryFn: () => getWriters({ pageNo, pageSize })
+    queryFn: () => getPlaces({ pageNo, pageSize })
   })
 
   if (isLoading || error || !data) return;
@@ -34,10 +34,10 @@ const Places = () => {
   return (
     <div>
       <PageHeader
-        title="Writers Profiles"
+        title="Venue Gallery"
         subtitle="Let's upload some images and store them for later! 🎉"
         right={
-          <Link className="btn btn-primary" to="/writers/create">
+          <Link className="btn btn-primary" to="/places/create">
             <PencilSquareIcon className="h-5 w-5" />
             Create Writer Profile
           </Link>}

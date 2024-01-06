@@ -9,7 +9,7 @@ const WriterCard = ({ writer }: { writer: WriterType }) => {
         <div className="card card-side w-full h-full bg-base-200 p-3 group relative">
             <Link to={`/writers/${writer.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute top-0 right-0 m-3">Edit</Link>
             <div className="grid grid-cols-1 gap-3">
-                <div className="h-[7rem] w-[7rem] flex">
+                <div className="flex">
                     <Image image={writer.avatar} className="card h-[7rem] w-[7rem] object-cover" />
                     <div className="card-body py-0 pr-0 pl-5">
                         <div className="text-lg font-semibold">{writer.name}</div>
