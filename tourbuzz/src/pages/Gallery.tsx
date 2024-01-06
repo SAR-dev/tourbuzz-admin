@@ -91,7 +91,7 @@ const Gallery = () => {
                 }>
                     <div className="flex flex-col space-y-3">
                         <div className="min-h-32 w-full flex justify-center">
-                            <Image image={activeImage} disableModal={true} disableThumbnail={true} className="card max-h-[65vh] max-w-[80vw] w-full h-full" />
+                            <Image image={activeImage} disableModal={true} disableThumbnail={true} className="card max-h-[65vh] min-w-[30vw] max-w-[80vw] w-full h-full" />
                         </div>
                     </div>
                 </Modal>

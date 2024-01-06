@@ -12,7 +12,7 @@ const ArticleCard = ({ article }: { article: ArticleType }) => {
                     <div className="carousel w-full">
                         {article.images.map((e, i) => (
                             <div className="carousel-item w-full aspect-video" key={i}>
-                                <Image image={e} className="card w-full aspect-video object-cover" />
+                                <Image disableThumbnail image={e} className="card w-full aspect-video object-cover" />
                             </div>
                         ))}
                     </div>

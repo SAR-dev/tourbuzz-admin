@@ -94,7 +94,7 @@ const WriterSelect = ({
                                 <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='Email' className='input input-bordered' />
                             </div>
                         </div>
-                        <div className='grid grid-cols-3 gap-5 max-h-[28rem] overflow-y-auto'>
+                        <div className='grid grid-cols-3 gap-5 max-h-[25rem] custom-scrollbar overflow-y-auto'>
                             {writer && (
                                 <WriterSearchCard 
                                     writer={writer} 
