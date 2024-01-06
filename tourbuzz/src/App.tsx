@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, TypeOptions } from "react-toastify";
 import { SideNav } from "./components/SideNav";
 import Images from "./pages/Gallery";
 import Writers from "./pages/Writers";
@@ -12,6 +12,14 @@ import Enqueries from "./pages/Enqueries";
 import Organizers from "./pages/Organizers";
 import CreateOrganizer from "./pages/CreateOrganizer";
 import UpdateOrganizer from "./pages/UpdateOrganizer";
+
+const toastClasses: Record<TypeOptions, string> = {
+  success: "success",
+  error: "error",
+  info: "info",
+  warning: "warning",
+  default: "primary"
+};
 
 const App = () => {
   return (
@@ -33,8 +41,22 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       <ToastContainer
+      // @ts-ignore
+        toastClassName={({ type }) => {
+          const selectedClass = toastClasses[type as keyof typeof toastClasses] || toastClasses.default;
+          return (
+            `bg-${selectedClass} relative flex p-3 min-h-14 rounded-md justify-between overflow-hidden cursor-pointer`
+          );
+        }}
+        // @ts-ignore
+        bodyClassName={({ type }) => {
+          const selectedClass = toastClasses[type as keyof typeof toastClasses] || toastClasses.default;
+          return (
+            `flex items-center text-${selectedClass}-content`
+          );
+        }}
         position="bottom-left"
-        autoClose={5000}
+        autoClose={50000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
