@@ -53,7 +53,7 @@ const UpdateArticle = () => {
   }, [articleId])
 
   const setImages = (image: ImageType) => {
-    if(data.images.length >= MAX_ARTICLE_IMAGE_COUNT){
+    if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
       toast.info("Maximum image uploaded")
     }
     setData({ ...data, images: [...data.images, image] })
@@ -166,14 +166,20 @@ const UpdateArticle = () => {
         </div>
       </div>
 
-      <div className="p-5 card bg-base-200">
-        <label className="text-sm font-semibold mb-2">Start writing article here</label>
-        <MarkdownEditor
-          value={data.md_desc}
-          setValue={setMdDesc}
-          placeholder="Start writing details in Markdown"
-          title="Details in Markdown"
-        />
+      <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
+        <div>
+          <label className="text-sm font-semibold mb-2">Start writing article here</label>
+          <MarkdownEditor
+            value={data.md_desc}
+            setValue={setMdDesc}
+            placeholder="Start writing details in Markdown"
+            title="Details in Markdown"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-semibold mb-2">Select Writer</label>
+          <WriterSelect writer={writer} setWriter={setWriter} />
+        </div>
       </div>
 
       {error.length > 0 && (
@@ -184,13 +190,10 @@ const UpdateArticle = () => {
 
       <div className="p-5 card bg-base-200">
         <div className="flex justify-between">
-          <div className="flex space-x-5">
-            <button className="btn btn-outline" onClick={() => navigate(-1)}>
-              <ArrowLeftIcon className='h-5 w-5' />
-              Go Back
-            </button>
-            <WriterSelect writer={writer} setWriter={setWriter} />
-          </div>
+          <button className="btn btn-outline" onClick={() => navigate(-1)}>
+            <ArrowLeftIcon className='h-5 w-5' />
+            Go Back
+          </button>
 
           <div className="flex space-x-5">
             <DeleteButton handleDelete={handleDelete} loading={deleting} />
