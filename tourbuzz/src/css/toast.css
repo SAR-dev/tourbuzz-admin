@@ -7,10 +7,10 @@
   --toastify-color-warning: #f1c40f;
   --toastify-color-error: #e74c3c;
   --toastify-color-transparent: rgba(255, 255, 255, 0.7);
-  --toastify-icon-color-info: #000;
-  --toastify-icon-color-success: #000;
-  --toastify-icon-color-warning: #000;
-  --toastify-icon-color-error: #000;
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
   --toastify-toast-width: 320px;
   --toastify-toast-background: #fff;
   --toastify-toast-min-height: 64px;
@@ -228,15 +228,14 @@
   transition: 0.3s ease;
   -ms-flex-item-align: center;
   align-self: center;
-  height: 22px;
-  width: 22px;
-  border-radius: 4px;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .Toastify__close-button--light {
-  color: #000;
   opacity: 0.3;
 }
 .Toastify__close-button > svg {

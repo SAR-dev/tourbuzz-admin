@@ -72,7 +72,7 @@ export function SideNav({ children }: { children: ReactNode }) {
                         <NavMenu name="Articles" url="/articles" icon={<BookOpenIcon className="h-5 w-5" />} />
                         <NavMenu name="Enqueries" url="/enqueries" icon={<ChatBubbleBottomCenterIcon className="h-5 w-5" />} />
                         <NavMenu name="Organizers" url="/organizers" icon={<RectangleGroupIcon className="h-5 w-5" />} />
-                        <NavMenu name="Hotels" disabled={true} url="/hotels" icon={<HomeModernIcon className="h-5 w-5" />} />
+                        <NavMenu name="Hotels" url="/hotels" icon={<HomeModernIcon className="h-5 w-5" />} />
                         <NavMenu name="Places" disabled={true} url="/places" icon={<Trees className="h-5 w-5" />} />
                         <NavMenu name="Tours" url="/tours" icon={<Map className="h-5 w-5" />} />
                         <EmojiPicker />

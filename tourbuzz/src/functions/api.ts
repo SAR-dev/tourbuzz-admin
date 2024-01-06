@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateOrganizerType, CreateWriterType, UpdateArticleType, UpdateOrganizerType, UpdateWriterType } from "../constants/types";
+import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreateWriterType, UpdateArticleType, UpdateOrganizerType, UpdateWriterType } from "../constants/types";
 
 const api = axios.create();
 
@@ -12,6 +12,7 @@ api.interceptors.request.use(
         return Promise.reject(error);
     }
 )
+
 export const getImages = ({
     pageNo,
     pageSize
@@ -311,6 +312,79 @@ export const updateOrganizer = ({ ...props }: UpdateOrganizerType): Promise<any>
 export const deleteOrganizerById = ({ id }: { id: number }): Promise<any> => {
     return api
         .delete(`/admin/organizers/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// Districts
+
+export const getDivisions = (): Promise<any> => {
+    return api
+        .get("/admin/divisions")
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// Hotels
+
+export const postHotel = ({ ...props }: CreateHotelType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/hotels", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getHotels = ({
+    pageNo,
+    pageSize
+}: {
+    pageNo: number,
+    pageSize: number
+}): Promise<any> => {
+    return api
+        .get("/admin/hotels", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// export const updateOrganizer = ({ ...props }: UpdateOrganizerType): Promise<any> => {
+//     const data = { ...props }
+//     return api
+//         .put("/admin/organizers", data)
+//         .then((res) => {
+//             return { data: res.data };
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//             return { error: err || true };
+//         });
+// }
+
+export const deleteHotelById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/hotels/${id}`)
         .then((res) => {
             return { data: res.data };
         })

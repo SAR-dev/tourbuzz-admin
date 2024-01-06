@@ -106,7 +106,7 @@ const CreateOrganizer = () => {
                     </div>
                     <div>
                         <label className="text-sm font-semibold">Verification Level</label>
-                        <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })} className="select w-full select-bordered">
+                        <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })} className="select custom-scrollbar w-full select-bordered">
                             <option disabled selected>Verification Level</option>
                             <option value="LEVEL1">Level 01</option>
                             <option value="LEVEL2">Level 02</option>

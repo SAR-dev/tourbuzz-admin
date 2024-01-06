@@ -31,12 +31,20 @@ export function generateSlug(title: string) {
 export function findMaxContinuous(arr: number[]) {
     let max = arr[0]; // Initialize max with the first element of the array
     let currentMax = arr[0]; // Initialize currentMax with the first element of the array
-  
+
     for (let i = 1; i < arr.length; i++) {
-      // For each element in the array starting from the second element
-      currentMax = Math.max(arr[i], currentMax + arr[i]); // Update currentMax
-      max = Math.max(max, currentMax); // Update max
+        // For each element in the array starting from the second element
+        currentMax = Math.max(arr[i], currentMax + arr[i]); // Update currentMax
+        max = Math.max(max, currentMax); // Update max
     }
-  
+
     return max;
-  }
+}
+
+export function convertToNDigit(number: number, n: number) {
+    return String(number).padStart(n, '0');
+}
+
+export function getSortedArray(inputArray: number[]) {
+    return Array.from(new Set(inputArray)).sort((a, b) => a - b);
+}

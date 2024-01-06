@@ -1,3 +1,4 @@
+import { getSortedArray } from "@src/functions/helpers";
 import classNames from "classnames";
 
 interface PaginationType {
@@ -9,9 +10,10 @@ interface PaginationType {
     total_pages: number
     setPageSize: (props: number) => void
     setPageNo: (props: number) => void
+    page_sizes?: number[]
 }
 
-export function Pagination({ ...props }: PaginationType) {
+export function Pagination({ page_sizes = [20, 50, 100], ...props }: PaginationType) {
     const next = () => {
         props.setPageNo(props.page_no + 1);
     };
@@ -25,7 +27,7 @@ export function Pagination({ ...props }: PaginationType) {
             <div className="flex gap-2 items-center">
                 <span>Page Size</span>
                 <div className="join border border-base-300">
-                    {[20, 50, 100].map((e, i) => (
+                    {(getSortedArray([props.page_size, ...page_sizes])).map((e, i) => (
                         <button className={classNames({
                             "join-item btn btn-sm px-3": true,
                             "btn-neutral": e == props.page_size

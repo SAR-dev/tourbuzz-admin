@@ -1,3 +1,31 @@
+export interface HotelType {
+    id: number;
+    name: string;
+    map_link: string;
+    website?: string;
+    review: string;
+    created_at: Date;
+    updated_at: Date;
+    district: DistrictType;
+}
+
+export interface DistrictType {
+    id: number;
+    name: string;
+    divisions_id: number;
+    division: DivisionType;
+}
+
+export interface DivisionType {
+    id: number;
+    name: string;
+}
+
+export interface DivisionWithDistrictType {
+    division: DivisionType
+    districts: DistrictType[]
+}
+
 export interface ImageType {
     id: number;
     title: string;
@@ -116,6 +144,14 @@ export interface UpdateOrganizerType {
     social_link: string
 }
 
+export interface CreateHotelType {
+    districts_id: number
+    name: string
+    map_link: string
+    review: string
+    website: string
+}
+
 export interface CreateArticleType {
     title: string
     slug: string
@@ -188,7 +224,7 @@ interface Data {
 
 
 export function parseErrorMessage(err: RawErrorMessageProps): ParsedErrorMessageProps {
-    const res: ParsedErrorMessageProps = { status: 400 , message: "" };
+    const res: ParsedErrorMessageProps = { status: 400, message: "" };
     if (err.response) {
         res.status = err.response.data.status
         res.message = err.response.data.message
