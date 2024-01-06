@@ -97,7 +97,7 @@ const CreateArticle = () => {
         subtitle="Before writing the article please review the contents carefully 🧐"
       />
 
-      <div className="grid grid-cols-2 gap-5 p-5 card bg-base-200">
+      <div className="grid grid-cols-2 gap-3 p-5 card bg-base-200">
         <div>
           <div className="grid grid-cols-3 gap-3">
             {data.images.map((e, i) => (
@@ -138,14 +138,20 @@ const CreateArticle = () => {
         </div>
       </div>
 
-      <div className="p-5 card bg-base-200">
-        <label className="text-sm font-semibold mb-2">Start writing article here</label>
-        <MarkdownEditor
-          value={data.md_desc}
-          setValue={setMdDesc}
-          placeholder="Start writing details in Markdown"
-          title="Details in Markdown"
-        />
+      <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
+        <div>
+          <label className="text-sm font-semibold mb-2">Start writing article here</label>
+          <MarkdownEditor
+            value={data.md_desc}
+            setValue={setMdDesc}
+            placeholder="Start writing details in Markdown"
+            title="Details in Markdown"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-semibold mb-2">Select Writer</label>
+          <WriterSelect writer={writer} setWriter={setWriter} />
+        </div>
       </div>
 
       {error.length > 0 && (
@@ -156,13 +162,10 @@ const CreateArticle = () => {
 
       <div className="p-5 card bg-base-200">
         <div className="flex justify-between">
-          <div className="flex space-x-5">
-            <button className="btn btn-outline" onClick={() => navigate(-1)}>
-              <ArrowLeftIcon className='h-5 w-5' />
-              Go Back
-            </button>
-            <WriterSelect writer={writer} setWriter={setWriter} />
-          </div>
+          <button className="btn btn-outline" onClick={() => navigate(-1)}>
+            <ArrowLeftIcon className='h-5 w-5' />
+            Go Back
+          </button>
 
           <div>
             <button className="btn btn-info w-48" onClick={handleSubmit} disabled={loading}>

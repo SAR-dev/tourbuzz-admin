@@ -1,12 +1,11 @@
 import { getWriters } from '@src/functions/api'
-import { ImageType, WriterType } from '@src/constants/types'
+import { WriterType } from '@src/constants/types';
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import Modal from './Modal'
-import classNames from 'classnames'
-import { ArrowLeftIcon, CheckCircleIcon, CheckIcon } from '@heroicons/react/24/solid'
-import Image from './Image'
+import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
+import SearchResultCard from './SearchResultCard'
 
 interface WriterData {
     data: {
@@ -20,41 +19,6 @@ interface WriterData {
     }
 }
 
-const SearchResultCard = ({
-    id,
-    avatar,
-    title,
-    subtitle,
-    handleClick,
-    selected
-}: {
-    id: number,
-    avatar: ImageType | null,
-    title: string,
-    subtitle: string,
-    handleClick: (id: number) => void,
-    selected: boolean
-}) => (
-    <div className={classNames({
-        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer": true,
-        "bg-primary text-primary-content": selected,
-        "bg-base-200 hover:bg-base-300": !selected
-    })} onClick={() => handleClick(id)}>
-        <div className='w-12 flex-shrink-0'>
-            <Image image={avatar} className='h-12 w-16 object-cover card' />
-        </div>
-        <div className="flex flex-col">
-            <div className="font-semibold">{title}</div>
-            <div className="text-sm">{subtitle}</div>
-        </div>
-        {selected && (
-            <div className="absolute top-0 left-0 m-2 text-info">
-                <CheckCircleIcon className='h-5 w-5' />
-            </div>
-        )}
-    </div>
-)
-
 const WriterSelect = ({
     writer,
     setWriter
@@ -64,10 +28,10 @@ const WriterSelect = ({
 }) => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [open, setOpen] = useState(false);
-
     const [dName] = useDebounce(name, 500);
     const [dEmail] = useDebounce(email, 500);
+
+    const [open, setOpen] = useState(false);
     const [selectedWriter, setSelectedWriter] = useState<WriterType | null>(null)
 
     const { isLoading, error, data } = useQuery<WriterData, Error>({
@@ -81,7 +45,7 @@ const WriterSelect = ({
         setSelectedWriter(found)
     }
 
-    const handleOpen = () => {
+    const handleOpen = (_?: any) => {
         setOpen(true)
         setSelectedWriter(writer)
     }
@@ -99,9 +63,19 @@ const WriterSelect = ({
 
     return (
         <div>
-            <button className="btn btn-primary" onClick={handleOpen}>
-                {writer == null ? "Select Writer" : `Writer: ${writer.name}`}
-            </button>
+            {writer ? (
+                <SearchResultCard 
+                    id={writer.id}
+                    avatar={writer.avatar}
+                    title={writer.name}
+                    subtitle={writer.email}
+                    handleClick={handleOpen} 
+                />
+            ) : (
+                <button className="btn btn-lg btn-outline text-base" onClick={handleOpen}>
+                    Click to Select
+                </button>
+            )}
             <Modal open={open} handleClose={handleClose} title='Select Writer' width='50rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>
