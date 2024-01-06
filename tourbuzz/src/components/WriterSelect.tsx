@@ -1,10 +1,10 @@
 import { getWriters } from '@src/functions/api'
-import { WriterType } from '@src/constants/types'
+import { ImageType, WriterType } from '@src/constants/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import Modal from './Modal'
 import classNames from 'classnames'
-import { ArrowLeftIcon } from '@heroicons/react/24/solid'
+import { ArrowLeftIcon, CheckCircleIcon, CheckIcon } from '@heroicons/react/24/solid'
 import Image from './Image'
 import { useDebounce } from 'use-debounce';
 
@@ -20,15 +20,38 @@ interface WriterData {
     }
 }
 
-const WriterSearchCard = ({ writer, className, handleClick }: { writer: WriterType, className: string, handleClick: (props: WriterType) => void }) => (
-    <div className={className} onClick={() => handleClick(writer)}>
+const SearchResultCard = ({
+    id,
+    avatar,
+    title,
+    subtitle,
+    handleClick,
+    selected
+}: {
+    id: number,
+    avatar: ImageType | null,
+    title: string,
+    subtitle: string,
+    handleClick: (id: number) => void,
+    selected: boolean
+}) => (
+    <div className={classNames({
+        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer": true,
+        "bg-primary text-primary-content": selected,
+        "bg-base-200 hover:bg-base-300": !selected
+    })} onClick={() => handleClick(id)}>
         <div className='w-12 flex-shrink-0'>
-            <Image image={writer.avatar} className='h-12 w-16 object-cover card' />
+            <Image image={avatar} className='h-12 w-16 object-cover card' />
         </div>
         <div className="flex flex-col">
-            <div className="font-semibold">{writer.name}</div>
-            <div className="text-sm">{writer.email}</div>
+            <div className="font-semibold">{title}</div>
+            <div className="text-sm">{subtitle}</div>
         </div>
+        {selected && (
+            <div className="absolute top-0 left-0 m-2 text-info">
+                <CheckCircleIcon className='h-5 w-5' />
+            </div>
+        )}
     </div>
 )
 
@@ -47,6 +70,17 @@ const WriterSelect = ({
     const [dEmail] = useDebounce(email, 500);
     const [selectedWriter, setSelectedWriter] = useState<WriterType | null>(null)
 
+    const { isLoading, error, data } = useQuery<WriterData, Error>({
+        queryKey: ['writers', dName, dEmail],
+        queryFn: () => getWriters({ pageNo: 1, pageSize: 50, name: dName, email: dEmail })
+    })
+
+    const handleSelectedWriter = (id: number) => {
+        const found = data?.data.data.find(e => e.id == id)
+        if (!found || writer?.id == id) return;
+        setSelectedWriter(found)
+    }
+
     const handleOpen = () => {
         setOpen(true)
         setSelectedWriter(writer)
@@ -63,11 +97,6 @@ const WriterSelect = ({
         handleClose()
     }
 
-    const { isLoading, error, data } = useQuery<WriterData, Error>({
-        queryKey: ['writers', dName, dEmail],
-        queryFn: () => getWriters({ pageNo: 1, pageSize: 50, name: dName, email: dEmail })
-    })
-
     return (
         <div>
             <button className="btn btn-primary" onClick={handleOpen}>
@@ -79,42 +108,43 @@ const WriterSelect = ({
                         <ArrowLeftIcon className='h-5 w-5' />
                         Go Back
                     </button>
-                    <button className="btn btn-info" onClick={handleSubmit}>Set Selected</button>
+                    <button className="btn btn-info" onClick={handleSubmit}>
+                        <CheckIcon className='h-5 w-5' />
+                        Set Selected
+                    </button>
                 </div>
             }>
                 <div className='h-[32rem]'>
-                    <div className="grid grid-cols-1 gap-5">
+                    <div className='grid grid-cols-1 gap-3'>
                         <div className="grid grid-cols-2 gap-5">
                             <div className='flex flex-col gap-1'>
                                 <label className="text-sm">Name</label>
-                                <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder='Name' className='input input-bordered' />
+                                <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder='John Doe' className='input input-bordered' />
                             </div>
                             <div className='flex flex-col gap-1'>
                                 <label className="text-sm">Email</label>
-                                <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='Email' className='input input-bordered' />
+                                <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='john.doe@gmail.com' className='input input-bordered' />
                             </div>
                         </div>
-                        <div className='grid grid-cols-3 gap-5 max-h-[25rem] custom-scrollbar overflow-y-auto'>
+                        <div className='grid grid-cols-3 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
                             {writer && (
-                                <WriterSearchCard 
-                                    writer={writer} 
-                                    className={classNames({
-                                        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer" : true,
-                                        "bg-primary text-primary-content": selectedWriter?.id == writer.id,
-                                        "bg-base-200 hover:bg-base-300": selectedWriter?.id != writer.id
-                                    })}
-                                    handleClick={setSelectedWriter} 
+                                <SearchResultCard
+                                    id={writer.id}
+                                    avatar={writer.avatar}
+                                    title={writer.name}
+                                    subtitle={writer.email}
+                                    selected={selectedWriter?.id == writer.id}
+                                    handleClick={handleSelectedWriter}
                                 />
                             )}
                             {!(isLoading || error || !data) && data.data.data.filter(x => x.id != writer?.id).map((e, i) => (
-                                <WriterSearchCard
-                                    writer={e}
-                                    className={classNames({
-                                        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer": true,
-                                        "bg-primary text-primary-content": selectedWriter?.id == e.id,
-                                        "bg-base-200 hover:bg-base-300": selectedWriter?.id != e.id,
-                                    })}
-                                    handleClick={setSelectedWriter}
+                                <SearchResultCard
+                                    id={e.id}
+                                    avatar={e.avatar}
+                                    title={e.name}
+                                    subtitle={e.email}
+                                    selected={selectedWriter?.id == e.id}
+                                    handleClick={handleSelectedWriter}
                                     key={i}
                                 />
                             ))}
