@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ArrowLeftIcon } from '@heroicons/react/16/solid'
 import { getDivisions, postHotel } from '@src/functions/api'
 import { useQuery, useQueryClient } from 'react-query'
-import { DivisionWithDistrictType, parseErrorMessage } from '@src/constants/types';
+import { DivisionWithDistrictData, DivisionWithDistrictType, parseErrorMessage } from '@src/constants/types';
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '@src/components/PageHeader';
@@ -14,10 +14,6 @@ interface CreateHotelState {
     map_link: string
     review: string
     website: string
-}
-
-interface DivisionWithDistrictData {
-    data: DivisionWithDistrictType[]
 }
 
 const CreateHotel = () => {

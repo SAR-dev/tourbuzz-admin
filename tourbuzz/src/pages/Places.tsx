@@ -39,11 +39,11 @@ const Places = () => {
         right={
           <Link className="btn btn-primary" to="/places/create">
             <PencilSquareIcon className="h-5 w-5" />
-            Create Writer Profile
+            Create New Venue
           </Link>}
       />
 
-      <div className='grid grid-cols-3 gap-5 my-5'>
+      <div className='grid grid-cols-4 gap-5 my-5'>
         {data.data.data.map((e, i) => (
           <PlaceCard place={e} key={i} />
         ))}

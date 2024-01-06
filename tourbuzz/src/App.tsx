@@ -16,6 +16,7 @@ import Hotels from "./pages/Hotels";
 import CreateHotel from "./pages/CreateHotel";
 import UpdateHotel from "./pages/UpdateHotel";
 import Places from "./pages/Places";
+import CreatePlace from "./pages/CreatePlace";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/hotels/create" element={<SideNav children={<CreateHotel />} />} />
           <Route path="/hotels/:hotelId" element={<SideNav children={<UpdateHotel />} />} />
           <Route path="/places" element={<SideNav children={<Places />} />} />
+          <Route path="/places/create" element={<SideNav children={<CreatePlace />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

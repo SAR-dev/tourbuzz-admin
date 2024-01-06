@@ -35,13 +35,13 @@ const ImageUploader = ({
             new Compressor(file, {
                 strict: true,
                 checkOrientation: true,
-                maxWidth: 1980,
+                maxWidth: 3000,
                 maxHeight: 1980,
                 resize: "contain",
-                quality: 0.6,
+                quality: 0.8,
                 drew(context, canvas) {
                     context.fillStyle = '#fff';
-                    context.font = '2rem sans-serif';
+                    context.font = `${canvas.height * .03}px sans-serif`;
                     context.fillText(`©${import.meta.env.VITE_APP_NAME}`, 20, canvas.height - 20);
                 },
                 success(result) {

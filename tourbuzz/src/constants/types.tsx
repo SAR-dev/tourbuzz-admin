@@ -227,6 +227,10 @@ export interface UpdateArticleType {
     writers_id: number
 }
 
+export interface DivisionWithDistrictData {
+    data: DivisionWithDistrictType[]
+}
+
 export interface ParsedErrorMessageProps {
     status?: number;
     message: string;
