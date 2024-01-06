@@ -31,7 +31,8 @@ const ImageUploader = ({
         const files = event.target.files;
         if (files && files.length > 0) {
             setLoading(true)
-            new Compressor(files[0], {
+            const file = files[0];
+            new Compressor(file, {
                 strict: true,
                 checkOrientation: true,
                 maxWidth: 1980,
@@ -44,7 +45,7 @@ const ImageUploader = ({
                     context.fillText(`©${import.meta.env.VITE_APP_NAME}`, 20, canvas.height - 20);
                 },
                 success(result) {
-                    postImage(result).then(res => {
+                    postImage(result, file.name).then(res => {
                         if (res.error) {
                             toast.error("Upload failed 🤦‍♂️");
                             setLoading(false);

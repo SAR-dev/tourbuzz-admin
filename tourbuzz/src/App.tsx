@@ -15,6 +15,7 @@ import UpdateOrganizer from "./pages/UpdateOrganizer";
 import Hotels from "./pages/Hotels";
 import CreateHotel from "./pages/CreateHotel";
 import UpdateHotel from "./pages/UpdateHotel";
+import Places from "./pages/Places";
 
 const App = () => {
   return (
@@ -36,11 +37,12 @@ const App = () => {
           <Route path="/hotels" element={<SideNav children={<Hotels />} />} />
           <Route path="/hotels/create" element={<SideNav children={<CreateHotel />} />} />
           <Route path="/hotels/:hotelId" element={<SideNav children={<UpdateHotel />} />} />
+          <Route path="/places" element={<SideNav children={<Places />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer
         position="bottom-left"
-        autoClose={50000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

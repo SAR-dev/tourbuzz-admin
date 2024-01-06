@@ -46,9 +46,10 @@ export const deleteImageById = ({ id }: { id: number }): Promise<any> => {
         });
 };
 
-export const postImage = (file: Blob): Promise<any> => {
+export const postImage = (file: Blob, title: string): Promise<any> => {
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('title', title);
 
     return api
         .post("/admin/images", formData, {
