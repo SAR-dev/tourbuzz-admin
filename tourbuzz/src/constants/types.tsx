@@ -1,8 +1,9 @@
 export interface HotelType {
     id: number;
+    districts_id: number
     name: string;
     map_link: string;
-    website?: string;
+    website: string;
     review: string;
     created_at: Date;
     updated_at: Date;
@@ -109,6 +110,20 @@ export interface EnquiryType {
     updated_at: string
 }
 
+export interface PlaceType {
+    id: number
+    images_id: number
+    districts_id: number
+    name: string
+    postal_code: string
+    map_link: string
+    description: string
+    created_at: string
+    updated_at: string
+    district: DistrictType
+    avatar: ImageType | null
+}
+
 export interface CreateWriterType {
     images_id: number
     email: string
@@ -150,6 +165,34 @@ export interface CreateHotelType {
     map_link: string
     review: string
     website: string
+}
+
+export interface UpdateHotelType {
+    hotels_id: number
+    districts_id: number
+    name: string
+    map_link: string
+    review: string
+    website: string
+}
+
+export interface CreatePlaceType {
+    images_id: number
+    districts_id: number
+    name: string
+    postal_code: string
+    map_link: string
+    description: string
+}
+
+export interface UpdatePlaceType {
+    places_id: number
+    images_id: number
+    districts_id: number
+    name: string
+    postal_code: string
+    map_link: string
+    description: string
 }
 
 export interface CreateArticleType {

@@ -62,7 +62,6 @@ const HotelCreateModal = ({
                 setCreateHotelData({...initialCreateHotelData})
                 handleOpen()
             }
-
         })
     }
 

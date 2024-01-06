@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreateWriterType, UpdateArticleType, UpdateOrganizerType, UpdateWriterType } from "../constants/types";
+import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../constants/types";
 
 const api = axios.create();
 
@@ -369,22 +369,104 @@ export const getHotels = ({
         });
 }
 
-// export const updateOrganizer = ({ ...props }: UpdateOrganizerType): Promise<any> => {
-//     const data = { ...props }
-//     return api
-//         .put("/admin/organizers", data)
-//         .then((res) => {
-//             return { data: res.data };
-//         })
-//         .catch((err) => {
-//             console.log(err)
-//             return { error: err || true };
-//         });
-// }
+export const getHotelById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/hotels/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const updateHotel = ({ ...props }: UpdateHotelType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/hotels", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
 
 export const deleteHotelById = ({ id }: { id: number }): Promise<any> => {
     return api
         .delete(`/admin/hotels/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// Places
+
+export const postPlace = ({ ...props }: CreatePlaceType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/places", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getPlaces = ({
+    pageNo,
+    pageSize
+}: {
+    pageNo: number,
+    pageSize: number
+}): Promise<any> => {
+    return api
+        .get("/admin/places", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getPlaceById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/places/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const updatePlace = ({ ...props }: UpdatePlaceType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/places", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            console.log(err)
+            return { error: err || true };
+        });
+}
+
+export const deletePlaceById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/places/${id}`)
         .then((res) => {
             return { data: res.data };
         })

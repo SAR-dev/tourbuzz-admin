@@ -13,6 +13,8 @@ import Organizers from "./pages/Organizers";
 import CreateOrganizer from "./pages/CreateOrganizer";
 import UpdateOrganizer from "./pages/UpdateOrganizer";
 import Hotels from "./pages/Hotels";
+import CreateHotel from "./pages/CreateHotel";
+import UpdateHotel from "./pages/UpdateHotel";
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
           <Route path="/organizers/create" element={<SideNav children={<CreateOrganizer />} />} />
           <Route path="/organizers/:organizerId" element={<SideNav children={<UpdateOrganizer />} />} />
           <Route path="/hotels" element={<SideNav children={<Hotels />} />} />
+          <Route path="/hotels/create" element={<SideNav children={<CreateHotel />} />} />
+          <Route path="/hotels/:hotelId" element={<SideNav children={<UpdateHotel />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer
