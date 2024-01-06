@@ -8,8 +8,11 @@ const PlaceCard = ({ place }: { place: PlaceType }) => {
         <div className="card card-side w-full h-full bg-base-200 p-3 group relative">
             <Link to={`/places/${place.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute bottom-0 right-0 m-3">Edit</Link>
             <div className="grid grid-cols-1 gap-3 w-full">
-                    <div className="h-64">
+                    <div className="h-64 relative">
                         <Image image={place.avatar} disableThumbnail className="card h-64 w-full object-cover" />
+                        <div className="badge absolute bottom-0 left-0 m-2">
+                            {place.type}
+                        </div>
                     </div>
                     <div className="card-body p-0">
                         <div className="text-lg font-semibold">{place.name}</div>

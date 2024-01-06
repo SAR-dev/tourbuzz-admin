@@ -441,6 +441,17 @@ export const getPlaces = ({
         });
 }
 
+export const getTypesOfPlaces = (): Promise<any> => {
+    return api
+        .get("/admin/place-types")
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
 export const getPlaceById = ({ id }: { id: number }): Promise<any> => {
     return api
         .get(`/admin/places/${id}`)

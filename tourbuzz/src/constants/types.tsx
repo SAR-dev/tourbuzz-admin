@@ -118,6 +118,7 @@ export interface PlaceType {
     postal_code: string
     map_link: string
     description: string
+    type: string
     created_at: string
     updated_at: string
     district: DistrictType
@@ -229,6 +230,15 @@ export interface UpdateArticleType {
 
 export interface DivisionWithDistrictData {
     data: DivisionWithDistrictType[]
+}
+
+export interface TypeOfPlace {
+    type: string
+    count: number
+}
+
+export interface TypeOfPlaceData {
+    data: TypeOfPlace[]
 }
 
 export interface ParsedErrorMessageProps {

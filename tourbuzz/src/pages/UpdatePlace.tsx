@@ -1,9 +1,9 @@
-import { ArrowLeftIcon, PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { ArrowLeftIcon, PhotoIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import { DivisionWithDistrictData, ImageType, PlaceType, parseErrorMessage } from "@src/constants/types";
+import { DivisionWithDistrictData, ImageType, PlaceType, TypeOfPlaceData, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQuery, useQueryClient } from "react-query";
-import { deletePlaceById, getDivisions, getPlaceById, postPlace, postWriter, updatePlace } from "@src/functions/api";
+import { deletePlaceById, getDivisions, getPlaceById, getTypesOfPlaces, updatePlace } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,6 +17,7 @@ interface UpdatePlaceState {
     postal_code: string
     map_link: string
     description: string
+    type: string
     avatar: ImageType | null
 }
 
@@ -32,6 +33,7 @@ const UpdatePlace = () => {
         postal_code: "",
         map_link: "",
         description: "",
+        type: "",
         avatar: null
     })
     const [error, setError] = useState("")
@@ -39,6 +41,11 @@ const UpdatePlace = () => {
     const { data: districtsData } = useQuery<DivisionWithDistrictData, Error>({
         queryKey: ['districts'],
         queryFn: () => getDivisions()
+    })
+
+    const { data: typeOfPlaceData } = useQuery<TypeOfPlaceData, Error>({
+        queryKey: ['place-types'],
+        queryFn: () => getTypesOfPlaces()
     })
 
     useEffect(() => {
@@ -134,16 +141,27 @@ const UpdatePlace = () => {
                         </select>
                     </div>
 
-                    <div className="flex flex-col w-full">
-                        <label className="text-sm font-semibold">Description</label>
-                        <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={13} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                    <div className="grid grid-cols-1 gap-2">
+                        <div>
+                            <label className="text-sm font-semibold">Type</label>
+                            <select value={data.type} onChange={e => setData({ ...data, type: e.target.value })} className="select custom-scrollbar w-full select-bordered">
+                                <option disabled selected value="">Select Type</option>
+                                {typeOfPlaceData && typeOfPlaceData.data.map((e, i) => (
+                                    <option value={e.type} key={i}>{e.type} ({e.count})</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label className="text-sm font-semibold">Description</label>
+                            <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={12} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                        </div>
                     </div>
                     <div>
                         <label className="text-sm font-semibold">Thumbnail</label>
                         <div className="p-3 bg-base-100 card border border-base-300">
-                            <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                            <div className="h-80 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                                 {data.avatar ? (
-                                    <Image image={data.avatar} className="h-60 w-full object-cover object-center" />
+                                    <Image image={data.avatar} disableThumbnail className="h-80 w-full object-cover object-center" />
                                 ) : (
                                     <PhotoIcon className="h-20 w-20" />
                                 )}

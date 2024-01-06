@@ -1,9 +1,9 @@
-import { ArrowLeftIcon, PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { ArrowLeftIcon, PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { DivisionWithDistrictData, ImageType, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQuery, useQueryClient } from "react-query";
-import { getDivisions, postPlace, postWriter } from "@src/functions/api";
+import { getDivisions, postPlace } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate } from "react-router-dom";

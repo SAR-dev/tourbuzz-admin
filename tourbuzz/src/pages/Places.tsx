@@ -1,5 +1,5 @@
 import { PencilSquareIcon } from '@heroicons/react/16/solid'
-import { getPlaces, getWriters } from '@src/functions/api'
+import { getPlaces } from '@src/functions/api';
 import PageHeader from '@src/components/PageHeader'
 import { Pagination } from '@src/components/Pagination'
 import { PlaceType } from '@src/constants/types';
