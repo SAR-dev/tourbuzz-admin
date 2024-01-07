@@ -54,7 +54,7 @@ const ComboBoxInput = ({
             <Combobox value={selectedValue} onChange={setSelectedValue}>
                 <Float
                     as="div"
-                    className="relative w-64"
+                    className="relative"
                     placement="bottom-start"
                     offset={4}
                     leave="transition ease-in duration-100"

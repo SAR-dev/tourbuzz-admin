@@ -3,11 +3,14 @@ import TruncateText from "./TruncateText";
 import { AtSymbolIcon, LinkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Image from "./Image";
+import { PencilIcon } from "@heroicons/react/16/solid";
 
 const WriterCard = ({ writer }: { writer: WriterType }) => {
     return (
         <div className="card card-side w-full h-full bg-base-200 p-3 group relative">
-            <Link to={`/writers/${writer.id}`} className="btn btn-xs btn-primary opacity-0 group-hover:opacity-100 absolute top-0 right-0 m-3">Edit</Link>
+            <Link to={`/writers/${writer.id}`} className="btn btn-xs h-8 w-8 btn-primary absolute z-[1] opacity-0 group-hover:opacity-100 top-0 right-0 m-3">
+                <PencilIcon className="h-5 w-5" />
+            </Link>
             <div className="grid grid-cols-1 gap-3">
                 <div className="flex">
                     <Image image={writer.avatar} className="card h-[7rem] w-[7rem] object-cover" />

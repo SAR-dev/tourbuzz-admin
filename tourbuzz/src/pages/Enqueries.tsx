@@ -47,13 +47,15 @@ const Enqueries = () => {
         </div>
       )}
 
-      <div className='grid grid-cols-1 border border-base-300 divide-y divide-base-300 my-5'>
-        <FlipMove typeName={null}>
-          {data.data.data.map((e) => (
-            <EnquiryCard enquiry={e} key={e.user.id} />
-          ))}
-        </FlipMove>
-      </div>
+      {data.data.data.length != 0 && (
+        <div className='grid grid-cols-1 border border-base-300 divide-y divide-base-300 my-5'>
+          <FlipMove typeName={null}>
+            {data.data.data.map((e) => (
+              <EnquiryCard enquiry={e} key={e.user.id} />
+            ))}
+          </FlipMove>
+        </div>
+      )}
 
       <div>
         <Pagination
