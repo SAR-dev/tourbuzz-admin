@@ -36,8 +36,8 @@ const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
                                 <LinkIcon className="h-4 w-4" />
                                 <TruncateText text={organizer.social_link} maxLength={20} />
                             </Link>
-                            <div>
-                                <TruncateText text={organizer.slogan} maxLength={100} />
+                            <div className="line-clamp-2">
+                                {organizer.slogan}
                             </div>
                         </div>
                     </div>

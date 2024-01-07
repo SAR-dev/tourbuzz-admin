@@ -1,8 +1,9 @@
 import { ArticleType } from "@src/constants/types";
-import { UserCircleIcon } from "@heroicons/react/24/outline";
+import { ClockIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Image from "./Image";
 import { PencilIcon } from "@heroicons/react/16/solid";
+import { timestampToYYYYMMDD } from "@src/functions/helpers";
 
 const ArticleCard = ({ article }: { article: ArticleType }) => {
     return (
@@ -21,11 +22,17 @@ const ArticleCard = ({ article }: { article: ArticleType }) => {
                     </div>
                 </div>
                 <div className="col-span-1">
-                    <div className="text-lg font-semibold my-2">{article.title}</div>
-                    <div className="flex flex-col space-y-1.5">
-                        <div className="flex gap-2 items-center">
-                            <UserCircleIcon className="h-5 w-5" />
-                            {article.writer.name}
+                    <div className="text-lg font-semibold my-2 line-clamp-2">{article.title}</div>
+                    <div className="flex flex-col space-y-1.5 text-sm">
+                        <div className="flex justify-between">
+                            <div className="flex gap-2 items-center">
+                                <UserCircleIcon className="h-5 w-5" />
+                                {article.writer.name}
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <ClockIcon className="h-5 w-5" />
+                                {timestampToYYYYMMDD(article.created_at)}
+                            </div>
                         </div>
                     </div>
                 </div>
