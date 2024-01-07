@@ -10,6 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
 import Image from "@src/components/Image";
 import DeleteButton from "@src/components/DeleteButton";
+import ComboBoxInput, { ComboboxDataType } from "@src/components/ComboBoxInput";
 
 interface UpdatePlaceState {
     districts_id: number
@@ -26,6 +27,10 @@ const UpdatePlace = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [deleting, setDeleting] = useState(false)
+
+    const [selectedValue, setSelectedValue] = useState<ComboboxDataType | null>(null)
+    const handleNewValue = (text: string) => setSelectedValue({value: text, text: text})
+
     const queryClient = useQueryClient()
     const [data, setData] = useState<UpdatePlaceState>({
         districts_id: 0,
@@ -52,12 +57,20 @@ const UpdatePlace = () => {
         getPlaceById({ id: Number(placeId) }).then(res => {
             const place: PlaceType = res.data;
             setData({ ...place })
+            setSelectedValue({
+                value: place.type,
+                text: place.type
+            })
         })
     }, [placeId])
 
     const handleSubmit = async () => {
         if (!data.avatar) {
             setError("Upload avatar.")
+            return;
+        };
+        if (!selectedValue) {
+            setError("Select type.")
             return;
         };
         setError("")
@@ -69,7 +82,8 @@ const UpdatePlace = () => {
             name: data.name,
             map_link: data.map_link,
             postal_code: data.postal_code,
-            description: data.description
+            description: data.description,
+            type: selectedValue.value
         }).then(res => {
             if (res.error) {
                 toast.error("Update failed 🤦‍♂️")
@@ -144,12 +158,14 @@ const UpdatePlace = () => {
                     <div className="grid grid-cols-1 gap-2">
                         <div>
                             <label className="text-sm font-semibold">Type</label>
-                            <select value={data.type} onChange={e => setData({ ...data, type: e.target.value })} className="select custom-scrollbar w-full select-bordered">
-                                <option disabled selected value="">Select Type</option>
-                                {typeOfPlaceData && typeOfPlaceData.data.map((e, i) => (
-                                    <option value={e.type} key={i}>{e.type} ({e.count})</option>
-                                ))}
-                            </select>
+                            {typeOfPlaceData && (
+                                <ComboBoxInput
+                                    values={typeOfPlaceData.data.map(e => { return { value: e.type, text: e.type, extraText: `(${e.count})` } })}
+                                    selectedValue={selectedValue}
+                                    setSelectedValue={setSelectedValue}
+                                    handleNewValue={handleNewValue}
+                                />
+                            )}
                         </div>
                         <div className="flex flex-col w-full">
                             <label className="text-sm font-semibold">Description</label>

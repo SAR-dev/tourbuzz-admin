@@ -183,6 +183,7 @@ export interface CreatePlaceType {
     name: string
     postal_code: string
     map_link: string
+    type: string
     description: string
 }
 
@@ -194,6 +195,7 @@ export interface UpdatePlaceType {
     postal_code: string
     map_link: string
     description: string
+    type: string
 }
 
 export interface CreateArticleType {

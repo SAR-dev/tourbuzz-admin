@@ -1,14 +1,15 @@
 import { ArrowLeftIcon, PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { DivisionWithDistrictData, ImageType, parseErrorMessage } from "@src/constants/types";
+import { DivisionWithDistrictData, ImageType, TypeOfPlaceData, parseErrorMessage } from "@src/constants/types";
 import { toast } from "react-toastify";
 import { useQuery, useQueryClient } from "react-query";
-import { getDivisions, postPlace } from "@src/functions/api";
+import { getDivisions, getTypesOfPlaces, postPlace } from "@src/functions/api";
 import ImageUploader from "@src/components/ImageUploader";
 import PageHeader from "@src/components/PageHeader";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
 import Image from "@src/components/Image";
+import ComboBoxInput, { ComboboxDataType } from "@src/components/ComboBoxInput";
 
 interface CreatePlaceState {
     districts_id: number
@@ -16,12 +17,17 @@ interface CreatePlaceState {
     postal_code: string
     map_link: string
     description: string
+    type: string
     avatar: ImageType | null
 }
 
 const CreatePlace = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+
+    const [selectedValue, setSelectedValue] = useState<ComboboxDataType | null>(null)
+    const handleNewValue = (text: string) => setSelectedValue({value: text, text: text})
+    
     const queryClient = useQueryClient()
     const [data, setData] = useState<CreatePlaceState>({
         districts_id: 0,
@@ -29,6 +35,7 @@ const CreatePlace = () => {
         postal_code: "",
         map_link: "",
         description: "",
+        type: "",
         avatar: null
     })
     const [error, setError] = useState("")
@@ -38,9 +45,18 @@ const CreatePlace = () => {
         queryFn: () => getDivisions()
     })
 
+    const { data: typeOfPlaceData } = useQuery<TypeOfPlaceData, Error>({
+        queryKey: ['place-types'],
+        queryFn: () => getTypesOfPlaces()
+    })
+
     const handleSubmit = async () => {
         if (!data.avatar) {
             setError("Upload avatar.")
+            return;
+        };
+        if (!selectedValue) {
+            setError("Select type.")
             return;
         };
         setError("")
@@ -51,7 +67,8 @@ const CreatePlace = () => {
             name: data.name,
             map_link: data.map_link,
             postal_code: data.postal_code,
-            description: data.description
+            description: data.description,
+            type: selectedValue.value
         }).then(res => {
             if (res.error) {
                 toast.error("Registration failed 🤦‍♂️")
@@ -106,16 +123,29 @@ const CreatePlace = () => {
                         </select>
                     </div>
 
-                    <div className="flex flex-col w-full">
-                        <label className="text-sm font-semibold">Description</label>
-                        <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={13} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                    <div className="grid grid-cols-1 gap-2">
+                        <div>
+                            <label className="text-sm font-semibold">Type</label>
+                            {typeOfPlaceData && (
+                                <ComboBoxInput
+                                    values={typeOfPlaceData.data.map(e => { return { value: e.type, text: e.type, extraText: `(${e.count})` } })}
+                                    selectedValue={selectedValue}
+                                    setSelectedValue={setSelectedValue}
+                                    handleNewValue={handleNewValue}
+                                />
+                            )}
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label className="text-sm font-semibold">Description</label>
+                            <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={12} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                        </div>
                     </div>
                     <div>
                         <label className="text-sm font-semibold">Thumbnail</label>
                         <div className="p-3 bg-base-100 card border border-base-300">
-                            <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                            <div className="h-80 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                                 {data.avatar ? (
-                                    <Image image={data.avatar} className="h-60 w-full object-cover object-center" />
+                                    <Image image={data.avatar} className="h-80 w-full object-cover object-center" />
                                 ) : (
                                     <PhotoIcon className="h-20 w-20" />
                                 )}
