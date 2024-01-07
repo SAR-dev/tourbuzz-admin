@@ -3,6 +3,7 @@ import PageHeader from "@src/components/PageHeader"
 import { Pagination } from "@src/components/Pagination"
 import { EnquiryListType } from "@src/constants/types";
 import { getEnquiries } from "@src/functions/api"
+import NoResult from "@src/svg/NoResult";
 import { useState } from "react"
 import FlipMove from "react-flip-move"
 import { useQuery } from "react-query"
@@ -36,6 +37,15 @@ const Enqueries = () => {
         title="User Enquiries"
         subtitle="Let's upload some images and store them for later! 🎉"
       />
+
+      {data.data.data.length == 0 && (
+        <div className="flex justify-center items-center p-10 w-full h-[60vh]">
+          <div className="flex flex-col">
+            <NoResult />
+            <div className='text-center'>No result found</div>
+          </div>
+        </div>
+      )}
 
       <div className='grid grid-cols-1 border border-base-300 divide-y divide-base-300 my-5'>
         <FlipMove typeName={null}>

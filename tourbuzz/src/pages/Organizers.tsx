@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'
 import OrganizerCard from '@src/components/OrganizerCard'
+import NoResult from '@src/svg/NoResult';
 
 interface OrganizersData {
   data: {
@@ -42,6 +43,15 @@ function Organizers() {
             Register Organizer
           </Link>}
       />
+
+      {data.data.data.length == 0 && (
+        <div className="flex justify-center items-center p-10 w-full h-[60vh]">
+          <div className="flex flex-col">
+            <NoResult />
+            <div className='text-center'>No result found</div>
+          </div>
+        </div>
+      )}
 
       <div className='grid grid-cols-3 gap-5 my-5'>
         {data.data.data.map((e, i) => (

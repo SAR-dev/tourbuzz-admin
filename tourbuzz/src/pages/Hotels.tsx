@@ -7,6 +7,7 @@ import PageHeader from "@src/components/PageHeader";
 import { Link } from "react-router-dom";
 import { PencilSquareIcon } from "@heroicons/react/16/solid";
 import HotelRow from "@src/components/HotelRow";
+import NoResult from "@src/svg/NoResult";
 
 interface HotelData {
     data: {
@@ -43,27 +44,37 @@ const Hotels = () => {
                     </Link>}
             />
 
-            <div className="overflow-x-auto border border-base-300 card mt-5 mb-1">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Map Link</th>
-                            <th>Website</th>
-                            <th>District</th>
-                            <th>Review</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.data.data.map((e, i) => (
-                            <HotelRow hotel={e} key={i} />
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            {data.data.data.length == 0 && (
+                <div className="flex justify-center items-center p-10 w-full h-[60vh]">
+                    <div className="flex flex-col">
+                        <NoResult />
+                        <div className='text-center'>No result found</div>
+                    </div>
+                </div>
+            )}
 
+            {data.data.data.length != 0 && (
+                <div className="overflow-x-auto border border-base-300 card mt-5 mb-1">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Map Link</th>
+                                <th>Website</th>
+                                <th>District</th>
+                                <th>Review</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.data.data.map((e, i) => (
+                                <HotelRow hotel={e} key={i} />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
             <div>
                 <Pagination
                     page_no={data.data.page_no}

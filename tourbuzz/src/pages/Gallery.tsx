@@ -10,6 +10,7 @@ import Modal from "@src/components/Modal";
 import PageHeader from "@src/components/PageHeader";
 import DeleteButton from "@src/components/DeleteButton";
 import Image from "@src/components/Image";
+import NoResult from "@src/svg/NoResult";
 
 interface ImageData {
     data: {
@@ -56,12 +57,26 @@ const Gallery = () => {
 
     return (
         <div>
-            <PageHeader title="Image Gallery" subtitle="Let's upload some images and store them for later! 🎉" right={<ImageUploader />} />
+            <PageHeader
+                title="Image Gallery"
+                subtitle="Let's upload some images and store them for later! 🎉"
+                right={<ImageUploader />}
+            />
+
+            {data.data.data.length == 0 && (
+                <div className="flex justify-center items-center p-10 w-full h-[60vh]">
+                    <div className="flex flex-col">
+                        <NoResult />
+                        <div className='text-center'>No result found</div>
+                    </div>
+                </div>
+            )}
+
             <div className="grid grid-cols-6 gap-5 my-5">
                 {data.data.data.map((e, i) => (
                     <div className="card cursor-pointer bg-base-200 hover:bg-base-300 p-3" onClick={() => setActiveImage(e)} key={i}>
                         <img
-                            className="card h-40 w-full max-w-full object-cover object-center"
+                            className="card h-40 laptop:h-48 w-full max-w-full object-cover object-center"
                             src={e.thumbnail_url}
                             alt="gallery-photo"
                         />

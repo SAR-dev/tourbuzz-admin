@@ -1,4 +1,13 @@
-import { PhotoIcon, PencilSquareIcon, BookOpenIcon, ChevronRightIcon, ChatBubbleBottomCenterIcon, HomeModernIcon, RectangleGroupIcon, XMarkIcon, ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
+import {
+    PhotoIcon,
+    PencilSquareIcon,
+    BookOpenIcon,
+    ChevronRightIcon,
+    ChatBubbleBottomCenterIcon,
+    HomeModernIcon,
+    RectangleGroupIcon,
+    XMarkIcon,
+} from "@heroicons/react/24/solid";
 import { ReactNode } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { Link, useLocation } from "react-router-dom";
@@ -7,6 +16,7 @@ import { Map, Trees } from "tabler-icons-react";
 import classNames from "classnames";
 import { useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
     return (
@@ -80,16 +90,20 @@ export function SideNav({ children }: { children: ReactNode }) {
                     </div>
                 </div>
             </div>
-            <div className="h-screen w-full overflow-y-auto p-5 relative">
+
+            <div className={classNames({
+                "h-screen bg-base-200 transition-all delay-200 ease-in": true,
+                "w-[0rem] p-[0rem] opacity-0": open,
+                "py-5 px-2 opacity-1": !open
+            })}>
                 {!open && (
-                    <button className={classNames({
-                        "btn btn-xs btn-primary z-50 rounded-l-none h-8 w-8 fixed top-0 left-0 mt-5 transition-all delay-300 duration-300 ease-in-out": true,
-                        "opacity-0": open,
-                        "opacity-100": !open,
-                    })} onClick={toogleOpen}>
-                        <ChevronDoubleRightIcon className="h-5 w-5" />
+                    <button className="h-10 w-10 bg-primary card justify-center items-center" onClick={toogleOpen}>
+                        <Bars3Icon className="h-5 w-5" />
                     </button>
                 )}
+            </div>
+
+            <div className="h-screen w-full overflow-y-auto p-5 relative">
                 <ErrorBoundary FallbackComponent={ErrorFallback}>
                     {children}
                 </ErrorBoundary>
