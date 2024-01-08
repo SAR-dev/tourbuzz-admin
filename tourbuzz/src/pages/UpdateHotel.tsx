@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeftIcon } from '@heroicons/react/16/solid'
 import { deleteHotelById, getDivisions, getHotelById, updateHotel } from '@src/functions/api';
 import { useQuery, useQueryClient } from 'react-query'
-import { DivisionWithDistrictType, HotelType, parseErrorMessage } from '@src/constants/types';
+import { DivisionWithDistrictType, HotelType, parseErrorMessage } from '@src/types';
 import { toast } from 'react-toastify'
 import { useNavigate, useParams } from 'react-router-dom';
 import PageHeader from '@src/components/PageHeader';

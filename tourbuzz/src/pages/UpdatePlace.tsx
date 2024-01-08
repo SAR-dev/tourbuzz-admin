@@ -1,6 +1,6 @@
 import { ArrowLeftIcon, PhotoIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import { DivisionWithDistrictData, ImageType, PlaceType, TypeOfPlaceData, parseErrorMessage } from "@src/constants/types";
+import { DivisionWithDistrictData, ImageType, PlaceType, TypeOfPlaceData, parseErrorMessage } from "@src/types";
 import { toast } from "react-toastify";
 import { useQuery, useQueryClient } from "react-query";
 import { deletePlaceById, getDivisions, getPlaceById, getTypesOfPlaces, updatePlace } from "@src/functions/api";

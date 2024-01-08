@@ -1,5 +1,5 @@
 import { ArrowUpIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
-import { EnquiryListType, EnquiryType } from '@src/constants/types';
+import { EnquiryListType, EnquiryType } from '@src/types';
 import { findMaxContinuous, timestampToYYYYMMDD, timestampToYYYYMMDDHHMMSS } from '@src/functions/helpers';
 import { forwardRef, useMemo, useState } from 'react';
 import { PhoneCall } from 'tabler-icons-react';

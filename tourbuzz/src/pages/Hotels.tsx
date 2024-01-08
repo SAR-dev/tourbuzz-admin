@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { useState } from "react";
 import { Pagination } from "@src/components/Pagination";
-import { HotelType } from "@src/constants/types";
+import { HotelType } from "@src/types";
 import { getHotels } from "@src/functions/api";
 import PageHeader from "@src/components/PageHeader";
 import { Link } from "react-router-dom";

@@ -3,7 +3,7 @@ import { getWriters } from '@src/functions/api'
 import PageHeader from '@src/components/PageHeader'
 import { Pagination } from '@src/components/Pagination'
 import WriterCard from '@src/components/WriterCard'
-import { WriterType } from '@src/constants/types'
+import { WriterType } from '@src/types'
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'

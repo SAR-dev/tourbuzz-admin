@@ -3,7 +3,7 @@ import { useState } from "react";
 import ImageUploader from "@src/components/ImageUploader";
 import CopyCode from "@src/components/CopyCode";
 import { Pagination } from "@src/components/Pagination";
-import { ImageType } from "@src/constants/types";
+import { ImageType } from "@src/types";
 import { toast } from "react-toastify";
 import { deleteImageById, getImages } from "@src/functions/api";
 import Modal from "@src/components/Modal";

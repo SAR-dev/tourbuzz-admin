@@ -2,7 +2,7 @@ import { PencilSquareIcon } from '@heroicons/react/16/solid'
 import { getOrganizers } from '@src/functions/api';
 import PageHeader from '@src/components/PageHeader'
 import { Pagination } from '@src/components/Pagination'
-import { OrganizerType } from '@src/constants/types';
+import { OrganizerType } from '@src/types';
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'

@@ -1,4 +1,4 @@
-import { WriterType } from "@src/constants/types";
+import { WriterType } from "@src/types";
 import TruncateText from "./TruncateText";
 import { AtSymbolIcon, LinkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";

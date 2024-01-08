@@ -1,4 +1,4 @@
-import { ImageType } from '@src/constants/types';
+import { ImageType } from '@src/types';
 import { useState } from 'react';
 import { Img } from 'react-image'
 import { Lightbox } from "react-modal-image";

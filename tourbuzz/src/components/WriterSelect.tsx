@@ -1,5 +1,5 @@
 import { getWriters } from '@src/functions/api'
-import { WriterType } from '@src/constants/types';
+import { WriterType } from '@src/types';
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import Modal from './Modal'

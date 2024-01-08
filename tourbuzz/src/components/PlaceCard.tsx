@@ -1,7 +1,6 @@
-import { PlaceType } from "@src/constants/types";
+import { PlaceType } from "@src/types";
 import { Link } from "react-router-dom";
 import Image from "./Image";
-import TruncateText from "./TruncateText";
 import { PencilIcon } from "@heroicons/react/24/solid";
 
 const PlaceCard = ({ place }: { place: PlaceType }) => {

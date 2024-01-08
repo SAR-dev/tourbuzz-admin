@@ -1,4 +1,4 @@
-import { ImageType } from '@src/constants/types';
+import { ImageType } from '@src/types';
 import classNames from 'classnames'
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 import Image from './Image'

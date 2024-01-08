@@ -1,6 +1,6 @@
 import { ArrowLeftIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import { ImageType, OrganizerType, parseErrorMessage } from "@src/constants/types";
+import { ImageType, OrganizerType, parseErrorMessage } from "@src/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
 import { deleteOrganizerById, getOrganizerById, updateOrganizer } from "@src/functions/api";

@@ -1,4 +1,4 @@
-import { HotelType } from "@src/constants/types";
+import { HotelType } from "@src/types";
 import { convertToNDigit } from "@src/functions/helpers";
 import { Link } from "react-router-dom";
 import TruncateText from "./TruncateText";

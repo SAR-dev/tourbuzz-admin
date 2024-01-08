@@ -1,7 +1,7 @@
 import EnquiryCard from "@src/components/EnquiryCard"
 import PageHeader from "@src/components/PageHeader"
 import { Pagination } from "@src/components/Pagination"
-import { EnquiryListType } from "@src/constants/types";
+import { EnquiryListType } from "@src/types";
 import { getEnquiries } from "@src/functions/api"
 import NoResult from "@src/svg/NoResult";
 import { useState } from "react"

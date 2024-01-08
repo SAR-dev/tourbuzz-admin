@@ -1,4 +1,4 @@
-import { ArticleType } from "@src/constants/types";
+import { ArticleType } from "@src/types";
 import { ClockIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Image from "./Image";

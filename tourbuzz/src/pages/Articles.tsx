@@ -1,6 +1,6 @@
 import { getArticles } from '@src/functions/api';
 import { Pagination } from '@src/components/Pagination'
-import { ArticleType } from '@src/constants/types';
+import { ArticleType } from '@src/types';
 import { useState } from 'react'
 import { useQuery } from 'react-query';
 import PageHeader from '@src/components/PageHeader';

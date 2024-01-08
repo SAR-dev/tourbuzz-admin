@@ -1,7 +1,7 @@
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { ArrowLeftIcon, TrashIcon } from "@heroicons/react/24/solid"
 import ImageUploader from "@src/components/ImageUploader"
-import { ImageType, WriterType, parseErrorMessage } from "@src/constants/types"
+import { ImageType, WriterType, parseErrorMessage } from "@src/types"
 import { useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
 import WriterSelect from "@src/components/WriterSelect"

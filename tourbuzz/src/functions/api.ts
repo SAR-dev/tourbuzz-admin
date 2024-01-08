@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../constants/types";
+import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../types";
 
 const api = axios.create();
 

@@ -1,4 +1,4 @@
-import { OrganizerType } from "@src/constants/types";
+import { OrganizerType } from "@src/types";
 import TruncateText from "./TruncateText";
 import { AtSymbolIcon, LinkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";

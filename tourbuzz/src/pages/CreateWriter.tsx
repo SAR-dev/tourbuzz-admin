@@ -1,6 +1,6 @@
 import { ArrowLeftIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { ImageType, parseErrorMessage } from "@src/constants/types";
+import { ImageType, parseErrorMessage } from "@src/types";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
 import { postWriter } from "@src/functions/api";

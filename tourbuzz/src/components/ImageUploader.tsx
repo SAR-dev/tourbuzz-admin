@@ -2,7 +2,7 @@ import { useQueryClient } from "react-query";
 import { createRef, useState } from "react";
 import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
-import { ImageType } from "@src/constants/types";
+import { ImageType } from "@src/types";
 import { postImage } from "@src/functions/api";
 import Compressor from 'compressorjs';
 

@@ -3,7 +3,7 @@ import Modal from './Modal'
 import { ArrowLeftIcon } from '@heroicons/react/16/solid'
 import { getDivisions, postHotel } from '@src/functions/api'
 import { useQuery, useQueryClient } from 'react-query'
-import { DivisionWithDistrictType, parseErrorMessage } from '@src/constants/types';
+import { DivisionWithDistrictType, parseErrorMessage } from '@src/types';
 import ErrorAlert from './ErrorAlert'
 import { toast } from 'react-toastify'
 
