@@ -286,6 +286,19 @@ export interface TypeOfPlaceData {
     data: TypeOfPlace[]
 }
 
+export interface TypeOfTour {
+    id: number
+    name: string
+    slug: string
+    details: string
+    created_at: string
+    updated_at: string
+}
+
+export interface TypeOfTourData {
+    data: TypeOfTour[]
+}
+
 export interface ParsedErrorMessageProps {
     status?: number;
     message: string;

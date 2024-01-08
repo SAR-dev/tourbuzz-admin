@@ -70,9 +70,10 @@ const WriterSelect = ({
                     title={writer.name}
                     subtitle={writer.email}
                     handleClick={handleOpen} 
+                    shownInResult={true}
                 />
             ) : (
-                <button className="btn btn-lg btn-outline text-base" onClick={handleOpen}>
+                <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
                     Click to Select
                 </button>
             )}
@@ -88,7 +89,7 @@ const WriterSelect = ({
                     </button>
                 </div>
             }>
-                <div className='h-[32rem]'>
+                <div className='h-[28rem]'>
                     <div className='grid grid-cols-1 gap-3'>
                         <div className="grid grid-cols-2 gap-5">
                             <div className='flex flex-col gap-1'>

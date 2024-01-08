@@ -138,8 +138,8 @@ const CreateArticle = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
-        <div>
+      <div className="grid grid-cols-2 gap-3 p-5 card bg-base-200">
+        <div className="col-span-2">
           <label className="label mb-2">Start writing article here</label>
           <MarkdownEditor
             value={data.md_desc}
@@ -148,7 +148,7 @@ const CreateArticle = () => {
           />
         </div>
         <div>
-          <label className="label mb-2">Select Writer</label>
+          <label className="label">Select Writer</label>
           <WriterSelect writer={writer} setWriter={setWriter} />
         </div>
       </div>

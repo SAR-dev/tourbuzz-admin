@@ -266,16 +266,22 @@ export const postOrganizer = ({ ...props }: CreateOrganizerType): Promise<any> =
 
 export const getOrganizers = ({
     pageNo,
-    pageSize
+    pageSize,
+    name,
+    email
 }: {
     pageNo: number,
-    pageSize: number
+    pageSize: number,
+    name?: string,
+    email?: string
 }): Promise<any> => {
     return api
         .get("/admin/organizers", {
             params: {
                 page_no: pageNo,
                 page_size: pageSize,
+                name: name ?? "",
+                email: email ?? "",
             }
         })
         .then((res) => {
@@ -326,6 +332,19 @@ export const deleteOrganizerById = ({ id }: { id: number }): Promise<any> => {
 export const getDivisions = (): Promise<any> => {
     return api
         .get("/admin/divisions")
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// Tour Types
+
+export const getTourTypes = (): Promise<any> => {
+    return api
+        .get("/admin/tour-types")
         .then((res) => {
             return { data: res.data };
         })

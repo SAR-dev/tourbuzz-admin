@@ -9,17 +9,20 @@ const SearchResultCard = ({
     title,
     subtitle,
     handleClick,
-    selected
+    selected,
+    shownInResult
 }: {
     id: number,
     avatar: ImageType | null,
     title: string,
     subtitle: string,
     handleClick: (id: number) => void,
-    selected?: boolean
+    selected?: boolean,
+    shownInResult?: boolean
 }) => (
     <div className={classNames({
-        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer max-w-96": true,
+        "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer w-full": true,
+        "bg-neutral-content": shownInResult,
         "bg-primary text-primary-content": selected,
         "bg-base-200 hover:bg-base-300": !selected
     })} onClick={() => handleClick(id)}>

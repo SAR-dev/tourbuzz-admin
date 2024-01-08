@@ -1,6 +1,6 @@
 import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
-import { ImageType } from '@src/types';
+import { ImageType, OrganizerType, TypeOfTourData } from '@src/types';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import Image from './Image';
@@ -9,9 +9,12 @@ import ImageUploader from './ImageUploader';
 import { TrashIcon } from '@heroicons/react/24/outline';
 import MarkdownEditor from './MarkdownEditor';
 import ReactInputMask from 'react-input-mask';
+import { getTourTypes } from '@src/functions/api';
+import { useQuery } from 'react-query';
+import OrganizerSelect from './OrganizerSelect';
 
 export interface TourCreateState {
-    tour_types_id: number | null;
+    tour_types_id: number;
     organizers_id: number | null;
     avatar: ImageType | null;
     title: string;
@@ -35,9 +38,10 @@ const TourCreateCard = () => {
     const [startDate, setStartDate] = useState("")
     const [finishDate, setFinishDate] = useState("")
     const [lastSellDate, setLastSellDate] = useState("")
+    const [organizer, setOrganizer] = useState<OrganizerType | null>(null)
 
     const [data, setData] = useState<TourCreateState>({
-        tour_types_id: null, // select picker
+        tour_types_id: 0,
         organizers_id: null, // modal picker
         avatar: null,
         title: '',
@@ -57,7 +61,10 @@ const TourCreateCard = () => {
         images: [],
     })
 
-    // fetch tour types
+    const { data: typeOfTourData } = useQuery<TypeOfTourData, Error>({
+        queryKey: ['tour-types'],
+        queryFn: () => getTourTypes()
+    })
 
     const setImages = (image: ImageType) => {
         if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
@@ -194,6 +201,20 @@ const TourCreateCard = () => {
                     placeholder="Write in Markdown"
                     minimal
                 />
+            </div>
+            <div>
+                <label className="label">Tour Type</label>
+                <select value={data.tour_types_id} onChange={e => setData({ ...data, tour_types_id: Number(e.target.value) })} className="select custom-scrollbar w-full select-bordered">
+                    <option disabled selected value={0}>Select Tour Type</option>
+                    {typeOfTourData && typeOfTourData.data.map((e) => (
+                        <option value={e.id} key={e.id}>{e.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div />
+            <div>
+                <label className="label">Select Organizer</label>
+                <OrganizerSelect organizer={organizer} setOrganizer={setOrganizer} />
             </div>
         </div>
     )
