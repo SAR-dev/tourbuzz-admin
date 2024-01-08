@@ -16,7 +16,7 @@ import { Map, Trees } from "tabler-icons-react";
 import classNames from "classnames";
 import { useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
-import { Bars3Icon } from "@heroicons/react/24/outline";
+import { Bars3Icon, PlusCircleIcon } from "@heroicons/react/24/outline";
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
     return (
@@ -50,9 +50,14 @@ export function SideNav({ children }: { children: ReactNode }) {
             to={disabled ? "#" : url}
         >
             {icon} {name}
-            {url == pathname && (
-                <ChevronRightIcon className='h-5 w-5 ml-auto' />
-            )}
+            <div className="flex space-x-2 ml-auto">
+                {`${url}/create` == pathname && (
+                    < PlusCircleIcon className="h-5 w-5" />
+                )}
+                {(url == pathname || `${url}/create` == pathname) && (
+                    <ChevronRightIcon className='h-5 w-5' />
+                )}
+            </div>
         </Link>
     )
 
