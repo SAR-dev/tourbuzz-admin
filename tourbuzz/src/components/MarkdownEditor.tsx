@@ -22,7 +22,7 @@ interface MarkdownEditorType {
     value: string;
     setValue: (props: string) => void;
     placeholder?: string;
-    title?: string;
+    minimal?: boolean;
 }
 
 enum Mode {
@@ -34,7 +34,7 @@ enum Mode {
 const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
     const [initialized, setInitialized] = useState(false)
     const { open, toogleOpen } = useEmojiStore();
-    const [mode, setMode] = useState<Mode>(Mode.CODE_AND_PREVIEW);
+    const [mode, setMode] = useState<Mode>(props.minimal ? Mode.CODE_ONLY : Mode.CODE_AND_PREVIEW);
     const ref = useRef<TextareaMarkdownRef>(null);
     const [text, setText, { undo, redo }] = useUndoable("")
 
@@ -45,6 +45,15 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
             setInitialized(true)
         }
     }, [props.value, initialized])
+
+    useEffect(() => {
+      if(props.minimal){
+        setMode(Mode.CODE_ONLY)
+      } else {
+        setMode(Mode.CODE_AND_PREVIEW)
+      }
+    }, [props.minimal])
+    
 
     const handleTextChange = (val: string) => {
         props.setValue(val)
@@ -208,17 +217,19 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
             >
                 <EyeIcon className='h-5 w-5' />
             </button>
-            <button
-                className={classNames({
-                    "icon-btn-xs": true,
-                    "btn-active": mode === Mode.CODE_AND_PREVIEW
-                })}
-                onClick={() => setMode(Mode.CODE_AND_PREVIEW)}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Markdown Editor & Preview"
-            >
-                <Square2StackIcon className='h-5 w-5' />
-            </button>
+            {!props.minimal && (
+                <button
+                    className={classNames({
+                        "icon-btn-xs": true,
+                        "btn-active": mode === Mode.CODE_AND_PREVIEW
+                    })}
+                    onClick={() => setMode(Mode.CODE_AND_PREVIEW)}
+                    data-tooltip-id="tooltip"
+                    data-tooltip-content="Markdown Editor & Preview"
+                >
+                    <Square2StackIcon className='h-5 w-5' />
+                </button>
+            )}
             <button
                 className={classNames({
                     "icon-btn-xs": true,
@@ -251,11 +262,13 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
 
     return (
         <div className="border border-base-300 w-full">
-            <div className="border-b border-base-300 flex items-center w-full p-2">
-                <div className='flex space-x-3'>
-                    <LeftSideToolbar />
-                </div>
-                <div className="ml-auto flex space-x-3">
+            <div className="border-b border-base-300 flex items-center justify-between w-full p-2">
+                {!props.minimal && (
+                    <div className='flex space-x-3'>
+                        <LeftSideToolbar />
+                    </div>
+                )}
+                <div className="flex space-x-3">
                     <RightSideToolbar />
                 </div>
             </div>

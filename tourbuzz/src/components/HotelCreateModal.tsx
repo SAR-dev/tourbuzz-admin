@@ -88,19 +88,19 @@ const HotelCreateModal = ({
         }>
             <div className="grid grid-cols-2 gap-3">
                 <div>
-                    <label className="text-sm font-semibold">Name</label>
+                    <label className="label">Name</label>
                     <input value={createHotelData.name} onChange={e => setCreateHotelData({ ...createHotelData, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                 </div>
                 <div>
-                    <label className="text-sm font-semibold">Website</label>
+                    <label className="label">Website</label>
                     <input value={createHotelData.website} onChange={e => setCreateHotelData({ ...createHotelData, website: e.target.value })} type="text" placeholder="Website" className="input input-bordered w-full" />
                 </div>
                 <div>
-                    <label className="text-sm font-semibold">Map Link</label>
+                    <label className="label">Map Link</label>
                     <input value={createHotelData.map_link} onChange={e => setCreateHotelData({ ...createHotelData, map_link: e.target.value })} type="text" placeholder="Map Link" className="input input-bordered w-full" />
                 </div>
                 <div>
-                    <label className="text-sm font-semibold">District</label>
+                    <label className="label">District</label>
                     <select value={createHotelData.districts_id} onChange={e => setCreateHotelData({ ...createHotelData, districts_id: Number(e.target.value) })} className="select custom-scrollbar w-full select-bordered">
                         <option disabled selected value={0}>Select District</option>
                         {data && data.data.map((e, i) => (
@@ -114,7 +114,7 @@ const HotelCreateModal = ({
                 </div>
                 <div className="col-span-2">
                     <div className="flex flex-col w-full">
-                        <label className="text-sm font-semibold">Review</label>
+                        <label className="label">Review</label>
                         <textarea value={createHotelData.review} onChange={e => setCreateHotelData({ ...createHotelData, review: e.target.value })} rows={8} placeholder="Review" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
                     </div>
                 </div>

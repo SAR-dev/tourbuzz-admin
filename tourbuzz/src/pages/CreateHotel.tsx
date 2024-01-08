@@ -61,19 +61,19 @@ const CreateHotel = () => {
             <div className="w-[70rem] bg-base-200 card p-5">
                 <div className="grid grid-cols-2 gap-2">
                     <div>
-                        <label className="text-sm font-semibold">Name</label>
+                        <label className="label">Name</label>
                         <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Website</label>
+                        <label className="label">Website</label>
                         <input value={data.website} onChange={e => setData({ ...data, website: e.target.value })} type="text" placeholder="Website" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Map Link</label>
+                        <label className="label">Map Link</label>
                         <input value={data.map_link} onChange={e => setData({ ...data, map_link: e.target.value })} type="text" placeholder="Map Link" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">District</label>
+                        <label className="label">District</label>
                         <select value={data.districts_id} onChange={e => setData({ ...data, districts_id: Number(e.target.value) })} className="select custom-scrollbar w-full select-bordered">
                             <option disabled selected value={0}>Select District</option>
                             {districtsData && districtsData.data.map((e, i) => (
@@ -87,7 +87,7 @@ const CreateHotel = () => {
                     </div>
                     <div className="col-span-2">
                         <div className="flex flex-col w-full">
-                            <label className="text-sm font-semibold">Review</label>
+                            <label className="label">Review</label>
                             <textarea value={data.review} onChange={e => setData({ ...data, review: e.target.value })} rows={8} placeholder="Review" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
                         </div>
                     </div>

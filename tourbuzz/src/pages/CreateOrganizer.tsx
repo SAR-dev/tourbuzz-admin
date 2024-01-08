@@ -85,27 +85,27 @@ const CreateOrganizer = () => {
             <div className="w-[70rem] bg-base-200 card p-5">
                 <div className="grid grid-cols-2 gap-2">
                     <div>
-                        <label className="text-sm font-semibold">Email</label>
+                        <label className="label">Email</label>
                         <input value={data.email} onChange={e => setData({ ...data, email: e.target.value })} type="text" placeholder="Email" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Phone No</label>
+                        <label className="label">Phone No</label>
                         <input value={data.contact_no} onChange={e => setData({ ...data, contact_no: e.target.value })} type="text" placeholder="Phone No" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Name</label>
+                        <label className="label">Name</label>
                         <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Username</label>
+                        <label className="label">Username</label>
                         <input value={data.username} onChange={e => setData({ ...data, username: e.target.value })} type="text" placeholder="Username" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Slogan</label>
+                        <label className="label">Slogan</label>
                         <input value={data.slogan} onChange={e => setData({ ...data, slogan: e.target.value })} type="text" placeholder="Slogan" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Verification Level</label>
+                        <label className="label">Verification Level</label>
                         <select value={data.verification} onChange={e => setData({ ...data, verification: e.target.value })} className="select custom-scrollbar w-full select-bordered">
                             <option disabled selected>Verification Level</option>
                             <option value="LEVEL1">Level 01</option>
@@ -117,16 +117,16 @@ const CreateOrganizer = () => {
                     </div>
                     <div className="grid grid-cols-1 gap-2">
                         <div>
-                            <label className="text-sm font-semibold">Social Link</label>
+                            <label className="label">Social Link</label>
                             <input value={data.social_link} onChange={e => setData({ ...data, social_link: e.target.value })} type="text" placeholder="Social Link" className="input input-bordered w-full" />
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-sm font-semibold">About</label>
+                            <label className="label">About</label>
                             <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={9} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
                         </div>
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Avatar</label>
+                        <label className="label">Avatar</label>
                         <div className="p-3 bg-base-100 card border border-base-300">
                             <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                                 {data.avatar ? (

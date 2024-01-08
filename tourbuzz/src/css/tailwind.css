@@ -23,6 +23,10 @@
     @apply rounded-lg bg-base-content;
   }
 
+  .label {
+    @apply text-sm font-semibold leading-4;
+  }
+
   #tooltip, #emoji-tooltip {
     @apply bg-base-content text-base-300;
   }

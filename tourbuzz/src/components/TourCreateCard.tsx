@@ -1,8 +1,13 @@
-import { MAX_ARTICLE_IMAGE_COUNT } from '@src/constants/values';
+import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
 import { ImageType } from '@src/types';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import Image from './Image';
+import { PhotoIcon } from '@heroicons/react/24/solid';
+import ImageUploader from './ImageUploader';
+import { TrashIcon } from '@heroicons/react/24/outline';
+import MarkdownEditor from './MarkdownEditor';
 
 export interface TourCreateState {
     tour_types_id: number | null;
@@ -26,7 +31,7 @@ export interface TourCreateState {
 }
 
 const TourCreateCard = () => {
-    const [tourData, setTourData] = useState<TourCreateState>({
+    const [data, setData] = useState<TourCreateState>({
         tour_types_id: null,
         organizers_id: null,
         avatar: null,
@@ -41,39 +46,135 @@ const TourCreateCard = () => {
         cancel_ins: '',
         start_ins: '',
         finish_ins: '',
-        start_at: '',
-        finish_at: '',
-        last_sell_at: '',
+        start_at: '', // date
+        finish_at: '', // date
+        last_sell_at: '', // date
         images: [],
     })
 
     // fetch tour types
 
     const setImages = (image: ImageType) => {
-        if (tourData.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
+        if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
             toast.info("Maximum image uploaded")
         }
-        setTourData({ ...tourData, images: [...tourData.images, image] })
+        setData({ ...data, images: [...data.images, image] })
     }
 
     const removeImage = (id: number) => {
-        setTourData({ ...tourData, images: [...tourData.images.filter(e => e.id !== id)] })
+        setData({ ...data, images: [...data.images.filter(e => e.id !== id)] })
     }
 
     const handleTitleChange = (title: string) => {
-        setTourData({ ...tourData, title: title, slug: generateSlug(title) })
+        setData({ ...data, title: title, slug: generateSlug(title) })
     }
 
     const setMdDesc = (value: string) => {
-        setTourData({ ...tourData, md_desc: value })
+        setData({ ...data, md_desc: value })
+    }
+
+    const setServices = (value: string) => {
+        setData({ ...data, services: value })
+    }
+
+    const setCancelIns = (value: string) => {
+        setData({ ...data, cancel_ins: value })
     }
 
     const setAvatar = (image: ImageType) => {
-        setTourData({ ...tourData, avatar: image })
+        setData({ ...data, avatar: image })
     }
 
     return (
-        <div>TourCreateCard</div>
+        <div className="grid grid-cols-2 gap-3 p-5 card bg-base-200">
+            <div>
+                <label className="label">Tour Title</label>
+                <input value={data.title} onChange={e => handleTitleChange(e.target.value)} type="text" placeholder="Title" className="input input-bordered w-full" />
+            </div>
+            <div>
+                <label className="label">Group Size</label>
+                <input value={data.group_size} onChange={e => setData({ ...data, group_size: e.target.value })} type="text" placeholder="Group Size" className="input input-bordered w-full" />
+            </div>
+            <div>
+                <label className="label">Group Info</label>
+                <input value={data.group_info} onChange={e => setData({ ...data, group_info: e.target.value })} type="text" placeholder="Group Info" className="input input-bordered w-full" />
+            </div>
+            <div>
+                <label className="label">Transportations</label>
+                <input value={data.transports} onChange={e => setData({ ...data, transports: e.target.value })} type="text" placeholder="Transportations" className="input input-bordered w-full" />
+            </div>
+            <div className="flex flex-col">
+                <label className="label">Journey Beigin Instructions</label>
+                <textarea value={data.start_ins} onChange={e => setData({ ...data, start_ins: e.target.value })} rows={7} placeholder="Journey Beigin Instructions" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
+            </div>
+            <div className="flex flex-col">
+                <label className="label">Journey Finish Instructions</label>
+                <textarea value={data.finish_ins} onChange={e => setData({ ...data, finish_ins: e.target.value })} rows={7} placeholder="Journey Finish Instructions" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
+            </div>
+            <div className="flex flex-col">
+                <label className="label">Reader-friendly Summary</label>
+                <textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={13} placeholder="Summary" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
+            </div>
+            <div>
+                <label className="label">Tour Main Poster</label>
+                <div className="p-3 bg-base-100 card border border-base-300">
+                    <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                        {data.avatar ? (
+                            <Image image={data.avatar} className="h-60 w-full object-cover object-center" />
+                        ) : (
+                            <PhotoIcon className="h-20 w-20" />
+                        )}
+                    </div>
+                    <ImageUploader title="Upload Poster" setImage={setAvatar} />
+                </div>
+            </div>
+            <div className='col-span-2'>
+                <div className="grid grid-cols-5 gap-3">
+                    {data.images.map((e, i) => (
+                        <div className="h-52 w-full relative group" key={i}>
+                            <Image image={e} className="h-52 w-full object-cover card" />
+                            <div className="absolute top-0 left-0 h-full w-full bg-red-500/50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition ease-in-out">
+                                <TrashIcon className="h-10 w-10 cursor-pointer text-white" onClick={() => removeImage(e.id)} />
+                            </div>
+                        </div>
+                    ))}
+                    {[...Array(MAX_TOUR_IMAGE_COUNT - data.images.length)].map((_e, i) => (
+                        <div className="h-52 w-full border border-base-300 card bg-base-100 justify-center items-center" key={i}>
+                            <PhotoIcon className="h-10 w-10" />
+                        </div>
+                    ))}
+                    <div className="col-span-5">
+                        <ImageUploader title="Upload Image" setImage={setImages} />
+                    </div>
+                </div>
+            </div>
+            <div className="col-span-2">
+                <label className="label">Start writing details here</label>
+                <MarkdownEditor
+                    value={data.md_desc}
+                    setValue={setMdDesc}
+                    placeholder="Start writing details in Markdown"
+                />
+            </div>
+            <div>
+                <label className="label">Included Services</label>
+                <MarkdownEditor
+                    value={data.services}
+                    setValue={setServices}
+                    placeholder="Write in Markdown"
+                    minimal
+                />
+            </div>
+            <div>
+                <label className="label">Ticket Cancellation</label>
+                <MarkdownEditor
+                    value={data.cancel_ins}
+                    setValue={setCancelIns}
+                    placeholder="Write in Markdown"
+                    minimal
+                />
+            </div>
+        </div>
     )
 }
 

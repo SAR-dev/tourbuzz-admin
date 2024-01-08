@@ -98,19 +98,19 @@ const CreatePlace = () => {
             <div className="w-[70rem] bg-base-200 card p-5">
                 <div className="grid grid-cols-2 gap-2">
                     <div>
-                        <label className="text-sm font-semibold">Name</label>
+                        <label className="label">Name</label>
                         <input value={data.name} onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Map Link</label>
+                        <label className="label">Map Link</label>
                         <input value={data.map_link} onChange={e => setData({ ...data, map_link: e.target.value })} type="text" placeholder="Map Link" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Postal Code</label>
+                        <label className="label">Postal Code</label>
                         <input value={data.postal_code} onChange={e => setData({ ...data, postal_code: e.target.value })} type="text" placeholder="Postal Code" className="input input-bordered w-full" />
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">District</label>
+                        <label className="label">District</label>
                         <select value={data.districts_id} onChange={e => setData({ ...data, districts_id: Number(e.target.value) })} className="select custom-scrollbar w-full select-bordered">
                             <option disabled selected value={0}>Select District</option>
                             {districtsData && districtsData.data.map((e, i) => (
@@ -125,7 +125,7 @@ const CreatePlace = () => {
 
                     <div className="grid grid-cols-1 gap-2">
                         <div>
-                            <label className="text-sm font-semibold">Type</label>
+                            <label className="label">Type</label>
                             {typeOfPlaceData && (
                                 <ComboBoxInput
                                     values={typeOfPlaceData.data.map(e => { return { value: e.type, text: e.type, extraText: `(${e.count})` } })}
@@ -136,12 +136,12 @@ const CreatePlace = () => {
                             )}
                         </div>
                         <div className="flex flex-col w-full">
-                            <label className="text-sm font-semibold">Description</label>
+                            <label className="label">Description</label>
                             <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={12} placeholder="Description" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
                         </div>
                     </div>
                     <div>
-                        <label className="text-sm font-semibold">Thumbnail</label>
+                        <label className="label">Thumbnail</label>
                         <div className="p-3 bg-base-100 card border border-base-300">
                             <div className="h-80 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                                 {data.avatar ? (
