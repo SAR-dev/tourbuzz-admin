@@ -230,6 +230,49 @@ export interface UpdateArticleType {
     writers_id: number
 }
 
+export interface TourCreateType {
+    tour: TourCreatePayload;
+    tour_logs: TourLogCreatePayload[];
+    packages: TourPackageCreatePayload[];
+}
+
+interface TourCreatePayload {
+    tour_types_id: number;
+    organizers_id: number;
+    images_id: number;
+    title: string;
+    slug: string;
+    md_desc: string;
+    summary: string;
+    group_size: string;
+    group_info: string;
+    services: string;
+    transports: string;
+    cancel_ins: string;
+    start_ins: string;
+    finish_ins: string;
+    start_at: string;
+    finish_at: string;
+    last_sell_at: string;
+    image_ids: number[];
+}
+
+interface TourLogCreatePayload {
+    hotels_id: number;
+    title: string;
+    description: string;
+    date: string;
+    place_ids: number[];
+    image_ids: number[];
+}
+
+interface TourPackageCreatePayload {
+    title: string;
+    description: string;
+    price: number;
+}
+
+
 export interface DivisionWithDistrictData {
     data: DivisionWithDistrictType[]
 }
