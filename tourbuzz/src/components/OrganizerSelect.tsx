@@ -77,7 +77,7 @@ const OrganizerSelect = ({
                     Click to Select
                 </button>
             )}
-            <Modal open={open} handleClose={handleClose} title='Select Writer' width='50rem' footer={
+            <Modal open={open} handleClose={handleClose} title='Select Organizer' width='50rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>
                         <ArrowLeftIcon className='h-5 w-5' />

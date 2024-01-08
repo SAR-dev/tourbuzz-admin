@@ -93,6 +93,14 @@ const TourCreateCard = () => {
         setData({ ...data, cancel_ins: value })
     }
 
+    const setStartIns = (value: string) => {
+        setData({ ...data, start_ins: value })
+    }
+
+    const setFinishIns = (value: string) => {
+        setData({ ...data, finish_ins: value })
+    }
+
     const setAvatar = (image: ImageType) => {
         setData({ ...data, avatar: image })
     }
@@ -130,14 +138,6 @@ const TourCreateCard = () => {
             <div>
                 <label className="label">Finish Date</label>
                 <ReactInputMask mask="99/99/9999  99:99" onChange={e => setFinishDate(e.target.value)} value={finishDate} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
-            </div>
-            <div className="flex flex-col">
-                <label className="label">Journey Beigin Instructions</label>
-                <textarea value={data.start_ins} onChange={e => setData({ ...data, start_ins: e.target.value })} rows={7} placeholder="Journey Beigin Instructions" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
-            </div>
-            <div className="flex flex-col">
-                <label className="label">Journey Finish Instructions</label>
-                <textarea value={data.finish_ins} onChange={e => setData({ ...data, finish_ins: e.target.value })} rows={7} placeholder="Journey Finish Instructions" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
             </div>
             <div className="flex flex-col">
                 <label className="label">Reader-friendly Summary</label>
@@ -182,6 +182,24 @@ const TourCreateCard = () => {
                     value={data.md_desc}
                     setValue={setMdDesc}
                     placeholder="Start writing details in Markdown"
+                />
+            </div>
+            <div className="flex flex-col">
+                <label className="label">Journey Beigin Instructions</label>
+                <MarkdownEditor
+                    value={data.start_ins}
+                    setValue={setStartIns}
+                    placeholder="Write in Markdown"
+                    minimal
+                />
+            </div>
+            <div className="flex flex-col">
+                <label className="label">Journey Finish Instructions</label>
+                <MarkdownEditor
+                    value={data.finish_ins}
+                    setValue={setFinishIns}
+                    placeholder="Write in Markdown"
+                    minimal
                 />
             </div>
             <div>
