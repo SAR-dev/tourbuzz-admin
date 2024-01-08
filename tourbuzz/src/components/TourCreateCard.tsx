@@ -8,6 +8,7 @@ import { PhotoIcon } from '@heroicons/react/24/solid';
 import ImageUploader from './ImageUploader';
 import { TrashIcon } from '@heroicons/react/24/outline';
 import MarkdownEditor from './MarkdownEditor';
+import ReactInputMask from 'react-input-mask';
 
 export interface TourCreateState {
     tour_types_id: number | null;
@@ -31,9 +32,13 @@ export interface TourCreateState {
 }
 
 const TourCreateCard = () => {
+    const [startDate, setStartDate] = useState("")
+    const [finishDate, setFinishDate] = useState("")
+    const [lastSellDate, setLastSellDate] = useState("")
+
     const [data, setData] = useState<TourCreateState>({
-        tour_types_id: null,
-        organizers_id: null,
+        tour_types_id: null, // select picker
+        organizers_id: null, // modal picker
         avatar: null,
         title: '',
         slug: '',
@@ -46,9 +51,9 @@ const TourCreateCard = () => {
         cancel_ins: '',
         start_ins: '',
         finish_ins: '',
-        start_at: '', // date
-        finish_at: '', // date
-        last_sell_at: '', // date
+        start_at: '',
+        finish_at: '',
+        last_sell_at: '',
         images: [],
     })
 
@@ -92,6 +97,10 @@ const TourCreateCard = () => {
                 <input value={data.title} onChange={e => handleTitleChange(e.target.value)} type="text" placeholder="Title" className="input input-bordered w-full" />
             </div>
             <div>
+                <label className="label">SEO Friendly Slug</label>
+                <input value={data.slug} onChange={e => setData({ ...data, slug: e.target.value })} type="text" placeholder="Slug" className="input input-bordered w-full" />
+            </div>
+            <div>
                 <label className="label">Group Size</label>
                 <input value={data.group_size} onChange={e => setData({ ...data, group_size: e.target.value })} type="text" placeholder="Group Size" className="input input-bordered w-full" />
             </div>
@@ -102,6 +111,18 @@ const TourCreateCard = () => {
             <div>
                 <label className="label">Transportations</label>
                 <input value={data.transports} onChange={e => setData({ ...data, transports: e.target.value })} type="text" placeholder="Transportations" className="input input-bordered w-full" />
+            </div>
+            <div>
+                <label className="label">Ticket Last Sell Time</label>
+                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setLastSellDate(e.target.value)} value={lastSellDate} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+            </div>
+            <div>
+                <label className="label">Start Date</label>
+                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setStartDate(e.target.value)} value={startDate} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+            </div>
+            <div>
+                <label className="label">Finish Date</label>
+                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setFinishDate(e.target.value)} value={finishDate} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
             </div>
             <div className="flex flex-col">
                 <label className="label">Journey Beigin Instructions</label>
