@@ -4,14 +4,14 @@ import { ImageType, OrganizerType, TypeOfTourData } from '@src/types';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import Image from './Image';
-import { PhotoIcon } from '@heroicons/react/24/solid';
 import ImageUploader from './ImageUploader';
-import { TrashIcon } from '@heroicons/react/24/outline';
 import MarkdownEditor from './MarkdownEditor';
 import ReactInputMask from 'react-input-mask';
 import { getTourTypes } from '@src/functions/api';
 import { useQuery } from 'react-query';
 import OrganizerSelect from './OrganizerSelect';
+import { PhotoIcon } from "@heroicons/react/24/outline"
+import { TrashIcon } from "@heroicons/react/24/solid";
 
 export interface TourCreateState {
     tour_types_id: number;

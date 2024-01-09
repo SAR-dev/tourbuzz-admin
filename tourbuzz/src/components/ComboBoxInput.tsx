@@ -21,7 +21,7 @@ const ComboBoxInput = ({
     setSelectedValue: (props: ComboboxDataType) => void,
     handleNewValue: (props: string) => void
 }) => {
-    //   const [selectedValue, setSelectedValue] = useState<ComboboxDataType>(null);
+    //   const [selectedValue, setSelectedValue] = useState<ComboboxDataType | null>(null);
     const [query, setQuery] = useState('');
     const [hide, setHide] = useState(false)
 

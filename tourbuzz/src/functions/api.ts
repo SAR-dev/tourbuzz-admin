@@ -440,16 +440,19 @@ export const postPlace = ({ ...props }: CreatePlaceType): Promise<any> => {
 
 export const getPlaces = ({
     pageNo,
-    pageSize
+    pageSize,
+    name
 }: {
     pageNo: number,
-    pageSize: number
+    pageSize: number,
+    name?: string
 }): Promise<any> => {
     return api
         .get("/admin/places", {
             params: {
                 page_no: pageNo,
                 page_size: pageSize,
+                name: name ?? ""
             }
         })
         .then((res) => {
