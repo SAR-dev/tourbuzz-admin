@@ -6,6 +6,7 @@ import { useDebounce } from 'use-debounce';
 import SearchResultCard from './SearchResultCard'
 import { PlaceType } from '@src/types';
 import { getPlaces } from '@src/functions/api';
+import { CheckBadgeIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 interface MultiplePlaceSelectData {
     data: {
@@ -72,7 +73,12 @@ const MultiplePlaceSelect = ({
                     <div>Click To Select</div>
                 ) : (
                     <>
-                        {places.map((e, i) => <div className='badge badge-primary' key={i}>{e.name}</div>)}
+                        {places.map((e, i) =>
+                            <div className="btn btn-primary" key={i}>
+                                {e.name}
+                                <CheckCircleIcon className='h-5 w-5' />
+                            </div>
+                        )}
                     </>
                 )}
             </div>

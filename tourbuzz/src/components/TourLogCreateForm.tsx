@@ -8,6 +8,7 @@ import ImageUploader from './ImageUploader';
 import ReactInputMask from 'react-input-mask';
 import MultiplePlaceSelect from './MultiplePlaceSelect';
 import classNames from 'classnames';
+import MarkdownEditor from './MarkdownEditor';
 
 export interface TourLogCreateState {
     hotels_id: number | null;
@@ -50,6 +51,10 @@ const TourLogCreateForm = ({
         setData({ data: { ...data, images: [...data.images.filter(e => e.id !== id)] }, index })
     }
 
+    const setMdDesc = (value: string) => {
+        setData({ data: { ...data, description: value }, index })
+    }
+
     return (
         <div className={classNames({
             "grid grid-cols-1 gap-3 p-5 card border border-base-300 relative": true,
@@ -57,21 +62,31 @@ const TourLogCreateForm = ({
         })}>
             {active ? (
                 <div className="grid grid-cols-2 gap-3">
-                    <button className="btn btn-error btn-outline absolute top-0 right-0 btn-xs m-2" onClick={() => cancel(index)}>
+                    <button className="btn btn-outline absolute top-0 right-0 btn-xs m-2" onClick={() => cancel(index)}>
                         Cancel & Delete
                     </button>
                     <div className='w-full'>
+                        <div className="grid grid-cols-2 gap-3 mb-3">
+                            <div>
+                                <label className="label">Travel Date</label>
+                                <ReactInputMask mask="99/99/9999" onChange={e => setData({ data: { ...data, date: e.target.value }, index })} value={data.date} className="input input-bordered w-full" placeholder='yyyy/mm/dd' />
+                            </div>
+                            <div>
+                                <label className="label">Itinerary Title</label>
+                                <input value={data.title} onChange={e => setData({ data: { ...data, title: e.target.value }, index })} type="text" placeholder="Title" className="input input-bordered w-full" />
+                            </div>
+                        </div>
                         <div className="grid grid-cols-3 gap-3">
                             {data.images.map((e, i) => (
-                                <div className="h-48 w-full relative group" key={i}>
-                                    <Image image={e} className="h-48 w-full object-cover card" />
+                                <div className="h-40 w-full relative group" key={i}>
+                                    <Image image={e} className="h-40 w-full object-cover card" />
                                     <div className="absolute top-0 left-0 h-full w-full bg-red-500/50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition ease-in-out">
                                         <TrashIcon className="h-10 w-10 cursor-pointer text-white" onClick={() => removeImage(e.id)} />
                                     </div>
                                 </div>
                             ))}
                             {[...Array(MAX_TOUR_LOG_IMAGE_COUNT - data.images.length)].map((_e, i) => (
-                                <div className="h-48 w-full border border-base-300 card bg-base-100 justify-center items-center" key={i}>
+                                <div className="h-40 w-full border border-base-300 card bg-base-100 justify-center items-center" key={i}>
                                     <PhotoIcon className="h-10 w-10" />
                                 </div>
                             ))}
@@ -82,19 +97,15 @@ const TourLogCreateForm = ({
                     </div>
                     <div className='w-full'>
                         <div className="grid grid-cols-1 gap-3">
-                            <div className="grid grid-cols-2 gap-3">
-                                <div>
-                                    <label className="label">Travel Date</label>
-                                    <ReactInputMask mask="99/99/9999" onChange={e => setData({ data: { ...data, date: e.target.value }, index })} value={data.date} className="input input-bordered w-full" placeholder='yyyy/mm/dd' />
-                                </div>
-                                <div>
-                                    <label className="label">Itinerary Title</label>
-                                    <input value={data.title} onChange={e => setData({ data: { ...data, title: e.target.value }, index })} type="text" placeholder="Title" className="input input-bordered w-full" />
-                                </div>
-                            </div>
                             <div className="flex flex-col">
                                 <label className="label">Travel Plan Description</label>
-                                <textarea value={data.description} onChange={e => setData({ data: { ...data, description: e.target.value }, index })} rows={13} placeholder="Description" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
+                                <MarkdownEditor
+                                    value={data.description}
+                                    setValue={setMdDesc}
+                                    placeholder="Start writing details in Markdown"
+                                    minimal
+                                    height='25.5rem'
+                                />
                             </div>
                         </div>
                     </div>

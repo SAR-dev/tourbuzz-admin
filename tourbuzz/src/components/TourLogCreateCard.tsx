@@ -2,6 +2,7 @@ import { ImageType, PlaceType } from '@src/types';
 import { useState } from 'react';
 import TourLogCreateForm from './TourLogCreateForm';
 import { toast } from 'react-toastify';
+import { QueueListIcon } from '@heroicons/react/24/outline';
 
 export interface TourLogCreateState {
     hotels_id: number | null;
@@ -71,6 +72,7 @@ const TourLogCreateCard = () => {
 
     return (
         <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
+            <div className='flex gap-2 items-center'><QueueListIcon className='h-5 w-5' /> Tour Logs</div>
             {tourLogData.map((e, i) => (
                 <TourLogCreateForm 
                     data={e} 

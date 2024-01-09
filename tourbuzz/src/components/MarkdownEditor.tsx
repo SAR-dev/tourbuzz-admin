@@ -23,6 +23,7 @@ interface MarkdownEditorType {
     setValue: (props: string) => void;
     placeholder?: string;
     minimal?: boolean;
+    height?: string;
 }
 
 enum Mode {
@@ -31,7 +32,7 @@ enum Mode {
     CODE_AND_PREVIEW
 }
 
-const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
+const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
     const [initialized, setInitialized] = useState(false)
     const { open, toogleOpen } = useEmojiStore();
     const [mode, setMode] = useState<Mode>(props.minimal ? Mode.CODE_ONLY : Mode.CODE_AND_PREVIEW);
@@ -279,7 +280,8 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     'col-span-2': mode === Mode.CODE_ONLY
                 })}>
                     <TextareaMarkdown
-                        className="h-[30rem] custom-scrollbar overflow-y-auto textarea placeholder:text-base text-base w-full resize-none rounded-none"
+                        className="custom-scrollbar overflow-y-auto textarea placeholder:text-base text-base w-full resize-none rounded-none"
+                        style={{height}}
                         value={text}
                         onChange={e => handleTextChange(e.target.value)}
                         placeholder={props.placeholder}
@@ -291,7 +293,7 @@ const MarkdownEditor = ({ ...props }: MarkdownEditorType) => {
                     'hidden': ![Mode.CODE_AND_PREVIEW, Mode.PREVIEW_ONLY].includes(mode),
                     'col-span-2': mode === Mode.PREVIEW_ONLY
                 })}>
-                    <div className="h-[30rem] w-full custom-scrollbar overflow-y-auto bg-base-100 px-3 py-2">
+                    <div className="w-full custom-scrollbar overflow-y-auto bg-base-100 px-3 py-2" style={{height}}>
                         <div className='markdown max-w-[85ch] mx-auto'>
                             <Markdown
                                 remarkPlugins={[remarkGfm, emoji, remarkImages]}
