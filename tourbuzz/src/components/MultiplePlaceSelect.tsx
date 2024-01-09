@@ -44,7 +44,7 @@ const MultiplePlaceSelect = ({
             const newData = selectedPlaces.filter(e => e.id != id)
             setSelectedPlaces([...newData])
         } else {
-            if(!foundFromData) return;
+            if (!foundFromData) return;
             setSelectedPlaces([...selectedPlaces, foundFromData])
         }
     }
@@ -69,7 +69,7 @@ const MultiplePlaceSelect = ({
         <div>
             <div className="btn btn-outline no-animation w-full flex space-2 h-auto p-3 justify-start" onClick={handleOpen}>
                 {places.length == 0 ? (
-                <div>Click To Select</div>
+                    <div>Click To Select</div>
                 ) : (
                     <>
                         {places.map((e, i) => <div className='badge badge-primary' key={i}>{e.name}</div>)}
