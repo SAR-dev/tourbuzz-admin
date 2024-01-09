@@ -38,13 +38,13 @@ const MultiplePlaceSelect = ({
     })
 
     const handleSelectedPlace = (id: number) => {
-        const foundFromData = data?.data.data.find(e => e.id == id)
-        if (!foundFromData) return;
         const alreadyExists = selectedPlaces.find(e => e.id == id)
+        const foundFromData = data?.data.data.find(e => e.id == id)
         if (alreadyExists) {
             const newData = selectedPlaces.filter(e => e.id != id)
             setSelectedPlaces([...newData])
         } else {
+            if(!foundFromData) return;
             setSelectedPlaces([...selectedPlaces, foundFromData])
         }
     }
@@ -67,7 +67,7 @@ const MultiplePlaceSelect = ({
 
     return (
         <div>
-            <div className="btn btn-outline w-full flex space-2 h-auto p-3 justify-start" onClick={handleOpen}>
+            <div className="btn btn-outline no-animation w-full flex space-2 h-auto p-3 justify-start" onClick={handleOpen}>
                 {places.length == 0 ? (
                 <div>Click To Select</div>
                 ) : (
@@ -76,23 +76,6 @@ const MultiplePlaceSelect = ({
                     </>
                 )}
             </div>
-            {/* <div className="btn w-full btn-outline text-base" onClick={handleOpen}>
-                Click to Select
-            </div> */}
-            {/* {place ? (
-                <SearchResultCard 
-                    id={place.id}
-                    avatar={place.avatar}
-                    title={place.name}
-                    subtitle={`${place.district.name}, ${place.district.division.name}`}
-                    handleClick={handleOpen} 
-                    shownInResult={true}
-                />
-            ) : (
-                <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
-                    Click to Select
-                </button>
-            )} */}
             <Modal open={open} handleClose={handleClose} title='Select Place' width='70rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>

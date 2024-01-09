@@ -27,7 +27,7 @@ const SearchResultCard = ({
         "bg-base-200 hover:bg-base-300": !selected
     })} onClick={() => handleClick(id)}>
         <div className='w-12 flex-shrink-0'>
-            <Image image={avatar} className='h-12 w-16 object-cover card' />
+            <Image image={avatar} disableModal className='h-12 w-16 object-cover card' />
         </div>
         <div className="flex flex-col">
             <div className="font-semibold">{title}</div>
