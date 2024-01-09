@@ -3,7 +3,7 @@ import { ImageType, PlaceType } from '@src/types';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import { CalculatorIcon, CalendarIcon, PhotoIcon } from "@heroicons/react/24/outline"
-import { TrashIcon } from "@heroicons/react/24/solid";
+import { CheckIcon, TrashIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import ImageUploader from './ImageUploader';
 import ReactInputMask from 'react-input-mask';
 import MultiplePlaceSelect from './MultiplePlaceSelect';
@@ -26,7 +26,8 @@ const TourLogCreateForm = ({
     setData,
     editData,
     deleteData,
-    cancel
+    cancel,
+    complete
 }: {
     active: boolean,
     index: number,
@@ -34,7 +35,8 @@ const TourLogCreateForm = ({
     setData: ({ data, index }: { data: TourLogCreateState, index: number }) => void,
     editData: (index: number) => void,
     deleteData: (index: number) => void,
-    cancel: (index: number) => void
+    cancel: (index: number) => void,
+    complete: () => void
 }) => {
     const setPlaces = (places: PlaceType[]) => {
         setData({ data: { ...data, places }, index })
@@ -57,14 +59,21 @@ const TourLogCreateForm = ({
 
     return (
         <div className={classNames({
-            "grid grid-cols-1 gap-3 p-5 card border border-base-300 relative": true,
+            "grid grid-cols-1 gap-3 p-5 card bg-base-100 relative": true,
             "bg-base-100": !active
         })}>
             {active ? (
                 <div className="grid grid-cols-2 gap-3">
-                    <button className="btn btn-outline absolute top-0 right-0 btn-xs m-2" onClick={() => cancel(index)}>
-                        Cancel & Delete
-                    </button>
+                    <div className="flex space-x-2  absolute top-0 right-0 btn-xs m-2">
+                        <button className="btn btn-xs btn-outline" onClick={complete}>
+                            <CheckIcon className='h-4 w-4' />
+                            Completed
+                        </button>
+                        <button className="btn btn-xs btn-outline" onClick={() => cancel(index)}>
+                            <XMarkIcon className='h-4 w-4' />
+                            Cancel & Delete
+                        </button>
+                    </div>
                     <div className='w-full'>
                         <div className="grid grid-cols-2 gap-3 mb-3">
                             <div>

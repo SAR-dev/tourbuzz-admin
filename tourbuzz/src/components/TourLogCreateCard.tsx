@@ -1,5 +1,5 @@
 import { ImageType, PlaceType } from '@src/types';
-import { useState } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import TourLogCreateForm from './TourLogCreateForm';
 import { toast } from 'react-toastify';
 import { QueueListIcon } from '@heroicons/react/24/outline';
@@ -22,9 +22,21 @@ const initialState: TourLogCreateState = {
     images: []
 }
 
-const TourLogCreateCard = () => {
+const defaultActiveIndex = -1;
+
+export interface TourLogCreateRef {
+    getData: () => TourLogCreateState[];
+}
+
+const TourLogCreateCard = forwardRef<TourLogCreateRef>((_props, ref) => {
     const [tourLogData, setTourLogData] = useState<TourLogCreateState[]>([])
-    const [activeIndex, setActiveIndex] = useState(-1)
+    const [activeIndex, setActiveIndex] = useState(defaultActiveIndex)
+
+    useImperativeHandle(ref, () => ({
+        getData() {
+            return tourLogData;
+        }
+    }))
 
     const isActiveDataInValid = () => {
         if(tourLogData.length == 0) return false;
@@ -32,9 +44,9 @@ const TourLogCreateCard = () => {
             tourLogData[activeIndex].date.length < 10 ||
             tourLogData[activeIndex].description.length < 5
         ) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
     const addAnother = () => {
         if (isActiveDataInValid()) {
@@ -45,7 +57,7 @@ const TourLogCreateCard = () => {
         setTourLogData([...tourLogData, initialState])
     }
 
-    const setData = ({ data, index }: { data: TourLogCreateState, index: number }) => {
+    const handleSetData = ({ data, index }: { data: TourLogCreateState, index: number }) => {
         const newData = [...tourLogData];
         newData[index] = data;
         setTourLogData(newData);
@@ -67,7 +79,15 @@ const TourLogCreateCard = () => {
     const cancel = (index: number) => {
         const newData = tourLogData.filter((_item, i) => index !== i);
         setTourLogData([...newData])
-        setActiveIndex(-1)
+        setActiveIndex(defaultActiveIndex)
+    }
+
+    const complete = () => {
+        if (isActiveDataInValid()) {
+            toast.warning("Please complete the active Itinerary first")
+            return;
+        }
+        setActiveIndex(defaultActiveIndex)
     }
 
     return (
@@ -76,11 +96,12 @@ const TourLogCreateCard = () => {
             {tourLogData.map((e, i) => (
                 <TourLogCreateForm 
                     data={e} 
-                    setData={setData} 
+                    setData={handleSetData} 
                     editData={editData} 
                     deleteData={deleteData} 
                     active={activeIndex == i} 
                     cancel={cancel}
+                    complete={complete}
                     index={i} 
                     key={i} 
                 />
@@ -88,6 +109,6 @@ const TourLogCreateCard = () => {
             <button className="btn btn-primary" onClick={addAnother}>Add Tour Day By Day Itinerary</button>
         </div>
     )
-}
+})
 
 export default TourLogCreateCard

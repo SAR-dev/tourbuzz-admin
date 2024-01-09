@@ -1,18 +1,13 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { ImageType } from "@src/types";
-import { useState } from "react"
+import { createRef, useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
 import { useQueryClient } from "react-query"
 import PageHeader from "@src/components/PageHeader"
 import { useNavigate } from "react-router-dom"
-import TourCreateCard from "@src/components/TourCreateCard";
-import TourLogCreateCard from "@src/components/TourLogCreateCard";
+import TourCreateCard, { TourCreateRef } from "@src/components/TourCreateCard";
+import TourLogCreateCard, { TourLogCreateRef } from "@src/components/TourLogCreateCard";
 import TourPackageCreateCard from "@src/components/TourPackageCreateCard";
-
-
-
-
-
 
 interface CreateTourState {
     title: string
@@ -25,29 +20,13 @@ interface CreateTourState {
 }
 
 const CreateTour = () => {
+    const tourCreateRef = createRef<TourCreateRef>()
+    const tourLogCreateRef = createRef<TourLogCreateRef>()
+
     const queryClient = useQueryClient()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
-
-    // const setImages = (image: ImageType) => {
-    //     if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
-    //         toast.info("Maximum image uploaded")
-    //     }
-    //     setData({ ...data, images: [...data.images, image] })
-    // }
-
-    // const removeImage = (id: number) => {
-    //     setData({ ...data, images: [...data.images.filter(e => e.id !== id)] })
-    // }
-
-    // const handleTitleChange = (title: string) => {
-    //     setData({ ...data, title: title, slug: generateSlug(title) })
-    // }
-
-    // const setMdDesc = (value: string) => {
-    //     setData({ ...data, md_desc: value })
-    // }
 
     const handleSubmit = async () => {
         setError("")
@@ -83,8 +62,8 @@ const CreateTour = () => {
             />
 
             <div className="grid grid-cols-1 gap-3">
-                <TourCreateCard />
-                <TourLogCreateCard />
+                <TourCreateCard ref={tourCreateRef} />
+                <TourLogCreateCard ref={tourLogCreateRef} />
                 <TourPackageCreateCard />
             </div>
 

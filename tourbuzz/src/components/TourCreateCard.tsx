@@ -1,7 +1,7 @@
 import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
 import { ImageType, OrganizerType, TypeOfTourData } from '@src/types';
-import { useState } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import ImageUploader from './ImageUploader';
@@ -34,14 +34,14 @@ export interface TourCreateState {
     images: ImageType[];
 }
 
-const TourCreateCard = () => {
-    const [startDate, setStartDate] = useState("")
-    const [finishDate, setFinishDate] = useState("")
-    const [lastSellDate, setLastSellDate] = useState("")
+export interface TourCreateRef {
+    getData: () => TourCreateState;
+}
 
+const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
     const [data, setData] = useState<TourCreateState>({
         tour_types_id: 0,
-        organizer: null, // modal picker
+        organizer: null,
         avatar: null,
         title: '',
         slug: '',
@@ -59,6 +59,12 @@ const TourCreateCard = () => {
         last_sell_at: '',
         images: [],
     })
+
+    useImperativeHandle(ref, () => ({
+        getData() {
+            return data;
+        }
+    }))
 
     const setOrganizer = (organizer: OrganizerType) => {
         setData({ ...data, organizer })
@@ -132,15 +138,15 @@ const TourCreateCard = () => {
             </div>
             <div>
                 <label className="label">Ticket Last Sell Time</label>
-                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setLastSellDate(e.target.value)} value={lastSellDate} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
             </div>
             <div>
                 <label className="label">Start Date</label>
-                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setStartDate(e.target.value)} value={startDate} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setData({ ...data, start_at: e.target.value })} value={data.start_at} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
             </div>
             <div>
                 <label className="label">Finish Date</label>
-                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setFinishDate(e.target.value)} value={finishDate} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setData({ ...data, finish_at: e.target.value })} value={data.finish_at} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
             </div>
             <div className="flex flex-col">
                 <label className="label">Reader-friendly Summary</label>
@@ -194,6 +200,7 @@ const TourCreateCard = () => {
                     setValue={setStartIns}
                     placeholder="Write in Markdown"
                     minimal
+                    height='20rem'
                 />
             </div>
             <div className="flex flex-col">
@@ -203,6 +210,7 @@ const TourCreateCard = () => {
                     setValue={setFinishIns}
                     placeholder="Write in Markdown"
                     minimal
+                    height='20rem'
                 />
             </div>
             <div>
@@ -212,6 +220,7 @@ const TourCreateCard = () => {
                     setValue={setServices}
                     placeholder="Write in Markdown"
                     minimal
+                    height='20rem'
                 />
             </div>
             <div>
@@ -221,6 +230,7 @@ const TourCreateCard = () => {
                     setValue={setCancelIns}
                     placeholder="Write in Markdown"
                     minimal
+                    height='20rem'
                 />
             </div>
             <div>
@@ -238,7 +248,7 @@ const TourCreateCard = () => {
                 <OrganizerSelect organizer={data.organizer} setOrganizer={setOrganizer} />
             </div>
         </div>
-    )
-}
+     )
+})
 
 export default TourCreateCard

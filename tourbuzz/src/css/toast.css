@@ -234,6 +234,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .Toastify__close-button--light {
   opacity: 0.3;
