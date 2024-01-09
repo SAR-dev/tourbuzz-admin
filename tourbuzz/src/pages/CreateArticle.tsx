@@ -22,7 +22,7 @@ interface CreateArticleState {
   summary: string
   md_desc: string
   images: ImageType[]
-  writers_id: number | null
+  writer: WriterType | null
 }
 
 const CreateArticle = () => {
@@ -36,10 +36,13 @@ const CreateArticle = () => {
     summary: "",
     md_desc: "",
     images: [],
-    writers_id: null
+    writer: null
   })
   const [error, setError] = useState("")
-  const [writer, setWriter] = useState<WriterType | null>(null)
+
+  const setWriter = (writer: WriterType) => {
+    setData({...data, writer})
+  }
 
   const setImages = (image: ImageType) => {
     if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
@@ -61,7 +64,7 @@ const CreateArticle = () => {
   }
 
   const handleSubmit = async () => {
-    if (!writer?.id) {
+    if (!data.writer?.id) {
       setError("Select writer.")
       return;
     };
@@ -74,7 +77,7 @@ const CreateArticle = () => {
       summary: data.summary,
       md_desc: data.md_desc,
       image_ids: data.images.map(e => e.id),
-      writers_id: writer.id
+      writers_id: data.writer.id
     }).then(res => {
       if (res.error) {
         toast.error("Article handleSubmit failed 🤦‍♂️")
@@ -149,7 +152,7 @@ const CreateArticle = () => {
         </div>
         <div>
           <label className="label">Select Writer</label>
-          <WriterSelect writer={writer} setWriter={setWriter} />
+          <WriterSelect writer={data.writer} setWriter={setWriter} />
         </div>
       </div>
 

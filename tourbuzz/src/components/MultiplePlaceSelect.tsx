@@ -20,17 +20,17 @@ interface MultiplePlaceSelectData {
 }
 
 const MultiplePlaceSelect = ({
-    place,
-    setPlace
+    places,
+    setPlaces
 }: {
-    place: PlaceType | null,
-    setPlace: (props: PlaceType) => void
+    places: PlaceType[],
+    setPlaces: (props: PlaceType[]) => void
 }) => {
     const [name, setName] = useState("")
     const [dName] = useDebounce(name, 500);
 
     const [open, setOpen] = useState(false);
-    const [selectedPlace, setSelectedPlace] = useState<PlaceType | null>(null)
+    const [selectedPlaces, setSelectedPlaces] = useState<PlaceType[]>([])
 
     const { isLoading, error, data } = useQuery<MultiplePlaceSelectData, Error>({
         queryKey: ['places', dName],
@@ -38,30 +38,48 @@ const MultiplePlaceSelect = ({
     })
 
     const handleSelectedPlace = (id: number) => {
-        const found = data?.data.data.find(e => e.id == id)
-        if (!found || place?.id == id) return;
-        setSelectedPlace(found)
+        const foundFromData = data?.data.data.find(e => e.id == id)
+        if (!foundFromData) return;
+        const alreadyExists = selectedPlaces.find(e => e.id == id)
+        if (alreadyExists) {
+            const newData = selectedPlaces.filter(e => e.id != id)
+            setSelectedPlaces([...newData])
+        } else {
+            setSelectedPlaces([...selectedPlaces, foundFromData])
+        }
     }
 
     const handleOpen = (_?: any) => {
         setOpen(true)
-        setSelectedPlace(place)
+        setSelectedPlaces(places)
     }
 
     const handleClose = () => {
         setOpen(false)
-        setSelectedPlace(null)
+        setSelectedPlaces([])
     };
 
     const handleSubmit = () => {
-        if (!selectedPlace) return;
-        setPlace(selectedPlace)
+        if (selectedPlaces.length == 0) return;
+        setPlaces([...selectedPlaces])
         handleClose()
     }
 
     return (
         <div>
-            {place ? (
+            <div className="btn btn-outline w-full flex space-2 h-auto p-3 justify-start" onClick={handleOpen}>
+                {places.length == 0 ? (
+                <div>Click To Select</div>
+                ) : (
+                    <>
+                        {places.map((e, i) => <div className='badge badge-primary' key={i}>{e.name}</div>)}
+                    </>
+                )}
+            </div>
+            {/* <div className="btn w-full btn-outline text-base" onClick={handleOpen}>
+                Click to Select
+            </div> */}
+            {/* {place ? (
                 <SearchResultCard 
                     id={place.id}
                     avatar={place.avatar}
@@ -74,8 +92,8 @@ const MultiplePlaceSelect = ({
                 <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
                     Click to Select
                 </button>
-            )}
-            <Modal open={open} handleClose={handleClose} title='Select Place' width='50rem' footer={
+            )} */}
+            <Modal open={open} handleClose={handleClose} title='Select Place' width='70rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>
                         <ArrowLeftIcon className='h-5 w-5' />
@@ -96,23 +114,24 @@ const MultiplePlaceSelect = ({
                             </div>
                         </div>
                         <div className='grid grid-cols-3 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
-                            {place && (
+                            {places.map((place, i) => (
                                 <SearchResultCard
                                     id={place.id}
                                     avatar={place.avatar}
                                     title={place.name}
                                     subtitle={`${place.district.name}, ${place.district.division.name}`}
-                                    selected={selectedPlace?.id == place.id}
+                                    selected={selectedPlaces.map(e => e.id).includes(place.id)}
                                     handleClick={handleSelectedPlace}
+                                    key={i}
                                 />
-                            )}
-                            {!(isLoading || error || !data) && data.data.data.filter(x => x.id != place?.id).map((e, i) => (
+                            ))}
+                            {!(isLoading || error || !data) && data.data.data.filter(x => !places.map(e => e.id).includes(x.id)).map((e, i) => (
                                 <SearchResultCard
                                     id={e.id}
                                     avatar={e.avatar}
                                     title={e.name}
                                     subtitle={`${e.district.name}, ${e.district.division.name}`}
-                                    selected={selectedPlace?.id == e.id}
+                                    selected={selectedPlaces.map(e => e.id).includes(e.id)}
                                     handleClick={handleSelectedPlace}
                                     key={i}
                                 />

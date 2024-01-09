@@ -15,7 +15,7 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 
 export interface TourCreateState {
     tour_types_id: number;
-    organizers_id: number | null;
+    organizer: OrganizerType | null;
     avatar: ImageType | null;
     title: string;
     slug: string;
@@ -38,11 +38,10 @@ const TourCreateCard = () => {
     const [startDate, setStartDate] = useState("")
     const [finishDate, setFinishDate] = useState("")
     const [lastSellDate, setLastSellDate] = useState("")
-    const [organizer, setOrganizer] = useState<OrganizerType | null>(null)
 
     const [data, setData] = useState<TourCreateState>({
         tour_types_id: 0,
-        organizers_id: null, // modal picker
+        organizer: null, // modal picker
         avatar: null,
         title: '',
         slug: '',
@@ -60,6 +59,10 @@ const TourCreateCard = () => {
         last_sell_at: '',
         images: [],
     })
+
+    const setOrganizer = (organizer: OrganizerType) => {
+        setData({ ...data, organizer })
+    }
 
     const { data: typeOfTourData } = useQuery<TypeOfTourData, Error>({
         queryKey: ['tour-types'],
@@ -232,7 +235,7 @@ const TourCreateCard = () => {
             <div />
             <div>
                 <label className="label">Select Organizer</label>
-                <OrganizerSelect organizer={organizer} setOrganizer={setOrganizer} />
+                <OrganizerSelect organizer={data.organizer} setOrganizer={setOrganizer} />
             </div>
         </div>
     )

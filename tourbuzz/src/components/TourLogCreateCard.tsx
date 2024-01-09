@@ -7,6 +7,7 @@ import { PhotoIcon } from "@heroicons/react/24/outline"
 import { ArrowLeftIcon, TrashIcon } from "@heroicons/react/24/solid"
 import ImageUploader from './ImageUploader';
 import ReactInputMask from 'react-input-mask';
+import MultiplePlaceSelect from './MultiplePlaceSelect';
 
 export interface TourLogCreateState {
     hotels_id: number | null;
@@ -32,6 +33,10 @@ const TourLogCreateCard = () => {
     const [data, setData] = useState<TourLogCreateState>({ ...initialState })
     const [tourLogData, setTourLogData] = useState<TourLogCreateState[]>([])
     const [showEditor, setShowEditor] = useState(false)
+
+    const setPlaces = (places: PlaceType[]) => {
+        setData({...data, places})
+    }
 
     const setImages = (image: ImageType) => {
         if (data.images.length >= MAX_TOUR_LOG_IMAGE_COUNT) {
@@ -82,6 +87,10 @@ const TourLogCreateCard = () => {
                         <div className="flex flex-col">
                             <label className="label">Travel Plan Description</label>
                             <textarea value={data.description} onChange={e => setData({ ...data, description: e.target.value })} rows={10} placeholder="Description" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
+                        </div>
+                        <div>
+                            <label className="label">Targeted Places</label>
+                            <MultiplePlaceSelect places={data.places} setPlaces={setPlaces} />
                         </div>
                     </div>
                 </div>

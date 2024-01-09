@@ -23,7 +23,7 @@ interface ArticleUpdateState {
   summary: string
   md_desc: string
   images: ImageType[]
-  writers_id: number | null
+  writer: WriterType | null
 }
 
 const UpdateArticle = () => {
@@ -33,7 +33,7 @@ const UpdateArticle = () => {
   const [deleting, setDeleting] = useState(false)
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<ArticleUpdateState>({
-    writers_id: null,
+    writer: null,
     title: "",
     slug: "",
     subtitle: "",
@@ -42,7 +42,10 @@ const UpdateArticle = () => {
     images: [],
   })
   const [error, setError] = useState("")
-  const [writer, setWriter] = useState<WriterType | null>(null)
+  
+  const setWriter = (writer: WriterType) => {
+    setData({...data, writer})
+  }
 
   useEffect(() => {
     getArticleById({ id: Number(articleId) }).then(res => {
@@ -72,7 +75,7 @@ const UpdateArticle = () => {
   }
 
   const handleSubmit = async () => {
-    if (!writer?.id) {
+    if (!data.writer?.id) {
       setError("Select writer.")
       return;
     };
@@ -86,7 +89,7 @@ const UpdateArticle = () => {
       summary: data.summary,
       md_desc: data.md_desc,
       image_ids: data.images.map(e => e.id),
-      writers_id: writer.id
+      writers_id: data.writer.id
     }).then(res => {
       if (res.error) {
         toast.error("Article update failed 🤦‍♂️")
@@ -177,7 +180,7 @@ const UpdateArticle = () => {
         </div>
         <div>
           <label className="label">Select Writer</label>
-          <WriterSelect writer={writer} setWriter={setWriter} />
+          <WriterSelect writer={data.writer} setWriter={setWriter} />
         </div>
       </div>
 
