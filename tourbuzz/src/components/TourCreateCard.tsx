@@ -1,7 +1,7 @@
-import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
+import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT, TOUR_DATA_CREATE_CACHE_KEY } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
 import { ImageType, OrganizerType, TypeOfTourData } from '@src/types';
-import { forwardRef, useImperativeHandle, useState } from 'react';
+import { forwardRef, useImperativeHandle } from 'react';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import ImageUploader from './ImageUploader';
@@ -12,6 +12,7 @@ import { useQuery } from 'react-query';
 import OrganizerSelect from './OrganizerSelect';
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { TrashIcon } from "@heroicons/react/24/solid";
+import useLocalStorageState from 'use-local-storage-state'
 
 export interface TourCreateState {
     tour_types_id: number;
@@ -36,33 +37,41 @@ export interface TourCreateState {
 
 export interface TourCreateRef {
     getData: () => TourCreateState;
+    clearData: () => void;
+}
+
+const initialState: TourCreateState = {
+    tour_types_id: 0,
+    organizer: null,
+    avatar: null,
+    title: '',
+    slug: '',
+    md_desc: '',
+    summary: '',
+    group_size: '',
+    group_info: '',
+    services: '',
+    transports: '',
+    cancel_ins: '',
+    start_ins: '',
+    finish_ins: '',
+    start_at: '',
+    finish_at: '',
+    last_sell_at: '',
+    images: [],
 }
 
 const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
-    const [data, setData] = useState<TourCreateState>({
-        tour_types_id: 0,
-        organizer: null,
-        avatar: null,
-        title: '',
-        slug: '',
-        md_desc: '',
-        summary: '',
-        group_size: '',
-        group_info: '',
-        services: '',
-        transports: '',
-        cancel_ins: '',
-        start_ins: '',
-        finish_ins: '',
-        start_at: '',
-        finish_at: '',
-        last_sell_at: '',
-        images: [],
+    const [data, setData, { removeItem }] = useLocalStorageState<TourCreateState>(TOUR_DATA_CREATE_CACHE_KEY, {
+        defaultValue: initialState
     })
 
     useImperativeHandle(ref, () => ({
         getData() {
             return data;
+        },
+        clearData() {
+            removeItem()
         }
     }))
 
@@ -248,7 +257,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <OrganizerSelect organizer={data.organizer} setOrganizer={setOrganizer} />
             </div>
         </div>
-     )
+    )
 })
 
 export default TourCreateCard

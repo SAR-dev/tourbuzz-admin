@@ -3,6 +3,8 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 import TourLogCreateForm from './TourLogCreateForm';
 import { toast } from 'react-toastify';
 import { QueueListIcon } from '@heroicons/react/24/outline';
+import useLocalStorageState from 'use-local-storage-state';
+import { TOUR_LOG_CREATE_CACHE_KEY } from '@src/constants/values';
 
 export interface TourLogCreateState {
     hotels_id: number | null;
@@ -26,15 +28,23 @@ const defaultActiveIndex = -1;
 
 export interface TourLogCreateRef {
     getData: () => TourLogCreateState[];
+    clearData: () => void;
 }
 
 const TourLogCreateCard = forwardRef<TourLogCreateRef>((_props, ref) => {
-    const [tourLogData, setTourLogData] = useState<TourLogCreateState[]>([])
+    const [tourLogData, setTourLogData, { removeItem }] = useLocalStorageState<TourLogCreateState[]>(TOUR_LOG_CREATE_CACHE_KEY, {
+        defaultValue: []
+    })
+    
     const [activeIndex, setActiveIndex] = useState(defaultActiveIndex)
 
     useImperativeHandle(ref, () => ({
         getData() {
             return tourLogData;
+        },
+        clearData() {
+            setActiveIndex(defaultActiveIndex)
+            removeItem()
         }
     }))
 

@@ -1,7 +1,6 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { createRef, useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
-import { useQueryClient } from "react-query"
 import PageHeader from "@src/components/PageHeader"
 import { useNavigate } from "react-router-dom"
 import TourCreateCard, { TourCreateRef } from "@src/components/TourCreateCard";
@@ -47,11 +46,20 @@ const CreateTour = () => {
         // })
     }
 
+    const resetData = () => {
+        tourCreateRef.current?.clearData()
+        tourLogCreateRef.current?.clearData()
+        tourPackageCreateRef.current?.clearData()
+    }
+
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
                 title="Create A Tour"
                 subtitle="Before writing the article please review the contents carefully 🧐"
+                right={
+                    <button className="btn btn-primary" onClick={resetData}>Reset Data</button>
+                }
             />
 
             <div className="grid grid-cols-1 gap-3">

@@ -39,6 +39,7 @@
     "tabler-icons-react": "^1.56.0",
     "textarea-markdown-editor": "^1.0.4",
     "use-debounce": "^10.0.0",
+    "use-local-storage-state": "^19.1.0",
     "use-undoable": "^4.0.0",
     "zustand": "^4.4.7"
   },
