@@ -2,22 +2,15 @@ import { MAX_TOUR_LOG_IMAGE_COUNT } from '@src/constants/values';
 import { ImageType, PlaceType } from '@src/types';
 import { toast } from 'react-toastify';
 import Image from './Image';
-import { CalculatorIcon, CalendarIcon, PhotoIcon } from "@heroicons/react/24/outline"
+import { CalendarIcon, PhotoIcon } from "@heroicons/react/24/outline";
 import { CheckIcon, TrashIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import ImageUploader from './ImageUploader';
 import ReactInputMask from 'react-input-mask';
 import MultiplePlaceSelect from './MultiplePlaceSelect';
 import classNames from 'classnames';
 import MarkdownEditor from './MarkdownEditor';
+import { TourLogCreateState } from './TourLogCreateCard';
 
-export interface TourLogCreateState {
-    hotels_id: number | null;
-    title: string;
-    description: string;
-    date: string;
-    places: PlaceType[];
-    images: ImageType[]
-}
 
 const TourLogCreateForm = ({
     active,

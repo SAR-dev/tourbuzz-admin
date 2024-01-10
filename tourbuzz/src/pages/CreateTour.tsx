@@ -1,5 +1,4 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
-import { ImageType } from "@src/types";
 import { createRef, useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
 import { useQueryClient } from "react-query"
@@ -7,28 +6,22 @@ import PageHeader from "@src/components/PageHeader"
 import { useNavigate } from "react-router-dom"
 import TourCreateCard, { TourCreateRef } from "@src/components/TourCreateCard";
 import TourLogCreateCard, { TourLogCreateRef } from "@src/components/TourLogCreateCard";
-import TourPackageCreateCard from "@src/components/TourPackageCreateCard";
-
-interface CreateTourState {
-    title: string
-    slug: string
-    subtitle: string
-    summary: string
-    md_desc: string
-    images: ImageType[]
-    writers_id: number | null
-}
+import TourPackageCreateCard, { TourPackageCreateRef } from "@src/components/TourPackageCreateCard";
 
 const CreateTour = () => {
     const tourCreateRef = createRef<TourCreateRef>()
     const tourLogCreateRef = createRef<TourLogCreateRef>()
+    const tourPackageCreateRef = createRef<TourPackageCreateRef>()
 
-    const queryClient = useQueryClient()
+    // const queryClient = useQueryClient()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
 
     const handleSubmit = async () => {
+        console.log(tourCreateRef.current?.getData())
+        console.log(tourLogCreateRef.current?.getData())
+        console.log(tourPackageCreateRef.current?.getData())
         setError("")
         setLoading(true)
         // postArticle({
@@ -64,7 +57,7 @@ const CreateTour = () => {
             <div className="grid grid-cols-1 gap-3">
                 <TourCreateCard ref={tourCreateRef} />
                 <TourLogCreateCard ref={tourLogCreateRef} />
-                <TourPackageCreateCard />
+                <TourPackageCreateCard ref={tourPackageCreateRef} />
             </div>
 
             {error.length > 0 && (

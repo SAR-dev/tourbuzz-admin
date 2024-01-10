@@ -48,6 +48,7 @@ const TourLogCreateCard = forwardRef<TourLogCreateRef>((_props, ref) => {
         }
         return false;
     }
+    
     const addAnother = () => {
         if (isActiveDataInValid()) {
             toast.warning("Please complete the active Itinerary first")
