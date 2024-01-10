@@ -230,7 +230,7 @@ export interface UpdateArticleType {
     writers_id: number
 }
 
-export interface TourCreateType {
+export interface CreateTourType {
     tour: TourCreatePayload;
     tour_logs: TourLogCreatePayload[];
     packages: TourPackageCreatePayload[];

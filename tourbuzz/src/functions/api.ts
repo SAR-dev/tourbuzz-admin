@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../types";
+import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../types";
 
 const api = axios.create();
 
@@ -501,6 +501,20 @@ export const updatePlace = ({ ...props }: UpdatePlaceType): Promise<any> => {
 export const deletePlaceById = ({ id }: { id: number }): Promise<any> => {
     return api
         .delete(`/admin/places/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// Tours
+
+export const postTour = ({ ...props }: CreateTourType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/tours", data)
         .then((res) => {
             return { data: res.data };
         })

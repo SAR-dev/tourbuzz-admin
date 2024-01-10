@@ -3,6 +3,7 @@ import { CheckIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import classNames from 'classnames';
 import MarkdownEditor from './MarkdownEditor';
 import { TourPackageCreateState } from './TourPackageCreateCard';
+import humanNumber from "human-number";
 
 
 const TourPackageCreateForm = ({
@@ -66,7 +67,7 @@ const TourPackageCreateForm = ({
                             <div className="flex flex-col">
                                 <label className="label">Package Additional Info</label>
                                 <MarkdownEditor
-                                    value={data.description}
+                                    value={data.additional_info}
                                     setValue={setMdInfo}
                                     placeholder="Start writing details in Markdown"
                                     minimal
@@ -79,7 +80,7 @@ const TourPackageCreateForm = ({
             ) : (
                 <div className='w-full flex items-center'>
                     <BanknotesIcon className='h-5 w-5' />
-                    <div className="font-semibold ml-2 mr-4">{data.price}</div>
+                    <div className="font-semibold ml-2 mr-4">{data.price ? `[${humanNumber(data.price)} TK]` : data.price}</div>
                     <div>{data.title}</div>
                     <div className="join ml-auto">
                         <button className="btn btn-xs join-item" onClick={() => editData(index)}>Edit</button>

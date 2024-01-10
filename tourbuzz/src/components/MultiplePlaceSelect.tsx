@@ -6,7 +6,7 @@ import { useDebounce } from 'use-debounce';
 import SearchResultCard from './SearchResultCard'
 import { PlaceType } from '@src/types';
 import { getPlaces } from '@src/functions/api';
-import { CheckBadgeIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 interface MultiplePlaceSelectData {
     data: {
@@ -68,20 +68,20 @@ const MultiplePlaceSelect = ({
 
     return (
         <div>
-            <div className="btn btn-outline no-animation w-full flex space-2 h-auto p-3 justify-start" onClick={handleOpen}>
-                {places.length == 0 ? (
-                    <div>Click To Select</div>
-                ) : (
-                    <>
-                        {places.map((e, i) =>
-                            <div className="btn btn-primary" key={i}>
-                                {e.name}
-                                <CheckCircleIcon className='h-5 w-5' />
-                            </div>
-                        )}
-                    </>
-                )}
-            </div>
+            {places.length == 0 ? (
+                <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
+                    Click to Select
+                </button>
+            ) : (
+                <div className="card group p-2 flex flex-row space-x-2 border border-base-200 hover:bg-base-200 cursor-pointer" onClick={handleOpen}>
+                    {places.map((e, i) =>
+                        <div className="btn group-hover:bg-base-100" key={i}>
+                            {e.name}
+                            <CheckCircleIcon className='h-5 w-5' />
+                        </div>
+                    )}
+                </div>
+            )}
             <Modal open={open} handleClose={handleClose} title='Select Place' width='70rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>

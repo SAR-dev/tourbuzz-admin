@@ -147,15 +147,15 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
             </div>
             <div>
                 <label className="label">Ticket Last Sell Time</label>
-                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='dd/mm/yyyy hh:mm' />
             </div>
             <div>
                 <label className="label">Start Date</label>
-                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setData({ ...data, start_at: e.target.value })} value={data.start_at} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setData({ ...data, start_at: e.target.value })} value={data.start_at} className="input input-bordered w-full" placeholder='dd/mm/yyyy hh:mm' />
             </div>
             <div>
                 <label className="label">Finish Date</label>
-                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setData({ ...data, finish_at: e.target.value })} value={data.finish_at} className="input input-bordered w-full" placeholder='yyyy/mm/dd hh:mm' />
+                <ReactInputMask mask="99/99/9999  99:99" onChange={e => setData({ ...data, finish_at: e.target.value })} value={data.finish_at} className="input input-bordered w-full" placeholder='dd/mm/yyyy hh:mm' />
             </div>
             <div className="flex flex-col">
                 <label className="label">Reader-friendly Summary</label>
@@ -166,7 +166,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <div className="p-3 bg-base-100 card border border-base-300">
                     <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                         {data.avatar ? (
-                            <Image image={data.avatar} className="h-60 w-full object-cover object-center" />
+                            <Image image={data.avatar} disableThumbnail className="h-60 w-full object-contain object-center" />
                         ) : (
                             <PhotoIcon className="h-20 w-20" />
                         )}
@@ -178,7 +178,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <div className="grid grid-cols-5 gap-3">
                     {data.images.map((e, i) => (
                         <div className="h-52 w-full relative group" key={i}>
-                            <Image image={e} className="h-52 w-full object-cover card" />
+                            <Image image={e} disableThumbnail className="h-52 w-full object-cover card" />
                             <div className="absolute top-0 left-0 h-full w-full bg-red-500/50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition ease-in-out">
                                 <TrashIcon className="h-10 w-10 cursor-pointer text-white" onClick={() => removeImage(e.id)} />
                             </div>

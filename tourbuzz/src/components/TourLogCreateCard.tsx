@@ -49,7 +49,9 @@ const TourLogCreateCard = forwardRef<TourLogCreateRef>((_props, ref) => {
     }))
 
     const isActiveDataInValid = () => {
-        if(tourLogData.length == 0) return false;
+        if(activeIndex == defaultActiveIndex){
+            return false;
+        }
         if (tourLogData[activeIndex].title.length < 3 ||
             tourLogData[activeIndex].date.length < 10 ||
             tourLogData[activeIndex].description.length < 5

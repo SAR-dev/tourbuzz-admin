@@ -43,7 +43,9 @@ const TourPackageCreateCard = forwardRef<TourPackageCreateRef>((_props, ref) => 
     }))
 
     const isActiveDataInValid = () => {
-        if (tourPackageData.length == 0) return false;
+         if(activeIndex == defaultActiveIndex){
+            return false;
+        }
         if (tourPackageData[activeIndex].title.length < 3 ||
             tourPackageData[activeIndex].description.length < 5 ||
             tourPackageData[activeIndex].price == null ||

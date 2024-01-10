@@ -6,44 +6,86 @@ import { useNavigate } from "react-router-dom"
 import TourCreateCard, { TourCreateRef } from "@src/components/TourCreateCard";
 import TourLogCreateCard, { TourLogCreateRef } from "@src/components/TourLogCreateCard";
 import TourPackageCreateCard, { TourPackageCreateRef } from "@src/components/TourPackageCreateCard";
+import { CreateTourType, parseErrorMessage } from './../types';
+import { toast } from "react-toastify";
+import { postTour } from "@src/functions/api";
+import { useQueryClient } from "react-query";
 
 const CreateTour = () => {
     const tourCreateRef = createRef<TourCreateRef>()
     const tourLogCreateRef = createRef<TourLogCreateRef>()
     const tourPackageCreateRef = createRef<TourPackageCreateRef>()
 
-    // const queryClient = useQueryClient()
+    const queryClient = useQueryClient()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
 
     const handleSubmit = async () => {
-        console.log(tourCreateRef.current?.getData())
-        console.log(tourLogCreateRef.current?.getData())
-        console.log(tourPackageCreateRef.current?.getData())
+        if(!tourCreateRef.current || !tourLogCreateRef.current || !tourPackageCreateRef.current){
+            return;
+        }
         setError("")
-        setLoading(true)
-        // postArticle({
-        //     title: data.title,
-        //     slug: data.slug,
-        //     subtitle: data.subtitle,
-        //     summary: data.summary,
-        //     md_desc: data.md_desc,
-        //     image_ids: data.images.map(e => e.id),
-        //     writers_id: writer.id
-        // }).then(res => {
-        //     if (res.error) {
-        //         toast.error("Article handleSubmit failed 🤦‍♂️")
-        //         setError(parseErrorMessage(res.error).message)
-        //         setLoading(false)
-        //     } else {
-        //         toast.success("Article Submitted 💪")
-        //         queryClient.invalidateQueries("articles")
-        //         setLoading(false)
-        //         navigate("/articles")
-        //     }
 
-        // })
+        const tour = tourCreateRef.current.getData();
+        if(!tour.organizer || !tour.avatar){
+            return;
+        }
+
+        const tour_logs = tourLogCreateRef.current.getData();
+        tour_logs.forEach(e => {
+            if(e.hotels_id == null){
+                toast.error("Tour logs must contain hotel data");
+                return;
+            }
+        })
+
+        const packages = tourPackageCreateRef.current.getData();
+        packages.forEach(e => {
+            if(e.price == null){
+                toast.error("Package must contain price data");
+                return;
+            }
+        })
+
+        const data:CreateTourType = {
+            tour: {
+                ...tour,
+                organizers_id: tour.organizer.id,
+                images_id: tour.avatar.id,
+                image_ids: tour.images.map(e => e.id)
+            },
+            tour_logs: tour_logs.map(e => {
+                return {
+                    ...e, 
+                    hotels_id: Number(e.hotels_id),
+                    place_ids: e.places.map(c => c.id), 
+                    image_ids: e.images.map(c => c.id)
+                }
+            }),
+            packages: packages.map(e => {
+                return {
+                    ...e,
+                    price: Number(e.price)
+                }
+            })
+        }
+
+        setLoading(true)
+        postTour({...data}).then(res => {
+            if (res.error) {
+                toast.error("Tour submission failed 🤦‍♂️")
+                setError(parseErrorMessage(res.error).message)
+                setLoading(false)
+            } else {
+                toast.success("Tour Submitted 💪")
+                queryClient.invalidateQueries("tours")
+                setLoading(false)
+                resetData()
+                navigate("/tours")
+            }
+
+        })
     }
 
     const resetData = () => {

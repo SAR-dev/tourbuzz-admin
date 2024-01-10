@@ -71,7 +71,7 @@ const TourLogCreateForm = ({
                         <div className="grid grid-cols-2 gap-3 mb-3">
                             <div>
                                 <label className="label">Travel Date</label>
-                                <ReactInputMask mask="99/99/9999" onChange={e => setData({ data: { ...data, date: e.target.value }, index })} value={data.date} className="input input-bordered w-full" placeholder='yyyy/mm/dd' />
+                                <ReactInputMask mask="99/99/9999" onChange={e => setData({ data: { ...data, date: e.target.value }, index })} value={data.date} className="input input-bordered w-full" placeholder='dd/mm/yyyy' />
                             </div>
                             <div>
                                 <label className="label">Itinerary Title</label>
