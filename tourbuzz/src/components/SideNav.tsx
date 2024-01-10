@@ -12,7 +12,7 @@ import { ReactNode } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { Link, useLocation } from "react-router-dom";
 import EmojiPicker from "./EmojiPicker";
-import { Map, Tooltip, Trees } from "tabler-icons-react";
+import { Map, Trees } from "tabler-icons-react";
 import classNames from "classnames";
 import { useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
@@ -46,7 +46,7 @@ export function SideNav({ children }: { children: ReactNode }) {
         <Link
             className={classNames({
                 "btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start": true,
-                "cursor-not-allowed": disabled
+                "cursor-not-allowed": disabled,
             })}
             to={disabled ? "#" : url}
             data-tooltip-id={!expanded ? "nav-tooltip" : ""}
@@ -57,11 +57,8 @@ export function SideNav({ children }: { children: ReactNode }) {
                 <>
                     {name}
 
-                    <div className="flex space-x-2 ml-auto">
-                        {`${url}/create` == pathname && (
-                            < PlusCircleIcon className="h-5 w-5" />
-                        )}
-                        {(url == pathname || `${url}/create` == pathname) && (
+                    <div className="ml-auto">
+                        {((url == pathname || `${url}/create` == pathname)) && (
                             <ChevronRightIcon className='h-5 w-5' />
                         )}
                     </div>
