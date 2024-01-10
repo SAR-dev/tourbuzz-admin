@@ -5,7 +5,7 @@ import { EmojiType, emojis } from '@src/constants/emojis'
 import { toast } from 'react-toastify'
 import Fuse from 'fuse.js'
 import { useEmojiStore } from '@src/store'
-import { Tooltip } from 'react-tooltip'
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const fuseOptions = {
     keys: [
@@ -20,8 +20,8 @@ const fuseIndex = Fuse.createIndex(fuseOptions.keys, emojis)
 
 const fuse = new Fuse(emojis, fuseOptions, fuseIndex);
 
-const EmojiPicker = () => {
-    const {open, toogleOpen} = useEmojiStore()
+const EmojiPicker = ({ expanded }: { expanded: boolean }) => {
+    const { open, toogleOpen } = useEmojiStore()
     const [emojisList, setEmojiList] = useState<EmojiType[]>([...emojis])
     const [search, setSearch] = useState("")
 
@@ -47,9 +47,18 @@ const EmojiPicker = () => {
 
     return (
         <div>
-            <button className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start" onClick={toogleOpen}>
+            <button
+                className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start"
+                onClick={toogleOpen}
+                data-tooltip-id="nav-tooltip"
+                data-tooltip-content="Emoji Picker"
+            >
                 <FaceSmileIcon className='h-5 w-5' />
-                Emoji
+                {expanded && (
+                    <>
+                        Emoji
+                    </>
+                )}
             </button>
             <Modal title="Emoji Picker" open={open} handleClose={toogleOpen} width='60rem' height='40rem' maxWidth='60rem' footer={
                 <div className='flex items-center w-full'>
@@ -64,8 +73,8 @@ const EmojiPicker = () => {
                     <div className="flex flex-wrap mt-2 custom-scrollbar overflow-y-auto max-h-[26rem]">
                         {emojisList.map((e, i) => (
                             <div className='mr-2 mb-2 card overflow-hidden border border-base-300 w-20 h-fit' key={i}>
-                                <div className="h-16 w-20 items-center justify-center flex cursor-pointer hover:bg-base-100" 
-                                    data-tooltip-id="emoji-tooltip" 
+                                <div className="h-16 w-20 items-center justify-center flex cursor-pointer hover:bg-base-100"
+                                    data-tooltip-id="emoji-tooltip"
                                     data-tooltip-content={e.name}
                                     onClick={() => copyToClipboard(e.emoji)}
                                 >
@@ -78,7 +87,7 @@ const EmojiPicker = () => {
                         ))}
                     </div>
                 </div>
-                <Tooltip id="emoji-tooltip" />
+                <ReactTooltip id="emoji-tooltip" />
             </Modal>
         </div>
     )

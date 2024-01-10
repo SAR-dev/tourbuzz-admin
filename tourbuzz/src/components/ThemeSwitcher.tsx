@@ -1,34 +1,40 @@
-import { ChevronDownIcon, SwatchIcon } from '@heroicons/react/24/solid';
+import { SwatchIcon } from '@heroicons/react/24/solid';
 import { ThemeName, useThemeStore } from '@src/store';
-import classNames from 'classnames';
 import { useState } from 'react';
+import Modal from './Modal';
 
-function ThemeSwitcher(): JSX.Element {
+function ThemeSwitcher({ expanded }: { expanded: boolean }): JSX.Element {
     const [show, setShow] = useState(false)
+    const toogleShow = () => setShow(!show);
     const { theme, setTheme } = useThemeStore();
 
     return (
         <div>
-            <button className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start" onClick={() => setShow(c => !c)}>
+            <button
+                className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start"
+                onClick={toogleShow}
+                data-tooltip-id="nav-tooltip"
+                data-tooltip-content="Theme Picker"
+            >
                 <SwatchIcon className='h-5 w-5' />
-                Theme
-                {show && (
-                    <ChevronDownIcon className='h-5 w-5 ml-auto' />
+                {expanded && (
+                    <>
+                        Theme
+                    </>
                 )}
             </button>
-            <div className={classNames({
-                "px-3": true,
-                "hidden": !show
-            })}>
-                {Object.keys(ThemeName).map((key) => (
-                    <div className="form-control" key={key}>
-                        <label className="label cursor-pointer gap-4">
-                            <span className="label-text">{key}</span>
-                            <input type="radio" name="theme-radios" className="radio theme-controller" value={ThemeName[key as keyof typeof ThemeName]} checked={theme === ThemeName[key as keyof typeof ThemeName]} onChange={e => setTheme(e.target.value as ThemeName)} />
-                        </label>
-                    </div>
-                ))}
-            </div>
+            <Modal open={show} handleClose={toogleShow} title='Pick Theme' width='50rem' closeButton>
+                <div className="grid grid-cols-4 gap-5">
+                    {Object.keys(ThemeName).map((key) => (
+                        <div className="form-control" key={key}>
+                            <div className="flex items-center cursor-pointer gap-4">
+                                <input type="radio" name="theme-radios" className="radio theme-controller" value={ThemeName[key as keyof typeof ThemeName]} checked={theme === ThemeName[key as keyof typeof ThemeName]} onChange={e => setTheme(e.target.value as ThemeName)} />
+                                <span className="label-text">{key}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Modal>
         </div>
     );
 }

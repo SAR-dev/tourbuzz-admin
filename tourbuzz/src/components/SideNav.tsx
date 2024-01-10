@@ -12,11 +12,12 @@ import { ReactNode } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { Link, useLocation } from "react-router-dom";
 import EmojiPicker from "./EmojiPicker";
-import { Map, Trees } from "tabler-icons-react";
+import { Map, Tooltip, Trees } from "tabler-icons-react";
 import classNames from "classnames";
 import { useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 import { Bars3Icon, PlusCircleIcon } from "@heroicons/react/24/outline";
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
     return (
@@ -41,71 +42,70 @@ export function SideNav({ children }: { children: ReactNode }) {
     const location = useLocation();
     const { pathname } = location;
 
-    const NavMenu = ({ name, url, icon, disabled }: { name: string, url: string, icon: ReactNode, disabled?: boolean }) => (
+    const NavMenu = ({ name, url, icon, disabled, expanded }: { name: string, url: string, icon: ReactNode, disabled?: boolean, expanded: boolean }) => (
         <Link
             className={classNames({
                 "btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start": true,
                 "cursor-not-allowed": disabled
             })}
             to={disabled ? "#" : url}
+            data-tooltip-id={!expanded ? "nav-tooltip" : ""}
+            data-tooltip-content={!expanded ? name : ""}
         >
-            {icon} {name}
-            <div className="flex space-x-2 ml-auto">
-                {`${url}/create` == pathname && (
-                    < PlusCircleIcon className="h-5 w-5" />
-                )}
-                {(url == pathname || `${url}/create` == pathname) && (
-                    <ChevronRightIcon className='h-5 w-5' />
-                )}
-            </div>
+            {icon}
+            {expanded && (
+                <>
+                    {name}
+
+                    <div className="flex space-x-2 ml-auto">
+                        {`${url}/create` == pathname && (
+                            < PlusCircleIcon className="h-5 w-5" />
+                        )}
+                        {(url == pathname || `${url}/create` == pathname) && (
+                            <ChevronRightIcon className='h-5 w-5' />
+                        )}
+                    </div>
+                </>
+            )}
         </Link>
     )
 
     return (
         <div className="inline-flex w-full">
             <div className={classNames({
-                "h-screen bg-base-200 overflow-y-auto custom-scrollbar transition-all duration-300 ease-in-out": true,
-                "w-[20rem] p-2": open,
-                "w-[0rem] p-[0rem]": !open
+                "h-screen bg-base-200 overflow-y-auto overflow-x-hidden custom-scrollbar transition-all duration-300 ease-in-out": true,
+                "w-[20rem]": open
             })}>
-                <div className={classNames({
-                    "transition-all duration-200 ease-in-out": true,
-                    "opacity-100": open,
-                    "opacity-0": !open
-                })}>
-                    <div className="h-12 flex items-center border-b border-base-300 pl-3 pr-2 w-full">
-                        <Link to="/" className="font-semibold text-xl">
-                            TourBuzz
-                        </Link>
-                        <button className="btn btn-xs h-8 w-8 ml-auto" onClick={toogleOpen}>
-                            <XMarkIcon className="h-5 w-5" />
-                        </button>
+                <div>
+                    <div className="h-12 flex items-center border-b border-base-300 w-full">
+                        {open ? (
+                            <div className="pl-3 pr-2 flex items-center justify-between w-full">
+                                <Link to="/" className="font-semibold">
+                                    TourBuzz
+                                </Link>
+                                <button className="btn btn-xs h-8 w-8 ml-auto bg-transparent border-transparent shadow-none" onClick={toogleOpen}>
+                                    <XMarkIcon className="h-5 w-5" />
+                                </button>
+                            </div>
+                        ) : (
+                            <button className="btn btn-sm bg-transparent border-transparent shadow-none" onClick={toogleOpen}>
+                                <Bars3Icon className="h-5 w-5" />
+                            </button>
+                        )}
                     </div>
                     <div className="flex flex-col space-y-1 mt-3">
-                        <NavMenu name="Gallery" url="/images" icon={<PhotoIcon className="h-5 w-5" />} />
-                        <NavMenu name="Writers" url="/writers" icon={<PencilSquareIcon className="h-5 w-5" />} />
-                        <NavMenu name="Articles" url="/articles" icon={<BookOpenIcon className="h-5 w-5" />} />
-                        <NavMenu name="Enqueries" url="/enqueries" icon={<ChatBubbleBottomCenterIcon className="h-5 w-5" />} />
-                        <NavMenu name="Organizers" url="/organizers" icon={<RectangleGroupIcon className="h-5 w-5" />} />
-                        <NavMenu name="Hotels" url="/hotels" icon={<HomeModernIcon className="h-5 w-5" />} />
-                        <NavMenu name="Places" url="/places" icon={<Trees className="h-5 w-5" />} />
-                        <NavMenu name="Tours" url="/tours" icon={<Map className="h-5 w-5" />} />
-                        <EmojiPicker />
-                        <ThemeSwitcher />
+                        <NavMenu expanded={open} name="Gallery" url="/images" icon={<PhotoIcon className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Writers" url="/writers" icon={<PencilSquareIcon className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Articles" url="/articles" icon={<BookOpenIcon className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Enqueries" url="/enqueries" icon={<ChatBubbleBottomCenterIcon className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Organizers" url="/organizers" icon={<RectangleGroupIcon className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Hotels" url="/hotels" icon={<HomeModernIcon className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Places" url="/places" icon={<Trees className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Tours" url="/tours" icon={<Map className="h-5 w-5" />} />
+                        <EmojiPicker expanded={open} />
+                        <ThemeSwitcher expanded={open} />
                     </div>
                 </div>
-            </div>
-
-            <div className={classNames({
-                "h-screen bg-base-200 transition-all delay-200 ease-in": true,
-                "w-[0rem] p-[0rem] opacity-0": open,
-                "py-5 px-2 opacity-1": !open
-            })}>
-                {!open && (
-                    <button className="h-10 w-10 bg-primary card justify-center items-center" onClick={toogleOpen}>
-                        <Bars3Icon className="h-5 w-5" />
-                    </button>
-                )}
             </div>
 
             <div className="h-screen w-full overflow-y-auto p-5 relative">
@@ -113,6 +113,7 @@ export function SideNav({ children }: { children: ReactNode }) {
                     {children}
                 </ErrorBoundary>
             </div>
+            <ReactTooltip id="nav-tooltip" />
         </div>
     );
 }
