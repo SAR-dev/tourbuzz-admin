@@ -28,7 +28,7 @@ const Modal = ({ ...props }: ModalType) => {
                 <div className="flex w-full justify-between items-center">
                     <h3 className="font-bold text-lg">{props.title}</h3>
                     {props.closeButton && (
-                        <button className="btn btn-sm" onClick={props.handleClose}>
+                        <button className="btn btn-sm h-8 w-8 p-0" onClick={props.handleClose}>
                             <XMarkIcon className="h-5 w-5" />
                         </button>
                     )}
