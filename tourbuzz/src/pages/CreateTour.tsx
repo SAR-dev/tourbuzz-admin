@@ -34,7 +34,7 @@ const CreateTour = () => {
 
         const tour_logs = tourLogCreateRef.current.getData();
         tour_logs.forEach(e => {
-            if(e.hotels_id == null){
+            if(e.hotel == null){
                 toast.error("Tour logs must contain hotel data");
                 return;
             }
@@ -58,7 +58,7 @@ const CreateTour = () => {
             tour_logs: tour_logs.map(e => {
                 return {
                     ...e, 
-                    hotels_id: Number(e.hotels_id),
+                    hotels_id: Number(e.hotel?.id),
                     place_ids: e.places.map(c => c.id), 
                     image_ids: e.images.map(c => c.id)
                 }

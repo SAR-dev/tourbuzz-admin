@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import Modal from './Modal'
 import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
-import SearchResultCard from './SearchResultCard'
+import SearchResultCardWithImage from './SearchResultCardWithImage'
 import { PlaceType } from '@src/types';
 import { getPlaces } from '@src/functions/api';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
@@ -73,7 +73,7 @@ const MultiplePlaceSelect = ({
                     Click to Select
                 </button>
             ) : (
-                <div className="card group p-2 flex flex-row space-x-2 border border-base-200 hover:bg-base-200 cursor-pointer" onClick={handleOpen}>
+                <div className="card group p-2.5 flex flex-row space-x-2 border border-base-200 hover:bg-base-200 cursor-pointer" onClick={handleOpen}>
                     {places.map((e, i) =>
                         <div className="btn group-hover:bg-base-100" key={i}>
                             {e.name}
@@ -104,7 +104,7 @@ const MultiplePlaceSelect = ({
                         </div>
                         <div className='grid grid-cols-3 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
                             {places.map((place, i) => (
-                                <SearchResultCard
+                                <SearchResultCardWithImage
                                     id={place.id}
                                     avatar={place.avatar}
                                     title={place.name}
@@ -115,7 +115,7 @@ const MultiplePlaceSelect = ({
                                 />
                             ))}
                             {!(isLoading || error || !data) && data.data.data.filter(x => !places.map(e => e.id).includes(x.id)).map((e, i) => (
-                                <SearchResultCard
+                                <SearchResultCardWithImage
                                     id={e.id}
                                     avatar={e.avatar}
                                     title={e.name}

@@ -5,7 +5,7 @@ import { useQuery } from 'react-query'
 import Modal from './Modal'
 import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
-import SearchResultCard from './SearchResultCard'
+import SearchResultCardWithImage from './SearchResultCardWithImage'
 
 interface WriterData {
     data: {
@@ -64,7 +64,7 @@ const WriterSelect = ({
     return (
         <div>
             {writer ? (
-                <SearchResultCard 
+                <SearchResultCardWithImage 
                     id={writer.id}
                     avatar={writer.avatar}
                     title={writer.name}
@@ -103,7 +103,7 @@ const WriterSelect = ({
                         </div>
                         <div className='grid grid-cols-3 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
                             {writer && (
-                                <SearchResultCard
+                                <SearchResultCardWithImage
                                     id={writer.id}
                                     avatar={writer.avatar}
                                     title={writer.name}
@@ -113,7 +113,7 @@ const WriterSelect = ({
                                 />
                             )}
                             {!(isLoading || error || !data) && data.data.data.filter(x => x.id != writer?.id).map((e, i) => (
-                                <SearchResultCard
+                                <SearchResultCardWithImage
                                     id={e.id}
                                     avatar={e.avatar}
                                     title={e.name}

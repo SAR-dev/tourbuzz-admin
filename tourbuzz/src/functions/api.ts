@@ -369,16 +369,19 @@ export const postHotel = ({ ...props }: CreateHotelType): Promise<any> => {
 
 export const getHotels = ({
     pageNo,
-    pageSize
+    pageSize,
+    name
 }: {
     pageNo: number,
-    pageSize: number
+    pageSize: number,
+    name?: string
 }): Promise<any> => {
     return api
         .get("/admin/hotels", {
             params: {
                 page_no: pageNo,
                 page_size: pageSize,
+                name: name ?? ""
             }
         })
         .then((res) => {

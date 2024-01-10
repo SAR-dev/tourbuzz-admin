@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 import Image from './Image'
 
-const SearchResultCard = ({
+const SearchResultCardWithImage = ({
     id,
     avatar,
     title,
@@ -43,4 +43,4 @@ const SearchResultCard = ({
     </div>
 )
 
-export default SearchResultCard;
+export default SearchResultCardWithImage;

@@ -16,7 +16,7 @@ import { Map, Trees } from "tabler-icons-react";
 import classNames from "classnames";
 import { useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
-import { Bars3Icon, PlusCircleIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {

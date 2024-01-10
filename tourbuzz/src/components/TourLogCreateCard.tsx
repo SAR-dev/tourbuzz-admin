@@ -1,4 +1,4 @@
-import { ImageType, PlaceType } from '@src/types';
+import { HotelType, ImageType, PlaceType } from '@src/types';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import TourLogCreateForm from './TourLogCreateForm';
 import { toast } from 'react-toastify';
@@ -7,7 +7,7 @@ import useLocalStorageState from 'use-local-storage-state';
 import { TOUR_LOG_CREATE_CACHE_KEY } from '@src/constants/values';
 
 export interface TourLogCreateState {
-    hotels_id: number | null;
+    hotel: HotelType | null;
     title: string;
     description: string;
     date: string;
@@ -16,7 +16,7 @@ export interface TourLogCreateState {
 }
 
 const initialState: TourLogCreateState = {
-    hotels_id: null,
+    hotel: null,
     title: "",
     description: "",
     date: "",

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import Modal from './Modal'
 import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
-import SearchResultCard from './SearchResultCard'
+import SearchResultCardWithImage from './SearchResultCardWithImage'
 import { OrganizerType } from '@src/types';
 
 interface OrganizerData {
@@ -64,7 +64,7 @@ const OrganizerSelect = ({
     return (
         <div>
             {organizer ? (
-                <SearchResultCard 
+                <SearchResultCardWithImage 
                     id={organizer.id}
                     avatar={organizer.avatar}
                     title={organizer.name}
@@ -103,7 +103,7 @@ const OrganizerSelect = ({
                         </div>
                         <div className='grid grid-cols-3 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
                             {organizer && (
-                                <SearchResultCard
+                                <SearchResultCardWithImage
                                     id={organizer.id}
                                     avatar={organizer.avatar}
                                     title={organizer.name}
@@ -113,7 +113,7 @@ const OrganizerSelect = ({
                                 />
                             )}
                             {!(isLoading || error || !data) && data.data.data.filter(x => x.id != organizer?.id).map((e, i) => (
-                                <SearchResultCard
+                                <SearchResultCardWithImage
                                     id={e.id}
                                     avatar={e.avatar}
                                     title={e.name}

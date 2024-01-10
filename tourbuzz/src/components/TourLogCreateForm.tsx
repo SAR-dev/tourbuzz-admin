@@ -1,5 +1,5 @@
 import { MAX_TOUR_LOG_IMAGE_COUNT } from '@src/constants/values';
-import { ImageType, PlaceType } from '@src/types';
+import { HotelType, ImageType, PlaceType } from '@src/types';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import { CalendarIcon, PhotoIcon } from "@heroicons/react/24/outline";
@@ -10,6 +10,7 @@ import MultiplePlaceSelect from './MultiplePlaceSelect';
 import classNames from 'classnames';
 import MarkdownEditor from './MarkdownEditor';
 import { TourLogCreateState } from './TourLogCreateCard';
+import HotelSelect from './HotelSelect';
 
 
 const TourLogCreateForm = ({
@@ -48,6 +49,10 @@ const TourLogCreateForm = ({
 
     const setMdDesc = (value: string) => {
         setData({ data: { ...data, description: value }, index })
+    }
+
+    const setHotel = (value: HotelType) => {
+        setData({ data: { ...data, hotel: value }, index })
     }
 
     return (
@@ -111,9 +116,13 @@ const TourLogCreateForm = ({
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-2'>
+                    <div>
                         <label className="label">Targeted Places</label>
                         <MultiplePlaceSelect places={data.places} setPlaces={setPlaces} />
+                    </div>
+                    <div>
+                        <label className="label">Select Hotel</label>
+                        <HotelSelect hotel={data.hotel} setHotel={setHotel} />
                     </div>
                 </div>
             ) : (
