@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import { jwtDecode } from "jwt-decode";
 
 // AuthStore
 export const tokenKey = "auth";
@@ -19,7 +20,24 @@ export const useAuthStore = create<AuthtSore>()(
             setToken: ({ accessToken, adminToken }: { accessToken: string, adminToken: string }) => {
                 set(() => ({ accessToken, adminToken }))
             },
-            isLoggedIn: () => get().accessToken != null && get().adminToken != null
+            isLoggedIn: () => {
+                const { accessToken, adminToken } = get();
+                if (accessToken && adminToken) {
+                    const now = Math.floor(Date.now() / 1000)
+                    const decodedAccessToken = jwtDecode(accessToken)
+                    const decodedAdminToken = jwtDecode(adminToken)
+
+                    if (decodedAccessToken.exp 
+                        && now < decodedAccessToken.exp 
+                        && decodedAdminToken.exp 
+                        && now < decodedAdminToken.exp
+                    ) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
         }), {
         name: tokenKey,
         storage: createJSONStorage(() => localStorage),
