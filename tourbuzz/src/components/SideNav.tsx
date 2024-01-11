@@ -18,6 +18,7 @@ import { useAuthStore, useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
+import SignOutButton from "./SignOutButton";
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
     return (
@@ -57,7 +58,6 @@ export function SideNav({ children }: { children: ReactNode }) {
             {expanded && (
                 <>
                     {name}
-
                     <div className="ml-auto">
                         {((url == pathname || `${url}/create` == pathname)) && (
                             <ChevronRightIcon className='h-5 w-5' />
@@ -75,7 +75,7 @@ export function SideNav({ children }: { children: ReactNode }) {
     return (
         <div className="inline-flex w-full">
             <div className={classNames({
-                "h-screen bg-base-200 overflow-y-auto overflow-x-hidden custom-scrollbar transition-all duration-300 ease-in-out": true,
+                "h-screen flex flex-col bg-base-200 overflow-y-auto overflow-x-hidden custom-scrollbar transition-all duration-300 ease-in-out": true,
                 "w-[20rem]": open
             })}>
                 <div>
@@ -108,6 +108,7 @@ export function SideNav({ children }: { children: ReactNode }) {
                         <ThemeSwitcher expanded={open} />
                     </div>
                 </div>
+                <SignOutButton expanded={open} />
             </div>
 
             <div className="h-screen w-full overflow-y-auto p-5 relative">

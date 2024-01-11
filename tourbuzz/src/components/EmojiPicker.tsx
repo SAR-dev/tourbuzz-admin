@@ -50,8 +50,8 @@ const EmojiPicker = ({ expanded }: { expanded: boolean }) => {
             <button
                 className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start"
                 onClick={toogleOpen}
-                data-tooltip-id="nav-tooltip"
-                data-tooltip-content="Emoji Picker"
+                data-tooltip-id={!expanded ? "nav-tooltip" : ""}
+                data-tooltip-content={!expanded ? "Emoji Picker" : ""}
             >
                 <FaceSmileIcon className='h-5 w-5' />
                 {expanded && (
@@ -60,7 +60,7 @@ const EmojiPicker = ({ expanded }: { expanded: boolean }) => {
                     </>
                 )}
             </button>
-            <Modal title="Emoji Picker" open={open} handleClose={toogleOpen} width='60rem' height='40rem' maxWidth='60rem' footer={
+            <Modal title="Emoji Picker" open={open} handleClose={toogleOpen} width='60rem' maxWidth='60rem' footer={
                 <div className='flex items-center w-full'>
                     <p>👆 Click emoji to copy</p>
                     <button className="btn ml-auto" onClick={toogleOpen}>
@@ -70,7 +70,7 @@ const EmojiPicker = ({ expanded }: { expanded: boolean }) => {
             }>
                 <div>
                     <input type="text" placeholder="Type at least 3 characters here" className="input input-bordered w-full max-w-xs" value={search} onChange={e => setSearch(e.target.value)} />
-                    <div className="flex flex-wrap mt-2 custom-scrollbar overflow-y-auto max-h-[26rem]">
+                    <div className="flex flex-wrap mt-2 custom-scrollbar overflow-y-auto max-h-[25rem]">
                         {emojisList.map((e, i) => (
                             <div className='mr-2 mb-2 card overflow-hidden border border-base-300 w-20 h-fit' key={i}>
                                 <div className="h-16 w-20 items-center justify-center flex cursor-pointer hover:bg-base-100"

@@ -13,8 +13,8 @@ function ThemeSwitcher({ expanded }: { expanded: boolean }): JSX.Element {
             <button
                 className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start"
                 onClick={toogleShow}
-                data-tooltip-id="nav-tooltip"
-                data-tooltip-content="Theme Picker"
+                data-tooltip-id={!expanded ? "nav-tooltip" : ""}
+                data-tooltip-content={!expanded ? "Theme Picker" : ""}
             >
                 <SwatchIcon className='h-5 w-5' />
                 {expanded && (
@@ -57,12 +57,6 @@ function ThemeSwitcher({ expanded }: { expanded: boolean }): JSX.Element {
                             </div>
 
                         </div>
-                        // <div className="form-control" key={key}>
-                        //     <div className="flex items-center cursor-pointer gap-4">
-                        //         <input type="radio" name="theme-radios" className="radio theme-controller" value={ThemeName[key as keyof typeof ThemeName]} checked={theme === ThemeName[key as keyof typeof ThemeName]} onChange={e => setTheme(e.target.value as ThemeName)} />
-                        //         <span className="label-text">{key}</span>
-                        //     </div>
-                        // </div>
                     ))}
                 </div>
             </Modal>

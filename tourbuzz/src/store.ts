@@ -9,6 +9,7 @@ type AuthtSore = {
     accessToken: string | null
     adminToken: string | null
     setToken: ({ accessToken, adminToken }: { accessToken: string, adminToken: string }) => void
+    clearToken: () => void;
     isLoggedIn: () => boolean
 }
 
@@ -19,6 +20,9 @@ export const useAuthStore = create<AuthtSore>()(
             adminToken: null,
             setToken: ({ accessToken, adminToken }: { accessToken: string, adminToken: string }) => {
                 set(() => ({ accessToken, adminToken }))
+            },
+            clearToken: () => {
+                set(() => ({ accessToken: null, adminToken: null }))
             },
             isLoggedIn: () => {
                 const { accessToken, adminToken } = get();
