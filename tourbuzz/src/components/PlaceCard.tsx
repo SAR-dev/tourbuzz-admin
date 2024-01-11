@@ -11,7 +11,7 @@ const PlaceCard = ({ place }: { place: PlaceType }) => {
             </Link>
             <div className="grid grid-cols-1 gap-3 w-full">
                     <div className="h-64 relative">
-                        <Image image={place.avatar} disableThumbnail className="card h-64 w-full object-cover" />
+                        <Image image={place.avatar} className="card h-64 w-full object-cover" />
                         <div className="badge absolute bottom-0 left-0 m-2">
                             {place.type}
                         </div>

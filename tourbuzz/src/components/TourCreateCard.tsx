@@ -166,7 +166,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <div className="p-3 bg-base-100 card border border-base-300">
                     <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                         {data.avatar ? (
-                            <Image image={data.avatar} disableThumbnail className="h-60 w-full object-contain object-center" />
+                            <Image image={data.avatar} className="h-60 w-full object-contain object-center" />
                         ) : (
                             <PhotoIcon className="h-20 w-20" />
                         )}
@@ -178,7 +178,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <div className="grid grid-cols-5 gap-3">
                     {data.images.map((e, i) => (
                         <div className="h-52 w-full relative group" key={i}>
-                            <Image image={e} disableThumbnail className="h-52 w-full object-cover card" />
+                            <Image image={e} className="h-52 w-full object-cover card" />
                             <div className="absolute top-0 left-0 h-full w-full bg-red-500/50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition ease-in-out">
                                 <TrashIcon className="h-10 w-10 cursor-pointer text-white" onClick={() => removeImage(e.id)} />
                             </div>

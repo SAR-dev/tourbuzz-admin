@@ -9,19 +9,19 @@ const Image = ({
     image, 
     className, 
     disableModal, 
-    disableThumbnail 
+    enaableThumbnail 
 }: { 
     image: ImageType | null, 
     className: string, 
     disableModal?: boolean, 
-    disableThumbnail?: boolean
+    enaableThumbnail?: boolean
  }) => {
     const [open, setOpen] = useState(false)
     const toogleOpen = () => setOpen(!open)
 
     return (
         <>
-            <Img src={[image ? (disableThumbnail ? image.optimized_url : image.thumbnail_url) : placeholder, placeholder]} alt="" className={className} onClick={toogleOpen} />
+            <Img src={[image ? (enaableThumbnail ? image.thumbnail_url : image.optimized_url) : placeholder, placeholder]} alt="" className={className} onClick={toogleOpen} />
             {image && open && !disableModal && (
                 <Lightbox
                     medium={image.optimized_url}
