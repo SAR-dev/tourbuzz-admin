@@ -38,7 +38,7 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
 
 export function SideNav({ children }: { children: ReactNode }) {
     const { open, toogleOpen } = useNavStore()
-    const {token} = useAuthStore()
+    const { isLoggedIn } = useAuthStore()
 
     const location = useLocation();
     const { pathname } = location;
@@ -68,7 +68,7 @@ export function SideNav({ children }: { children: ReactNode }) {
         </Link>
     )
 
-    if(!token){
+    if (!isLoggedIn()) {
         return <Navigate to="/" />
     }
 

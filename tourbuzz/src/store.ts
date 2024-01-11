@@ -2,22 +2,26 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 // AuthStore
-export const authTokenKey = "theme"
+export const tokenKey = "auth";
 
 type AuthtSore = {
-    token: string | null
-    setToken: (props: string) => void
+    accessToken: string | null
+    adminToken: string | null
+    setToken: ({ accessToken, adminToken }: { accessToken: string, adminToken: string }) => void
+    isLoggedIn: () => boolean
 }
 
 export const useAuthStore = create<AuthtSore>()(
     persist(
-        (set) => ({
-            token: null,
-            setToken: (value: string) => {
-                set(() => ({ token: value }))
+        (set, get) => ({
+            accessToken: null,
+            adminToken: null,
+            setToken: ({ accessToken, adminToken }: { accessToken: string, adminToken: string }) => {
+                set(() => ({ accessToken, adminToken }))
             },
+            isLoggedIn: () => get().accessToken != null && get().adminToken != null
         }), {
-        name: authTokenKey,
+        name: tokenKey,
         storage: createJSONStorage(() => localStorage),
     })
 )
@@ -104,12 +108,12 @@ type NavStore = {
 
 export const useNavStore = create<NavStore>()(
     persist(
-    (set) => ({
-        open: false,
-        toogleOpen: () => {
-            set((state) => ({ open: !state.open }))
-        },
-    }), {
+        (set) => ({
+            open: false,
+            toogleOpen: () => {
+                set((state) => ({ open: !state.open }))
+            },
+        }), {
         name: navKey,
         storage: createJSONStorage(() => localStorage),
     })

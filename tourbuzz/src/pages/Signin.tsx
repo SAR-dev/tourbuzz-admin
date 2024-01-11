@@ -1,22 +1,22 @@
 import { sendMagicLink, verifyToken } from '@src/functions/api';
 import { useAuthStore } from '@src/store';
-import { parseErrorMessage } from '@src/types';
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 enum SigninState {
-    MAIL, TOKEN
+    MAIL, AUTH
 }
 
 const Signin = () => {
-    const navigate = useNavigate()
-    const {token: savedToken, setToken: saveToken} = useAuthStore();
+    const { isLoggedIn, setToken } = useAuthStore();
     const [loading, setLoading] = useState(false)
     const [state, setState] = useState<SigninState>(SigninState.MAIL)
 
+
     const [email, setEmail] = useState("")
-    const [token, setToken] = useState("")
+    const [magicToken, setMagicToken] = useState("")
+    const [adminToken, setAdminToken] = useState("")
 
     const handleEmailSubmit = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,35 +34,37 @@ const Signin = () => {
             } else {
                 toast.success("Check inbox for token 💪")
                 setLoading(false)
-                setState(SigninState.TOKEN)
+                setState(SigninState.AUTH)
             }
         })
 
     }
 
     const handleTokenSubmit = () => {
-        const tokenRegex = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_.+/=]*$/;
-        if (!tokenRegex.test(token)) {
+        const magicTokenRegex = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_.+/=]*$/;
+        if (!magicTokenRegex.test(magicToken)) {
             toast.error("Please enter a valid token");
             setLoading(false);
             return;
         }
 
         setLoading(true)
-        verifyToken({ token }).then(res => {
+        verifyToken({ magic_token: magicToken, admin_token: adminToken }).then(res => {
             if (res.error) {
                 toast.error("Token verification failed 🤦‍♂️")
                 setLoading(false)
             } else {
                 toast.success("Signin Successfull 💪")
                 setLoading(false)
-                saveToken(res.data.accessToken)
-                navigate("/images")
+                setToken({
+                    accessToken: res.data.accessToken,
+                    adminToken: res.data.adminToken
+                })
             }
         })
     }
 
-    if(savedToken && savedToken.length > 0){
+    if (isLoggedIn()) {
         return <Navigate to="/images" />
     }
 
@@ -80,14 +82,18 @@ const Signin = () => {
                         <button className="btn w-full btn-info mt-3" onClick={handleEmailSubmit} disabled={loading}>
                             Send Verification Link
                         </button>
-                        <button className="link link-hover mt-3" onClick={() => setState(SigninState.TOKEN)}>Already have a token ?</button>
+                        <button className="link link-hover mt-3" onClick={() => setState(SigninState.AUTH)}>Already have a token ?</button>
                     </>
                 )}
-                {state === SigninState.TOKEN && (
+                {state === SigninState.AUTH && (
                     <>
                         <div>
-                            <label className="label">Token</label>
-                            <input value={token} onChange={e => setToken(e.target.value)} type="text" placeholder="Token" className="input input-bordered w-96" />
+                            <label className="label">Mailed Token</label>
+                            <input value={magicToken} onChange={e => setMagicToken(e.target.value)} type="text" placeholder="Mailed Token" className="input input-bordered w-96" />
+                        </div>
+                        <div>
+                            <label className="label">Admin Token</label>
+                            <input value={adminToken} onChange={e => setAdminToken(e.target.value)} type="text" placeholder="Admin Token" className="input input-bordered w-96" />
                         </div>
                         <button className="btn w-full btn-info mt-3" onClick={handleTokenSubmit} disabled={loading}>
                             Verify Token

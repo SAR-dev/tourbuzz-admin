@@ -25,10 +25,10 @@ export const sendMagicLink = ({ email }: { email: string }): Promise<any> => {
         });
 }
 
-export const verifyToken = ({ token }: { token: string }): Promise<any> => {
-    const data = { token }
+export const verifyToken = ({ magic_token, admin_token }: { magic_token: string, admin_token: string }): Promise<any> => {
+    const data = { magic_token, admin_token }
     return api
-        .post("/auth/sign-in", data)
+        .post("/auth/admin-sign-in", data)
         .then((res) => {
             return { data: res.data };
         })
