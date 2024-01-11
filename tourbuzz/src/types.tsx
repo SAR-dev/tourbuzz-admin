@@ -1,25 +1,25 @@
 export interface HotelType {
-    id: number;
+    id: number
     districts_id: number
-    name: string;
-    map_link: string;
-    website: string;
-    review: string;
-    created_at: Date;
-    updated_at: Date;
-    district: DistrictType;
+    name: string
+    map_link: string
+    website: string
+    review: string
+    created_at: Date
+    updated_at: Date
+    district: DistrictType
 }
 
 export interface DistrictType {
-    id: number;
-    name: string;
-    divisions_id: number;
-    division: DivisionType;
+    id: number
+    name: string
+    divisions_id: number
+    division: DivisionType
 }
 
 export interface DivisionType {
-    id: number;
-    name: string;
+    id: number
+    name: string
 }
 
 export interface DivisionWithDistrictType {
@@ -28,26 +28,26 @@ export interface DivisionWithDistrictType {
 }
 
 export interface ImageType {
-    id: number;
-    title: string;
-    source_url: string;
-    thumbnail_url: string;
-    optimized_url: string;
-    created_at: string;
-    updated_at: string;
+    id: number
+    title: string
+    source_url: string
+    thumbnail_url: string
+    optimized_url: string
+    created_at: string
+    updated_at: string
 }
 
 export interface WriterType {
-    id: number;
-    images_id: number;
-    email: string;
-    name: string;
-    username: string;
-    about: string;
-    contact_no: string;
-    website: string;
-    created_at: string;
-    updated_at: string;
+    id: number
+    images_id: number
+    email: string
+    name: string
+    username: string
+    about: string
+    contact_no: string
+    website: string
+    created_at: string
+    updated_at: string
     avatar: ImageType | null
 }
 
@@ -124,6 +124,65 @@ export interface PlaceType {
     district: DistrictType
     avatar: ImageType | null
 }
+
+export interface PackageType {
+    id: number;
+    tours_id: number;
+    title: string;
+    description: string;
+    additional_info: string;
+    price: number;
+    created_at: string
+    updated_at: string
+}
+
+export interface TourLogType {
+    id: number;
+    tours_id: number;
+    hotels_id: number
+    title: string;
+    description: string;
+    date: string;
+    image_ids: string;
+    created_at: string
+    updated_at: string
+    images: ImageType[]
+    places: PlaceType[]
+    hotel: HotelType
+}
+
+export interface TourType {
+    id: number
+    tour_types_id: number
+    organizers_id: number
+    images_id: number
+    title: string
+    slug: string
+    md_desc: string
+    summary: string
+    group_size: string
+    group_info: string
+    services: string
+    transports: string
+    cancel_ins: string
+    start_ins: string
+    finish_ins: string
+    start_at: string
+    finish_at: string
+    last_sell_at: string
+    image_ids: string
+    created_at: string
+    updated_at: string
+
+    organizer: OrganizerType
+    avatar: ImageType
+    images: ImageType[]
+    tour_type: TypeOfTour
+    packages: PackageType[]
+    tour_logs: TourLogType[]
+}
+
+// PAYLOADS
 
 export interface CreateWriterType {
     images_id: number
@@ -231,47 +290,46 @@ export interface UpdateArticleType {
 }
 
 export interface CreateTourType {
-    tour: TourCreatePayload;
-    tour_logs: TourLogCreatePayload[];
-    packages: TourPackageCreatePayload[];
+    tour: TourCreatePayload
+    tour_logs: TourLogCreatePayload[]
+    packages: TourPackageCreatePayload[]
 }
 
 interface TourCreatePayload {
-    tour_types_id: number;
-    organizers_id: number;
-    images_id: number;
-    title: string;
-    slug: string;
-    md_desc: string;
-    summary: string;
-    group_size: string;
-    group_info: string;
-    services: string;
-    transports: string;
-    cancel_ins: string;
-    start_ins: string;
-    finish_ins: string;
-    start_at: string;
-    finish_at: string;
-    last_sell_at: string;
-    image_ids: number[];
+    tour_types_id: number
+    organizers_id: number
+    images_id: number
+    title: string
+    slug: string
+    md_desc: string
+    summary: string
+    group_size: string
+    group_info: string
+    services: string
+    transports: string
+    cancel_ins: string
+    start_ins: string
+    finish_ins: string
+    start_at: string
+    finish_at: string
+    last_sell_at: string
+    image_ids: number[]
 }
 
 interface TourLogCreatePayload {
-    hotels_id: number;
-    title: string;
-    description: string;
-    date: string;
-    place_ids: number[];
-    image_ids: number[];
+    hotels_id: number
+    title: string
+    description: string
+    date: string
+    place_ids: number[]
+    image_ids: number[]
 }
 
 interface TourPackageCreatePayload {
-    title: string;
-    description: string;
-    price: number;
+    title: string
+    description: string
+    price: number
 }
-
 
 export interface DivisionWithDistrictData {
     data: DivisionWithDistrictType[]
@@ -300,51 +358,52 @@ export interface TypeOfTourData {
 }
 
 export interface ParsedErrorMessageProps {
-    status?: number;
-    message: string;
+    status?: number
+    message: string
 }
 
 export interface RawErrorMessageProps {
-    message: string;
-    name: string;
-    config: Config;
-    code: string;
-    response?: Response;
+    message: string
+    name: string
+    config: Config
+    code: string
+    response?: Response
 }
 
 interface Config {
-    timeout: number;
-    xsrfCookieName: string;
-    xsrfHeaderName: string;
-    maxContentLength: number;
-    maxBodyLength: number;
-    headers: Headers;
-    baseURL: string;
-    method: string;
-    url: string;
-    data: string;
+    timeout: number
+    xsrfCookieName: string
+    xsrfHeaderName: string
+    maxContentLength: number
+    maxBodyLength: number
+    headers: Headers
+    baseURL: string
+    method: string
+    url: string
+    data: string
 }
 
 interface Response {
-    data: Data;
+    data: Data
 }
 
 interface Data {
-    error: string;
-    message: string;
-    status: number;
-    timestamp: string;
-    trace: string;
+    error: string
+    message: string
+    status: number
+    timestamp: string
+    trace: string
 }
 
-
-export function parseErrorMessage(err: RawErrorMessageProps): ParsedErrorMessageProps {
-    const res: ParsedErrorMessageProps = { status: 400, message: "" };
+export function parseErrorMessage(
+    err: RawErrorMessageProps
+): ParsedErrorMessageProps {
+    const res: ParsedErrorMessageProps = { status: 400, message: "" }
     if (err.response) {
         res.status = err.response.data.status
         res.message = err.response.data.message
     } else {
         res.message = err.message
     }
-    return res;
+    return res
 }
