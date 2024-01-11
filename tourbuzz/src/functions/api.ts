@@ -1,17 +1,34 @@
 import axios from "axios";
 import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../types";
+import { tokenKey } from "@src/store";
 
 const api = axios.create();
 
 api.interceptors.request.use(
     (config) => {
-        config.baseURL = import.meta.env.VITE_API_URL;
+        try {
+            const storedTokens = JSON.parse(localStorage.getItem(tokenKey) ?? "") || {};
+            const { accessToken, adminToken } = storedTokens.state || {};
+
+            if (accessToken) {
+                config.headers.Authorization = `Bearer ${accessToken}`;
+            }
+
+            if (adminToken) {
+                config.headers["x-api-key"] = adminToken;
+            }
+
+            config.baseURL = import.meta.env.VITE_API_URL;
+        } catch (error) {
+        }
+
         return config;
     },
     (error) => {
         return Promise.reject(error);
     }
-)
+);
+
 
 export const sendMagicLink = ({ email }: { email: string }): Promise<any> => {
     const data = { email }

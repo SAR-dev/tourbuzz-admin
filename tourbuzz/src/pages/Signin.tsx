@@ -60,6 +60,7 @@ const Signin = () => {
                     accessToken: res.data.accessToken,
                     adminToken: res.data.adminToken
                 })
+                window.location.reload()
             }
         })
     }
