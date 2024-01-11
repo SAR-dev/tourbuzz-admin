@@ -13,6 +13,33 @@ api.interceptors.request.use(
     }
 )
 
+export const sendMagicLink = ({ email }: { email: string }): Promise<any> => {
+    const data = { email }
+    return api
+        .post("/auth/magic-link", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const verifyToken = ({ token }: { token: string }): Promise<any> => {
+    const data = { token }
+    return api
+        .post("/auth/sign-in", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+
+// Images
+
 export const getImages = ({
     pageNo,
     pageSize

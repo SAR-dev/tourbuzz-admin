@@ -19,13 +19,14 @@ import Places from "./pages/Places";
 import CreatePlace from "./pages/CreatePlace";
 import UpdatePlace from "./pages/UpdatePlace";
 import CreateTour from "./pages/CreateTour";
+import Signin from "./pages/Signin";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/images" />} />
+          <Route path="/" element={<Signin />} />
           <Route path="/images" element={<SideNav children={<Images />} />} />
           <Route path="/writers" element={<SideNav children={<Writers />} />} />
           <Route path="/writers/create" element={<SideNav children={<CreateWriter />} />} />
