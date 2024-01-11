@@ -16,7 +16,7 @@ const Signin = () => {
 
     const [email, setEmail] = useState("")
     const [magicToken, setMagicToken] = useState("")
-    const [adminToken, setAdminToken] = useState("")
+    const [adminKey, setAdminKey] = useState("")
 
     const handleEmailSubmit = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,7 +49,7 @@ const Signin = () => {
         }
 
         setLoading(true)
-        verifyToken({ magic_token: magicToken, admin_token: adminToken }).then(res => {
+        verifyToken({ magic_token: magicToken, admin_key: adminKey }).then(res => {
             if (res.error) {
                 toast.error("Token verification failed 🤦‍♂️")
                 setLoading(false)
@@ -93,8 +93,8 @@ const Signin = () => {
                             <input value={magicToken} onChange={e => setMagicToken(e.target.value)} type="text" placeholder="Mailed Token" className="input input-bordered w-96" />
                         </div>
                         <div>
-                            <label className="label">Admin Token</label>
-                            <input value={adminToken} onChange={e => setAdminToken(e.target.value)} type="text" placeholder="Admin Token" className="input input-bordered w-96" />
+                            <label className="label">Admin Key</label>
+                            <input value={adminKey} onChange={e => setAdminKey(e.target.value)} type="text" placeholder="Admin Token" className="input input-bordered w-96" />
                         </div>
                         <button className="btn w-full btn-info mt-3" onClick={handleTokenSubmit} disabled={loading}>
                             Verify Token

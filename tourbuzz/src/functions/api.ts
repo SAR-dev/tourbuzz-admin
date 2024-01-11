@@ -11,7 +11,7 @@ api.interceptors.request.use(
             const { accessToken, adminToken } = storedTokens.state || {};
 
             if (accessToken) {
-                config.headers.Authorization = `Bearer ${accessToken}`;
+                config.headers.Authorization = `${accessToken}`;
             }
 
             if (adminToken) {
@@ -42,8 +42,8 @@ export const sendMagicLink = ({ email }: { email: string }): Promise<any> => {
         });
 }
 
-export const verifyToken = ({ magic_token, admin_token }: { magic_token: string, admin_token: string }): Promise<any> => {
-    const data = { magic_token, admin_token }
+export const verifyToken = ({ magic_token, admin_key }: { magic_token: string, admin_key: string }): Promise<any> => {
+    const data = { magic_token, admin_key }
     return api
         .post("/auth/admin-sign-in", data)
         .then((res) => {
