@@ -1,45 +1,95 @@
+import { sendMagicLink, verifyToken } from '@src/functions/api';
+import { useAuthStore } from '@src/store';
+import { parseErrorMessage } from '@src/types';
 import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 enum SigninState {
     MAIL, TOKEN
 }
 
 const Signin = () => {
+    const navigate = useNavigate()
+    const {token: savedToken, setToken: saveToken} = useAuthStore();
+    const [loading, setLoading] = useState(false)
     const [state, setState] = useState<SigninState>(SigninState.MAIL)
 
     const [email, setEmail] = useState("")
     const [token, setToken] = useState("")
 
     const handleEmailSubmit = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            toast.error("Please enter a valid email address");
+            setLoading(false);
+            return;
+        }
+
+        setLoading(true)
+        sendMagicLink({ email }).then(res => {
+            if (res.error) {
+                toast.error("Email sending failed 🤦‍♂️")
+                setLoading(false)
+            } else {
+                toast.success("Check inbox for token 💪")
+                setLoading(false)
+                setState(SigninState.TOKEN)
+            }
+        })
 
     }
 
     const handleTokenSubmit = () => {
-        
+        const tokenRegex = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_.+/=]*$/;
+        if (!tokenRegex.test(token)) {
+            toast.error("Please enter a valid token");
+            setLoading(false);
+            return;
+        }
+
+        setLoading(true)
+        verifyToken({ token }).then(res => {
+            if (res.error) {
+                toast.error("Token verification failed 🤦‍♂️")
+                setLoading(false)
+            } else {
+                toast.success("Signin Successfull 💪")
+                setLoading(false)
+                saveToken(res.data.accessToken)
+                navigate("/images")
+            }
+        })
+    }
+
+    if(savedToken && savedToken.length > 0){
+        return <Navigate to="/images" />
     }
 
     return (
         <div className='bg-base-100 flex h-screen w-full justify-center items-center'>
-            <div className="card p-5 bg-base-200 grid grid-cols-1 gap-3">
-                <div className="text-center font-semibold text-lg">Sign In</div>
+            <div className="card p-5 bg-base-200 border border-base-300">
+                <div className="font-semibold text-xl">Sign In</div>
+                <div className=' mb-5'>Welcome to Tourbuzz</div>
                 {state === SigninState.MAIL && (
                     <>
                         <div>
                             <label className="label">Email</label>
-                            <input value={email} onChange={e => setEmail(e.target.value)} type="text" placeholder="Email" className="input input-bordered w-64" />
+                            <input value={email} onChange={e => setEmail(e.target.value)} type="text" placeholder="Email" className="input input-bordered w-96" />
                         </div>
-                        <button className="btn w-full btn-primary" onClick={handleEmailSubmit}>
+                        <button className="btn w-full btn-info mt-3" onClick={handleEmailSubmit} disabled={loading}>
                             Send Verification Link
                         </button>
+                        <button className="link link-hover mt-3" onClick={() => setState(SigninState.TOKEN)}>Already have a token ?</button>
                     </>
                 )}
                 {state === SigninState.TOKEN && (
                     <>
                         <div>
                             <label className="label">Token</label>
-                            <input value={token} onChange={e => setToken(e.target.value)} type="text" placeholder="Token" className="input input-bordered w-64" />
+                            <input value={token} onChange={e => setToken(e.target.value)} type="text" placeholder="Token" className="input input-bordered w-96" />
                         </div>
-                        <button className="btn w-full btn-primary" onClick={handleTokenSubmit}>
+                        <button className="btn w-full btn-info mt-3" onClick={handleTokenSubmit} disabled={loading}>
                             Verify Token
                         </button>
                     </>

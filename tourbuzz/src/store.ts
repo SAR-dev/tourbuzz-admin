@@ -1,6 +1,27 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
+// AuthStore
+export const authTokenKey = "theme"
+
+type AuthtSore = {
+    token: string | null
+    setToken: (props: string) => void
+}
+
+export const useAuthStore = create<AuthtSore>()(
+    persist(
+        (set) => ({
+            token: null,
+            setToken: (value: string) => {
+                set(() => ({ token: value }))
+            },
+        }), {
+        name: authTokenKey,
+        storage: createJSONStorage(() => localStorage),
+    })
+)
+
 // ThemeStore
 export enum ThemeName {
     Light = "light",
@@ -74,7 +95,6 @@ export const useEmojiStore = create<EmojiStore>()(
 )
 
 // NavStore
-
 const navKey = "sidenav"
 
 type NavStore = {

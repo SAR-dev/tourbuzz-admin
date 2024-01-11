@@ -10,11 +10,11 @@ import {
 } from "@heroicons/react/24/solid";
 import { ReactNode } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import EmojiPicker from "./EmojiPicker";
 import { Map, Trees } from "tabler-icons-react";
 import classNames from "classnames";
-import { useNavStore } from "@src/store";
+import { useAuthStore, useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
@@ -38,6 +38,7 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
 
 export function SideNav({ children }: { children: ReactNode }) {
     const { open, toogleOpen } = useNavStore()
+    const {token} = useAuthStore()
 
     const location = useLocation();
     const { pathname } = location;
@@ -66,6 +67,10 @@ export function SideNav({ children }: { children: ReactNode }) {
             )}
         </Link>
     )
+
+    if(!token){
+        return <Navigate to="/" />
+    }
 
     return (
         <div className="inline-flex w-full">
