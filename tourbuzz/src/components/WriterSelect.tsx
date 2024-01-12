@@ -69,8 +69,7 @@ const WriterSelect = ({
                     avatar={writer.avatar}
                     title={writer.name}
                     subtitle={writer.email}
-                    handleClick={handleOpen} 
-                    shownInResult={true}
+                    handleClick={handleOpen}
                 />
             ) : (
                 <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>

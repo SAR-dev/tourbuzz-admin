@@ -67,7 +67,6 @@ const HotelSelect = ({
                     title={hotel.name}
                     subtitle={`${hotel.district.name}, ${hotel.district.division.name}`}
                     handleClick={handleOpen} 
-                    shownInResult={true}
                 />
             ) : (
                 <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>

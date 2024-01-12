@@ -70,7 +70,6 @@ const OrganizerSelect = ({
                     title={organizer.name}
                     subtitle={organizer.email}
                     handleClick={handleOpen} 
-                    shownInResult={true}
                 />
             ) : (
                 <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>

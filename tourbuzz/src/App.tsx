@@ -21,6 +21,7 @@ import UpdatePlace from "./pages/UpdatePlace";
 import CreateTour from "./pages/CreateTour";
 import Signin from "./pages/Signin";
 import Tours from "./pages/Tours";
+import UpdateTour from "./pages/UpdateTour";
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/places/:placeId" element={<SideNav children={<UpdatePlace />} />} />
           <Route path="/tours" element={<SideNav children={<Tours />} />} />
           <Route path="/tours/create" element={<SideNav children={<CreateTour />} />} />
+          <Route path="/tours/:tourId" element={<SideNav children={<UpdateTour />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

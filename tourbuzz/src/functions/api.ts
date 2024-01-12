@@ -591,3 +591,15 @@ export const getTours = ({
             return { error: err || true };
         });
 }
+
+
+export const getTourById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/tours/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}

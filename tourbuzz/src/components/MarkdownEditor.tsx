@@ -48,13 +48,13 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
     }, [props.value, initialized])
 
     useEffect(() => {
-      if(props.minimal){
-        setMode(Mode.CODE_ONLY)
-      } else {
-        setMode(Mode.CODE_AND_PREVIEW)
-      }
+        if (props.minimal) {
+            setMode(Mode.CODE_ONLY)
+        } else {
+            setMode(Mode.CODE_AND_PREVIEW)
+        }
     }, [props.minimal])
-    
+
 
     const handleTextChange = (val: string) => {
         props.setValue(val)
@@ -281,7 +281,7 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
                 })}>
                     <TextareaMarkdown
                         className="custom-scrollbar overflow-y-auto textarea placeholder:text-base text-base w-full resize-none rounded-none"
-                        style={{height}}
+                        style={{ height }}
                         value={text}
                         onChange={e => handleTextChange(e.target.value)}
                         placeholder={props.placeholder}
@@ -293,7 +293,7 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
                     'hidden': ![Mode.CODE_AND_PREVIEW, Mode.PREVIEW_ONLY].includes(mode),
                     'col-span-2': mode === Mode.PREVIEW_ONLY
                 })}>
-                    <div className="w-full custom-scrollbar overflow-y-auto bg-base-100 px-3 py-2" style={{height}}>
+                    <div className="w-full custom-scrollbar overflow-y-auto bg-base-100 px-3 py-2" style={{ height }}>
                         <div className='markdown max-w-[85ch] mx-auto'>
                             <Markdown
                                 remarkPlugins={[remarkGfm, emoji, remarkImages]}

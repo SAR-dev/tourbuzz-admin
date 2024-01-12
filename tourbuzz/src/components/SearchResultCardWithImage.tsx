@@ -9,22 +9,19 @@ const SearchResultCardWithImage = ({
     title,
     subtitle,
     handleClick,
-    selected,
-    shownInResult
+    selected
 }: {
     id: number,
     avatar: ImageType | null,
     title: string,
     subtitle: string,
     handleClick: (id: number) => void,
-    selected?: boolean,
-    shownInResult?: boolean
+    selected?: boolean
 }) => (
     <div className={classNames({
         "card flex flex-row items-center gap-3 p-3 border border-base-300 cursor-pointer w-full": true,
-        "bg-neutral-content": shownInResult,
         "bg-primary text-primary-content": selected,
-        "bg-base-200 hover:bg-base-300": !selected
+        "bg-neutral text-neutral-content hover:bg-neutral/50": !selected
     })} onClick={() => handleClick(id)}>
         <div className='w-12 flex-shrink-0'>
             <Image image={avatar} disableModal className='h-12 w-16 object-cover card' />

@@ -12,6 +12,7 @@ import { postTour } from "@src/functions/api";
 import { useQueryClient } from "react-query";
 
 const CreateTour = () => {
+    const [reloadKey, setReloadKey] = useState(1)
     const tourCreateRef = createRef<TourCreateRef>()
     const tourLogCreateRef = createRef<TourLogCreateRef>()
     const tourPackageCreateRef = createRef<TourPackageCreateRef>()
@@ -92,6 +93,7 @@ const CreateTour = () => {
         tourCreateRef.current?.clearData()
         tourLogCreateRef.current?.clearData()
         tourPackageCreateRef.current?.clearData()
+        setReloadKey(reloadKey + 1)
     }
 
     return (
@@ -104,7 +106,7 @@ const CreateTour = () => {
                 }
             />
 
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-3" key={reloadKey}>
                 <TourCreateCard ref={tourCreateRef} />
                 <TourLogCreateCard ref={tourLogCreateRef} />
                 <TourPackageCreateCard ref={tourPackageCreateRef} />
