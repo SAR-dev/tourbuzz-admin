@@ -1,5 +1,5 @@
 import { ListTourType } from "@src/types";
-import { CalendarDaysIcon, CheckBadgeIcon, MapPinIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { CalendarDaysIcon, CheckBadgeIcon, MapPinIcon, UserCircleIcon, WalletIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Image from "./Image";
 import { PencilIcon } from "@heroicons/react/16/solid";
@@ -13,7 +13,7 @@ const TourCard = ({ tour }: { tour: ListTourType }) => {
                 <PencilIcon className="h-5 w-5" />
             </Link>
             <div className="grid grid-cols-1">
-                <div className="col-span-1 relative">
+                <div className="col-span-1">
                     <div className="carousel w-full">
                         <div className="carousel-item w-full aspect-video">
                             <Image image={tour.avatar} className="card w-full aspect-video object-cover" />
@@ -23,9 +23,6 @@ const TourCard = ({ tour }: { tour: ListTourType }) => {
                                 <Image image={e} className="card w-full aspect-video object-cover" />
                             </div>
                         ))}
-                    </div>
-                    <div className="badge badge-info absolute bottom-0 left-0 m-2">
-                        From {humanNumber(Math.min.apply(Math, tour.package_prices_list))} TK
                     </div>
                 </div>
                 <div className="col-span-1">
@@ -46,6 +43,12 @@ const TourCard = ({ tour }: { tour: ListTourType }) => {
                         <div className="flex gap-2 items-center">
                             <CalendarDaysIcon className="h-5 w-5" />
                             {timestampToYYYYMMDD(tour.start_at)} ~ {timestampToYYYYMMDD(tour.finish_at)}
+                        </div>
+                        <div className="flex gap-2 items-center">
+                            <WalletIcon className="h-5 w-5" />
+                            <div className="badge badge-info">
+                                From {humanNumber(Math.min.apply(Math, tour.package_prices_list))} TK
+                            </div>
                         </div>
                     </div>
                 </div>
