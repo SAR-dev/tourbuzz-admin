@@ -9,8 +9,8 @@ import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const fuseOptions = {
     keys: [
-        "name",
-        "name"
+        "emoji",
+        "keywords"
     ],
     shouldSort: true,
     ignoreLocation: true
@@ -74,13 +74,11 @@ const EmojiPicker = ({ expanded }: { expanded: boolean }) => {
                         {emojisList.map((e, i) => (
                             <div className='mr-2 mb-2 card overflow-hidden border border-base-300 w-20 h-fit' key={i}>
                                 <div className="h-16 w-20 items-center justify-center flex cursor-pointer hover:bg-base-100"
-                                    data-tooltip-id="emoji-tooltip"
-                                    data-tooltip-content={e.name}
                                     onClick={() => copyToClipboard(e.emoji)}
                                 >
                                     <p className="text-4xl">{e.emoji}</p>
                                 </div>
-                                <div className="text-xs flex justify-center items-center cursor-pointer w-20 h-6 border-t border-base-300 hover:bg-base-100" onClick={() => findSimilar(e.name)}>
+                                <div className="text-xs flex justify-center items-center cursor-pointer w-20 h-6 border-t border-base-300 hover:bg-base-100" onClick={() => findSimilar(e.keywords)}>
                                     <div>Similar</div>
                                 </div>
                             </div>
