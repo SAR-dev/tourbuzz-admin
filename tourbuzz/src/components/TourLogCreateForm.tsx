@@ -12,7 +12,6 @@ import MarkdownEditor from './MarkdownEditor';
 import { TourLogCreateState } from './TourLogCreateCard';
 import HotelSelect from './HotelSelect';
 
-
 const TourLogCreateForm = ({
     active,
     index,
