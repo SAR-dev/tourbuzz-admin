@@ -100,7 +100,7 @@ const OrganizerSelect = ({
                                 <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='john.doe@gmail.com' className='input input-bordered' />
                             </div>
                         </div>
-                        <div className='grid grid-cols-3 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
+                        <div className='grid grid-cols-2 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
                             {organizer && (
                                 <SearchResultCardWithImage
                                     id={organizer.id}
