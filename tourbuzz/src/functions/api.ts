@@ -569,3 +569,25 @@ export const postTour = ({ ...props }: CreateTourType): Promise<any> => {
             return { error: err || true };
         });
 }
+
+export const getTours = ({
+    pageNo,
+    pageSize
+}: {
+    pageNo: number,
+    pageSize: number
+}): Promise<any> => {
+    return api
+        .get("/admin/tours", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}

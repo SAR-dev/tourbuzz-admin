@@ -151,6 +151,39 @@ export interface TourLogType {
     hotel: HotelType
 }
 
+export interface ListTourType {
+    id: number
+    tour_types_id: number
+    organizers_id: number
+    images_id: number
+    title: string
+    slug: string
+    md_desc: string
+    summary: string
+    group_size: string
+    group_info: string
+    services: string
+    transports: string
+    cancel_ins: string
+    start_ins: string
+    finish_ins: string
+    start_at: string
+    finish_at: string
+    last_sell_at: string
+    image_ids: string
+    created_at: string
+    updated_at: string
+
+    avatar: ImageType
+    images: ImageType[]
+    place_names_list: string[]
+    district_names_list: string[]
+    package_prices_list: number[]
+    tour_type_name: string
+    organizer_name: string
+    organizer_verification: string
+}
+
 export interface TourType {
     id: number
     tour_types_id: number

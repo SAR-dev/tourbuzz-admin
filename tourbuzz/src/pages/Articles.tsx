@@ -21,7 +21,7 @@ interface ArticleData {
   }
 }
 
-function Articles() {
+const Articles = () => {
   const [pageSize, setPageSize] = useState(20)
   const [pageNo, setPageNo] = useState(1)
 
