@@ -81,6 +81,7 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef>((_props, ref) => {
     }
 
     const deleteData = (index: number) => {
+        // first delete the tour log here then update data
         const newData = tourLogData.filter((_item, i) => index !== i);
         setTourLogData([...newData])
     }

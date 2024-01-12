@@ -64,7 +64,7 @@ const TourLogUpdateForm = ({
                     <div className="flex space-x-2  absolute top-0 right-0 btn-xs m-2">
                         <button className="btn btn-xs btn-outline" onClick={complete}>
                             <CheckIcon className='h-4 w-4' />
-                            Completed
+                            Save & Complete
                         </button>
                         <button className="btn btn-xs btn-outline" onClick={() => cancel(index)}>
                             <XMarkIcon className='h-4 w-4' />
