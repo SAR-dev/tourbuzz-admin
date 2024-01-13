@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import MarkdownEditor from './MarkdownEditor';
 import HotelSelect from './HotelSelect';
 import { TourLogUpdateState } from './TourLogUpdateCard';
+import { timestampToDDMMYYYY } from '@src/functions/helpers';
 
 const TourLogUpdateForm = ({
     active,
@@ -127,7 +128,7 @@ const TourLogUpdateForm = ({
             ) : (
                 <div className='w-full flex items-center'>
                     <CalendarIcon className='h-5 w-5' />
-                    <div className="font-semibold ml-2 mr-4">{data.date}</div>
+                    <div className="font-semibold ml-2 mr-4">{timestampToDDMMYYYY(data.date)}</div>
                     <div>{data.title}</div>
                     <div className="join ml-auto">
                         <button className="btn btn-xs join-item" onClick={() => editData(index)}>Edit</button>

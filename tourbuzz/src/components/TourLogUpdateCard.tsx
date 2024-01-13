@@ -134,7 +134,9 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
                 const newData = [...tourLogData];
                 newData.push(res.data);
                 setTourLogData(newData);
-                setActiveIndex(defaultActiveIndex)
+                setEditorData({ ...initialState })
+                setActiveIndex(defaultActiveIndex);
+                setShowEditor(false)
             }
         })
     }
