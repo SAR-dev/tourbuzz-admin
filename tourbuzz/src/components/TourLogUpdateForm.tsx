@@ -9,8 +9,8 @@ import ReactInputMask from 'react-input-mask';
 import MultiplePlaceSelect from './MultiplePlaceSelect';
 import classNames from 'classnames';
 import MarkdownEditor from './MarkdownEditor';
-import { TourLogCreateState } from './TourLogCreateCard';
 import HotelSelect from './HotelSelect';
+import { TourLogUpdateState } from './TourLogUpdateCard';
 
 const TourLogUpdateForm = ({
     active,
@@ -24,8 +24,8 @@ const TourLogUpdateForm = ({
 }: {
     active: boolean,
     index: number,
-    data: TourLogCreateState,
-    setData: ({ data, index }: { data: TourLogCreateState, index: number }) => void,
+    data: TourLogUpdateState,
+    setData: ({ data, index }: { data: TourLogUpdateState, index: number }) => void,
     editData: (index: number) => void,
     deleteData: (index: number) => void,
     cancel: (index: number) => void,

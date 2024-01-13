@@ -6,6 +6,8 @@ import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
 import SearchResultCardWithImage from './SearchResultCardWithImage'
 import { OrganizerType } from '@src/types';
+import classNames from 'classnames';
+import Image from './Image';
 
 interface OrganizerData {
     data: {
@@ -63,19 +65,21 @@ const OrganizerSelect = ({
 
     return (
         <div>
-            {organizer ? (
-                <SearchResultCardWithImage 
-                    id={organizer.id}
-                    avatar={organizer.avatar}
-                    title={organizer.name}
-                    subtitle={organizer.email}
-                    handleClick={handleOpen} 
-                />
-            ) : (
-                <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
-                    Click to Select
-                </button>
-            )}
+            <button
+                className={classNames({
+                    "btn w-full text-base": true,
+                    "btn-neutral": !organizer,
+                    "btn-outline justify-start": !!organizer
+                })}
+                onClick={handleOpen}
+            >
+                {organizer ? (
+                    <div className="flex items-center gap-2">
+                        <Image image={organizer.avatar} className='h-5 w-5 card object-cover' />
+                        <div>{organizer.name}</div>
+                    </div>
+                ) : "Click to Select"}
+            </button>
             <Modal open={open} handleClose={handleClose} title='Select Organizer' width='50rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>

@@ -6,6 +6,7 @@ import Modal from './Modal'
 import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
 import SearchResultCardWithoutImage from './SearchResultCardWithoutImage';
+import classNames from 'classnames';
 
 interface HotelData {
     data: {
@@ -61,18 +62,16 @@ const HotelSelect = ({
 
     return (
         <div>
-            {hotel ? (
-                <SearchResultCardWithoutImage
-                    id={hotel.id}
-                    title={hotel.name}
-                    subtitle={`${hotel.district.name}, ${hotel.district.division.name}`}
-                    handleClick={handleOpen} 
-                />
-            ) : (
-                <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
-                    Click to Select
-                </button>
-            )}
+            <button 
+                className={classNames({
+                    "btn w-full text-base": true,
+                    "btn-neutral": !hotel,
+                    "btn-outline justify-start": !!hotel
+                })} 
+                onClick={handleOpen}
+            >
+                {hotel ? hotel.name : "Click to Select"}
+            </button>
             <Modal open={open} handleClose={handleClose} title='Select Hotel' width='50rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>

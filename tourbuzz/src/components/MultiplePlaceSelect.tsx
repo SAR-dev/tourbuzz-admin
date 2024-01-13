@@ -6,7 +6,8 @@ import { useDebounce } from 'use-debounce';
 import SearchResultCardWithImage from './SearchResultCardWithImage'
 import { PlaceType } from '@src/types';
 import { getPlaces } from '@src/functions/api';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
+import classNames from 'classnames';
 
 interface MultiplePlaceSelectData {
     data: {
@@ -68,20 +69,31 @@ const MultiplePlaceSelect = ({
 
     return (
         <div>
-            {places.length == 0 ? (
-                <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
-                    Click to Select
-                </button>
-            ) : (
-                <div className="card group p-2.5 flex flex-row space-x-2 border border-base-200 hover:bg-base-200 cursor-pointer" onClick={handleOpen}>
-                    {places.map((e, i) =>
-                        <div className="btn group-hover:bg-base-100" key={i}>
-                            {e.name}
-                            <CheckCircleIcon className='h-5 w-5' />
-                        </div>
-                    )}
-                </div>
-            )}
+            <button
+                className={classNames({
+                    "btn w-full text-base": true,
+                    "btn-neutral": places.length == 0,
+                    "btn-outline justify-start": places.length != 0
+                })}
+                onClick={handleOpen}
+            >
+                {places.length === 0 ? "Click to Select" : (
+                    <>
+                        {places.slice(0, 2).map((e, i) => (
+                            <div className='flex items-center gap-2' key={i}>
+                                <CheckCircleIcon className='h-5 w-5' />
+                                <div>{e.name}</div>
+                            </div>
+                        ))}
+                        {places.length > 2 && (
+                            <div className='flex items-center gap-2'>
+                                <PlusCircleIcon className='h-5 w-5' />
+                                <div>{places.length - 2} places</div>
+                            </div>
+                        )}
+                    </>
+                )}
+            </button>
             <Modal open={open} handleClose={handleClose} title='Select Place' width='70rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>

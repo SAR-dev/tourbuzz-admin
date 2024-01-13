@@ -46,9 +46,7 @@ const TourCard = ({ tour }: { tour: ListTourType }) => {
                         </div>
                         <div className="flex gap-2 items-center">
                             <WalletIcon className="h-5 w-5" />
-                            <div className="badge badge-info">
-                                From {humanNumber(Math.min.apply(Math, tour.package_prices_list))} TK
-                            </div>
+                            From {humanNumber(Math.min.apply(Math, tour.package_prices_list))} TK
                         </div>
                     </div>
                 </div>

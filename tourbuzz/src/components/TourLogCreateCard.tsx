@@ -119,7 +119,9 @@ const TourLogCreateCard = forwardRef<TourLogCreateRef>((_props, ref) => {
                     key={i} 
                 />
             ))}
-            <button className="btn btn-primary" onClick={addAnother}>Add Tour Day By Day Itinerary</button>
+            <button className="btn btn-primary" onClick={addAnother}>
+                Add Tour Day By Day Itinerary
+            </button>
         </div>
     )
 })

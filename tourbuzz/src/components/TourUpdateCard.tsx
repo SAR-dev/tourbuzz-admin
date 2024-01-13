@@ -34,11 +34,6 @@ export interface TourUpdateState {
     images: ImageType[];
 }
 
-export interface TourUpdateRef {
-    getData: () => TourUpdateState;
-    updateData: (props: TourUpdateState) => void
-}
-
 const initialState: TourUpdateState = {
     tour_types_id: 0,
     organizer: null,
@@ -60,8 +55,13 @@ const initialState: TourUpdateState = {
     images: [],
 }
 
-const TourUpdateCard = forwardRef<TourUpdateRef>((_props, ref) => {
-    const [data, setData] = useState<TourUpdateState>({...initialState})
+export interface TourUpdateRef {
+    getData: () => TourUpdateState;
+    updateData: (props: TourUpdateState) => void
+}
+
+const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((tourId, ref) => {
+    const [data, setData] = useState<TourUpdateState>({ ...initialState })
 
     useImperativeHandle(ref, () => ({
         getData() {

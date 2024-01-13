@@ -322,6 +322,16 @@ export interface UpdateArticleType {
     writers_id: number
 }
 
+export interface CreateTourLogtype {
+    tours_id: number
+    hotels_id: number | null
+    title: string
+    description: string
+    date: string
+    place_ids: number[]
+    image_ids: number[]
+}
+
 export interface CreateTourType {
     tour: TourCreatePayload
     tour_logs: TourLogCreatePayload[]
@@ -350,7 +360,7 @@ interface TourCreatePayload {
 }
 
 interface TourLogCreatePayload {
-    hotels_id: number
+    hotels_id: number | null
     title: string
     description: string
     date: string

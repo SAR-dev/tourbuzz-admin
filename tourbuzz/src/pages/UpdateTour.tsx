@@ -112,8 +112,8 @@ const UpdateTour = () => {
             />
 
             <div className="grid grid-cols-1 gap-3">
-                <TourUpdateCard ref={tourUpdateRef} />
-                <TourLogUpdateCard ref={tourLogUpdateRef} />
+                <TourUpdateCard ref={tourUpdateRef} tourId={Number(tourId)} />
+                <TourLogUpdateCard ref={tourLogUpdateRef} tourId={Number(tourId)} />
                 <TourPackageCreateCard ref={tourPackageCreateRef} />
             </div>
 

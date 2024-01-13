@@ -6,6 +6,8 @@ import Modal from './Modal'
 import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
 import SearchResultCardWithImage from './SearchResultCardWithImage'
+import classNames from 'classnames';
+import Image from './Image';
 
 interface WriterData {
     data: {
@@ -63,19 +65,21 @@ const WriterSelect = ({
 
     return (
         <div>
-            {writer ? (
-                <SearchResultCardWithImage 
-                    id={writer.id}
-                    avatar={writer.avatar}
-                    title={writer.name}
-                    subtitle={writer.email}
-                    handleClick={handleOpen}
-                />
-            ) : (
-                <button className="btn btn-lg w-full btn-outline text-base" onClick={handleOpen}>
-                    Click to Select
-                </button>
-            )}
+            <button
+                className={classNames({
+                    "btn w-full text-base": true,
+                    "btn-neutral": !writer,
+                    "btn-outline justify-start": !!writer
+                })}
+                onClick={handleOpen}
+            >
+                {writer ? (
+                    <div className="flex items-center gap-2">
+                        <Image image={writer.avatar} className='h-5 w-5 card object-cover' />
+                        <div>{writer.name}</div>
+                    </div>
+                ) : "Click to Select"}
+            </button>
             <Modal open={open} handleClose={handleClose} title='Select Writer' width='50rem' footer={
                 <div className='flex justify-between w-full'>
                     <button className="btn btn-outline" onClick={handleClose}>
