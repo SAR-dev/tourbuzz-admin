@@ -8,6 +8,7 @@ import { deleteTourLogById, postTourLog } from '@src/functions/api';
 
 export interface TourLogUpdateState {
     id: number
+    status: string;
     tours_id: number
     hotel: HotelType | null;
     title: string;

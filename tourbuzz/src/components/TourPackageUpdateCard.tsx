@@ -8,6 +8,7 @@ import TourPackageCreateForm from './TourPackageCreateForm';
 
 export interface TourPackageUpdateState {
     id: number
+    status: string;
     tours_id: number
     title: string;
     description: string;

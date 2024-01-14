@@ -36,7 +36,7 @@ const TourPackageUpdateForm = ({
             {active ? (
                 <div className="grid grid-cols-2 gap-3">
                     <div className="flex space-x-2  absolute top-0 right-0 btn-xs m-2">
-                         <button className="btn btn-sm btn-info" onClick={complete}>
+                        <button className="btn btn-sm btn-info" onClick={complete}>
                             <CheckIcon className='h-4 w-4' />
                             Save
                         </button>
@@ -78,7 +78,11 @@ const TourPackageUpdateForm = ({
                     <BanknotesIcon className='h-5 w-5' />
                     <div className="font-semibold ml-2 mr-4">{data.price ? `[${humanNumber(data.price)} TK]` : data.price}</div>
                     <div>{data.title}</div>
-                    <div className="ml-auto">
+                    <div className="ml-auto flex gap-2">
+                        <div className={classNames({
+                            "warning-badge": data.status.toLowerCase() == "draft",
+                            "success-badge": data.status.toLowerCase() == "published",
+                        })}>{data.status}</div>
                         <button className="btn btn-sm" onClick={() => editData(index)}>Edit</button>
                     </div>
                 </div>

@@ -126,7 +126,11 @@ const TourLogUpdateForm = ({
                     <CalendarIcon className='h-5 w-5' />
                     <div className="font-semibold ml-2 mr-4">{timestampToDDMMYYYY(data.date)}</div>
                     <div>{data.title}</div>
-                    <div className="ml-auto">
+                    <div className="ml-auto flex gap-2">
+                        <div className={classNames({
+                            "warning-badge": data.status.toLowerCase() == "draft",
+                            "success-badge": data.status.toLowerCase() == "published",
+                        })}>{data.status}</div>
                         <button className="btn btn-sm" onClick={() => editData(index)}>Edit</button>
                     </div>
                 </div>

@@ -127,6 +127,7 @@ export interface PlaceType {
 
 export interface PackageType {
     id: number;
+    status: string;
     tours_id: number;
     title: string;
     description: string;
@@ -138,6 +139,7 @@ export interface PackageType {
 
 export interface TourLogType {
     id: number;
+    status: string;
     tours_id: number;
     hotels_id: number
     title: string;
