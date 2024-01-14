@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../types";
+import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../types";
 import { tokenKey } from "@src/store";
 
 const api = axios.create();
@@ -562,6 +562,18 @@ export const postTourLog = ({ ...props }: CreateTourLogtype): Promise<any> => {
     const data = { ...props }
     return api
         .post("/admin/tour-logs", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const postTourPackage = ({ ...props }: CreateTourPackageType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/tour-packages", data)
         .then((res) => {
             return { data: res.data };
         })

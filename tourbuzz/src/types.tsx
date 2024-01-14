@@ -332,6 +332,14 @@ export interface CreateTourLogtype {
     image_ids: number[]
 }
 
+export interface CreateTourPackageType {
+    tours_id: number
+    title: string
+    description: string
+    additional_info: string
+    price: number
+}
+
 export interface CreateTourType {
     tour: TourCreatePayload
     tour_logs: TourLogCreatePayload[]
@@ -371,6 +379,7 @@ interface TourLogCreatePayload {
 interface TourPackageCreatePayload {
     title: string
     description: string
+    additional_info: string
     price: number
 }
 

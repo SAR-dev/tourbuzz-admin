@@ -76,7 +76,7 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
         setTourLogData(newData);
     };
 
-    const handleSetEditorData = ({ data, index }: { data: TourLogCreateState, index: number }) => {
+    const handleSetEditorData = ({ data }: { data: TourLogCreateState, index: number }) => {
         setEditorData({ ...data });
     };
 
@@ -86,10 +86,6 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
             return;
         }
         setActiveIndex(index)
-    }
-
-    const handleEditorIndex = (index: number) => {
-        return;
     }
 
     const deleteData = (index: number) => {
@@ -148,7 +144,10 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
 
     return (
         <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
-            <div className='flex gap-2 items-center'><QueueListIcon className='h-5 w-5' /> Tour Logs</div>
+            <div className='flex gap-2 items-center'>
+                <QueueListIcon className='h-5 w-5' /> 
+                Tour Logs
+            </div>
             {tourLogData.map((e, i) => (
                 <TourLogUpdateForm
                     data={e}
@@ -166,8 +165,8 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
                 <TourLogCreateForm
                     data={editorData}
                     setData={handleSetEditorData}
-                    editData={handleEditorIndex}
-                    deleteData={handleEditorIndex}
+                    editData={(_: number) => (console.log())}
+                    deleteData={(_: number) => (console.log())}
                     active={true}
                     cancel={cancelEditor}
                     complete={completeEditor}

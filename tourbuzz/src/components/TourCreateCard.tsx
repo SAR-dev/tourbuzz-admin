@@ -143,11 +143,11 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
             </div>
             <div>
                 <label className="label">Tour Start Time</label>
-                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, start_at: e.target.value })} value={data.start_at} className="input input-bordered w-full" placeholder='dd/mm/yyyy hh:mm' />
+                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, start_at: e.target.value })} value={data.start_at} className="input input-bordered w-full" placeholder='DD/MM/YYYY hh:mm' />
             </div>
             <div>
                 <label className="label">Tour Finish Time</label>
-                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, finish_at: e.target.value })} value={data.finish_at} className="input input-bordered w-full" placeholder='dd/mm/yyyy hh:mm' />
+                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, finish_at: e.target.value })} value={data.finish_at} className="input input-bordered w-full" placeholder='DD/MM/YYYY hh:mm' />
             </div>
             <div>
                 <label className="label">Transportations</label>
@@ -155,7 +155,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
             </div>
             <div>
                 <label className="label">Ticket Last Sell Time</label>
-                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='dd/mm/yyyy hh:mm' />
+                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='DD/MM/YYYY hh:mm' />
             </div>
             <div className="flex flex-col">
                 <label className="label">Reader-friendly Summary</label>

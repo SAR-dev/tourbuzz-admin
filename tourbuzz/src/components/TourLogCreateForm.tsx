@@ -61,21 +61,21 @@ const TourLogCreateForm = ({
         })}>
             {active ? (
                 <div className="grid grid-cols-2 gap-3">
-                    <div className="flex space-x-2  absolute top-0 right-0 btn-xs m-2">
-                        <button className="btn btn-xs btn-outline" onClick={complete}>
+                    <div className="flex space-x-2 absolute top-0 right-0 m-2">
+                        <button className="btn btn-sm btn-info" onClick={complete}>
                             <CheckIcon className='h-4 w-4' />
-                            Completed
+                            Save
                         </button>
-                        <button className="btn btn-xs btn-outline" onClick={() => cancel(index)}>
+                        <button className="btn btn-sm btn-warning" onClick={() => cancel(index)}>
                             <XMarkIcon className='h-4 w-4' />
-                            Cancel & Delete
+                            Delete
                         </button>
                     </div>
                     <div className='w-full'>
                         <div className="grid grid-cols-2 gap-3 mb-3">
                             <div>
                                 <label className="label">Travel Date</label>
-                                <ReactInputMask mask="99/99/9999" onChange={e => setData({ data: { ...data, date: e.target.value }, index })} value={data.date} className="input input-bordered w-full" placeholder='dd/mm/yyyy' />
+                                <ReactInputMask mask="99/99/9999" onChange={e => setData({ data: { ...data, date: e.target.value }, index })} value={data.date} className="input input-bordered w-full" placeholder='DD/MM/YYYY' />
                             </div>
                             <div>
                                 <label className="label">Itinerary Title</label>

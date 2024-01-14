@@ -3,20 +3,20 @@ import { createRef, useEffect, useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
 import PageHeader from "@src/components/PageHeader"
 import { useNavigate, useParams } from "react-router-dom"
-import TourPackageCreateCard, { TourPackageCreateRef } from "@src/components/TourPackageCreateCard";
 import { CreateTourType, TourType, parseErrorMessage } from '../types';
 import { toast } from "react-toastify";
 import { getTourById, postTour } from "@src/functions/api";
 import { useQueryClient } from "react-query";
 import TourUpdateCard, { TourUpdateRef } from "@src/components/TourUpdateCard";
 import TourLogUpdateCard, { TourLogUpdateRef } from "@src/components/TourLogUpdateCard";
+import TourPackageUpdateCard, { TourPackageUpdateRef } from "@src/components/TourPackageUpdateCard";
 
 const UpdateTour = () => {
     let { tourId } = useParams()
 
     const tourUpdateRef = createRef<TourUpdateRef>()
     const tourLogUpdateRef = createRef<TourLogUpdateRef>()
-    const tourPackageCreateRef = createRef<TourPackageCreateRef>()
+    const tourPackageUpdateRef = createRef<TourPackageUpdateRef>()
 
     const queryClient = useQueryClient()
     const navigate = useNavigate()
@@ -34,12 +34,15 @@ const UpdateTour = () => {
             if(tourLogUpdateRef.current){
                 tourLogUpdateRef.current.updateData([...tour.tour_logs])
             }
+            if(tourPackageUpdateRef.current){
+                tourPackageUpdateRef.current.updateData([...tour.packages])
+            }
             // set data here
         })
     }, [tourId])
 
     const handleSubmit = async () => {
-        if (!tourUpdateRef.current || !tourLogUpdateRef.current || !tourPackageCreateRef.current) {
+        if (!tourUpdateRef.current || !tourLogUpdateRef.current || !tourPackageUpdateRef.current) {
             return;
         }
         setError("")
@@ -57,7 +60,7 @@ const UpdateTour = () => {
             }
         })
 
-        const packages = tourPackageCreateRef.current.getData();
+        const packages = tourPackageUpdateRef.current.getData();
         packages.forEach(e => {
             if (e.price == null) {
                 toast.error("Package must contain price data");
@@ -114,7 +117,7 @@ const UpdateTour = () => {
             <div className="grid grid-cols-1 gap-3">
                 <TourUpdateCard ref={tourUpdateRef} tourId={Number(tourId)} />
                 <TourLogUpdateCard ref={tourLogUpdateRef} tourId={Number(tourId)} />
-                <TourPackageCreateCard ref={tourPackageCreateRef} />
+                <TourPackageUpdateCard ref={tourPackageUpdateRef} tourId={Number(tourId)} />
             </div>
 
             {error.length > 0 && (
