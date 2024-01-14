@@ -1,12 +1,13 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { toast } from 'react-toastify';
-import { QueueListIcon } from '@heroicons/react/24/outline';
+import { WalletIcon } from '@heroicons/react/24/outline';
 import TourPackageUpdateForm from './TourPackageUpdateForm';
-import { postTourPackage } from '@src/functions/api';
+import { deleteTourPackageById, postTourPackage } from '@src/functions/api';
 import { parseErrorMessage } from '@src/types';
 import TourPackageCreateForm from './TourPackageCreateForm';
 
 export interface TourPackageUpdateState {
+    id: number
     tours_id: number
     title: string;
     description: string;
@@ -71,7 +72,7 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
         setTourPackageData(newData);
     };
 
-     const handleSetEditorData = ({ data }: { data: TourPackageCreateState, index: number }) => {
+    const handleSetEditorData = ({ data }: { data: TourPackageCreateState, index: number }) => {
         setEditorData({ ...data });
     };
 
@@ -84,17 +85,22 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
     }
 
     const deleteData = (index: number) => {
-        const newData = tourPackageData.filter((_item, i) => index !== i);
-        setTourPackageData([...newData])
+        const found = tourPackageData.find((_item, i) => index == i)
+        if (!found) return;
+        deleteTourPackageById({ id: found.id })
+            .then(res => {
+                if (res.error) {
+                    toast.error("Tour package delete failed 🤦‍♂️")
+                    toast.error(parseErrorMessage(res.error).message)
+                } else {
+                    toast.success("Tour package deleted 💪")
+                    const newData = tourPackageData.filter((_item, i) => index !== i);
+                    setTourPackageData([...newData])
+                }
+            })
     }
 
-    const cancel = (index: number) => {
-        const newData = tourPackageData.filter((_item, i) => index !== i);
-        setTourPackageData([...newData])
-        setActiveIndex(defaultActiveIndex)
-    }
-
-     const cancelEditor = () => {
+    const cancelEditor = () => {
         setShowEditor(false)
         setEditorData({ ...initialState })
     }
@@ -130,7 +136,7 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
         })
     }
 
-     const addAnother = () => {
+    const addAnother = () => {
         setActiveIndex(defaultActiveIndex)
         setShowEditor(true)
     }
@@ -138,7 +144,7 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
     return (
         <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
             <div className='flex gap-2 items-center'>
-                <QueueListIcon className='h-5 w-5' /> 
+                <WalletIcon className='h-5 w-5' />
                 Tour Packages
             </div>
             {tourPackageData.map((e, i) => (
@@ -148,7 +154,6 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
                     editData={editData}
                     deleteData={deleteData}
                     active={activeIndex == i}
-                    cancel={cancel}
                     complete={complete}
                     index={i}
                     key={i}
@@ -159,9 +164,8 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
                     data={editorData}
                     setData={handleSetEditorData}
                     editData={(_: number) => (console.log())}
-                    deleteData={(_: number) => (console.log())}
+                    deleteData={cancelEditor}
                     active={true}
-                    cancel={cancelEditor}
                     complete={completeEditor}
                     index={0}
                 />

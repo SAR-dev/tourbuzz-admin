@@ -570,10 +570,32 @@ export const postTourLog = ({ ...props }: CreateTourLogtype): Promise<any> => {
         });
 }
 
+export const deleteTourLogById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/tour-logs/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
 export const postTourPackage = ({ ...props }: CreateTourPackageType): Promise<any> => {
     const data = { ...props }
     return api
         .post("/admin/tour-packages", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const deleteTourPackageById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/tour-packages/${id}`)
         .then((res) => {
             return { data: res.data };
         })

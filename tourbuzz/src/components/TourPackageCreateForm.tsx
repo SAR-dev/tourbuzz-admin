@@ -13,7 +13,6 @@ const TourPackageCreateForm = ({
     setData,
     editData,
     deleteData,
-    cancel,
     complete
 }: {
     active: boolean,
@@ -22,7 +21,6 @@ const TourPackageCreateForm = ({
     setData: ({ data, index }: { data: TourPackageCreateState, index: number }) => void,
     editData: (index: number) => void,
     deleteData: (index: number) => void,
-    cancel: (index: number) => void,
     complete: () => void
 }) => {
     const setMdInfo = (value: string) => {
@@ -41,7 +39,7 @@ const TourPackageCreateForm = ({
                             <CheckIcon className='h-4 w-4' />
                             Save
                         </button>
-                        <button className="btn btn-sm btn-warning" onClick={() => cancel(index)}>
+                        <button className="btn btn-sm btn-warning" onClick={() => deleteData(index)}>
                             <XMarkIcon className='h-4 w-4' />
                             Delete
                         </button>
@@ -82,9 +80,8 @@ const TourPackageCreateForm = ({
                     <BanknotesIcon className='h-5 w-5' />
                     <div className="font-semibold ml-2 mr-4">{data.price ? `[${humanNumber(data.price)} TK]` : data.price}</div>
                     <div>{data.title}</div>
-                    <div className="join ml-auto">
-                        <button className="btn btn-xs join-item" onClick={() => editData(index)}>Edit</button>
-                        <button className="btn btn-xs join-item" onClick={() => deleteData(index)}>Delete</button>
+                    <div className="ml-auto">
+                        <button className="btn btn-sm" onClick={() => editData(index)}>Edit</button>
                     </div>
                 </div>
             )}

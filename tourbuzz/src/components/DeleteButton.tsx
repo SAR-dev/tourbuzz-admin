@@ -2,7 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Modal from './Modal'
 import { TrashIcon } from '@heroicons/react/24/outline';
 
-const DeleteButton = ({ handleDelete, loading }: { handleDelete: () => void, loading: boolean }) => {
+const DeleteButton = ({ 
+    className, 
+    handleDelete, 
+    loading 
+}: { 
+    className?: string, 
+    handleDelete: () => void, 
+    loading?: boolean 
+}) => {
     const [seconds, setSeconds] = useState(10);
     const [show, setShow] = useState(false)
 
@@ -25,7 +33,7 @@ const DeleteButton = ({ handleDelete, loading }: { handleDelete: () => void, loa
 
     return (
         <div>
-            <button className="btn btn-warning" onClick={() => setShow(true)}>
+            <button className={className ?? "btn btn-warning"} onClick={() => setShow(true)}>
                 {loading ? (
                     <>
                         <span className="loading loading-spinner"></span>

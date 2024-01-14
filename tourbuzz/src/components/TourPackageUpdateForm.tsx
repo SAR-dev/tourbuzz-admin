@@ -1,9 +1,10 @@
 import { BanknotesIcon } from "@heroicons/react/24/outline";
-import { CheckIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { CheckIcon } from "@heroicons/react/24/solid";
 import classNames from 'classnames';
 import MarkdownEditor from './MarkdownEditor';
 import { TourPackageUpdateState } from './TourPackageUpdateCard';
 import humanNumber from "human-number";
+import DeleteButton from "./DeleteButton";
 
 
 const TourPackageUpdateForm = ({
@@ -13,7 +14,6 @@ const TourPackageUpdateForm = ({
     setData,
     editData,
     deleteData,
-    cancel,
     complete
 }: {
     active: boolean,
@@ -22,7 +22,6 @@ const TourPackageUpdateForm = ({
     setData: ({ data, index }: { data: TourPackageUpdateState, index: number }) => void,
     editData: (index: number) => void,
     deleteData: (index: number) => void,
-    cancel: (index: number) => void,
     complete: () => void
 }) => {
     const setMdInfo = (value: string) => {
@@ -37,14 +36,11 @@ const TourPackageUpdateForm = ({
             {active ? (
                 <div className="grid grid-cols-2 gap-3">
                     <div className="flex space-x-2  absolute top-0 right-0 btn-xs m-2">
-                        <button className="btn btn-xs btn-outline" onClick={complete}>
+                         <button className="btn btn-sm btn-info" onClick={complete}>
                             <CheckIcon className='h-4 w-4' />
-                            Completed
+                            Save
                         </button>
-                        <button className="btn btn-xs btn-outline" onClick={() => cancel(index)}>
-                            <XMarkIcon className='h-4 w-4' />
-                            Cancel & Delete
-                        </button>
+                        <DeleteButton className='btn btn-sm btn-warning' handleDelete={() => deleteData(index)} />
                     </div>
                     <div className='w-full'>
                         <div className="grid grid-cols-1 gap-3 mb-3">
@@ -82,9 +78,8 @@ const TourPackageUpdateForm = ({
                     <BanknotesIcon className='h-5 w-5' />
                     <div className="font-semibold ml-2 mr-4">{data.price ? `[${humanNumber(data.price)} TK]` : data.price}</div>
                     <div>{data.title}</div>
-                    <div className="join ml-auto">
-                        <button className="btn btn-xs join-item" onClick={() => editData(index)}>Edit</button>
-                        <button className="btn btn-xs join-item" onClick={() => deleteData(index)}>Delete</button>
+                    <div className="ml-auto">
+                        <button className="btn btn-sm" onClick={() => editData(index)}>Edit</button>
                     </div>
                 </div>
             )}

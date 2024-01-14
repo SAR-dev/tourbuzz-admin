@@ -4,9 +4,10 @@ import { toast } from 'react-toastify';
 import { QueueListIcon } from '@heroicons/react/24/outline';
 import TourLogUpdateForm from './TourLogUpdateForm';
 import TourLogCreateForm from './TourLogCreateForm';
-import { postTourLog } from '@src/functions/api';
+import { deleteTourLogById, postTourLog } from '@src/functions/api';
 
 export interface TourLogUpdateState {
+    id: number
     tours_id: number
     hotel: HotelType | null;
     title: string;
@@ -89,14 +90,19 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
     }
 
     const deleteData = (index: number) => {
-        const newData = tourLogData.filter((_item, i) => index !== i);
-        setTourLogData([...newData])
-    }
-
-    const cancel = (index: number) => {
-        const newData = tourLogData.filter((_item, i) => index !== i);
-        setTourLogData([...newData])
-        setActiveIndex(defaultActiveIndex)
+        const found = tourLogData.find((_item, i) => index == i)
+        if (!found) return;
+        deleteTourLogById({ id: found.id })
+            .then(res => {
+                if (res.error) {
+                    toast.error("Tour log delete failed 🤦‍♂️")
+                    toast.error(parseErrorMessage(res.error).message)
+                } else {
+                    toast.success("Tour log deleted 💪")
+                    const newData = tourLogData.filter((_item, i) => index !== i);
+                    setTourLogData([...newData])
+                }
+            })
     }
 
     const cancelEditor = () => {
@@ -145,7 +151,7 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
     return (
         <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
             <div className='flex gap-2 items-center'>
-                <QueueListIcon className='h-5 w-5' /> 
+                <QueueListIcon className='h-5 w-5' />
                 Tour Logs
             </div>
             {tourLogData.map((e, i) => (
@@ -155,7 +161,6 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
                     editData={editData}
                     deleteData={deleteData}
                     active={activeIndex == i}
-                    cancel={cancel}
                     complete={complete}
                     index={i}
                     key={i}
@@ -166,9 +171,8 @@ const TourLogUpdateCard = forwardRef<TourLogUpdateRef, { tourId: number }>((prop
                     data={editorData}
                     setData={handleSetEditorData}
                     editData={(_: number) => (console.log())}
-                    deleteData={(_: number) => (console.log())}
+                    deleteData={cancelEditor}
                     active={true}
-                    cancel={cancelEditor}
                     complete={completeEditor}
                     index={0}
                 />

@@ -89,12 +89,6 @@ const TourLogCreateCard = forwardRef<TourLogCreateRef>((_props, ref) => {
         setTourLogData([...newData])
     }
 
-    const cancel = (index: number) => {
-        const newData = tourLogData.filter((_item, i) => index !== i);
-        setTourLogData([...newData])
-        setActiveIndex(defaultActiveIndex)
-    }
-
     const complete = () => {
         if (isActiveDataInValid()) {
             toast.warning("Please complete the active Itinerary first")
@@ -112,8 +106,7 @@ const TourLogCreateCard = forwardRef<TourLogCreateRef>((_props, ref) => {
                     setData={handleSetData} 
                     editData={editData} 
                     deleteData={deleteData} 
-                    active={activeIndex == i} 
-                    cancel={cancel}
+                    active={activeIndex == i}
                     complete={complete}
                     index={i} 
                     key={i} 

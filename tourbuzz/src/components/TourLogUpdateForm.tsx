@@ -3,7 +3,7 @@ import { HotelType, ImageType, PlaceType } from '@src/types';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import { CalendarIcon, PhotoIcon } from "@heroicons/react/24/outline";
-import { CheckIcon, TrashIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { CheckIcon, TrashIcon } from "@heroicons/react/24/solid";
 import ImageUploader from './ImageUploader';
 import ReactInputMask from 'react-input-mask';
 import MultiplePlaceSelect from './MultiplePlaceSelect';
@@ -12,6 +12,7 @@ import MarkdownEditor from './MarkdownEditor';
 import HotelSelect from './HotelSelect';
 import { TourLogUpdateState } from './TourLogUpdateCard';
 import { timestampToDDMMYYYY } from '@src/functions/helpers';
+import DeleteButton from './DeleteButton';
 
 const TourLogUpdateForm = ({
     active,
@@ -20,7 +21,6 @@ const TourLogUpdateForm = ({
     setData,
     editData,
     deleteData,
-    cancel,
     complete
 }: {
     active: boolean,
@@ -29,7 +29,6 @@ const TourLogUpdateForm = ({
     setData: ({ data, index }: { data: TourLogUpdateState, index: number }) => void,
     editData: (index: number) => void,
     deleteData: (index: number) => void,
-    cancel: (index: number) => void,
     complete: () => void
 }) => {
     const setPlaces = (places: PlaceType[]) => {
@@ -67,10 +66,7 @@ const TourLogUpdateForm = ({
                             <CheckIcon className='h-4 w-4' />
                             Save
                         </button>
-                        <button className="btn btn-sm btn-warning" onClick={() => cancel(index)}>
-                            <XMarkIcon className='h-4 w-4' />
-                            Delete
-                        </button>
+                        <DeleteButton className='btn btn-sm btn-warning' handleDelete={() => deleteData(index)} />
                     </div>
                     <div className='w-full'>
                         <div className="grid grid-cols-2 gap-3 mb-3">
@@ -130,9 +126,8 @@ const TourLogUpdateForm = ({
                     <CalendarIcon className='h-5 w-5' />
                     <div className="font-semibold ml-2 mr-4">{timestampToDDMMYYYY(data.date)}</div>
                     <div>{data.title}</div>
-                    <div className="join ml-auto">
-                        <button className="btn btn-xs join-item" onClick={() => editData(index)}>Edit</button>
-                        <button className="btn btn-xs join-item" onClick={() => deleteData(index)}>Delete</button>
+                    <div className="ml-auto">
+                        <button className="btn btn-sm" onClick={() => editData(index)}>Edit</button>
                     </div>
                 </div>
             )}

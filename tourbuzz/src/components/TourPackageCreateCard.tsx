@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { toast } from 'react-toastify';
-import { QueueListIcon } from '@heroicons/react/24/outline';
+import { QueueListIcon, WalletIcon } from '@heroicons/react/24/outline';
 import TourPackageCreateForm from './TourPackageCreateForm';
 import { TOUR_PKG_CREATE_CACHE_KEY } from '@src/constants/values';
 import useLocalStorageState from 'use-local-storage-state';
@@ -100,7 +100,10 @@ const TourPackageCreateCard = forwardRef<TourPackageCreateRef>((_props, ref) => 
 
     return (
         <div className="grid grid-cols-1 gap-3 p-5 card bg-base-200">
-            <div className='flex gap-2 items-center'><QueueListIcon className='h-5 w-5' /> Tour Packages</div>
+            <div className='flex gap-2 items-center'>
+                <WalletIcon className='h-5 w-5' /> 
+                Tour Packages
+            </div>
             {tourPackageData.map((e, i) => (
                 <TourPackageCreateForm
                     data={e}
