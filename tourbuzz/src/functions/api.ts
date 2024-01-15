@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateWriterType } from "../types";
+import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateTourType, UpdateWriterType } from "../types";
 import { tokenKey } from "@src/store";
 
 const api = axios.create();
@@ -638,6 +638,17 @@ export const getTours = ({
         });
 }
 
+export const updateTour = ({ ...props }: UpdateTourType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/tours", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
 
 export const getTourById = ({ id }: { id: number }): Promise<any> => {
     return api

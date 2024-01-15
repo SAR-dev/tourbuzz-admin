@@ -3,9 +3,9 @@ import { createRef, useEffect, useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
 import PageHeader from "@src/components/PageHeader"
 import { useNavigate, useParams } from "react-router-dom"
-import { CreateTourType, TourType, parseErrorMessage } from '../types';
+import { TourType, UpdateTourType, parseErrorMessage } from '../types';
 import { toast } from "react-toastify";
-import { getTourById, postTour } from "@src/functions/api";
+import { getTourById, updateTour } from "@src/functions/api";
 import { useQueryClient } from "react-query";
 import TourUpdateCard, { TourUpdateRef } from "@src/components/TourUpdateCard";
 import TourLogUpdateCard, { TourLogUpdateRef } from "@src/components/TourLogUpdateCard";
@@ -37,7 +37,6 @@ const UpdateTour = () => {
             if(tourPackageUpdateRef.current){
                 tourPackageUpdateRef.current.updateData([...tour.packages])
             }
-            // set data here
         })
     }, [tourId])
 
@@ -53,12 +52,6 @@ const UpdateTour = () => {
         }
 
         const tour_logs = tourLogUpdateRef.current.getData();
-        tour_logs.forEach(e => {
-            if (e.hotel == null) {
-                toast.error("Tour logs must contain hotel data");
-                return;
-            }
-        })
 
         const packages = tourPackageUpdateRef.current.getData();
         packages.forEach(e => {
@@ -68,9 +61,10 @@ const UpdateTour = () => {
             }
         })
 
-        const data: CreateTourType = {
+        const data: UpdateTourType = {
             tour: {
                 ...tour,
+                id: Number(tourId),
                 organizers_id: tour.organizer.id,
                 images_id: tour.avatar.id,
                 image_ids: tour.images.map(e => e.id)
@@ -92,13 +86,13 @@ const UpdateTour = () => {
         }
 
         setLoading(true)
-        postTour({ ...data }).then(res => {
+        updateTour({ ...data }).then(res => {
             if (res.error) {
-                toast.error("Tour submission failed 🤦‍♂️")
+                toast.error("Tour update failed 🤦‍♂️")
                 setError(parseErrorMessage(res.error).message)
                 setLoading(false)
             } else {
-                toast.success("Tour Submitted 💪")
+                toast.success("Tour updated 💪")
                 queryClient.invalidateQueries("tours")
                 setLoading(false)
                 navigate("/tours")

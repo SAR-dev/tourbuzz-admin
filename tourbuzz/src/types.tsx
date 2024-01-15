@@ -348,6 +348,12 @@ export interface CreateTourType {
     packages: TourPackageCreatePayload[]
 }
 
+export interface UpdateTourType {
+    tour: TourUpdatePayload
+    tour_logs: TourLogUpdatePayload[]
+    packages: TourPackageUpdatePayload[]
+}
+
 interface TourCreatePayload {
     tour_types_id: number
     organizers_id: number
@@ -369,6 +375,10 @@ interface TourCreatePayload {
     image_ids: number[]
 }
 
+interface TourUpdatePayload extends TourCreatePayload {
+    id: number
+}
+
 interface TourLogCreatePayload {
     hotels_id: number | null
     title: string
@@ -378,11 +388,19 @@ interface TourLogCreatePayload {
     image_ids: number[]
 }
 
+interface TourLogUpdatePayload extends TourLogCreatePayload {
+    id: number
+}
+
 interface TourPackageCreatePayload {
     title: string
     description: string
     additional_info: string
     price: number
+}
+
+interface TourPackageUpdatePayload extends TourPackageCreatePayload {
+    id: number
 }
 
 export interface DivisionWithDistrictData {
