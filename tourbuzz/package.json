@@ -9,7 +9,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "npm i && tsc && vite build",
+    "build": "npm i --no-package-lock && tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri"
   },
