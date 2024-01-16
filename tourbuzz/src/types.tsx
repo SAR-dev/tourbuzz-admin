@@ -163,6 +163,7 @@ export interface ListTourType {
     slug: string
     md_desc: string
     highlights: string
+    video_link: string
     group_size: string
     group_info: string
     services: string
@@ -196,6 +197,7 @@ export interface TourType {
     slug: string
     md_desc: string
     highlights: string
+    video_link: string
     group_size: string
     group_info: string
     services: string
@@ -364,6 +366,7 @@ interface TourCreatePayload {
     slug: string
     md_desc: string
     highlights: string
+    video_link: string
     group_size: string
     group_info: string
     services: string

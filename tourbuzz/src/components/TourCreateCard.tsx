@@ -22,6 +22,7 @@ export interface TourCreateState {
     slug: string;
     md_desc: string;
     highlights: string;
+    video_link: string;
     group_size: string;
     group_info: string;
     services: string;
@@ -48,6 +49,7 @@ const initialState: TourCreateState = {
     slug: '',
     md_desc: '',
     highlights: '',
+    video_link: '',
     group_size: '',
     group_info: '',
     services: '',
