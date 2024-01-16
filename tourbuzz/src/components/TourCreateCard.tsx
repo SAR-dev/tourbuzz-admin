@@ -22,6 +22,7 @@ export interface TourCreateState {
     slug: string;
     md_desc: string;
     highlights: string;
+    faq: string;
     video_link: string;
     group_size: string;
     group_info: string;
@@ -49,6 +50,7 @@ const initialState: TourCreateState = {
     slug: '',
     md_desc: '',
     highlights: '',
+    faq : '',
     video_link: '',
     group_size: '',
     group_info: '',
@@ -123,6 +125,10 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
 
     const setFinishIns = (value: string) => {
         setData({ ...data, finish_ins: value })
+    }
+
+    const setFAQ = (value: string) => {
+        setData({ ...data, faq: value })
     }
 
     const setAvatar = (image: ImageType) => {
@@ -212,6 +218,14 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                     value={data.md_desc}
                     setValue={setMdDesc}
                     placeholder="Start writing details in Markdown"
+                />
+            </div>
+            <div className="col-span-2">
+                <label className="label">Frequently Asked Questions</label>
+                <MarkdownEditor
+                    value={data.faq}
+                    setValue={setFAQ}
+                    placeholder="Write Questions and Answers"
                 />
             </div>
             <div className="flex flex-col">
