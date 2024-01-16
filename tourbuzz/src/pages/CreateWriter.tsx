@@ -109,7 +109,7 @@ const CreateWriter = () => {
                         <div className="p-3 bg-base-100 card border border-base-300">
                             <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                                 {data.avatar ? (
-                                    <Image image={data.avatar} className="h-60 w-full object-cover object-center" />
+                                    <Image image={data.avatar} className="h-60 w-full object-contain object-center" />
                                 ) : (
                                     <UserCircleIcon className="h-20 w-20" />
                                 )}

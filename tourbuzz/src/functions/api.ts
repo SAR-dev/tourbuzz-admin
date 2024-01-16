@@ -20,6 +20,7 @@ api.interceptors.request.use(
 
             config.baseURL = import.meta.env.VITE_API_URL;
         } catch (error) {
+            config.baseURL = import.meta.env.VITE_API_URL;
         }
 
         return config;

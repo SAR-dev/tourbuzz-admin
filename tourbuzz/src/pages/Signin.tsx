@@ -90,11 +90,11 @@ const Signin = () => {
                     <>
                         <div>
                             <label className="label">Mailed Token</label>
-                            <input value={magicToken} onChange={e => setMagicToken(e.target.value)} type="text" placeholder="Mailed Token" className="input input-bordered w-96" />
+                            <input value={magicToken} onChange={e => setMagicToken(e.target.value)} type="password" placeholder="Mailed Token" className="input input-bordered w-96" />
                         </div>
                         <div>
                             <label className="label">Secret Key</label>
-                            <input value={adminKey} onChange={e => setAdminKey(e.target.value)} type="text" placeholder="Secret Key" className="input input-bordered w-96" />
+                            <input value={adminKey} onChange={e => setAdminKey(e.target.value)} type="password" placeholder="Secret Key" className="input input-bordered w-96" />
                         </div>
                         <button className="btn w-full btn-info mt-3" onClick={handleTokenSubmit} disabled={loading}>
                             Verify
