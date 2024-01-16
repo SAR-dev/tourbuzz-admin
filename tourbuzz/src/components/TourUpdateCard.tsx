@@ -60,7 +60,7 @@ export interface TourUpdateRef {
     updateData: (props: TourUpdateState) => void
 }
 
-const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((tourId, ref) => {
+const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, ref) => {
     const [data, setData] = useState<TourUpdateState>({ ...initialState })
 
     useImperativeHandle(ref, () => ({

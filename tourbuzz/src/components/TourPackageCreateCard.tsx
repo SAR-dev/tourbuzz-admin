@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { toast } from 'react-toastify';
-import { QueueListIcon, WalletIcon } from '@heroicons/react/24/outline';
+import { WalletIcon } from '@heroicons/react/24/outline';
 import TourPackageCreateForm from './TourPackageCreateForm';
 import { TOUR_PKG_CREATE_CACHE_KEY } from '@src/constants/values';
 import useLocalStorageState from 'use-local-storage-state';
@@ -84,12 +84,6 @@ const TourPackageCreateCard = forwardRef<TourPackageCreateRef>((_props, ref) => 
         setTourPackageData([...newData])
     }
 
-    const cancel = (index: number) => {
-        const newData = tourPackageData.filter((_item, i) => index !== i);
-        setTourPackageData([...newData])
-        setActiveIndex(defaultActiveIndex)
-    }
-
     const complete = () => {
         if (isActiveDataInValid()) {
             toast.warning("Please complete the active Package first")
@@ -111,7 +105,6 @@ const TourPackageCreateCard = forwardRef<TourPackageCreateRef>((_props, ref) => 
                     editData={editData}
                     deleteData={deleteData}
                     active={activeIndex == i}
-                    cancel={cancel}
                     complete={complete}
                     index={i}
                     key={i}
