@@ -3,10 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=19.0.0 <19.9.0"
+  },
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm ci && tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri"
   },
