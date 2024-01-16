@@ -7,15 +7,17 @@ import useLocalStorageState from 'use-local-storage-state';
 
 export interface TourPackageCreateState {
     title: string;
-    description: string;
-    additional_info: string;
+    included: string
+    excluded: string
+    conditions: string
     price: number | null;
 }
 
 const initialState: TourPackageCreateState = {
     title: "",
-    description: "",
-    additional_info: "",
+    included: "",
+    excluded: "",
+    conditions: "",
     price: null
 }
 
@@ -47,7 +49,6 @@ const TourPackageCreateCard = forwardRef<TourPackageCreateRef>((_props, ref) => 
             return false;
         }
         if (tourPackageData[activeIndex].title.length < 3 ||
-            tourPackageData[activeIndex].description.length < 5 ||
             tourPackageData[activeIndex].price == null ||
             tourPackageData[activeIndex].price == 0
         ) {

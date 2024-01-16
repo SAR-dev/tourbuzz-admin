@@ -130,8 +130,9 @@ export interface PackageType {
     status: string;
     tours_id: number;
     title: string;
-    description: string;
-    additional_info: string;
+    included: string
+    excluded: string
+    conditions: string
     price: number;
     created_at: string
     updated_at: string
@@ -161,7 +162,7 @@ export interface ListTourType {
     title: string
     slug: string
     md_desc: string
-    summary: string
+    highlights: string
     group_size: string
     group_info: string
     services: string
@@ -194,7 +195,7 @@ export interface TourType {
     title: string
     slug: string
     md_desc: string
-    summary: string
+    highlights: string
     group_size: string
     group_info: string
     services: string
@@ -337,8 +338,9 @@ export interface CreateTourLogtype {
 export interface CreateTourPackageType {
     tours_id: number
     title: string
-    description: string
-    additional_info: string
+    included: string
+    excluded: string
+    conditions: string
     price: number
 }
 
@@ -361,7 +363,7 @@ interface TourCreatePayload {
     title: string
     slug: string
     md_desc: string
-    summary: string
+    highlights: string
     group_size: string
     group_info: string
     services: string
@@ -394,8 +396,9 @@ interface TourLogUpdatePayload extends TourLogCreatePayload {
 
 interface TourPackageCreatePayload {
     title: string
-    description: string
-    additional_info: string
+    included: string
+    excluded: string
+    conditions: string
     price: number
 }
 

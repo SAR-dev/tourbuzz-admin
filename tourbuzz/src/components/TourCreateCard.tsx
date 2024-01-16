@@ -21,7 +21,7 @@ export interface TourCreateState {
     title: string;
     slug: string;
     md_desc: string;
-    summary: string;
+    highlights: string;
     group_size: string;
     group_info: string;
     services: string;
@@ -47,7 +47,7 @@ const initialState: TourCreateState = {
     title: '',
     slug: '',
     md_desc: '',
-    summary: '',
+    highlights: '',
     group_size: '',
     group_info: '',
     services: '',
@@ -101,6 +101,10 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
 
     const setMdDesc = (value: string) => {
         setData({ ...data, md_desc: value })
+    }
+
+    const setHighlights = (value: string) => {
+        setData({ ...data, highlights: value })
     }
 
     const setServices = (value: string) => {
@@ -157,22 +161,28 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <label className="label">Ticket Last Sell Time</label>
                 <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='DD/MM/YYYY hh:mm' />
             </div>
-            <div className="flex flex-col">
-                <label className="label">Reader-friendly Summary</label>
-                <textarea value={data.summary} onChange={e => setData({ ...data, summary: e.target.value })} rows={13} placeholder="Summary" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
-            </div>
             <div>
                 <label className="label">Tour Main Poster</label>
                 <div className="p-3 bg-base-100 card border border-base-300">
-                    <div className="h-60 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                    <div className="h-72 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                         {data.avatar ? (
-                            <Image image={data.avatar} className="h-60 w-full object-contain object-center" />
+                            <Image image={data.avatar} className="h-72 w-full object-contain object-center" />
                         ) : (
                             <PhotoIcon className="h-20 w-20" />
                         )}
                     </div>
                     <ImageUploader title="Upload Poster" setImage={setAvatar} />
                 </div>
+            </div>
+            <div>
+                <label className="label">Tour Highlights</label>
+                <MarkdownEditor
+                    value={data.highlights}
+                    setValue={setHighlights}
+                    placeholder="Write using bullet points"
+                    minimal
+                    height='20rem'
+                />
             </div>
             <div className='col-span-2'>
                 <div className="grid grid-cols-5 gap-3">

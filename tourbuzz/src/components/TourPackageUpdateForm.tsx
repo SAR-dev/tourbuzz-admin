@@ -24,8 +24,16 @@ const TourPackageUpdateForm = ({
     deleteData: (index: number) => void,
     complete: () => void
 }) => {
-    const setMdInfo = (value: string) => {
-        setData({ data: { ...data, additional_info: value }, index })
+    const setIncluded = (value: string) => {
+        setData({ data: { ...data, included: value }, index })
+    }
+
+    const setExcluded = (value: string) => {
+        setData({ data: { ...data, excluded: value }, index })
+    }
+
+    const setConditions = (value: string) => {
+        setData({ data: { ...data, conditions: value }, index })
     }
 
     return (
@@ -52,24 +60,44 @@ const TourPackageUpdateForm = ({
                                 <label className="label">Package Price</label>
                                 <input value={data.price?.toString()} onChange={e => setData({ data: { ...data, price: Number(e.target.value) }, index })} type="number" placeholder="Price" className="input input-bordered w-full" />
                             </div>
-                            <div className="flex flex-col">
-                                <label className="label">Short Details about Package</label>
-                                <textarea value={data.description} onChange={e => setData({ data: { ...data, description: e.target.value }, index })} rows={8} placeholder="Summary" className="textarea textarea-bordered overflow-y-auto custom-scrollbar placeholder:text-base text-base resize-none" />
-                            </div>
                         </div>
                     </div>
-                    <div className='w-full'>
-                        <div className="grid grid-cols-1 gap-3">
-                            <div className="flex flex-col">
-                                <label className="label">Package Additional Info</label>
-                                <MarkdownEditor
-                                    value={data.additional_info}
-                                    setValue={setMdInfo}
-                                    placeholder="Start writing details in Markdown"
-                                    minimal
-                                    height='22rem'
-                                />
-                            </div>
+                    <div>
+                        <label className="label">Package Title</label>
+                        <input value={data.title} onChange={e => setData({ data: { ...data, title: e.target.value }, index })} type="text" placeholder="Title" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="label">Package Price</label>
+                        <input value={data.price?.toString()} onChange={e => setData({ data: { ...data, price: Number(e.target.value) }, index })} type="number" placeholder="Price" className="input input-bordered w-full" />
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="label">Included Services</label>
+                        <MarkdownEditor
+                            value={data.included}
+                            setValue={setIncluded}
+                            placeholder="Write using bullet points"
+                            minimal
+                            height='20rem'
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="label">Excluded Services</label>
+                        <MarkdownEditor
+                            value={data.excluded}
+                            setValue={setExcluded}
+                            placeholder="Write using bullet points"
+                            minimal
+                            height='20rem'
+                        />
+                    </div>
+                    <div className='col-span-2'>
+                        <div className="flex flex-col">
+                            <label className="label">Terms & Conditions</label>
+                            <MarkdownEditor
+                                value={data.conditions}
+                                setValue={setConditions}
+                                placeholder="Start writing details in Markdown"
+                            />
                         </div>
                     </div>
                 </div>

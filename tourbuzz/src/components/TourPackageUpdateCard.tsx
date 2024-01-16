@@ -11,22 +11,25 @@ export interface TourPackageUpdateState {
     status: string;
     tours_id: number
     title: string;
-    description: string;
-    additional_info: string;
+    included: string
+    excluded: string
+    conditions: string
     price: number | null;
 }
 
 export interface TourPackageCreateState {
     title: string;
-    description: string;
-    additional_info: string;
+    included: string
+    excluded: string
+    conditions: string
     price: number | null;
 }
 
 const initialState: TourPackageCreateState = {
     title: "",
-    description: "",
-    additional_info: "",
+    included: "",
+    excluded: "",
+    conditions: "",
     price: null
 }
 
@@ -58,7 +61,6 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
             return false;
         }
         if (tourPackageData[activeIndex].title.length < 3 ||
-            tourPackageData[activeIndex].description.length < 5 ||
             tourPackageData[activeIndex].price == null ||
             tourPackageData[activeIndex].price == 0
         ) {
@@ -118,8 +120,9 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
         postTourPackage({
             tours_id: props.tourId,
             title: editorData.title,
-            description: editorData.description,
-            additional_info: editorData.additional_info,
+            included: editorData.included,
+            excluded: editorData.excluded,
+            conditions: editorData.conditions,
             price: Number(editorData.price)
         }).then(res => {
             if (res.error) {
