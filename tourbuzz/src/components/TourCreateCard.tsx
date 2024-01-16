@@ -11,8 +11,9 @@ import { getTourTypes } from '@src/functions/api';
 import { useQuery } from 'react-query';
 import OrganizerSelect from './OrganizerSelect';
 import { PhotoIcon } from "@heroicons/react/24/outline"
-import { TrashIcon } from "@heroicons/react/24/solid";
+import { PlayCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 import useLocalStorageState from 'use-local-storage-state'
+import ReactPlayer from 'react-player'
 
 export interface TourCreateState {
     tour_types_id: number;
@@ -26,7 +27,6 @@ export interface TourCreateState {
     video_link: string;
     group_size: string;
     group_info: string;
-    services: string;
     transports: string;
     cancel_ins: string;
     start_ins: string;
@@ -50,11 +50,10 @@ const initialState: TourCreateState = {
     slug: '',
     md_desc: '',
     highlights: '',
-    faq : '',
+    faq: '',
     video_link: '',
     group_size: '',
     group_info: '',
-    services: '',
     transports: '',
     cancel_ins: '',
     start_ins: '',
@@ -111,10 +110,6 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
         setData({ ...data, highlights: value })
     }
 
-    const setServices = (value: string) => {
-        setData({ ...data, services: value })
-    }
-
     const setCancelIns = (value: string) => {
         setData({ ...data, cancel_ins: value })
     }
@@ -133,6 +128,20 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
 
     const setAvatar = (image: ImageType) => {
         setData({ ...data, avatar: image })
+    }
+
+    const handleVideoLink = async () => {
+        const url = await navigator.clipboard.readText();
+        const ok = ReactPlayer.canPlay(url)
+        if (ok) {
+            setData({ ...data, video_link: url })
+        } else {
+            toast.error("Sorry, we can not play this video");
+        }
+    }
+
+    const removeVideoLink = () => {
+        setData({ ...data, video_link: "" })
     }
 
     return (
@@ -183,14 +192,22 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 </div>
             </div>
             <div>
-                <label className="label">Tour Highlights</label>
-                <MarkdownEditor
-                    value={data.highlights}
-                    setValue={setHighlights}
-                    placeholder="Write using bullet points"
-                    minimal
-                    height='20rem'
-                />
+                <label className="label">Attach a video (Optional)</label>
+                <div className="p-3 bg-base-100 card border border-base-300">
+                    <div className="h-72 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                        {ReactPlayer.canPlay(data.video_link) && <ReactPlayer url={data.video_link} light height="100%" width="100%" controls={false} playIcon={
+                            <PlayCircleIcon className='h-16 w-16 text-info shadow-lg rounded-full' />
+                        } />}
+                    </div>
+                    <div className='flex gap-3'>
+                        <button className="btn btn-primary w-full flex-1" onClick={handleVideoLink}>
+                            Click to paste link
+                        </button>
+                        <button className="btn btn-warning" onClick={removeVideoLink}>
+                            Remove
+                        </button>
+                    </div>
+                </div>
             </div>
             <div className='col-span-2'>
                 <div className="grid grid-cols-5 gap-3">
@@ -220,7 +237,27 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                     placeholder="Start writing details in Markdown"
                 />
             </div>
-            <div className="col-span-2">
+            <div>
+                <label className="label">Tour Highlights</label>
+                <MarkdownEditor
+                    value={data.highlights}
+                    setValue={setHighlights}
+                    placeholder="Write using bullet points"
+                    minimal
+                    height='20rem'
+                />
+            </div>
+            <div>
+                <label className="label">Ticket Cancellation</label>
+                <MarkdownEditor
+                    value={data.cancel_ins}
+                    setValue={setCancelIns}
+                    placeholder="Write in Markdown"
+                    minimal
+                    height='20rem'
+                />
+            </div>
+            <div className='col-span-2'>
                 <label className="label">Frequently Asked Questions</label>
                 <MarkdownEditor
                     value={data.faq}
@@ -249,26 +286,6 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 />
             </div>
             <div>
-                <label className="label">Included Services</label>
-                <MarkdownEditor
-                    value={data.services}
-                    setValue={setServices}
-                    placeholder="Write in Markdown"
-                    minimal
-                    height='20rem'
-                />
-            </div>
-            <div>
-                <label className="label">Ticket Cancellation</label>
-                <MarkdownEditor
-                    value={data.cancel_ins}
-                    setValue={setCancelIns}
-                    placeholder="Write in Markdown"
-                    minimal
-                    height='20rem'
-                />
-            </div>
-            <div>
                 <label className="label">Tour Type</label>
                 <select value={data.tour_types_id} onChange={e => setData({ ...data, tour_types_id: Number(e.target.value) })} className="select custom-scrollbar w-full select-bordered">
                     <option disabled selected value={0}>Select Tour Type</option>
@@ -277,7 +294,6 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                     ))}
                 </select>
             </div>
-            <div />
             <div>
                 <label className="label">Select Organizer</label>
                 <OrganizerSelect organizer={data.organizer} setOrganizer={setOrganizer} />

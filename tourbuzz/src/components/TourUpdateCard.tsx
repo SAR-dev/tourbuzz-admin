@@ -25,7 +25,6 @@ export interface TourUpdateState {
     video_link: string;
     group_size: string;
     group_info: string;
-    services: string;
     transports: string;
     cancel_ins: string;
     start_ins: string;
@@ -44,11 +43,10 @@ const initialState: TourUpdateState = {
     slug: '',
     md_desc: '',
     highlights: '',
-    faq : '',
+    faq: '',
     video_link: '',
     group_size: '',
     group_info: '',
-    services: '',
     transports: '',
     cancel_ins: '',
     start_ins: '',
@@ -106,10 +104,6 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
 
     const setHighlights = (value: string) => {
         setData({ ...data, highlights: value })
-    }
-
-    const setServices = (value: string) => {
-        setData({ ...data, services: value })
     }
 
     const setCancelIns = (value: string) => {
@@ -179,16 +173,7 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
                     <ImageUploader title="Upload Poster" setImage={setAvatar} />
                 </div>
             </div>
-            <div>
-                <label className="label">Tour Highlights</label>
-                <MarkdownEditor
-                    value={data.highlights}
-                    setValue={setHighlights}
-                    placeholder="Write using bullet points"
-                    minimal
-                    height='20rem'
-                />
-            </div>
+            <div>Video upload</div>
             <div className='col-span-2'>
                 <div className="grid grid-cols-5 gap-3">
                     {data.images.map((e, i) => (
@@ -217,7 +202,27 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
                     placeholder="Start writing details in Markdown"
                 />
             </div>
-            <div className="col-span-2">
+            <div>
+                <label className="label">Tour Highlights</label>
+                <MarkdownEditor
+                    value={data.highlights}
+                    setValue={setHighlights}
+                    placeholder="Write using bullet points"
+                    minimal
+                    height='20rem'
+                />
+            </div>
+            <div>
+                <label className="label">Ticket Cancellation</label>
+                <MarkdownEditor
+                    value={data.cancel_ins}
+                    setValue={setCancelIns}
+                    placeholder="Write in Markdown"
+                    minimal
+                    height='20rem'
+                />
+            </div>
+            <div className='col-span-2'>
                 <label className="label">Frequently Asked Questions</label>
                 <MarkdownEditor
                     value={data.faq}
@@ -240,26 +245,6 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
                 <MarkdownEditor
                     value={data.finish_ins}
                     setValue={setFinishIns}
-                    placeholder="Write in Markdown"
-                    minimal
-                    height='20rem'
-                />
-            </div>
-            <div>
-                <label className="label">Included Services</label>
-                <MarkdownEditor
-                    value={data.services}
-                    setValue={setServices}
-                    placeholder="Write in Markdown"
-                    minimal
-                    height='20rem'
-                />
-            </div>
-            <div>
-                <label className="label">Ticket Cancellation</label>
-                <MarkdownEditor
-                    value={data.cancel_ins}
-                    setValue={setCancelIns}
                     placeholder="Write in Markdown"
                     minimal
                     height='20rem'

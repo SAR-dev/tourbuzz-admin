@@ -41,7 +41,7 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
 
     useEffect(() => {
         if (initialized) return;
-        if (props.value.length > 1) {
+        if (props.value?.length > 1) {
             setText(props.value)
             setInitialized(true)
         }

@@ -167,7 +167,6 @@ export interface ListTourType {
     video_link: string
     group_size: string
     group_info: string
-    services: string
     transports: string
     cancel_ins: string
     start_ins: string
@@ -202,7 +201,6 @@ export interface TourType {
     video_link: string
     group_size: string
     group_info: string
-    services: string
     transports: string
     cancel_ins: string
     start_ins: string
@@ -372,7 +370,6 @@ interface TourCreatePayload {
     video_link: string
     group_size: string
     group_info: string
-    services: string
     transports: string
     cancel_ins: string
     start_ins: string
