@@ -50,8 +50,9 @@ const EmojiPicker = ({ expanded }: { expanded: boolean }) => {
             <button
                 className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start"
                 onClick={toogleOpen}
-                data-tooltip-id={!expanded ? "nav-tooltip" : ""}
-                data-tooltip-content={!expanded ? "Emoji Picker" : ""}
+                data-tooltip-id={"nav-tooltip"}
+                data-tooltip-content={"Emoji Picker"}
+                data-tooltip-hidden={expanded}
             >
                 <FaceSmileIcon className='h-5 w-5' />
                 {expanded && (

@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { ArrowLeftIcon } from '@heroicons/react/16/solid'
+import { ArrowLeftIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { getDivisions, postHotel } from '@src/functions/api'
 import { useQuery, useQueryClient } from 'react-query'
-import { DivisionWithDistrictData, parseErrorMessage } from '@src/types';
+import { DivisionWithDistrictData, ImageType, parseErrorMessage } from '@src/types';
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '@src/components/PageHeader';
 import ErrorAlert from '@src/components/ErrorAlert';
+import Image from '@src/components/Image';
+import ImageUploader from '@src/components/ImageUploader';
 
 interface CreateHotelState {
     districts_id: number
@@ -14,6 +16,7 @@ interface CreateHotelState {
     map_link: string
     review: string
     website: string
+    avatar: ImageType | null
 }
 
 const CreateHotel = () => {
@@ -26,7 +29,8 @@ const CreateHotel = () => {
         name: "",
         map_link: "",
         review: "",
-        website: ""
+        website: "",
+        avatar: null
     })
 
     const { data: districtsData } = useQuery<DivisionWithDistrictData, Error>({
@@ -35,9 +39,13 @@ const CreateHotel = () => {
     })
 
     const handleSubmit = async () => {
+        if (!data.avatar) {
+            setError("Upload avatar.")
+            return;
+        };
         setError("")
         setLoading(true)
-        postHotel({ ...data }).then(res => {
+        postHotel({ ...data, images_id: data.avatar.id }).then(res => {
             if (res.error) {
                 toast.error("Registration failed 🤦‍♂️")
                 setError(parseErrorMessage(res.error).message)
@@ -49,6 +57,10 @@ const CreateHotel = () => {
                 navigate("/hotels")
             }
         })
+    }
+
+    const setAvatar = (image: ImageType) => {
+        setData({ ...data, avatar: image })
     }
 
     return (
@@ -85,10 +97,23 @@ const CreateHotel = () => {
                             ))}
                         </select>
                     </div>
-                    <div className="col-span-2">
+                    <div>
                         <div className="flex flex-col w-full">
                             <label className="label">Review</label>
-                            <textarea value={data.review} onChange={e => setData({ ...data, review: e.target.value })} rows={8} placeholder="Review" className="textarea textarea-bordered placeholder:text-base text-base resize-none" />
+                            <textarea value={data.review} onChange={e => setData({ ...data, review: e.target.value })} rows={13} placeholder="Review" className="textarea textarea-bordered custom-scrollbar placeholder:text-base text-base resize-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="label">Avatar</label>
+                        <div className="p-3 bg-base-100 card border border-base-300">
+                            <div className="h-[15.5rem] w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                                {data.avatar ? (
+                                    <Image image={data.avatar} className="h-[15.5rem] w-full object-contain object-center" />
+                                ) : (
+                                    <UserCircleIcon className="h-20 w-20" />
+                                )}
+                            </div>
+                            <ImageUploader title="Upload Avatar" setImage={setAvatar} />
                         </div>
                     </div>
                 </div>

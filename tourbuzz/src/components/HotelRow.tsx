@@ -2,11 +2,15 @@ import { HotelType } from "@src/types";
 import { convertToNDigit } from "@src/functions/helpers";
 import { Link } from "react-router-dom";
 import TruncateText from "./TruncateText";
+import Image from "./Image";
 
 const HotelRow = ({ hotel }: { hotel: HotelType }) => {
     return (
         <tr>
             <th>{convertToNDigit(hotel.id, 4)}</th>
+            <td className="w-32">
+                <Image image={hotel.avatar} className="h-20 w-20 card object-cover" />
+            </td>
             <td className="w-64">{hotel.name}</td>
             <td>
                 <Link to={hotel.map_link} target="_blank" className="link">

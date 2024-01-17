@@ -51,8 +51,9 @@ export function SideNav({ children }: { children: ReactNode }) {
                 "cursor-not-allowed": disabled,
             })}
             to={disabled ? "#" : url}
-            data-tooltip-id={!expanded ? "nav-tooltip" : ""}
-            data-tooltip-content={!expanded ? name : ""}
+            data-tooltip-id={"nav-tooltip"}
+            data-tooltip-content={name}
+            data-tooltip-hidden={expanded}
         >
             {icon}
             {expanded && (

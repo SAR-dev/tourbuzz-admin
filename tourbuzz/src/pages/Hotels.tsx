@@ -59,6 +59,7 @@ const Hotels = () => {
                         <thead>
                             <tr>
                                 <th></th>
+                                <th>Poster</th>
                                 <th>Name</th>
                                 <th>Map Link</th>
                                 <th>Website</th>

@@ -1,6 +1,7 @@
 export interface HotelType {
     id: number
     districts_id: number
+    images_id: number
     name: string
     map_link: string
     website: string
@@ -8,6 +9,7 @@ export interface HotelType {
     created_at: Date
     updated_at: Date
     district: DistrictType
+    avatar: ImageType
 }
 
 export interface DistrictType {
@@ -259,6 +261,7 @@ export interface UpdateOrganizerType {
 
 export interface CreateHotelType {
     districts_id: number
+    images_id: number
     name: string
     map_link: string
     review: string
@@ -268,6 +271,7 @@ export interface CreateHotelType {
 export interface UpdateHotelType {
     hotels_id: number
     districts_id: number
+    images_id: number
     name: string
     map_link: string
     review: string

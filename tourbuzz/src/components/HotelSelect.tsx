@@ -5,8 +5,9 @@ import { useQuery } from 'react-query'
 import Modal from './Modal'
 import { ArrowLeftIcon, CheckIcon } from '@heroicons/react/24/solid';
 import { useDebounce } from 'use-debounce';
-import SearchResultCardWithoutImage from './SearchResultCardWithoutImage';
 import classNames from 'classnames';
+import SearchResultCardWithImage from './SearchResultCardWithImage';
+import Image from './Image';
 
 interface HotelData {
     data: {
@@ -62,15 +63,20 @@ const HotelSelect = ({
 
     return (
         <div>
-            <button 
+            <button
                 className={classNames({
                     "btn w-full text-base": true,
                     "btn-neutral": !hotel,
                     "btn-outline justify-start": !!hotel
-                })} 
+                })}
                 onClick={handleOpen}
             >
-                {hotel ? hotel.name : "Click to Select"}
+                {hotel ? (
+                    <div className="flex items-center gap-2">
+                        <Image image={hotel.avatar} className='h-5 w-5 card object-cover' />
+                        <div>{hotel.name}</div>
+                    </div>
+                ) : "Click to Select"}
             </button>
             <Modal open={open} handleClose={handleClose} title='Select Hotel' width='50rem' footer={
                 <div className='flex justify-between w-full'>
@@ -94,19 +100,21 @@ const HotelSelect = ({
                         </div>
                         <div className='grid grid-cols-2 gap-5 max-h-[23rem] custom-scrollbar overflow-y-auto'>
                             {hotel && (
-                                <SearchResultCardWithoutImage
+                                <SearchResultCardWithImage
                                     id={hotel.id}
                                     title={hotel.name}
                                     subtitle={`${hotel.district.name}, ${hotel.district.division.name}`}
+                                    avatar={hotel.avatar}
                                     selected={selectedHotel?.id == hotel.id}
                                     handleClick={handleSelectedHotel}
                                 />
                             )}
                             {!(isLoading || error || !data) && data.data.data.filter(x => x.id != hotel?.id).map((e, i) => (
-                                <SearchResultCardWithoutImage
+                                <SearchResultCardWithImage
                                     id={e.id}
                                     title={e.name}
                                     subtitle={`${e.district.name}, ${e.district.division.name}`}
+                                    avatar={e.avatar}
                                     selected={selectedHotel?.id == e.id}
                                     handleClick={handleSelectedHotel}
                                     key={i}

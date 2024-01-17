@@ -13,8 +13,9 @@ function ThemeSwitcher({ expanded }: { expanded: boolean }): JSX.Element {
             <button
                 className="btn btn-sm h-10 bg-transparent border-transparent shadow-none w-full flex justify-start"
                 onClick={toogleShow}
-                data-tooltip-id={!expanded ? "nav-tooltip" : ""}
-                data-tooltip-content={!expanded ? "Theme Picker" : ""}
+                data-tooltip-id={"nav-tooltip"}
+                data-tooltip-content={"Theme Picker"}
+                data-tooltip-hidden={expanded}
             >
                 <SwatchIcon className='h-5 w-5' />
                 {expanded && (
