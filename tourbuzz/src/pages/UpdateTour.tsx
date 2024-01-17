@@ -47,7 +47,7 @@ const UpdateTour = () => {
         setError("")
 
         const tour = tourUpdateRef.current.getData();
-        if (!tour.organizer || !tour.avatar) {
+        if (!tour.organizer || !tour.avatar || !tour.tour_type) {
             return;
         }
 
@@ -65,6 +65,7 @@ const UpdateTour = () => {
             tour: {
                 ...tour,
                 id: Number(tourId),
+                tour_types_id: tour.tour_type.id,
                 organizers_id: tour.organizer.id,
                 images_id: tour.avatar.id,
                 image_ids: tour.images.map(e => e.id)

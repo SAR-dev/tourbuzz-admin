@@ -1,20 +1,19 @@
 import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
-import { ImageType, OrganizerType, TypeOfTourData } from '@src/types';
+import { ImageType, OrganizerType, TypeOfTour } from '@src/types';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import ImageUploader from './ImageUploader';
 import MarkdownEditor from './MarkdownEditor';
 import ReactInputMask from 'react-input-mask';
-import { getTourTypes } from '@src/functions/api';
-import { useQuery } from 'react-query';
 import OrganizerSelect from './OrganizerSelect';
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { TrashIcon } from "@heroicons/react/24/solid";
+import TourTypeSelect from './TourTypeSelect';
 
 export interface TourUpdateState {
-    tour_types_id: number;
+    tour_type: TypeOfTour | null;
     organizer: OrganizerType | null;
     avatar: ImageType | null;
     title: string;
@@ -36,7 +35,7 @@ export interface TourUpdateState {
 }
 
 const initialState: TourUpdateState = {
-    tour_types_id: 0,
+    tour_type: null,
     organizer: null,
     avatar: null,
     title: '',
@@ -78,10 +77,9 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
         setData({ ...data, organizer })
     }
 
-    const { data: typeOfTourData } = useQuery<TypeOfTourData, Error>({
-        queryKey: ['tour-types'],
-        queryFn: () => getTourTypes()
-    })
+    const setTourType = (tour_type: TypeOfTour) => {
+        setData({ ...data, tour_type })
+    }
 
     const setImages = (image: ImageType) => {
         if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
@@ -252,12 +250,7 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
             </div>
             <div>
                 <label className="label">Tour Type</label>
-                <select value={data.tour_types_id} onChange={e => setData({ ...data, tour_types_id: Number(e.target.value) })} className="select custom-scrollbar w-full select-bordered">
-                    <option disabled selected value={0}>Select Tour Type</option>
-                    {typeOfTourData && typeOfTourData.data.map((e) => (
-                        <option value={e.id} key={e.id}>{e.name}</option>
-                    ))}
-                </select>
+                <TourTypeSelect tourType={data.tour_type} setTourType={setTourType} />
             </div>
             <div />
             <div>

@@ -1,9 +1,8 @@
 import { OrganizerType } from "@src/types";
-import { AtSymbolIcon, CheckBadgeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Image from "./Image";
 import { PencilIcon } from "@heroicons/react/16/solid";
-import { Badge, DeviceMobileRotated, IdBadge, IdBadge2, Mail } from "tabler-icons-react";
+import { DeviceMobileRotated, IdBadge2, Mail } from "tabler-icons-react";
 
 const OrganizerCard = ({ organizer }: { organizer: OrganizerType }) => {
     return (

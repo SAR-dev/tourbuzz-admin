@@ -1,22 +1,21 @@
 import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT, TOUR_DATA_CREATE_CACHE_KEY } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
-import { ImageType, OrganizerType, TypeOfTourData } from '@src/types';
+import { ImageType, OrganizerType, TypeOfTour } from '@src/types';
 import { forwardRef, useImperativeHandle } from 'react';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import ImageUploader from './ImageUploader';
 import MarkdownEditor from './MarkdownEditor';
 import ReactInputMask from 'react-input-mask';
-import { getTourTypes } from '@src/functions/api';
-import { useQuery } from 'react-query';
 import OrganizerSelect from './OrganizerSelect';
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { PlayCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 import useLocalStorageState from 'use-local-storage-state'
 import ReactPlayer from 'react-player'
+import TourTypeSelect from './TourTypeSelect';
 
 export interface TourCreateState {
-    tour_types_id: number;
+    tour_type: TypeOfTour | null;
     organizer: OrganizerType | null;
     avatar: ImageType | null;
     title: string;
@@ -43,7 +42,7 @@ export interface TourCreateRef {
 }
 
 const initialState: TourCreateState = {
-    tour_types_id: 0,
+    tour_type: null,
     organizer: null,
     avatar: null,
     title: '',
@@ -82,10 +81,9 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
         setData({ ...data, organizer })
     }
 
-    const { data: typeOfTourData } = useQuery<TypeOfTourData, Error>({
-        queryKey: ['tour-types'],
-        queryFn: () => getTourTypes()
-    })
+    const setTourType = (tour_type: TypeOfTour) => {
+        setData({ ...data, tour_type })
+    }
 
     const setImages = (image: ImageType) => {
         if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
@@ -144,6 +142,10 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
         setData({ ...data, video_link: "" })
     }
 
+    const handleVideoPreview = () => {
+
+    }
+
     return (
         <div className="grid grid-cols-2 gap-3 p-5 card bg-base-200">
             <div>
@@ -195,9 +197,11 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <label className="label">Attach a video (Optional)</label>
                 <div className="p-3 bg-base-100 card border border-base-300">
                     <div className="h-72 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
-                        {ReactPlayer.canPlay(data.video_link) && <ReactPlayer url={data.video_link} light height="100%" width="100%" controls={false} playIcon={
-                            <PlayCircleIcon className='h-16 w-16 text-info shadow-lg rounded-full' />
-                        } />}
+                        {ReactPlayer.canPlay(data.video_link) && (
+                            <ReactPlayer url={data.video_link} light height="100%" width="100%" controls={false} onClickPreview={handleVideoPreview} playIcon={
+                                <PlayCircleIcon className='h-16 w-16 text-info shadow-lg rounded-full' />
+                            } />
+                        )}
                     </div>
                     <div className='flex gap-3'>
                         <button className="btn btn-primary w-full flex-1" onClick={handleVideoLink}>
@@ -287,12 +291,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
             </div>
             <div>
                 <label className="label">Tour Type</label>
-                <select value={data.tour_types_id} onChange={e => setData({ ...data, tour_types_id: Number(e.target.value) })} className="select custom-scrollbar w-full select-bordered">
-                    <option disabled selected value={0}>Select Tour Type</option>
-                    {typeOfTourData && typeOfTourData.data.map((e) => (
-                        <option value={e.id} key={e.id}>{e.name}</option>
-                    ))}
-                </select>
+                <TourTypeSelect tourType={data.tour_type} setTourType={setTourType} />
             </div>
             <div>
                 <label className="label">Select Organizer</label>

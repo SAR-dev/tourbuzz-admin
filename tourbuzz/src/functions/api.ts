@@ -387,9 +387,23 @@ export const getDivisions = (): Promise<any> => {
 
 // Tour Types
 
-export const getTourTypes = (): Promise<any> => {
+export const getTourTypes = ({
+    pageNo,
+    pageSize,
+    name,
+}: {
+    pageNo: number,
+    pageSize: number,
+    name?: string
+}): Promise<any> => {
     return api
-        .get("/admin/tour-types")
+        .get("/admin/tour-types", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+                name: name ?? ""
+            }
+        })
         .then((res) => {
             return { data: res.data };
         })

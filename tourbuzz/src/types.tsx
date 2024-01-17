@@ -431,10 +431,6 @@ export interface TypeOfTour {
     updated_at: string
 }
 
-export interface TypeOfTourData {
-    data: TypeOfTour[]
-}
-
 export interface ParsedErrorMessageProps {
     status?: number
     message: string
