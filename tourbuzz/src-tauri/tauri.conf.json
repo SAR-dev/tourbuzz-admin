@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "tourbuzz",
+    "productName": "Tourbuzz",
     "version": "0.0.0"
   },
   "tauri": {

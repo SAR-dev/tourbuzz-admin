@@ -10,6 +10,7 @@ import ErrorAlert from '@src/components/ErrorAlert';
 import DeleteButton from '@src/components/DeleteButton';
 import Image from '@src/components/Image';
 import ImageUploader from '@src/components/ImageUploader';
+import { checkMapLink } from '@src/functions/helpers';
 
 interface UpdateHotelState {
     districts_id: number
@@ -58,6 +59,10 @@ const UpdateHotel = () => {
             setError("Upload avatar.")
             return;
         };
+        if(!checkMapLink(data.map_link)){
+            setError("Use google map link of this format: maps.app.goo.gl/XXXX")
+            return;
+        }
         setError("")
         setLoading(true)
         updateHotel({ 

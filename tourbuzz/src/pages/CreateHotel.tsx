@@ -9,6 +9,7 @@ import PageHeader from '@src/components/PageHeader';
 import ErrorAlert from '@src/components/ErrorAlert';
 import Image from '@src/components/Image';
 import ImageUploader from '@src/components/ImageUploader';
+import { checkMapLink } from '@src/functions/helpers';
 
 interface CreateHotelState {
     districts_id: number
@@ -43,6 +44,10 @@ const CreateHotel = () => {
             setError("Upload avatar.")
             return;
         };
+        if(!checkMapLink(data.map_link)){
+            setError("Use google map link of this format: maps.app.goo.gl/XXXX")
+            return;
+        }
         setError("")
         setLoading(true)
         postHotel({ ...data, images_id: data.avatar.id }).then(res => {

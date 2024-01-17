@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
 import Image from "@src/components/Image";
 import ComboBoxInput, { ComboboxDataType } from "@src/components/ComboBoxInput";
+import { checkMapLink } from "@src/functions/helpers";
 
 interface CreatePlaceState {
     districts_id: number
@@ -59,6 +60,10 @@ const CreatePlace = () => {
             setError("Select type.")
             return;
         };
+        if(!checkMapLink(data.map_link)){
+            setError("Use google map link of this format: maps.app.goo.gl/XXXX")
+            return;
+        }
         setError("")
         setLoading(true)
         postPlace({

@@ -1,3 +1,5 @@
+import { MAP_ID_REGEX, MAP_LINK_REGEX } from "@src/constants/values";
+
 export function timestampToYYYYMMDD(timestamp: string) {
     const dateObj = new Date(timestamp);
     const year = dateObj.getFullYear();
@@ -56,4 +58,21 @@ export function convertToNDigit(number: number, n: number) {
 
 export function getSortedArray(inputArray: number[]) {
     return Array.from(new Set(inputArray)).sort((a, b) => a - b);
+}
+
+export const checkMapLink = (link: string) => {
+    if (MAP_LINK_REGEX.test(link)) {
+        return true;
+    }
+    return false;
+}
+
+export const getMapIdFromLink = (link: string) => {
+    const match = MAP_ID_REGEX.exec(link);
+    console.log(match)
+    if (match) {
+        return match[1].toUpperCase();
+    } else {
+        return null;
+    }
 }

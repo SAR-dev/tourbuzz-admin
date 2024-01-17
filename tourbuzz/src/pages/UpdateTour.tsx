@@ -5,11 +5,12 @@ import PageHeader from "@src/components/PageHeader"
 import { useNavigate, useParams } from "react-router-dom"
 import { TourType, UpdateTourType, parseErrorMessage } from '../types';
 import { toast } from "react-toastify";
-import { getTourById, updateTour } from "@src/functions/api";
+import { deleteTourById, getTourById, updateTour } from "@src/functions/api";
 import { useQueryClient } from "react-query";
 import TourUpdateCard, { TourUpdateRef } from "@src/components/TourUpdateCard";
 import TourLogUpdateCard, { TourLogUpdateRef } from "@src/components/TourLogUpdateCard";
 import TourPackageUpdateCard, { TourPackageUpdateRef } from "@src/components/TourPackageUpdateCard";
+import DeleteButton from "@src/components/DeleteButton";
 
 const UpdateTour = () => {
     let { tourId } = useParams()
@@ -21,20 +22,21 @@ const UpdateTour = () => {
     const queryClient = useQueryClient()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+    const [deleting, setDeleting] = useState(false)
     const [error, setError] = useState("")
 
     useEffect(() => {
         getTourById({ id: Number(tourId) }).then(res => {
             const tour: TourType = res.data;
-            if(tourUpdateRef.current){
+            if (tourUpdateRef.current) {
                 tourUpdateRef.current.updateData({
                     ...tour
                 })
             }
-            if(tourLogUpdateRef.current){
+            if (tourLogUpdateRef.current) {
                 tourLogUpdateRef.current.updateData([...tour.tour_logs])
             }
-            if(tourPackageUpdateRef.current){
+            if (tourPackageUpdateRef.current) {
                 tourPackageUpdateRef.current.updateData([...tour.packages])
             }
         })
@@ -102,6 +104,23 @@ const UpdateTour = () => {
         })
     }
 
+    const handleDelete = () => {
+        setDeleting(true)
+        deleteTourById({ id: Number(tourId) }).then(res => {
+            if (res.error) {
+                toast.error("Delete failed 🤦‍♂️")
+                setError(parseErrorMessage(res.error).message)
+                setDeleting(false)
+            } else {
+                toast.success("Tour Deleted 💪")
+                queryClient.invalidateQueries("tours")
+                setDeleting(false)
+                navigate("/tours")
+            }
+
+        })
+    }
+
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
@@ -128,7 +147,8 @@ const UpdateTour = () => {
                         Go Back
                     </button>
 
-                    <div>
+                    <div className="flex space-x-5">
+                        <DeleteButton handleDelete={handleDelete} loading={deleting} />
                         <button className="btn btn-info w-48" onClick={handleSubmit} disabled={loading}>
                             {loading ? (
                                 <>

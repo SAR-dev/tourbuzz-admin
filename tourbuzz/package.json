@@ -11,7 +11,8 @@
     "dev": "vite",
     "build": "npm i --no-package-lock && tsc && vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "bundle": "tauri build"
   },
   "dependencies": {
     "@headlessui-float/react": "^0.13.0",

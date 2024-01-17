@@ -11,6 +11,7 @@ import ErrorAlert from "@src/components/ErrorAlert";
 import Image from "@src/components/Image";
 import DeleteButton from "@src/components/DeleteButton";
 import ComboBoxInput, { ComboboxDataType } from "@src/components/ComboBoxInput";
+import { checkMapLink } from "@src/functions/helpers";
 
 interface UpdatePlaceState {
     districts_id: number
@@ -73,6 +74,10 @@ const UpdatePlace = () => {
             setError("Select type.")
             return;
         };
+        if(!checkMapLink(data.map_link)){
+            setError("Use google map link of this format: maps.app.goo.gl/XXXX")
+            return;
+        }
         setError("")
         setLoading(true)
         updatePlace({

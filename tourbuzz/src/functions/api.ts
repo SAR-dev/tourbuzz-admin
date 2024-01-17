@@ -675,3 +675,14 @@ export const getTourById = ({ id }: { id: number }): Promise<any> => {
             return { error: err || true };
         });
 }
+
+export const deleteTourById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/tours/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
