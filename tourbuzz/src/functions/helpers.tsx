@@ -1,3 +1,4 @@
+import { ImageType } from '../types';
 import { MAP_ID_REGEX, MAP_LINK_REGEX } from "@src/constants/values";
 
 export function timestampToYYYYMMDD(timestamp: string) {
@@ -75,4 +76,31 @@ export const getMapIdFromLink = (link: string) => {
     } else {
         return null;
     }
+}
+
+export const getImageTypeFromUrl = (url: string) => {
+    const image: ImageType = {
+        id: 0,
+        title: "",
+        source_url: url,
+        thumbnail_url: url,
+        optimized_url: url,
+        created_at: "",
+        updated_at: ""
+    }
+    return image;
+}
+
+export const checkImageUrl = (url: string, onSuccess: () => void, onError: () => void) => {
+    const img = new Image();
+
+    img.onload = function () {
+        onSuccess();
+    };
+
+    img.onerror = function () {
+        onError();
+    };
+
+    img.src = url;
 }

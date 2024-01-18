@@ -39,6 +39,17 @@ export interface ImageType {
     updated_at: string
 }
 
+export interface AdType {
+    id: number
+    title: string
+    subtitle: string
+    link: string
+    image_url: string
+    active: boolean
+    created_at: string
+    updated_at: string
+}
+
 export interface WriterType {
     id: number
     images_id: number
@@ -223,6 +234,23 @@ export interface TourType {
 }
 
 // PAYLOADS
+
+export interface CreateAdType {
+    title: string
+    subtitle: string
+    link: string
+    image_url: string
+    active: boolean
+}
+
+export interface UpdateAdType {
+    ads_id: number
+    title: string
+    subtitle: string
+    link: string
+    image_url: string
+    active: boolean
+}
 
 export interface CreateWriterType {
     images_id: number

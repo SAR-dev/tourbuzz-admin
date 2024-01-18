@@ -22,6 +22,9 @@ import CreateTour from "./pages/CreateTour";
 import Signin from "./pages/Signin";
 import Tours from "./pages/Tours";
 import UpdateTour from "./pages/UpdateTour";
+import Ads from "./pages/Ads";
+import CreateAd from "./pages/CreateAd";
+import UpdateAd from "./pages/UpdateAd";
 
 const App = () => {
   return (
@@ -49,6 +52,9 @@ const App = () => {
           <Route path="/tours" element={<SideNav children={<Tours />} />} />
           <Route path="/tours/create" element={<SideNav children={<CreateTour />} />} />
           <Route path="/tours/:tourId" element={<SideNav children={<UpdateTour />} />} />
+          <Route path="/ads" element={<SideNav children={<Ads />} />} />
+          <Route path="/ads/create" element={<SideNav children={<CreateAd />} />} />
+          <Route path="/ads/:adId" element={<SideNav children={<UpdateAd />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

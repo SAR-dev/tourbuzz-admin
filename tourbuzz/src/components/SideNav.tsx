@@ -12,7 +12,7 @@ import { ReactNode } from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { Link, Navigate, useLocation } from "react-router-dom";
 import EmojiPicker from "./EmojiPicker";
-import { Map, Trees } from "tabler-icons-react";
+import { Map, Trees, Ad } from 'tabler-icons-react';
 import classNames from "classnames";
 import { useAuthStore, useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
@@ -105,6 +105,7 @@ export function SideNav({ children }: { children: ReactNode }) {
                         <NavMenu expanded={open} name="Hotels" url="/hotels" icon={<HomeModernIcon className="h-5 w-5" />} />
                         <NavMenu expanded={open} name="Places" url="/places" icon={<Trees className="h-5 w-5" />} />
                         <NavMenu expanded={open} name="Tours" url="/tours" icon={<Map className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Advertisements" url="/ads" icon={<Ad className="h-5 w-5" />} />
                         <EmojiPicker expanded={open} />
                         <ThemeSwitcher expanded={open} />
                     </div>

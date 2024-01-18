@@ -9,8 +9,9 @@ import MarkdownEditor from './MarkdownEditor';
 import ReactInputMask from 'react-input-mask';
 import OrganizerSelect from './OrganizerSelect';
 import { PhotoIcon } from "@heroicons/react/24/outline"
-import { TrashIcon } from "@heroicons/react/24/solid";
+import { PlayCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 import TourTypeSelect from './TourTypeSelect';
+import ReactPlayer from 'react-player'
 
 export interface TourUpdateState {
     tour_type: TypeOfTour | null;
@@ -124,6 +125,20 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
         setData({ ...data, avatar: image })
     }
 
+    const handleVideoLink = async () => {
+        const url = await navigator.clipboard.readText();
+        const ok = ReactPlayer.canPlay(url)
+        if (ok) {
+            setData({ ...data, video_link: url })
+        } else {
+            toast.error("Sorry, we can not play this video");
+        }
+    }
+
+    const removeVideoLink = () => {
+        setData({ ...data, video_link: "" })
+    }
+
     return (
         <div className="grid grid-cols-2 gap-3 p-5 card bg-base-200">
             <div>
@@ -171,7 +186,28 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
                     <ImageUploader title="Upload Poster" setImage={setAvatar} />
                 </div>
             </div>
-            <div>Video upload</div>
+            <div>
+                <label className="label">Attach a video (Optional)</label>
+                <div className="p-3 bg-base-100 card border border-base-300">
+                    <div className="w-full aspect-video card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                        {ReactPlayer.canPlay(data.video_link) && (
+                            <ReactPlayer url={data.video_link} height="100%" width="100%" light controls playIcon={
+                                <div className='w-full h-full flex items-center justify-center bg-black/50'>
+                                    <PlayCircleIcon className='h-16 w-16 text-info shadow-lg rounded-full hover:scale-125 transition duration-300' />
+                                </div>
+                            } />
+                        )}
+                    </div>
+                    <div className='flex gap-3'>
+                        <button className="btn btn-primary w-full flex-1" onClick={handleVideoLink}>
+                            Click to paste link
+                        </button>
+                        <button className="btn btn-warning" onClick={removeVideoLink}>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div className='col-span-2'>
                 <div className="grid grid-cols-5 gap-3">
                     {data.images.map((e, i) => (

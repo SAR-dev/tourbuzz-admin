@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateTourType, UpdateWriterType } from "../types";
+import { CreateAdType, CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, UpdateAdType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateTourType, UpdateWriterType } from "../types";
 import { tokenKey } from "@src/store";
 
 const api = axios.create();
@@ -679,6 +679,76 @@ export const getTourById = ({ id }: { id: number }): Promise<any> => {
 export const deleteTourById = ({ id }: { id: number }): Promise<any> => {
     return api
         .delete(`/admin/tours/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+// Ads
+
+export const postAd = ({ ...props }: CreateAdType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/ads", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getAds = ({
+    pageNo,
+    pageSize
+}: {
+    pageNo: number,
+    pageSize: number
+}): Promise<any> => {
+    return api
+        .get("/admin/ads", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const updateAd = ({ ...props }: UpdateAdType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/ads", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getAdById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .get(`/admin/ads/${id}`)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const deleteAdById = ({ id }: { id: number }): Promise<any> => {
+    return api
+        .delete(`/admin/ads/${id}`)
         .then((res) => {
             return { data: res.data };
         })
