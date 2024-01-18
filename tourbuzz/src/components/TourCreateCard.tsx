@@ -13,7 +13,6 @@ import { PlayCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 import useLocalStorageState from 'use-local-storage-state'
 import ReactPlayer from 'react-player'
 import TourTypeSelect from './TourTypeSelect';
-import { Divide } from 'tabler-icons-react';
 
 export interface TourCreateState {
     tour_type: TypeOfTour | null;
