@@ -13,6 +13,7 @@ import { PlayCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 import useLocalStorageState from 'use-local-storage-state'
 import ReactPlayer from 'react-player'
 import TourTypeSelect from './TourTypeSelect';
+import { Divide } from 'tabler-icons-react';
 
 export interface TourCreateState {
     tour_type: TypeOfTour | null;
@@ -142,10 +143,6 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
         setData({ ...data, video_link: "" })
     }
 
-    const handleVideoPreview = () => {
-
-    }
-
     return (
         <div className="grid grid-cols-2 gap-3 p-5 card bg-base-200">
             <div>
@@ -183,9 +180,9 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
             <div>
                 <label className="label">Tour Main Poster</label>
                 <div className="p-3 bg-base-100 card border border-base-300">
-                    <div className="h-72 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                    <div className="w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                         {data.avatar ? (
-                            <Image image={data.avatar} className="h-72 w-full object-contain object-center" />
+                            <Image image={data.avatar} className="w-full aspect-video object-center" />
                         ) : (
                             <PhotoIcon className="h-20 w-20" />
                         )}
@@ -196,10 +193,12 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
             <div>
                 <label className="label">Attach a video (Optional)</label>
                 <div className="p-3 bg-base-100 card border border-base-300">
-                    <div className="h-72 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                    <div className="w-full aspect-video card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                         {ReactPlayer.canPlay(data.video_link) && (
-                            <ReactPlayer url={data.video_link} light height="100%" width="100%" controls={false} onClickPreview={handleVideoPreview} playIcon={
-                                <PlayCircleIcon className='h-16 w-16 text-info shadow-lg rounded-full' />
+                            <ReactPlayer url={data.video_link} height="100%" width="100%" light controls playIcon={
+                                <div className='w-full h-full flex items-center justify-center bg-black/50'>
+                                    <PlayCircleIcon className='h-16 w-16 text-info shadow-lg rounded-full hover:scale-125 transition duration-300' />
+                                </div>
                             } />
                         )}
                     </div>
