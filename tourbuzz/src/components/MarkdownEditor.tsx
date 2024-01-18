@@ -63,30 +63,34 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
 
     const LeftSideToolbar = () => (
         <>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("h1")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Big Header"
-            >
-                <H1 className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("h3")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Medium Header"
-            >
-                <H3 className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("h5")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Small Header"
-            >
-                <H5 className='h-5 w-5' />
-            </button>
+            {!props.minimal && (
+                <>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={() => ref.current?.trigger("h1")}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Big Header"
+                    >
+                        <H1 className='h-5 w-5' />
+                    </button>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={() => ref.current?.trigger("h3")}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Medium Header"
+                    >
+                        <H3 className='h-5 w-5' />
+                    </button>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={() => ref.current?.trigger("h5")}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Small Header"
+                    >
+                        <H5 className='h-5 w-5' />
+                    </button>
+                </>
+            )}
             <button
                 className="icon-btn-xs"
                 onClick={() => ref.current?.trigger("bold")}
@@ -143,54 +147,58 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
             >
                 <ListNumbers className='h-5 w-5' />
             </button>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("block-quotes")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Block Quote"
-            >
-                <Blockquote className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("code-block")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Code Block"
-            >
-                <Code className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("code-inline")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Inline Code"
-            >
-                <CodeDots className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("code")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Code"
-            >
-                <SourceCode className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={undo}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Undo"
-            >
-                <ArrowWaveLeftUp className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={redo}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Redo"
-            >
-                <ArrowWaveRightDown className='h-5 w-5' />
-            </button>
+            {!props.minimal && (
+                <>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={() => ref.current?.trigger("block-quotes")}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Block Quote"
+                    >
+                        <Blockquote className='h-5 w-5' />
+                    </button>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={() => ref.current?.trigger("code-block")}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Code Block"
+                    >
+                        <Code className='h-5 w-5' />
+                    </button>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={() => ref.current?.trigger("code-inline")}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Inline Code"
+                    >
+                        <CodeDots className='h-5 w-5' />
+                    </button>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={() => ref.current?.trigger("code")}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Code"
+                    >
+                        <SourceCode className='h-5 w-5' />
+                    </button>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={undo}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Undo"
+                    >
+                        <ArrowWaveLeftUp className='h-5 w-5' />
+                    </button>
+                    <button
+                        className="icon-btn-xs"
+                        onClick={redo}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content="Redo"
+                    >
+                        <ArrowWaveRightDown className='h-5 w-5' />
+                    </button>
+                </>
+            )}
         </>
     )
 
@@ -264,11 +272,9 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
     return (
         <div className="border border-base-300 w-full">
             <div className="border-b border-base-300 flex items-center justify-between w-full p-2">
-                {!props.minimal && (
-                    <div className='flex space-x-3'>
-                        <LeftSideToolbar />
-                    </div>
-                )}
+                <div className='flex space-x-3'>
+                    <LeftSideToolbar />
+                </div>
                 <div className="flex space-x-3">
                     <RightSideToolbar />
                 </div>
