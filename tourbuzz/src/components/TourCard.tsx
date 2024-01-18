@@ -1,5 +1,5 @@
 import { ListTourType } from "@src/types";
-import { CalendarDaysIcon, CheckBadgeIcon, MapPinIcon, UserCircleIcon, WalletIcon } from "@heroicons/react/24/outline";
+import { CalendarDaysIcon, CheckBadgeIcon, MapPinIcon, UserCircleIcon, UserGroupIcon, WalletIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Image from "./Image";
 import { PencilIcon } from "@heroicons/react/16/solid";
@@ -47,6 +47,10 @@ const TourCard = ({ tour }: { tour: ListTourType }) => {
                         <div className="flex gap-2 items-center">
                             <WalletIcon className="h-5 w-5" />
                             From {humanNumber(Math.min.apply(Math, tour.package_prices_list))} TK
+                        </div>
+                        <div className="flex gap-2 items-center">
+                            <UserGroupIcon className="h-5 w-5" />
+                            Group of {tour.group_size}
                         </div>
                     </div>
                 </div>

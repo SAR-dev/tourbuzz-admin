@@ -229,7 +229,7 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
                 />
             </div>
             <div className="flex flex-col">
-                <label className="label">Journey Beigin Instructions</label>
+                <label className="label">Pickup Locations and Guidelines</label>
                 <MarkdownEditor
                     value={data.start_ins}
                     setValue={setStartIns}
@@ -239,7 +239,7 @@ const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, r
                 />
             </div>
             <div className="flex flex-col">
-                <label className="label">Journey Finish Instructions</label>
+                <label className="label">Dropoff Locations and Guidelines</label>
                 <MarkdownEditor
                     value={data.finish_ins}
                     setValue={setFinishIns}
