@@ -23,7 +23,7 @@ export function Pagination({ page_sizes = [20, 50, 100], ...props }: PaginationT
     };
 
     return (
-        <div className="card text-sm flex-row justify-between w-full p-3 bg-base-200">
+        <div className="card text-sm flex-row justify-between w-full p-2 bg-base-200">
             <div className="flex gap-2 items-center">
                 <span>Page Size</span>
                 <div className="join border border-base-300">

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { SideNav } from "./components/SideNav";
-import Images from "./pages/Gallery";
+import Images from "./pages/Images";
 import Writers from "./pages/Writers";
 import Articles from "./pages/Articles";
 import CreateArticle from "./pages/CreateArticle";

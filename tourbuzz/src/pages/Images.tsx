@@ -24,7 +24,7 @@ interface ImageData {
     }
 }
 
-const Gallery = () => {
+const Images = () => {
     const [loading, setLoading] = useState(false)
     const [activeImage, setActiveImage] = useState<ImageType | null>(null)
     const [pageSize, setPageSize] = useState(20)
@@ -76,7 +76,7 @@ const Gallery = () => {
                 {data.data.data.map((e, i) => (
                     <div className="card cursor-pointer bg-base-200 hover:bg-base-300 p-3" onClick={() => setActiveImage(e)} key={i}>
                         <img
-                            className="card h-40 laptop:h-48 w-full max-w-full object-cover object-center"
+                            className="card h-40 laptop:h-48 w-full object-cover object-center"
                             src={e.thumbnail_url}
                             alt="gallery-photo"
                         />
@@ -115,4 +115,4 @@ const Gallery = () => {
     )
 }
 
-export default Gallery
+export default Images
