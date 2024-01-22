@@ -6,7 +6,7 @@ import { Navigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const SigninVerify = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const { isLoggedIn, setToken } = useAuthStore();
     const [loading, setLoading] = useState(false);
     const [magicFilled, setMagicFilled] = useState(false)
