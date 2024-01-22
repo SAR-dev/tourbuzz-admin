@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom"
 import { generateSlug } from "@src/functions/helpers"
 import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values"
 import Image from "@src/components/Image"
+import ImageSelector from "@src/components/ImageSelector"
 
 interface CreateArticleState {
   title: string
@@ -41,7 +42,7 @@ const CreateArticle = () => {
   const [error, setError] = useState("")
 
   const setWriter = (writer: WriterType) => {
-    setData({...data, writer})
+    setData({ ...data, writer })
   }
 
   const setImages = (image: ImageType) => {
@@ -117,7 +118,10 @@ const CreateArticle = () => {
               </div>
             ))}
             <div className="col-span-3">
-              <ImageUploader title="Upload Image" setImage={setImages} />
+              <div className="grid grid-cols-2 gap-5">
+                <ImageUploader title="Upload Image" setImage={setImages} />
+                <ImageSelector title="Choose Image" setImage={setImages} />
+              </div>
             </div>
           </div>
         </div>

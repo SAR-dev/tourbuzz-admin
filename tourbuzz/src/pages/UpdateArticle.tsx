@@ -24,6 +24,7 @@ import { generateSlug } from "@src/functions/helpers";
 import DeleteButton from "@src/components/DeleteButton";
 import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values";
 import Image from "@src/components/Image";
+import ImageSelector from "@src/components/ImageSelector";
 
 interface ArticleUpdateState {
   title: string;
@@ -161,7 +162,10 @@ const UpdateArticle = () => {
               )
             )}
             <div className="col-span-3">
-              <ImageUploader title="Upload Image" setImage={setImages} />
+              <div className="grid grid-cols-2 gap-5">
+                <ImageUploader title="Upload Image" setImage={setImages} />
+                <ImageSelector title="Choose Image" setImage={setImages} />
+              </div>
             </div>
           </div>
         </div>

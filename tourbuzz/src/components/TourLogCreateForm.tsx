@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import MarkdownEditor from './MarkdownEditor';
 import { TourLogCreateState } from './TourLogCreateCard';
 import HotelSelect from './HotelSelect';
+import ImageSelector from './ImageSelector';
 
 const TourLogCreateForm = ({
     active,
@@ -95,7 +96,10 @@ const TourLogCreateForm = ({
                                 </div>
                             ))}
                             <div className="col-span-3">
-                                <ImageUploader title="Upload Image" setImage={setImages} />
+                                <div className="grid grid-cols-2 gap-5">
+                                    <ImageUploader title="Upload Image" setImage={setImages} />
+                                    <ImageSelector title="Choose Image" setImage={setImages} />
+                                </div>
                             </div>
                         </div>
                     </div>

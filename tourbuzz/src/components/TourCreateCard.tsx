@@ -13,6 +13,7 @@ import { PlayCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 import useLocalStorageState from 'use-local-storage-state'
 import ReactPlayer from 'react-player'
 import TourTypeSelect from './TourTypeSelect';
+import ImageSelector from './ImageSelector';
 
 export interface TourCreateState {
     tour_type: TypeOfTour | null;
@@ -227,7 +228,10 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                         </div>
                     ))}
                     <div className="col-span-5">
-                        <ImageUploader title="Upload Image" setImage={setImages} />
+                        <div className="grid grid-cols-2 gap-5">
+                            <ImageUploader title="Upload Image" setImage={setImages} />
+                            <ImageSelector title="Choose Image" setImage={setImages} />
+                        </div>
                     </div>
                 </div>
             </div>
