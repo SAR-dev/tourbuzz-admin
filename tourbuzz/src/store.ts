@@ -9,8 +9,9 @@ type AuthtSore = {
     accessToken: string | null
     adminToken: string | null
     setToken: ({ accessToken, adminToken }: { accessToken: string, adminToken: string }) => void
-    clearToken: () => void;
+    clearToken: () => void
     isLoggedIn: () => boolean
+    getEmail: () => string
 }
 
 export const useAuthStore = create<AuthtSore>()(
@@ -41,6 +42,13 @@ export const useAuthStore = create<AuthtSore>()(
                 }
 
                 return false;
+            },
+            getEmail: () => {
+                const { accessToken } = get();
+                if (accessToken) {
+                    return jwtDecode(accessToken).sub ?? ""
+                }
+                return "";
             }
         }), {
         name: tokenKey,

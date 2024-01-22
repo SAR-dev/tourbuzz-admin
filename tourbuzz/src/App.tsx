@@ -25,6 +25,7 @@ import UpdateTour from "./pages/UpdateTour";
 import Ads from "./pages/Ads";
 import CreateAd from "./pages/CreateAd";
 import UpdateAd from "./pages/UpdateAd";
+import SigninVerify from "./pages/SigninVerify";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Signin />} />
+          <Route path="/sign-in" element={<SigninVerify />} />
           <Route path="/images" element={<SideNav children={<Images />} />} />
           <Route path="/writers" element={<SideNav children={<Writers />} />} />
           <Route path="/writers/create" element={<SideNav children={<CreateWriter />} />} />
