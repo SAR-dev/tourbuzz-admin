@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import NoResult from '@src/svg/NoResult';
 import AdCard from '@src/components/AdCard';
+import { AD } from '@src/constants/headers';
 
 interface AdData {
   data: {
@@ -35,8 +36,8 @@ const Ads = () => {
   return (
     <div>
       <PageHeader
-        title="Ads Collection"
-        subtitle="Let's upload some images and store them for later! 🎉"
+        title={AD.title}
+        subtitle={AD.subtitle}
         right={
           <Link className="btn btn-primary" to="/ads/create">
             <PaperAirplaneIcon className="h-5 w-5" />

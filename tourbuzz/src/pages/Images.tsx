@@ -11,6 +11,7 @@ import PageHeader from "@src/components/PageHeader";
 import DeleteButton from "@src/components/DeleteButton";
 import Image from "@src/components/Image";
 import NoResult from "@src/svg/NoResult";
+import { IMAGE } from "@src/constants/headers";
 
 interface ImageData {
     data: {
@@ -58,8 +59,8 @@ const Images = () => {
     return (
         <div>
             <PageHeader
-                title="Image Gallery"
-                subtitle="Let's upload some images and store them for later! 🎉"
+                title={IMAGE.title}
+                subtitle={IMAGE.subtitle}
                 right={<ImageUploader />}
             />
 

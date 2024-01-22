@@ -10,6 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
 import DeleteButton from "@src/components/DeleteButton";
 import Image from "@src/components/Image";
+import { ORGANIZER } from "@src/constants/headers";
 
 interface UpdateOrganizerState {
     email: string
@@ -106,8 +107,8 @@ const UpdateOrganizer = () => {
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
-                title="Writers Profiles"
-                subtitle="Let's upload some images and store them for later! 🎉"
+                title={ORGANIZER.title}
+                subtitle={ORGANIZER.subtitle}
             />
 
             <div className="w-[70rem] bg-base-200 card p-5">

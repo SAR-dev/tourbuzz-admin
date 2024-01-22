@@ -10,6 +10,7 @@ import { CreateTourType, parseErrorMessage } from './../types';
 import { toast } from "react-toastify";
 import { postTour } from "@src/functions/api";
 import { useQueryClient } from "react-query";
+import { TOUR } from "@src/constants/headers";
 
 const CreateTour = () => {
     const [reloadKey, setReloadKey] = useState(1)
@@ -93,10 +94,12 @@ const CreateTour = () => {
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
-                title="Create A Tour"
-                subtitle="Before writing the article please review the contents carefully 🧐"
+                title={TOUR.title}
+                subtitle={TOUR.subtitle}
                 right={
-                    <button className="btn btn-primary" onClick={resetData}>Reset Data</button>
+                    <button className="btn btn-primary" onClick={resetData}>
+                        Reset Data
+                    </button>
                 }
             />
 

@@ -11,6 +11,7 @@ import TourUpdateCard, { TourUpdateRef } from "@src/components/TourUpdateCard";
 import TourLogUpdateCard, { TourLogUpdateRef } from "@src/components/TourLogUpdateCard";
 import TourPackageUpdateCard, { TourPackageUpdateRef } from "@src/components/TourPackageUpdateCard";
 import DeleteButton from "@src/components/DeleteButton";
+import { TOUR } from "@src/constants/headers";
 
 const UpdateTour = () => {
     let { tourId } = useParams()
@@ -124,8 +125,8 @@ const UpdateTour = () => {
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
-                title="Create A Tour"
-                subtitle="Before writing the article please review the contents carefully 🧐"
+                title={TOUR.title}
+                subtitle={TOUR.subtitle}
             />
 
             <div className="grid grid-cols-1 gap-3">

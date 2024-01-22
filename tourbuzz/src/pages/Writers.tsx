@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'
 import NoResult from '@src/svg/NoResult'
+import { WRITER } from '@src/constants/headers'
 
 interface WriterData {
   data: {
@@ -35,8 +36,8 @@ const Writers = () => {
   return (
     <div>
       <PageHeader
-        title="Writers Profiles"
-        subtitle="Let's upload some images and store them for later! 🎉"
+        title={WRITER.title}
+        subtitle={WRITER.subtitle}
         right={
           <Link className="btn btn-primary" to="/writers/create">
             <PencilSquareIcon className="h-5 w-5" />

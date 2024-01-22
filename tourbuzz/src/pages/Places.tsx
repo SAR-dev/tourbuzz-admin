@@ -8,6 +8,7 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'
 import PlaceCard from '@src/components/PlaceCard';
 import NoResult from '@src/svg/NoResult';
+import { PLACE } from '@src/constants/headers';
 
 interface PlacesData {
   data: {
@@ -35,8 +36,8 @@ const Places = () => {
   return (
     <div>
       <PageHeader
-        title="Venue Gallery"
-        subtitle="Let's upload some images and store them for later! 🎉"
+        title={PLACE.title}
+        subtitle={PLACE.subtitle}
         right={
           <Link className="btn btn-primary" to="/places/create">
             <PencilSquareIcon className="h-5 w-5" />

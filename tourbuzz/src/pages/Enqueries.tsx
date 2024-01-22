@@ -7,6 +7,7 @@ import NoResult from "@src/svg/NoResult";
 import { useState } from "react"
 import FlipMove from "react-flip-move"
 import { useQuery } from "react-query"
+import { ENQUERY } from "@src/constants/headers";
 
 interface EnquiryData {
   data: {
@@ -34,8 +35,8 @@ const Enqueries = () => {
   return (
     <div>
       <PageHeader
-        title="User Enquiries"
-        subtitle="Let's upload some images and store them for later! 🎉"
+        title={ENQUERY.title}
+        subtitle={ENQUERY.subtitle}
       />
 
       {data.data.data.length == 0 && (

@@ -12,6 +12,7 @@ import Image from "@src/components/Image";
 import DeleteButton from "@src/components/DeleteButton";
 import ComboBoxInput, { ComboboxDataType } from "@src/components/ComboBoxInput";
 import { checkMapLink } from "@src/functions/helpers";
+import { PLACE } from "@src/constants/headers";
 
 interface UpdatePlaceState {
     districts_id: number
@@ -128,8 +129,8 @@ const UpdatePlace = () => {
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
-                title="Venue Gallery"
-                subtitle="Let's upload some images and store them for later! 🎉"
+                title={PLACE.title}
+                subtitle={PLACE.subtitle}
             />
 
             <div className="w-[70rem] bg-base-200 card p-5">

@@ -8,6 +8,7 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom'
 import OrganizerCard from '@src/components/OrganizerCard'
 import NoResult from '@src/svg/NoResult';
+import { ORGANIZER } from '@src/constants/headers';
 
 interface OrganizersData {
   data: {
@@ -35,8 +36,8 @@ function Organizers() {
   return (
     <div>
       <PageHeader
-        title="Organizers Profiles"
-        subtitle="Let's upload some images and store them for later! 🎉"
+        title={ORGANIZER.title}
+        subtitle={ORGANIZER.subtitle}
         right={
           <Link className="btn btn-primary" to="/organizers/create">
             <PencilSquareIcon className="h-5 w-5" />

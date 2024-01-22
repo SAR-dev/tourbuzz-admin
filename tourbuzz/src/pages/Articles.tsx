@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import ArticleCard from '@src/components/ArticleCard';
 import NoResult from '@src/svg/NoResult';
+import { ARTICLE } from '@src/constants/headers';
 
 interface ArticleData {
   data: {
@@ -35,8 +36,8 @@ const Articles = () => {
   return (
     <div>
       <PageHeader
-        title="Articles Collection"
-        subtitle="Let's upload some images and store them for later! 🎉"
+        title={ARTICLE.title}
+        subtitle={ARTICLE.subtitle}
         right={
           <Link className="btn btn-primary" to="/articles/create">
             <PaperAirplaneIcon className="h-5 w-5" />

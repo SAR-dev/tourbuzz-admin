@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import NoResult from '@src/svg/NoResult';
 import TourCard from '@src/components/TourCard';
+import { TOUR } from '@src/constants/headers';
 
 interface TourData {
   data: {
@@ -35,8 +36,8 @@ const Tours = () => {
   return (
     <div>
       <PageHeader
-        title="Tours Collection"
-        subtitle="Let's upload some images and store them for later! 🎉"
+        title={TOUR.title}
+        subtitle={TOUR.subtitle}
         right={
           <Link className="btn btn-primary" to="/tours/create">
             <PaperAirplaneIcon className="h-5 w-5" />

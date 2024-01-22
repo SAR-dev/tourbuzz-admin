@@ -15,6 +15,7 @@ import { generateSlug } from "@src/functions/helpers"
 import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values"
 import Image from "@src/components/Image"
 import ImageSelector from "@src/components/ImageSelector"
+import { ARTICLE } from "@src/constants/headers"
 
 interface CreateArticleState {
   title: string
@@ -97,8 +98,8 @@ const CreateArticle = () => {
   return (
     <div className="grid grid-cols-1 gap-5">
       <PageHeader
-        title="Write a article"
-        subtitle="Before writing the article please review the contents carefully 🧐"
+        title={ARTICLE.title}
+        subtitle={ARTICLE.subtitle}
       />
 
       <div className="grid grid-cols-2 gap-3 p-5 card bg-base-200">

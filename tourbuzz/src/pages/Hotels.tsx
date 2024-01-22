@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { PencilSquareIcon } from "@heroicons/react/16/solid";
 import NoResult from "@src/svg/NoResult";
 import HotelCard from "@src/components/HotelCard";
+import { HOTEL } from "@src/constants/headers";
 
 interface HotelData {
     data: {
@@ -35,8 +36,8 @@ const Hotels = () => {
     return (
         <div>
             <PageHeader
-                title="Hotel List"
-                subtitle="Let's upload some images and store them for later! 🎉"
+                title={HOTEL.title}
+                subtitle={HOTEL.subtitle}
                 right={
                     <Link className="btn btn-primary" to="/hotels/create">
                         <PencilSquareIcon className="h-5 w-5" />

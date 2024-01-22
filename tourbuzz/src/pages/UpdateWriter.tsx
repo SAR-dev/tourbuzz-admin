@@ -10,6 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ErrorAlert from "@src/components/ErrorAlert";
 import DeleteButton from "@src/components/DeleteButton";
 import Image from "@src/components/Image";
+import { WRITER } from "@src/constants/headers";
 
 interface UpdateWriterState {
     email: string
@@ -100,8 +101,8 @@ const UpdateWriter = () => {
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
-                title="Writers Profiles"
-                subtitle="Let's upload some images and store them for later! 🎉"
+                title={WRITER.title}
+                subtitle={WRITER.subtitle}
             />
 
             <div className="w-[70rem] bg-base-200 card p-5">

@@ -11,6 +11,7 @@ import DeleteButton from '@src/components/DeleteButton';
 import Image from '@src/components/Image';
 import ImageUploader from '@src/components/ImageUploader';
 import { checkMapLink } from '@src/functions/helpers';
+import { HOTEL } from '@src/constants/headers';
 
 interface UpdateHotelState {
     districts_id: number
@@ -107,8 +108,8 @@ const UpdateHotel = () => {
     return (
         <div className="grid grid-cols-1 gap-5">
             <PageHeader
-                title="Writers Profiles"
-                subtitle="Let's upload some images and store them for later! 🎉"
+                title={HOTEL.title}
+                subtitle={HOTEL.subtitle}
             />
 
             <div className="w-[70rem] bg-base-200 card p-5">
