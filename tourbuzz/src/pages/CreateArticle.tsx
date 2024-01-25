@@ -1,13 +1,13 @@
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { ArrowLeftIcon, TrashIcon } from "@heroicons/react/24/solid"
 import ImageUploader from "@src/components/ImageUploader"
-import { ImageType, WriterType, parseErrorMessage } from "@src/types"
+import { ArticleCategoryData, ImageType, WriterType, parseErrorMessage } from "@src/types"
 import { useState } from "react"
 import ErrorAlert from "@src/components/ErrorAlert"
 import WriterSelect from "@src/components/WriterSelect"
-import { postArticle } from "@src/functions/api"
+import { getArticleCategories, postArticle } from "@src/functions/api"
 import { toast } from "react-toastify"
-import { useQueryClient } from "react-query"
+import { useQuery, useQueryClient } from "react-query"
 import PageHeader from "@src/components/PageHeader"
 import MarkdownEditor from "@src/components/MarkdownEditor"
 import { useNavigate } from "react-router-dom"
@@ -16,9 +16,11 @@ import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values"
 import Image from "@src/components/Image"
 import ImageSelector from "@src/components/ImageSelector"
 import { ARTICLE } from "@src/constants/headers"
+import ComboBoxInput, { ComboboxDataType } from "@src/components/ComboBoxInput"
 
 interface CreateArticleState {
   title: string
+  category: string
   slug: string
   subtitle: string
   summary: string
@@ -30,6 +32,10 @@ interface CreateArticleState {
 const CreateArticle = () => {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
+
+  const [selectedValue, setSelectedValue] = useState<ComboboxDataType | null>(null)
+  const handleNewValue = (text: string) => setSelectedValue({ value: text, text: text })
+
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<CreateArticleState>({
     title: "",
@@ -37,10 +43,16 @@ const CreateArticle = () => {
     subtitle: "",
     summary: "",
     md_desc: "",
+    category: "",
     images: [],
     writer: null
   })
   const [error, setError] = useState("")
+
+  const { data: articleCategoryData } = useQuery<ArticleCategoryData, Error>({
+    queryKey: ['article-categories'],
+    queryFn: () => getArticleCategories()
+  })
 
   const setWriter = (writer: WriterType) => {
     setData({ ...data, writer })
@@ -70,14 +82,15 @@ const CreateArticle = () => {
       setError("Select writer.")
       return;
     };
+    if (!selectedValue) {
+      setError("Select category.")
+      return;
+    };
     setError("")
     setLoading(true)
     postArticle({
-      title: data.title,
-      slug: data.slug,
-      subtitle: data.subtitle,
-      summary: data.summary,
-      md_desc: data.md_desc,
+      ...data,
+      category: selectedValue.text,
       image_ids: data.images.map(e => e.id),
       writers_id: data.writer.id
     }).then(res => {
@@ -159,6 +172,17 @@ const CreateArticle = () => {
           <label className="label">Select Writer</label>
           <WriterSelect writer={data.writer} setWriter={setWriter} />
         </div>
+        <div>
+            <label className="label">Category</label>
+            {articleCategoryData && (
+              <ComboBoxInput
+                values={articleCategoryData.data.map(e => { return { value: e.category, text: e.category, extraText: `(${e.count})` } })}
+                selectedValue={selectedValue}
+                setSelectedValue={setSelectedValue}
+                handleNewValue={handleNewValue}
+              />
+            )}
+          </div>
       </div>
 
       {error.length > 0 && (

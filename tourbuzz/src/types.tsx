@@ -68,6 +68,7 @@ export interface ArticleType {
     id: number
     writers_id: number
     title: string
+    category: string
     slug: string
     subtitle: string
     summary: string
@@ -329,6 +330,7 @@ export interface UpdatePlaceType {
 
 export interface CreateArticleType {
     title: string
+    category: string
     slug: string
     subtitle: string
     summary: string
@@ -351,6 +353,7 @@ export interface UpdateWriterType {
 export interface UpdateArticleType {
     articles_id: number
     title: string
+    category: string
     slug: string
     subtitle: string
     summary: string
@@ -452,6 +455,15 @@ export interface TypeOfPlace {
 
 export interface TypeOfPlaceData {
     data: TypeOfPlace[]
+}
+
+export interface ArticleCategory {
+    category: string
+    count: number
+}
+
+export interface ArticleCategoryData {
+    data: ArticleCategory[]
 }
 
 export interface TypeOfTour {

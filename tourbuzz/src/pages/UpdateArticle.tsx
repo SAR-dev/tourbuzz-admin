@@ -2,6 +2,7 @@ import { PhotoIcon } from "@heroicons/react/24/outline";
 import { ArrowLeftIcon, TrashIcon } from "@heroicons/react/24/solid";
 import ImageUploader from "@src/components/ImageUploader";
 import {
+  ArticleCategoryData,
   ArticleType,
   ImageType,
   WriterType,
@@ -13,10 +14,11 @@ import WriterSelect from "@src/components/WriterSelect";
 import {
   deleteArticleById,
   getArticleById,
+  getArticleCategories,
   updateArticle,
 } from "@src/functions/api";
 import { toast } from "react-toastify";
-import { useQueryClient } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import PageHeader from "@src/components/PageHeader";
 import MarkdownEditor from "@src/components/MarkdownEditor";
 import { useNavigate, useParams } from "react-router-dom";
@@ -26,9 +28,11 @@ import { MAX_ARTICLE_IMAGE_COUNT } from "@src/constants/values";
 import Image from "@src/components/Image";
 import ImageSelector from "@src/components/ImageSelector";
 import { ARTICLE } from "@src/constants/headers";
+import ComboBoxInput, { ComboboxDataType } from "@src/components/ComboBoxInput";
 
 interface ArticleUpdateState {
   title: string;
+  category: string
   slug: string;
   subtitle: string;
   summary: string;
@@ -41,11 +45,16 @@ const UpdateArticle = () => {
   let { articleId } = useParams();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+
+  const [selectedValue, setSelectedValue] = useState<ComboboxDataType | null>(null)
+  const handleNewValue = (text: string) => setSelectedValue({ value: text, text: text })
+
   const [deleting, setDeleting] = useState(false);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<ArticleUpdateState>({
     writer: null,
     title: "",
+    category: "",
     slug: "",
     subtitle: "",
     summary: "",
@@ -53,6 +62,11 @@ const UpdateArticle = () => {
     images: [],
   });
   const [error, setError] = useState("");
+
+  const { data: articleCategoryData } = useQuery<ArticleCategoryData, Error>({
+    queryKey: ['article-categories'],
+    queryFn: () => getArticleCategories()
+  })
 
   const setWriter = (writer: WriterType) => {
     setData({ ...data, writer });
@@ -63,6 +77,10 @@ const UpdateArticle = () => {
       const article: ArticleType = res.data;
       setData({ ...article });
       setWriter(article.writer);
+      setSelectedValue({
+        value: article.category,
+        text: article.category
+      })
     });
   }, [articleId]);
 
@@ -90,15 +108,16 @@ const UpdateArticle = () => {
       setError("Select writer.");
       return;
     }
+    if (!selectedValue) {
+      setError("Select category.")
+      return;
+    };
     setError("");
     setLoading(true);
     updateArticle({
+      ...data,
+      category: selectedValue.text,
       articles_id: Number(articleId),
-      title: data.title,
-      slug: data.slug,
-      subtitle: data.subtitle,
-      summary: data.summary,
-      md_desc: data.md_desc,
       image_ids: data.images.map((e) => e.id),
       writers_id: data.writer.id,
     }).then((res) => {
@@ -226,6 +245,17 @@ const UpdateArticle = () => {
         <div>
           <label className="label">Select Writer</label>
           <WriterSelect writer={data.writer} setWriter={setWriter} />
+        </div>
+        <div>
+          <label className="label">Category</label>
+          {articleCategoryData && (
+            <ComboBoxInput
+              values={articleCategoryData.data.map(e => { return { value: e.category, text: e.category, extraText: `(${e.count})` } })}
+              selectedValue={selectedValue}
+              setSelectedValue={setSelectedValue}
+              handleNewValue={handleNewValue}
+            />
+          )}
         </div>
       </div>
 

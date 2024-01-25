@@ -212,6 +212,17 @@ export const getArticles = ({
         });
 }
 
+export const getArticleCategories = (): Promise<any> => {
+    return api
+        .get("/admin/article-categories")
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
 export const getArticleById = ({ id }: { id: number }): Promise<any> => {
     return api
         .get(`/admin/articles/${id}`)
