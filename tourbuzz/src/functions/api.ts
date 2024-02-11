@@ -214,7 +214,7 @@ export const getArticles = ({
 
 export const getArticleCategories = (): Promise<any> => {
     return api
-        .get("/admin/article-categories")
+        .get("/admin/articles/categories")
         .then((res) => {
             return { data: res.data };
         })
@@ -538,7 +538,7 @@ export const getPlaces = ({
 
 export const getTypesOfPlaces = (): Promise<any> => {
     return api
-        .get("/admin/place-types")
+        .get("/admin/places/types")
         .then((res) => {
             return { data: res.data };
         })

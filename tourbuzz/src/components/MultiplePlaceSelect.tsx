@@ -114,7 +114,7 @@ const MultiplePlaceSelect = ({
                                 <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder='John Doe' className='input input-bordered' />
                             </div>
                         </div>
-                        <div className='grid grid-cols-3 gap-5 max-h-[26rem] custom-scrollbar overflow-y-auto'>
+                        <div className='grid grid-cols-3 gap-5 max-h-[22rem] custom-scrollbar overflow-y-auto'>
                             {places.map((place, i) => (
                                 <SearchResultCardWithImage
                                     id={place.id}
