@@ -35,8 +35,8 @@ export interface ImageType {
     source_url: string
     thumbnail_url: string
     optimized_url: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
 }
 
 export interface AdType {
@@ -46,8 +46,8 @@ export interface AdType {
     link: string
     image_url: string
     active: boolean
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
 }
 
 export interface WriterType {
@@ -59,8 +59,8 @@ export interface WriterType {
     about: string
     contact_no: string
     website: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
     avatar: ImageType | null
 }
 
@@ -74,8 +74,8 @@ export interface ArticleType {
     summary: string
     md_desc: string
     image_ids: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
     writer: WriterType
     images: ImageType[]
 }
@@ -87,8 +87,8 @@ export interface UserType {
     name: string
     images_id: number
     last_logged_in: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
     avatar: ImageType | null
 }
 
@@ -103,8 +103,8 @@ export interface OrganizerType {
     verification: string
     social_link: string
     contact_no: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
     avatar: ImageType | null
 }
 
@@ -120,8 +120,8 @@ export interface EnquiryType {
     question: string
     answer?: string
     answered_at: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
 }
 
 export interface PlaceType {
@@ -133,8 +133,8 @@ export interface PlaceType {
     map_link: string
     description: string
     type: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
     district: DistrictType
     avatar: ImageType | null
 }
@@ -148,8 +148,8 @@ export interface PackageType {
     excluded: string
     conditions: string
     price: number;
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
 }
 
 export interface TourLogType {
@@ -161,45 +161,40 @@ export interface TourLogType {
     description: string;
     date: string;
     image_ids: string;
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
     images: ImageType[]
     places: PlaceType[]
     hotel: HotelType
 }
 
 export interface ListTourType {
-    id: number
-    tour_types_id: number
-    organizers_id: number
-    images_id: number
-    title: string
-    slug: string
-    md_desc: string
-    highlights: string
-    faq: string
-    video_link: string
-    group_size: string
-    group_info: string
-    transports: string
-    cancel_ins: string
-    start_ins: string
-    finish_ins: string
-    start_at: string
-    finish_at: string
-    last_sell_at: string
-    image_ids: string
-    created_at: string
-    updated_at: string
-
-    avatar: ImageType
-    images: ImageType[]
-    place_names_list: string[]
-    district_names_list: string[]
-    package_prices_list: number[]
-    tour_type_name: string
-    organizer_name: string
-    organizer_verification: string
+    id: number;
+    tour_types_id: number;
+    organizers_id: number;
+    images_id: number;
+    title: string;
+    video_link: string;
+    slug: string;
+    highlight: string;
+    group_size: string;
+    group_info: string;
+    transports: string;
+    start_at: Date;
+    finish_at: Date;
+    last_sell_at: Date;
+    image_ids: string;
+    created_at: Date;
+    updated_at: Date;
+    tour_type_name: string;
+    organizer_name: string;
+    organizer_verification: string;
+    place_names_list: string[];
+    district_names_list: string[];
+    package_prices_list: number[];
+    images: ImageType[];
+    avatar: ImageType;
+    expired: boolean;
 }
 
 export interface TourType {
@@ -223,8 +218,8 @@ export interface TourType {
     finish_at: string
     last_sell_at: string
     image_ids: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
 
     organizer: OrganizerType
     avatar: ImageType
@@ -471,8 +466,8 @@ export interface TypeOfTour {
     name: string
     slug: string
     details: string
-    created_at: string
-    updated_at: string
+    created_at: Date;
+    updated_at: Date;
 }
 
 export interface ParsedErrorMessageProps {
