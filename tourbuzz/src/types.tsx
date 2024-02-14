@@ -374,6 +374,8 @@ export interface CreateTourPackageType {
     excluded: string
     conditions: string
     price: number
+    bkash_link: string
+    nagad_link: string
 }
 
 export interface CreateTourType {
@@ -433,6 +435,8 @@ interface TourPackageCreatePayload {
     excluded: string
     conditions: string
     price: number
+    bkash_link: string
+    nagad_link: string
 }
 
 interface TourPackageUpdatePayload extends TourPackageCreatePayload {

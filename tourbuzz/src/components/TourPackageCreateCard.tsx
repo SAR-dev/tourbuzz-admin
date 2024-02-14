@@ -10,7 +10,9 @@ export interface TourPackageCreateState {
     included: string
     excluded: string
     conditions: string
-    price: number | null;
+    price: number | null
+    bkash_link: string
+    nagad_link: string
 }
 
 const initialState: TourPackageCreateState = {
@@ -18,7 +20,9 @@ const initialState: TourPackageCreateState = {
     included: "",
     excluded: "",
     conditions: "",
-    price: null
+    price: null,
+    bkash_link: "",
+    nagad_link: ""
 }
 
 const defaultActiveIndex = -1;
