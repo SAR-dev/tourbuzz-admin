@@ -14,9 +14,7 @@ export interface TourPackageUpdateState {
     included: string
     excluded: string
     conditions: string
-    price: number | null
-    bkash_link: string
-    nagad_link: string
+    price: number | null;
 }
 
 export interface TourPackageCreateState {
@@ -24,9 +22,7 @@ export interface TourPackageCreateState {
     included: string
     excluded: string
     conditions: string
-    price: number | null
-    bkash_link: string
-    nagad_link: string
+    price: number | null;
 }
 
 const initialState: TourPackageCreateState = {
@@ -34,9 +30,7 @@ const initialState: TourPackageCreateState = {
     included: "",
     excluded: "",
     conditions: "",
-    price: null,
-    bkash_link: "",
-    nagad_link: ""
+    price: null
 }
 
 const defaultActiveIndex = -1;
@@ -129,9 +123,7 @@ const TourPackageUpdateCard = forwardRef<TourPackageUpdateRef, { tourId: number 
             included: editorData.included,
             excluded: editorData.excluded,
             conditions: editorData.conditions,
-            price: Number(editorData.price),
-            bkash_link: editorData.bkash_link,
-            nagad_link: editorData.nagad_link
+            price: Number(editorData.price)
         }).then(res => {
             if (res.error) {
                 toast.error("Tour package create failed 🤦‍♂️")

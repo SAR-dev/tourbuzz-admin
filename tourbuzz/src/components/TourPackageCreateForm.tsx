@@ -60,14 +60,6 @@ const TourPackageCreateForm = ({
                         <label className="label">Package Price</label>
                         <input value={data.price?.toString()} onChange={e => setData({ data: { ...data, price: Number(e.target.value) }, index })} type="number" placeholder="Price" className="input input-bordered w-full" />
                     </div>
-                    <div>
-                        <label className="label">Bkash Payment Link</label>
-                        <input value={data.bkash_link} onChange={e => setData({ data: { ...data, bkash_link: e.target.value }, index })} type="text" placeholder="Bkash Payment Link" className="input input-bordered w-full" />
-                    </div>
-                    <div>
-                        <label className="label">Nagad Payment Link</label>
-                        <input value={data.nagad_link} onChange={e => setData({ data: { ...data, nagad_link: e.target.value }, index })} type="text" placeholder="Nagad Payment Link" className="input input-bordered w-full" />
-                    </div>
                     <div className="flex flex-col">
                         <label className="label">Included Services</label>
                         <MarkdownEditor
