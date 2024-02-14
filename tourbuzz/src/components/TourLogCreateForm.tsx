@@ -8,7 +8,6 @@ import ImageUploader from './ImageUploader';
 import ReactInputMask from 'react-input-mask';
 import MultiplePlaceSelect from './MultiplePlaceSelect';
 import classNames from 'classnames';
-import MarkdownEditor from './MarkdownEditor';
 import { TourLogCreateState } from './TourLogCreateCard';
 import HotelSelect from './HotelSelect';
 import ImageSelector from './ImageSelector';
@@ -107,12 +106,12 @@ const TourLogCreateForm = ({
                         <div className="grid grid-cols-1 gap-3">
                             <div className="flex flex-col">
                                 <label className="label">Travel Plan Description</label>
-                                <MarkdownEditor
+                                <textarea
                                     value={data.description}
-                                    setValue={setMdDesc}
-                                    placeholder="Start writing details in Markdown"
-                                    minimal
-                                    height='25.5rem'
+                                    onChange={e => setMdDesc(e.target.value)}
+                                    className="textarea textarea-bordered custom-scrollbar placeholder:text-base text-base w-full"
+                                    // @ts-ignore
+                                    style={{height: '28rem'}}
                                 />
                             </div>
                         </div>

@@ -43,6 +43,22 @@ const UpdateTour = () => {
         })
     }, [tourId])
 
+    function convertLogDateFormat(dateString: string) {
+        const parts = dateString.split('-');
+        return parts[2] + '/' + parts[1] + '/' + parts[0];
+    }
+
+    function formatTimestamp(timestamp: string) {
+        const date = new Date(timestamp);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); 
+        const year = date.getFullYear();
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+    
+        return `${day}/${month}/${year} ${hours}:${minutes}`;
+    }
+
     const handleSubmit = async () => {
         if (!tourUpdateRef.current || !tourLogUpdateRef.current || !tourPackageUpdateRef.current) {
             return;
@@ -71,14 +87,18 @@ const UpdateTour = () => {
                 tour_types_id: tour.tour_type.id,
                 organizers_id: tour.organizer.id,
                 images_id: tour.avatar.id,
-                image_ids: tour.images.map(e => e.id)
+                image_ids: tour.images.map(e => e.id),
+                start_at: formatTimestamp(tour.start_at),
+                finish_at: formatTimestamp(tour.finish_at),
+                last_sell_at: formatTimestamp(tour.last_sell_at)
             },
             tour_logs: tour_logs.map(e => {
                 return {
                     ...e,
                     hotels_id: Number(e.hotel?.id),
                     place_ids: e.places.map(c => c.id),
-                    image_ids: e.images.map(c => c.id)
+                    image_ids: e.images.map(c => c.id),
+                    date: convertLogDateFormat(e.date)
                 }
             }),
             packages: packages.map(e => {

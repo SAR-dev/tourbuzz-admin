@@ -50,18 +50,6 @@ const TourPackageUpdateForm = ({
                         </button>
                         <DeleteButton className='btn btn-sm btn-warning' handleDelete={() => deleteData(index)} />
                     </div>
-                    <div className='w-full'>
-                        <div className="grid grid-cols-1 gap-3 mb-3">
-                            <div>
-                                <label className="label">Package Title</label>
-                                <input value={data.title} onChange={e => setData({ data: { ...data, title: e.target.value }, index })} type="text" placeholder="Title" className="input input-bordered w-full" />
-                            </div>
-                            <div>
-                                <label className="label">Package Price</label>
-                                <input value={data.price?.toString()} onChange={e => setData({ data: { ...data, price: Number(e.target.value) }, index })} type="number" placeholder="Price" className="input input-bordered w-full" />
-                            </div>
-                        </div>
-                    </div>
                     <div>
                         <label className="label">Package Title</label>
                         <input value={data.title} onChange={e => setData({ data: { ...data, title: e.target.value }, index })} type="text" placeholder="Title" className="input input-bordered w-full" />
