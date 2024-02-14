@@ -34,6 +34,7 @@ export interface TourCreateState {
     start_at: string;
     finish_at: string;
     last_sell_at: string;
+    max_ticket_amount: number
     images: ImageType[];
 }
 
@@ -62,6 +63,7 @@ const initialState: TourCreateState = {
     finish_at: '',
     last_sell_at: '',
     images: [],
+    max_ticket_amount: 999
 }
 
 const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
@@ -87,7 +89,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
     }
 
     const setImages = (image: ImageType) => {
-        if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
+        if (data.images.length >= MAX_TOUR_IMAGE_COUNT) {
             toast.info("Maximum image uploaded")
         }
         setData({ ...data, images: [...data.images, image] })
@@ -173,9 +175,15 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <label className="label">Transportations</label>
                 <input value={data.transports} onChange={e => setData({ ...data, transports: e.target.value })} type="text" placeholder="Transportations" className="input input-bordered w-full" />
             </div>
-            <div>
-                <label className="label">Ticket Last Sell Time</label>
-                <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='DD/MM/YYYY hh:mm' />
+            <div className="grid grid-cols-2 gap-5">
+                <div>
+                    <label className="label">Ticket Last Sell Time</label>
+                    <ReactInputMask mask="99/99/9999 99:99" onChange={e => setData({ ...data, last_sell_at: e.target.value })} value={data.last_sell_at} className="input input-bordered w-full" placeholder='DD/MM/YYYY hh:mm' />
+                </div>
+                <div>
+                    <label className="label">Max Amount of Ticket</label>
+                    <input value={data.max_ticket_amount} onChange={e => setData({ ...data, max_ticket_amount: Number(e.target.value) })} type="number" placeholder="Max Amount of Ticket" className="input input-bordered w-full" />
+                </div>
             </div>
             <div>
                 <label className="label">Tour Main Poster</label>

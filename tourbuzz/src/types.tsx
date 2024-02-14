@@ -218,6 +218,7 @@ export interface TourType {
     finish_at: string
     last_sell_at: string
     image_ids: string
+    max_ticket_amount: number
     created_at: string;
     updated_at: string;
 
@@ -407,6 +408,7 @@ interface TourCreatePayload {
     start_at: string
     finish_at: string
     last_sell_at: string
+    max_ticket_amount: number
     image_ids: number[]
 }
 
