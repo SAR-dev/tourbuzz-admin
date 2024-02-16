@@ -2,7 +2,6 @@ import { ArrowUpIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { EnquiryListType, EnquiryType } from '@src/types';
 import { findMaxContinuous, timestampToYYYYMMDD, timestampToYYYYMMDDHHMMSS } from '@src/functions/helpers';
 import { forwardRef, useMemo, useState } from 'react';
-import { PhoneCall } from 'tabler-icons-react';
 import Image from './Image';
 import { toast } from 'react-toastify';
 import { answerEnquery } from '@src/functions/api';
@@ -59,12 +58,6 @@ const AnswerRenderer = ({ enquiry }: { enquiry: EnquiryType }) => {
                         className="textarea textarea-bordered custom-scrollbar placeholder:text-base text-base w-full"
                     />
                     <div className="flex">
-                        {enquiry.contact_no && enquiry.contact_no.length > 7 && (
-                            <a href={`tel:${enquiry.contact_no}`} className="btn btn-sm">
-                                <PhoneCall className='h-4 w-4' />
-                                Make a Call
-                            </a>
-                        )}
                         <button className="btn btn-sm btn-info ml-auto" onClick={submitAnswer}>
                             {loading ? (
                                 <>

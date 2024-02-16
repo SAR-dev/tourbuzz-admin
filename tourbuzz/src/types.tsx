@@ -116,7 +116,6 @@ export interface EnquiryListType {
 export interface EnquiryType {
     id: number
     users_id: number
-    contact_no?: string
     question: string
     answer?: string
     answered_at: string

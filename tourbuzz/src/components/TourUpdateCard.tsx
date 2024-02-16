@@ -1,4 +1,4 @@
-import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
+import { MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
 import { ImageType, OrganizerType, TypeOfTour } from '@src/types';
 import { forwardRef, useImperativeHandle, useState } from 'react';
