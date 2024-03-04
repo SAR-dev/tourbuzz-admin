@@ -117,13 +117,6 @@ export function SideNav({ children }: { children: ReactNode }) {
                 <ErrorBoundary FallbackComponent={ErrorFallback}>
                     {children}
                 </ErrorBoundary>
-                {isLoggedIn() && (
-                    <div
-                        className="p-2 bg-primary cursor-pointer rounded-full m-3 absolute right-0 bottom-0" data-tooltip-id={"nav-tooltip"}
-                        data-tooltip-content={getEmail()}>
-                        <UserCircleIcon className="h-5 w-5" />
-                    </div>
-                )}
             </div>
             <ReactTooltip id="nav-tooltip" />
         </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateAdType, CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, UpdateAdType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateTourType, UpdateWriterType } from "../types";
+import { CreateAdType, CreateArticleType, CreateHotelManagerType, CreateHotelType, CreateOrganizerManagerType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, DeleteHotelManagerType, DeleteOrganizerManagerType, UpdateAdType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateTourType, UpdateWriterType } from "../types";
 import { tokenKey } from "@src/store";
 
 const api = axios.create();
@@ -320,6 +320,30 @@ export const postOrganizer = ({ ...props }: CreateOrganizerType): Promise<any> =
         });
 }
 
+export const postOrganizerManager = ({ ...props }: CreateOrganizerManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/managers/organizers", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const deleteOrganizerManager = ({ ...props }: DeleteOrganizerManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/managers/organizers", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
 export const getOrganizers = ({
     pageNo,
     pageSize,
@@ -424,6 +448,31 @@ export const getTourTypes = ({
 }
 
 // Hotels
+
+export const postHotelManager = ({ ...props }: CreateHotelManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/managers/hotels", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const deleteHotelManager = ({ ...props }: DeleteHotelManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/managers/hotels", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
 
 export const postHotel = ({ ...props }: CreateHotelType): Promise<any> => {
     const data = { ...props }

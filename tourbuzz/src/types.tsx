@@ -10,6 +10,8 @@ export interface HotelType {
     updated_at: string
     district: DistrictType
     avatar: ImageType
+    admins: UserType[]
+    staffs: UserType[]
 }
 
 export interface DistrictType {
@@ -82,7 +84,7 @@ export interface ArticleType {
 
 export interface UserType {
     id: number
-    email: number
+    email: string
     username: string
     name: string
     images_id: number
@@ -105,7 +107,9 @@ export interface OrganizerType {
     contact_no: string
     created_at: string;
     updated_at: string;
-    avatar: ImageType | null
+    avatar: ImageType | null;
+    admins: UserType[]
+    staffs: UserType[]
 }
 
 export interface EnquiryListType {
@@ -268,6 +272,28 @@ export interface CreateOrganizerType {
     contact_no: string
     verification: string
     social_link: string
+}
+
+export interface CreateOrganizerManagerType {
+    email: string
+    position: string
+    organizers_id: number
+}
+
+export interface DeleteOrganizerManagerType {
+    email: string
+    organizers_id: number
+}
+
+export interface CreateHotelManagerType {
+    email: string
+    position: string
+    hotels_id: number
+}
+
+export interface DeleteHotelManagerType {
+    email: string
+    hotels_id: number
 }
 
 export interface UpdateOrganizerType {
