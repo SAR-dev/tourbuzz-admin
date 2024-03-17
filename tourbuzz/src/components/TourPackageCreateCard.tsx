@@ -11,6 +11,7 @@ export interface TourPackageCreateState {
     excluded: string
     conditions: string
     price: number | null;
+    threshold: number;
 }
 
 const initialState: TourPackageCreateState = {
@@ -18,7 +19,8 @@ const initialState: TourPackageCreateState = {
     included: "",
     excluded: "",
     conditions: "",
-    price: null
+    price: null,
+    threshold: 999
 }
 
 const defaultActiveIndex = -1;

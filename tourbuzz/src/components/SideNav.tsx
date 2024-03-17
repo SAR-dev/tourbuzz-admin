@@ -16,7 +16,7 @@ import { Map, Trees, Ad } from 'tabler-icons-react';
 import classNames from "classnames";
 import { useAuthStore, useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
-import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import SignOutButton from "./SignOutButton";
 
@@ -39,7 +39,7 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
 
 export function SideNav({ children }: { children: ReactNode }) {
     const { open, toogleOpen } = useNavStore()
-    const { isLoggedIn, getEmail } = useAuthStore()
+    const { isLoggedIn } = useAuthStore()
 
     const location = useLocation();
     const { pathname } = location;

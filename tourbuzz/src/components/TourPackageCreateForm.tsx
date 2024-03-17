@@ -41,7 +41,7 @@ const TourPackageCreateForm = ({
             "bg-base-100": !active
         })}>
             {active ? (
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-4 gap-3">
                     <div className="flex space-x-2 absolute top-0 right-0 m-2">
                         <button className="btn btn-sm btn-info" onClick={complete}>
                             <CheckIcon className='h-4 w-4' />
@@ -52,13 +52,17 @@ const TourPackageCreateForm = ({
                             Delete
                         </button>
                     </div>
-                    <div>
+                    <div className="col-span-2">
                         <label className="label">Package Title</label>
                         <input value={data.title} onChange={e => setData({ data: { ...data, title: e.target.value }, index })} type="text" placeholder="Title" className="input input-bordered w-full" />
                     </div>
                     <div>
                         <label className="label">Package Price</label>
                         <input value={data.price?.toString()} onChange={e => setData({ data: { ...data, price: Number(e.target.value) }, index })} type="number" placeholder="Price" className="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label className="label">Ticket Limit</label>
+                        <input value={data.threshold.toString()} onChange={e => setData({ data: { ...data, threshold: Number(e.target.value) }, index })} type="number" placeholder="Limit" className="input input-bordered w-full" />
                     </div>
                     <div className="flex flex-col">
                         <label className="label">Included Services</label>
