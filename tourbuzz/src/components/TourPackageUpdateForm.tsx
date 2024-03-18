@@ -62,7 +62,7 @@ const TourPackageUpdateForm = ({
                         <label className="label">Ticket Limit</label>
                         <input value={data.threshold.toString()} onChange={e => setData({ data: { ...data, threshold: Number(e.target.value) }, index })} type="number" placeholder="Limit" className="input input-bordered w-full" />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col col-span-2">
                         <label className="label">Included Services</label>
                         <MarkdownEditor
                             value={data.included}
@@ -72,7 +72,7 @@ const TourPackageUpdateForm = ({
                             height='20rem'
                         />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col col-span-2">
                         <label className="label">Excluded Services</label>
                         <MarkdownEditor
                             value={data.excluded}
@@ -82,7 +82,7 @@ const TourPackageUpdateForm = ({
                             height='20rem'
                         />
                     </div>
-                    <div className='col-span-2'>
+                    <div className='col-span-4'>
                         <div className="flex flex-col">
                             <label className="label">Terms & Conditions</label>
                             <MarkdownEditor

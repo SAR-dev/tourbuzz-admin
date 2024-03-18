@@ -181,11 +181,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <label className="label">Tour Main Poster</label>
                 <div className="p-3 bg-base-100 card border border-base-300">
                     <div className="w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
-                        {data.avatar ? (
-                            <Image image={data.avatar} className="w-full aspect-video object-center" />
-                        ) : (
-                            <PhotoIcon className="h-20 w-20" />
-                        )}
+                        <Image image={data.avatar} className="w-full aspect-video object-center" />
                     </div>
                     <ImageUploader title="Upload Poster" setImage={setAvatar} />
                 </div>
