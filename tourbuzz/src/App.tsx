@@ -26,6 +26,7 @@ import Ads from "./pages/Ads";
 import CreateAd from "./pages/CreateAd";
 import UpdateAd from "./pages/UpdateAd";
 import SigninVerify from "./pages/SigninVerify";
+import Tickets from "./pages/Tickets";
 
 const App = () => {
   return (
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/ads" element={<SideNav children={<Ads />} />} />
           <Route path="/ads/create" element={<SideNav children={<CreateAd />} />} />
           <Route path="/ads/:adId" element={<SideNav children={<UpdateAd />} />} />
+          <Route path="/tickets" element={<SideNav children={<Tickets />} />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

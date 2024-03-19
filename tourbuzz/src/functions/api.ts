@@ -511,6 +511,31 @@ export const getHotels = ({
         });
 }
 
+export const getTickets = ({
+    pageNo,
+    pageSize,
+    name
+}: {
+    pageNo: number,
+    pageSize: number,
+    name?: string
+}): Promise<any> => {
+    return api
+        .get("/admin/tickets", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+                name: name ?? ""
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
 export const getHotelById = ({ id }: { id: number }): Promise<any> => {
     return api
         .get(`/admin/hotels/${id}`)

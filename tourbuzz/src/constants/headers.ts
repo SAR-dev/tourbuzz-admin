@@ -18,6 +18,11 @@ export const HOTEL = {
     subtitle: "Optimize Operations and Enhance Guest Services with our Hotels Page 🤝"
 }
 
+export const TICKET = {
+    title: "Boost Ticket Management",
+    subtitle: "Optimize Operations and Enhance Guest Services with our Tickets Page 🤝"
+}
+
 export const IMAGE = {
     title: "Gallery Brilliance",
     subtitle: "Craft Visual Experiences that Resonate with Our Intuitive Image Gallery 🤗"

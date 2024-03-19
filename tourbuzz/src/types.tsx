@@ -498,6 +498,49 @@ export interface TypeOfTour {
     updated_at: string;
 }
 
+export interface PaymentType {
+    id: number;
+    users_id: number;
+    invoice_no: string;
+    reference_no: string;
+    payment_type: string;
+    transaction_id: string;
+    payment_id: string;
+    payment_amount: number;
+    currency: string;
+    completed: boolean;
+    created_at: string;
+    updated_at: string;
+    user: UserType
+}
+
+export interface FileType {
+    id: number
+    filename: string
+    link: string
+    note: string
+    created_at: string;
+    updated_at: string;
+}
+
+export interface TicketType {
+    id: number
+    packages_id: number
+    users_id: number
+    ticket_amount: number
+    note: string
+    created_at: string
+    updated_at: string
+    payment: PaymentType
+    files: FileType[]
+    booked_package: {
+        tour_package: PackageType
+        tour: TourType
+        ticket_sold: number
+    }
+}
+
+
 export interface ParsedErrorMessageProps {
     status?: number
     message: string
