@@ -1,41 +1,35 @@
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { TicketType } from "@src/types";
 
 const TicketCard = ({ ticket }: { ticket: TicketType }) => {
     return (
-        <div className="card card-side w-full h-full bg-base-200 p-3 group relative">
-            {/* <Link to={`/hotels/${hotel.id}`} className="btn btn-xs h-8 w-8 btn-primary absolute z-[1] opacity-0 group-hover:opacity-100 top-0 right-0 m-3">
-                <PencilIcon className="h-5 w-5" />
-            </Link>
-            <div className="grid grid-cols-1 gap-3">
-                <div className="flex">
-                    <div className="h-[7rem] w-[7rem] flex-shrink-0">
-                        <Image image={hotel.avatar} className="card h-[7rem] w-[7rem] object-cover" />
+        <div className="card w-full h-full bg-base-200 group relative">
+            <div className="p-3 w-full border-b border-base-300 font-medium">{ticket.booked_package.tour.title}</div>
+            <div className="flex w-full divide-x divide-base-300">
+                <div className="flex space-x-3 items-center w-64 p-5 flex-shrink-0">
+                    <div className="h-12 w-12">
+                        <img src={ticket.payment.user.avatar?.thumbnail_url} className="h-12 w-12 rounded-full object-cover" alt="" />
                     </div>
-                    <div className="card-body py-0 pr-0 pl-5">
-                        <div className="flex w-full items-center">
-                            <div className="text-lg font-semibold line-clamp-1">{hotel.name}</div>
-                        </div>
-                        <div className="flex flex-col space-y-1.5 text-sm">
-                            <div className="flex gap-2 items-center">
-                                <MapIcon className="h-5 w-5" />
-                                <Link to={hotel.map_link} target="_blank" className="link">
-                                    {getMapIdFromLink(hotel.map_link)}
-                                </Link>
-                            </div>
-                            <div className="flex gap-2 items-center">
-                                <LinkIcon className="h-5 w-5" />
-                                <Link to={hotel.website} target="_blank" className="link">
-                                    <TruncateText maxLength={30} text={hotel.website} />
-                                </Link>
-                            </div>
-                            <div className="flex gap-2 items-center">
-                                <Location className="h-5 w-5" />
-                                {hotel.district.name}, {hotel.district.division.name}
-                            </div>
-                        </div>
+                    <div>
+                        <div className="font-medium">{ticket.payment.user.name}</div>
+                        <div className="text-xs">INV {ticket.payment.invoice_no}</div>
+                        <div className="text-xs">{ticket.booked_package.tour_package.title} | {ticket.ticket_amount} Tickets</div>
                     </div>
                 </div>
-            </div> */}
+                <div className="p-2 w-20 flex items-center">
+                    <button className="btn">
+                        <ArrowRightIcon className="h-5 w-5" />
+                    </button>
+                </div>
+                <div className="grid grid-cols-3 gap-5 p-2 w-full">
+                    {ticket.files.map((file, i) => (
+                        <div className="bg-base-100 card p-3 w-full" key={i}>
+                            <div className="text-sm text-info font-medium">{file.filename}</div>
+                            <a href={file.link} target="_blank" className="text-xs text-ellipsis">{file.link}</a>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
