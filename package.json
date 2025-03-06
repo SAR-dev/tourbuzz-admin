@@ -9,8 +9,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "pre-build": "tsc && vite build",
-    "build": "npm i --no-package-lock && tsc && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
     "bundle": "tauri build"
@@ -58,7 +57,7 @@
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.7",
     "@types/react-input-mask": "^3.0.5",
-    "@types/react-modal-image": "^2.6.3",
+    "@types/react-modal-image": "2.6.4",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
     "daisyui": "^4.4.24",
