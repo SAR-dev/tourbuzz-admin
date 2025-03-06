@@ -1,7 +1,7 @@
-import { MAX_ARTICLE_IMAGE_COUNT, MAX_TOUR_IMAGE_COUNT, TOUR_DATA_CREATE_CACHE_KEY } from '@src/constants/values';
+import { MAX_TOUR_IMAGE_COUNT } from '@src/constants/values';
 import { generateSlug } from '@src/functions/helpers';
 import { ImageType, OrganizerType, TypeOfTour } from '@src/types';
-import { forwardRef, useImperativeHandle } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import { toast } from 'react-toastify';
 import Image from './Image';
 import ImageUploader from './ImageUploader';
@@ -10,12 +10,11 @@ import ReactInputMask from 'react-input-mask';
 import OrganizerSelect from './OrganizerSelect';
 import { PhotoIcon } from "@heroicons/react/24/outline"
 import { PlayCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
-import useLocalStorageState from 'use-local-storage-state'
-import ReactPlayer from 'react-player'
 import TourTypeSelect from './TourTypeSelect';
+import ReactPlayer from 'react-player'
 import ImageSelector from './ImageSelector';
 
-export interface TourCreateState {
+export interface TourUpdateState {
     tour_type: TypeOfTour | null;
     organizer: OrganizerType | null;
     avatar: ImageType | null;
@@ -37,12 +36,7 @@ export interface TourCreateState {
     images: ImageType[];
 }
 
-export interface TourCreateRef {
-    getData: () => TourCreateState;
-    clearData: () => void;
-}
-
-const initialState: TourCreateState = {
+const initialState: TourUpdateState = {
     tour_type: null,
     organizer: null,
     avatar: null,
@@ -64,17 +58,20 @@ const initialState: TourCreateState = {
     images: [],
 }
 
-const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
-    const [data, setData, { removeItem }] = useLocalStorageState<TourCreateState>(TOUR_DATA_CREATE_CACHE_KEY, {
-        defaultValue: initialState
-    })
+export interface TourUpdateRef {
+    getData: () => TourUpdateState;
+    updateData: (props: TourUpdateState) => void
+}
+
+const TourUpdateCard = forwardRef<TourUpdateRef, { tourId: number }>((_tourId, ref) => {
+    const [data, setData] = useState<TourUpdateState>({ ...initialState })
 
     useImperativeHandle(ref, () => ({
         getData() {
             return data;
         },
-        clearData() {
-            removeItem()
+        updateData(props: TourUpdateState) {
+            setData(props)
         }
     }))
 
@@ -87,7 +84,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
     }
 
     const setImages = (image: ImageType) => {
-        if (data.images.length >= MAX_ARTICLE_IMAGE_COUNT) {
+        if (data.images.length >= MAX_TOUR_IMAGE_COUNT) {
             toast.info("Maximum image uploaded")
         }
         setData({ ...data, images: [...data.images, image] })
@@ -180,9 +177,9 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
             <div>
                 <label className="label">Tour Main Poster</label>
                 <div className="p-3 bg-base-100 card border border-base-300">
-                    <div className="w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
+                    <div className="h-72 w-full card border border-base-300 flex justify-center items-center bg-base-100 mb-2">
                         {data.avatar ? (
-                            <Image image={data.avatar} className="w-full aspect-video object-center" />
+                            <Image image={data.avatar} className="h-72 w-full object-contain object-center" />
                         ) : (
                             <PhotoIcon className="h-20 w-20" />
                         )}
@@ -295,6 +292,7 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
                 <label className="label">Tour Type</label>
                 <TourTypeSelect tourType={data.tour_type} setTourType={setTourType} />
             </div>
+            <div />
             <div>
                 <label className="label">Select Organizer</label>
                 <OrganizerSelect organizer={data.organizer} setOrganizer={setOrganizer} />
@@ -303,4 +301,4 @@ const TourCreateCard = forwardRef<TourCreateRef>((_props, ref) => {
     )
 })
 
-export default TourCreateCard
+export default TourUpdateCard

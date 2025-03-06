@@ -6,10 +6,12 @@ export interface HotelType {
     map_link: string
     website: string
     review: string
-    created_at: Date
-    updated_at: Date
+    created_at: string
+    updated_at: string
     district: DistrictType
     avatar: ImageType
+    admins: UserType[]
+    staffs: UserType[]
 }
 
 export interface DistrictType {
@@ -35,8 +37,8 @@ export interface ImageType {
     source_url: string
     thumbnail_url: string
     optimized_url: string
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
 }
 
 export interface AdType {
@@ -46,8 +48,8 @@ export interface AdType {
     link: string
     image_url: string
     active: boolean
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
 }
 
 export interface WriterType {
@@ -59,8 +61,8 @@ export interface WriterType {
     about: string
     contact_no: string
     website: string
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
     avatar: ImageType | null
 }
 
@@ -74,21 +76,21 @@ export interface ArticleType {
     summary: string
     md_desc: string
     image_ids: string
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
     writer: WriterType
     images: ImageType[]
 }
 
 export interface UserType {
     id: number
-    email: number
+    email: string
     username: string
     name: string
     images_id: number
     last_logged_in: string
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
     avatar: ImageType | null
 }
 
@@ -103,9 +105,11 @@ export interface OrganizerType {
     verification: string
     social_link: string
     contact_no: string
-    created_at: string
-    updated_at: string
-    avatar: ImageType | null
+    created_at: string;
+    updated_at: string;
+    avatar: ImageType | null;
+    admins: UserType[]
+    staffs: UserType[]
 }
 
 export interface EnquiryListType {
@@ -116,12 +120,11 @@ export interface EnquiryListType {
 export interface EnquiryType {
     id: number
     users_id: number
-    contact_no?: string
     question: string
     answer?: string
     answered_at: string
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
 }
 
 export interface PlaceType {
@@ -133,8 +136,8 @@ export interface PlaceType {
     map_link: string
     description: string
     type: string
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
     district: DistrictType
     avatar: ImageType | null
 }
@@ -148,8 +151,9 @@ export interface PackageType {
     excluded: string
     conditions: string
     price: number;
-    created_at: string
-    updated_at: string
+    threshold: number;
+    created_at: string;
+    updated_at: string;
 }
 
 export interface TourLogType {
@@ -161,45 +165,40 @@ export interface TourLogType {
     description: string;
     date: string;
     image_ids: string;
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
     images: ImageType[]
     places: PlaceType[]
     hotel: HotelType
 }
 
 export interface ListTourType {
-    id: number
-    tour_types_id: number
-    organizers_id: number
-    images_id: number
-    title: string
-    slug: string
-    md_desc: string
-    highlights: string
-    faq: string
-    video_link: string
-    group_size: string
-    group_info: string
-    transports: string
-    cancel_ins: string
-    start_ins: string
-    finish_ins: string
-    start_at: string
-    finish_at: string
-    last_sell_at: string
-    image_ids: string
-    created_at: string
-    updated_at: string
-
-    avatar: ImageType
-    images: ImageType[]
-    place_names_list: string[]
-    district_names_list: string[]
-    package_prices_list: number[]
-    tour_type_name: string
-    organizer_name: string
-    organizer_verification: string
+    id: number;
+    tour_types_id: number;
+    organizers_id: number;
+    images_id: number;
+    title: string;
+    video_link: string;
+    slug: string;
+    highlight: string;
+    group_size: string;
+    group_info: string;
+    transports: string;
+    start_at: string;
+    finish_at: string;
+    last_sell_at: string;
+    image_ids: string;
+    created_at: string;
+    updated_at: string;
+    tour_type_name: string;
+    organizer_name: string;
+    organizer_verification: string;
+    place_names_list: string[];
+    district_names_list: string[];
+    package_prices_list: number[];
+    images: ImageType[];
+    avatar: ImageType;
+    expired: boolean;
 }
 
 export interface TourType {
@@ -223,8 +222,8 @@ export interface TourType {
     finish_at: string
     last_sell_at: string
     image_ids: string
-    created_at: string
-    updated_at: string
+    created_at: string;
+    updated_at: string;
 
     organizer: OrganizerType
     avatar: ImageType
@@ -273,6 +272,28 @@ export interface CreateOrganizerType {
     contact_no: string
     verification: string
     social_link: string
+}
+
+export interface CreateOrganizerManagerType {
+    email: string
+    position: string
+    organizers_id: number
+}
+
+export interface DeleteOrganizerManagerType {
+    email: string
+    organizers_id: number
+}
+
+export interface CreateHotelManagerType {
+    email: string
+    position: string
+    hotels_id: number
+}
+
+export interface DeleteHotelManagerType {
+    email: string
+    hotels_id: number
 }
 
 export interface UpdateOrganizerType {
@@ -379,6 +400,7 @@ export interface CreateTourPackageType {
     excluded: string
     conditions: string
     price: number
+    threshold: number;
 }
 
 export interface CreateTourType {
@@ -438,6 +460,7 @@ interface TourPackageCreatePayload {
     excluded: string
     conditions: string
     price: number
+    threshold: number;
 }
 
 interface TourPackageUpdatePayload extends TourPackageCreatePayload {
@@ -471,9 +494,52 @@ export interface TypeOfTour {
     name: string
     slug: string
     details: string
+    created_at: string;
+    updated_at: string;
+}
+
+export interface PaymentType {
+    id: number;
+    users_id: number;
+    invoice_no: string;
+    reference_no: string;
+    payment_type: string;
+    transaction_id: string;
+    payment_id: string;
+    payment_amount: number;
+    currency: string;
+    completed: boolean;
+    created_at: string;
+    updated_at: string;
+    user: UserType
+}
+
+export interface FileType {
+    id: number
+    filename: string
+    link: string
+    note: string
+    created_at: string;
+    updated_at: string;
+}
+
+export interface TicketType {
+    id: number
+    packages_id: number
+    users_id: number
+    ticket_amount: number
+    note: string
     created_at: string
     updated_at: string
+    payment: PaymentType
+    files: FileType[]
+    booked_package: {
+        tour_package: PackageType
+        tour: TourType
+        ticket_sold: number
+    }
 }
+
 
 export interface ParsedErrorMessageProps {
     status?: number

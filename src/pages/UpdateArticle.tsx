@@ -75,8 +75,7 @@ const UpdateArticle = () => {
   useEffect(() => {
     getArticleById({ id: Number(articleId) }).then((res) => {
       const article: ArticleType = res.data;
-      setData({ ...article });
-      setWriter(article.writer);
+      setData({ ...article, writer: article.writer });
       setSelectedValue({
         value: article.category,
         text: article.category

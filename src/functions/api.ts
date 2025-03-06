@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateAdType, CreateArticleType, CreateHotelType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, UpdateAdType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateTourType, UpdateWriterType } from "../types";
+import { CreateAdType, CreateArticleType, CreateHotelManagerType, CreateHotelType, CreateOrganizerManagerType, CreateOrganizerType, CreatePlaceType, CreateTourLogtype, CreateTourPackageType, CreateTourType, CreateWriterType, DeleteHotelManagerType, DeleteOrganizerManagerType, UpdateAdType, UpdateArticleType, UpdateHotelType, UpdateOrganizerType, UpdatePlaceType, UpdateTourType, UpdateWriterType } from "../types";
 import { tokenKey } from "@src/store";
 
 const api = axios.create();
@@ -214,7 +214,7 @@ export const getArticles = ({
 
 export const getArticleCategories = (): Promise<any> => {
     return api
-        .get("/admin/article-categories")
+        .get("/admin/articles/categories")
         .then((res) => {
             return { data: res.data };
         })
@@ -312,6 +312,30 @@ export const postOrganizer = ({ ...props }: CreateOrganizerType): Promise<any> =
     const data = { ...props }
     return api
         .post("/admin/organizers", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const postOrganizerManager = ({ ...props }: CreateOrganizerManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/managers/organizers", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const deleteOrganizerManager = ({ ...props }: DeleteOrganizerManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/managers/organizers", data)
         .then((res) => {
             return { data: res.data };
         })
@@ -425,6 +449,31 @@ export const getTourTypes = ({
 
 // Hotels
 
+export const postHotelManager = ({ ...props }: CreateHotelManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .post("/admin/managers/hotels", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const deleteHotelManager = ({ ...props }: DeleteHotelManagerType): Promise<any> => {
+    const data = { ...props }
+    return api
+        .put("/admin/managers/hotels", data)
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+
 export const postHotel = ({ ...props }: CreateHotelType): Promise<any> => {
     const data = { ...props }
     return api
@@ -448,6 +497,31 @@ export const getHotels = ({
 }): Promise<any> => {
     return api
         .get("/admin/hotels", {
+            params: {
+                page_no: pageNo,
+                page_size: pageSize,
+                name: name ?? ""
+            }
+        })
+        .then((res) => {
+            return { data: res.data };
+        })
+        .catch((err) => {
+            return { error: err || true };
+        });
+}
+
+export const getTickets = ({
+    pageNo,
+    pageSize,
+    name
+}: {
+    pageNo: number,
+    pageSize: number,
+    name?: string
+}): Promise<any> => {
+    return api
+        .get("/admin/tickets", {
             params: {
                 page_no: pageNo,
                 page_size: pageSize,
@@ -538,7 +612,7 @@ export const getPlaces = ({
 
 export const getTypesOfPlaces = (): Promise<any> => {
     return api
-        .get("/admin/place-types")
+        .get("/admin/places/types")
         .then((res) => {
             return { data: res.data };
         })

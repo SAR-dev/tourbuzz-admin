@@ -16,7 +16,7 @@ import { Map, Trees, Ad } from 'tabler-icons-react';
 import classNames from "classnames";
 import { useAuthStore, useNavStore } from "@src/store";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
-import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, TicketIcon } from "@heroicons/react/24/outline";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import SignOutButton from "./SignOutButton";
 
@@ -39,7 +39,7 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
 
 export function SideNav({ children }: { children: ReactNode }) {
     const { open, toogleOpen } = useNavStore()
-    const { isLoggedIn, getEmail } = useAuthStore()
+    const { isLoggedIn } = useAuthStore()
 
     const location = useLocation();
     const { pathname } = location;
@@ -106,6 +106,7 @@ export function SideNav({ children }: { children: ReactNode }) {
                         <NavMenu expanded={open} name="Places" url="/places" icon={<Trees className="h-5 w-5" />} />
                         <NavMenu expanded={open} name="Tours" url="/tours" icon={<Map className="h-5 w-5" />} />
                         <NavMenu expanded={open} name="Advertisements" url="/ads" icon={<Ad className="h-5 w-5" />} />
+                        <NavMenu expanded={open} name="Tickets" url="/tickets" icon={<TicketIcon className="h-5 w-5" />} />
                         <EmojiPicker expanded={open} />
                         <ThemeSwitcher expanded={open} />
                     </div>
@@ -117,13 +118,6 @@ export function SideNav({ children }: { children: ReactNode }) {
                 <ErrorBoundary FallbackComponent={ErrorFallback}>
                     {children}
                 </ErrorBoundary>
-                {isLoggedIn() && (
-                    <div
-                        className="p-2 bg-primary cursor-pointer rounded-full m-3 absolute right-0 bottom-0" data-tooltip-id={"nav-tooltip"}
-                        data-tooltip-content={getEmail()}>
-                        <UserCircleIcon className="h-5 w-5" />
-                    </div>
-                )}
             </div>
             <ReactTooltip id="nav-tooltip" />
         </div>

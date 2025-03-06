@@ -6,7 +6,22 @@ import { useEffect, useRef, useState } from 'react';
 import Markdown from 'react-markdown'
 import useUndoable from 'use-undoable';
 import TextareaMarkdown, { TextareaMarkdownRef } from 'textarea-markdown-editor';
-import { ArrowWaveLeftUp, ArrowWaveRightDown, Blockquote, Bold, Code, CodeDots, H1, H3, H5, Italic, Link, List, ListNumbers, Photo, SourceCode, Strikethrough } from 'tabler-icons-react';
+import {
+    ArrowWaveLeftUp,
+    ArrowWaveRightDown,
+    Blockquote,
+    Bold,
+    Code,
+    CodeDots,
+    H1,
+    Italic,
+    Link,
+    List,
+    ListNumbers,
+    Photo,
+    SourceCode,
+    Strikethrough,
+} from 'tabler-icons-react';
 import remarkGfm from 'remark-gfm'
 import emoji from 'remark-emoji';
 import remarkImages from 'remark-images'
@@ -75,19 +90,11 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
                     </button>
                     <button
                         className="icon-btn-xs"
-                        onClick={() => ref.current?.trigger("h3")}
+                        onClick={() => ref.current?.trigger("image")}
                         data-tooltip-id="tooltip"
-                        data-tooltip-content="Medium Header"
+                        data-tooltip-content="Image"
                     >
-                        <H3 className='h-5 w-5' />
-                    </button>
-                    <button
-                        className="icon-btn-xs"
-                        onClick={() => ref.current?.trigger("h5")}
-                        data-tooltip-id="tooltip"
-                        data-tooltip-content="Small Header"
-                    >
-                        <H5 className='h-5 w-5' />
+                        <Photo className='h-5 w-5' />
                     </button>
                 </>
             )}
@@ -122,14 +129,6 @@ const MarkdownEditor = ({ height = "30rem", ...props }: MarkdownEditorType) => {
                 data-tooltip-content="Link"
             >
                 <Link className='h-5 w-5' />
-            </button>
-            <button
-                className="icon-btn-xs"
-                onClick={() => ref.current?.trigger("image")}
-                data-tooltip-id="tooltip"
-                data-tooltip-content="Image"
-            >
-                <Photo className='h-5 w-5' />
             </button>
             <button
                 className="icon-btn-xs"
