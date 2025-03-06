@@ -26,8 +26,7 @@ const Image = ({
                 <Lightbox
                     medium={image.optimized_url}
                     large={image.source_url}
-                    title={image.title}
-                    // @ts-ignore
+                    // title={image.title}
                     onClose={toogleOpen}
                 />
             )}
