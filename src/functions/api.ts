@@ -11,7 +11,7 @@ api.interceptors.request.use(
             const { accessToken, adminToken } = storedTokens.state || {};
 
             if (accessToken) {
-                config.headers.Authorization = `${accessToken}`;
+                config.headers.Authorization = `Bearer ${accessToken}`;
             }
 
             if (adminToken) {

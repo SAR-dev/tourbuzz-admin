@@ -44,11 +44,11 @@ const SigninVerify = () => {
                 setLoading(false)
             } else {
                 toast.success("Signin Successfull 💪")
-                setLoading(false)
                 setToken({
-                    accessToken: res.data.accessToken,
-                    adminToken: res.data.adminToken
+                    accessToken: res.data.access_token,
+                    adminToken: res.data.admin_token
                 })
+                setLoading(false)
                 window.location.reload()
             }
         })
